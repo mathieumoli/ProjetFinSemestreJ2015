@@ -21,26 +21,12 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package fr.techcode.zuul.command.player;
-
-import fr.techcode.zuul.command.CommandArguments;
-import fr.techcode.zuul.command.CommandCaller;
-import fr.techcode.zuul.command.CommandHandler;
+package fr.techcode.zuul.universe.world;
 
 /**
- * Energy command implementation.
+ * Various world implementation and representation.
  */
-public class PlayerCommand implements CommandHandler {
-
-    /**
-     * Fired when a the command is called.
-     *
-     * @param caller    caller for this command.
-     * @param arguments arguments for this command.
-     */
-    @Override
-    public void onCommand(CommandCaller caller, CommandArguments arguments) {
-        caller.sendMessage(caller.toString());
-    }
-
+public enum WorldType {
+    HARD_MAPPED,
+    RANDOM
 }

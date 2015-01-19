@@ -21,31 +21,21 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package fr.techcode.zuul.command.player;
+package fr.techcode.zuul.universe.world.gen;
 
-import fr.techcode.zuul.command.CommandArguments;
-import fr.techcode.zuul.command.CommandCaller;
-import fr.techcode.zuul.command.CommandHandler;
-import fr.techcode.zuul.universe.player.Player;
+import fr.techcode.zuul.universe.world.room.Room;
 
 /**
- * Room command implementation.
+ * A world generator is responsible for the initial setup of the world.
+ * It can be used to generate all rooms.
  */
-public class RoomCommand implements CommandHandler {
+public interface WorldGenerator {
 
     /**
-     * Fired when a the command is called.
+     * Generate some rooms based on the room source.
      *
-     * @param caller    caller for this command.
-     * @param arguments arguments for this command.
+     * @param source room source of everything.
      */
-    @Override
-    public void onCommand(CommandCaller caller, CommandArguments arguments) {
-        // Retrieve the player from the command caller.
-        // Actually this action is safe because a command caller can only be a player.
-        // But in the future we can change this and make something more funny.
-        Player player = Player.fromCaller(caller);
-        caller.sendMessage(player.getCurrentRoom().toString());
-    }
+    void generate(Room source);
 
 }

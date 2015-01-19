@@ -21,43 +21,34 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package fr.techcode.zuul.command.player;
+package fr.techcode.zuul.universe.world.item;
 
-import fr.techcode.zuul.command.CommandArguments;
-import fr.techcode.zuul.command.CommandCaller;
-import fr.techcode.zuul.command.CommandHandler;
-import fr.techcode.zuul.i18n.I18n;
 import fr.techcode.zuul.i18n.Message;
 import fr.techcode.zuul.universe.player.Player;
-import fr.techcode.zuul.util.Direction;
 
 /**
- * Move command implementation.
+ * Cheatsheet item implementation.
  */
-public class MoveCommand implements CommandHandler {
+public class CheatItem extends Item {
 
     /**
-     * Fired when a the command is called.
+     * Create a new cheat item.
+     */
+    public CheatItem() {
+        super("cheatsheet", Message.ITEM_CHEAT);
+    }
+
+    /**
+     * Fired when an interaction with this item is attempt.
      *
-     * @param caller    caller for this command.
-     * @param arguments arguments for this command.
+     * @param player player involved in this interaction.
      */
     @Override
-    public void onCommand(CommandCaller caller, CommandArguments arguments) {
-        // Retrieve the player from the command caller.
-        // Actually this action is safe because a command caller can only be a player.
-        // But in the future we can change this and make something more funny.
-        Player player = Player.fromCaller(caller);
-
-        // Attempt to get the next room
-        Direction direction = Direction.fromName(arguments.getFirst());
-        if (direction == null) {
-            player.sendMessage(I18n.get(Message.MESSAGE_DIRECTION_UNKNOWN));
-            return;
-        }
-
-        // Attempt to move
-        player.move(direction);
+    public void onInteract(Player player) {
+        player.sendMessage("############################################################");
+        player.sendMessage("YOU ARE FIRED !");
+        player.sendMessage("############################################################");
+        player.decreaseEnergy(100);
     }
 
 }
