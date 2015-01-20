@@ -60,6 +60,6 @@ public class Person {
 		this.currentRoom = currentRoom;
 	}
 	
-	
+	//cree move method
 
 }
