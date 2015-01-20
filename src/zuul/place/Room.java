@@ -35,7 +35,7 @@ public abstract class Room {
 	 * @param student
 	 * @return
 	 */
-	public abstract boolean enter(Person student);
+	public abstract boolean enter(Student student);
 
 	/**
 	 * Abstract method which will deterimport java.util.*;mine if the student
@@ -44,7 +44,7 @@ public abstract class Room {
 	 * @param student
 	 * @return
 	 */
-	public abstract boolean canEnter(Person student);
+	public abstract boolean canEnter(Student student);
 
 	/**
 	 * Create a room described "description". Initially, it has no exits.

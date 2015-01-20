@@ -73,7 +73,7 @@ public class Library extends Room {
 	 * @return true if the student can enter and false if he can't
 	 * 
 	 */
-	public boolean canEnter(Person student) {
+	public boolean canEnter(Student student) {
 		return isOpen();
 	}
 
@@ -86,7 +86,7 @@ public class Library extends Room {
 	 * @return true if he can go in and false if he can't
 	 * 
 	 ***/
-	public boolean enter(Person student) {
+	public boolean enter(Student student) {
 		if (canEnter(student)) {
 			System.out.println(Game.res.getString("library.description") + "\n"
 			        + getExitString());

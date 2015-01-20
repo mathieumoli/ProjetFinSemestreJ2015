@@ -45,7 +45,7 @@ public class ExamRoom extends Room {
 	 * @return true if the student can enter and false if he can't
 	 */
 	@Override
-	public boolean canEnter(Person personne) {
+	public boolean canEnter(Student personne) {
 		Student student =  (Student) personne;
 		if (exam.equals("noexam")) {
 			return true;
@@ -100,7 +100,7 @@ public class ExamRoom extends Room {
 	 * 
 	 ***/
 	@Override
-	public boolean enter(Person student) {
+	public boolean enter(Student student) {
 		randomizeExams();
 		if (canEnter(student)) {
 			if (exam.equals("noexam")) {

@@ -58,8 +58,7 @@ public class LabRoom extends StudySpace {
 	 * @return true if the student can enter and false if he can't
 	 */
 	@Override
-	public boolean canEnter(Person personne) {
-		Student student =  (Student) personne;
+	public boolean canEnter(Student student) {
 		if (coursInThisRoom.getNumber() == 0) {
 			return true;
 		} else if (!student.alreadyListenedLecture(new LectureItem(
@@ -98,7 +97,7 @@ public class LabRoom extends StudySpace {
 	 * 
 	 ***/
 	@Override
-	public boolean enter(Person student) {
+	public boolean enter(Student student) {
 		randomizeCourses();
 
 		isAttend = false;
@@ -149,8 +148,7 @@ public class LabRoom extends StudySpace {
 	 * @param goodStudent
 	 *            the sSudent who attends the lab
 	 */
-	public void attendLab(Person personne) {
-		Student student =  (Student) personne;
+	public void attendLab(Student goodStudent) {
 		if (coursInThisRoom.getNumber() != 0) {
 			System.out.println(Game.res.getString("labroom.attendlab.part1")
 					+ coursInThisRoom.getModule()
@@ -167,8 +165,8 @@ public class LabRoom extends StudySpace {
 
 			isAttend = true;
 			System.out.println(Game.res.getString("labroom.attendlab.part4"));
-			student.decrementEnergy(10);
-			student.addItem(coursInThisRoom);
+			goodStudent.decrementEnergy(10);
+			goodStudent.addItem(coursInThisRoom);
 		}
 
 	}

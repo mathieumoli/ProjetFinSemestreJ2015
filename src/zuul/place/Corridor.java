@@ -73,7 +73,7 @@ public class Corridor extends Room {
 	 * 
 	 ***/
 	@Override
-	public boolean canEnter(Person student) {
+	public boolean canEnter(Student student) {
 		return true;
 	}
 
@@ -85,7 +85,7 @@ public class Corridor extends Room {
 	 * 
 	 ***/
 	@Override
-	public boolean enter(Person student) {
+	public boolean enter(Student student) {
 		if (isLights()) {
 			appearObject();
 			if (tablet) {
