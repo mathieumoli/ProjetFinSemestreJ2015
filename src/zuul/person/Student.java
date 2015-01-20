@@ -9,16 +9,15 @@ import zuul.course.LabItem;
 import zuul.course.LectureItem;
 
 /**
- * @author Mathieu Molinengo
- * @version 2014.11.30
+ * @author Mathieu Molinengo & Cédric Lallemand
+ * @version 2015.01.20
  * 
  *          Class to create a Student
  */
-public class Student {
+public class Student extends Person{
 
 	private ArrayList<LectureItem> oopBook;
 	private int energy;
-	private String name;
 	private ArrayList<LectureItem> coursSuivi;
 	private ArrayList<LabItem> labsSuivi;
 
@@ -26,13 +25,12 @@ public class Student {
 	 * 
 	 * Constructor to create a Student
 	 * 
-	 * @param nameOfStudent
-	 *            the name of created student
+	 * @param nameOfStudent - the name of created student      
 	 * 
 	 ***/
 	public Student(String nameOfStudent) {
+		super(nameOfStudent);
 		energy = 100;
-		name = nameOfStudent;
 		coursSuivi = new ArrayList<LectureItem>();
 		labsSuivi = new ArrayList<LabItem>();
 		oopBook = new ArrayList<LectureItem>();
@@ -52,7 +50,7 @@ public class Student {
 					itemListened.getNumber()))) {
 				labsSuivi.add((LabItem) itemListened);
 			}
-			System.out.println(this.name
+			System.out.println(this.getName()
 					+ Game.res.getString("student.addLab.part1")
 					+ itemListened.getModule()
 					+ Game.res.getString("student.add.part2")
@@ -62,7 +60,7 @@ public class Student {
 					itemListened.getModule(), itemListened.getNumber()))) {
 				coursSuivi.add((LectureItem) itemListened);
 			}
-			System.out.println(this.name
+			System.out.println(this.getName()
 					+ Game.res.getString("student.addLecture.part1")
 					+ itemListened.getModule()
 					+ Game.res.getString("student.add.part2")
@@ -83,7 +81,7 @@ public class Student {
 		if (energy > theEnergy) {
 			energy -= theEnergy;
 			System.out.println(Game.res.getString("student.energy.part1")
-					+ this.name + Game.res.getString("student.energy.part2")
+					+ this.getName() + Game.res.getString("student.energy.part2")
 					+ this.getEnergyString());
 		} else {
 			energy = 0;
@@ -108,7 +106,7 @@ public class Student {
 		}
 
 		System.out.println(Game.res.getString("student.energy.part1")
-				+ this.name + Game.res.getString("student.energy.part2")
+				+ this.getName() + Game.res.getString("student.energy.part2")
 				+ this.getEnergyString() + ".");
 	}
 
@@ -195,16 +193,6 @@ public class Student {
 	 */
 	public String getEnergyString() {
 		return Integer.toString(energy);
-	}
-
-	/***
-	 * 
-	 * Method to get the name of the student
-	 * 
-	 * @return the name of the student
-	 */
-	public String getName() {
-		return name;
 	}
 
 	/***
