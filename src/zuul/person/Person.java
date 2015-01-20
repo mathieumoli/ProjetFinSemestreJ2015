@@ -6,7 +6,7 @@ import zuul.place.Room;
  * @author Cédric Lallemand
  * @version 2015.01.20
  * 
- *         Class to create a Person
+ *          Class to create a Person
  */
 public class Person {
 
@@ -60,6 +60,6 @@ public class Person {
 		this.currentRoom = currentRoom;
 	}
 	
-	
+	//cree move method
 
 }
