@@ -5,7 +5,7 @@ package zuul.person.objet;
  * @author Oussama Hlal
  *
  */
-public class Portefeuille {
+public class Wallet {
 
 	private int money;
 	private boolean passExam;
@@ -13,10 +13,10 @@ public class Portefeuille {
 
 	/**
 	 * 
-	 * Constructor to create a Portefeuille
+	 * Constructor to create a Wallet
 	 * 
 	 **/
-	public Portefeuille() {
+	public Wallet() {
 		level = 1;
 		money = 10000;
 		passExam = true;
@@ -24,29 +24,29 @@ public class Portefeuille {
 
 	/**
 	 * 
-	 * Constructor to create a Portefeuille
+	 * Constructor to create a Wallet
 	 * 
 	 * @param integer
 	 *            the amount of money and the level, the grade of the owner of
-	 *            the "portefeuille"
+	 *            the "Wallet"
 	 * 
 	 **/
-	public Portefeuille(int money, int level) {
+	public Wallet(int money, int level) {
 		this.level = level;
 		this.money = money;
 	}
 
 	/**
 	 * 
-	 * Constructor to create a Portefeuille
+	 * Constructor to create a Wallet
 	 * 
 	 * @param integer
 	 *            the amount of money and the grade of the owner of the
-	 *            "portefeuille" and a boolean to know if he can pass an exam
+	 *            "Wallet" and a boolean to know if he can pass an exam
 	 * 
 	 **/
 
-	public Portefeuille(int money, int level, boolean passExam) {
+	public Wallet(int money, int level, boolean passExam) {
 		this.level = level;
 		this.money = money;
 		this.passExam = passExam;
@@ -54,7 +54,7 @@ public class Portefeuille {
 
 	/**
 	 * 
-	 * @return the money in the "portefeuille"
+	 * @return the money in the "Wallet"
 	 */
 	public int getMoney() {
 		return money;
@@ -62,7 +62,7 @@ public class Portefeuille {
 
 	/**
 	 * 
-	 * @return the level of the owner of the "portefeuille"
+	 * @return the level of the owner of the "Wallet"
 	 */
 	public int getLevel() {
 		return level;
@@ -77,7 +77,7 @@ public class Portefeuille {
 	}
 
 	/**
-	 * Modify the amount of cash in the "portefeuille"
+	 * Modify the amount of cash in the "Wallet"
 	 * 
 	 * 
 	 */
@@ -100,7 +100,7 @@ public class Portefeuille {
 
 	/**
 	 * 
-	 * Add a amount of cash in the "portefeuille"
+	 * Add a amount of cash in the "Wallet"
 	 */
 	public void raiseMoney(int x) {
 		setMoney(getMoney() + x);
@@ -108,7 +108,7 @@ public class Portefeuille {
 
 	/**
 	 * 
-	 * Decrease the amount of money available in the "portefeuille"
+	 * Decrease the amount of money available in the "Wallet"
 	 */
 	public void decreaseMoney(int x) {
 		if (getMoney() >= x) {

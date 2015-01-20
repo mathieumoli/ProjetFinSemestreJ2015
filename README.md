@@ -10,4 +10,6 @@ Projet de fin de semestre Janvier 2015
       **IL FAUT GERER L INTERNATIONALISATION AU NIVEAU DES TODO **
      Creation de la CurrentRoom dans Person
     
+## 1CL
+	Ajout de la carte d'invisibilité et mise en place d'un héritage pour ajouter la classe Stromboni et la classe Person
     

@@ -210,7 +210,33 @@ public class Student extends Person{
 			isInvisible = true;
 		}
 	}
+	
+	/**
+	 * 
+	 * Return the success of the attempt to steal
+	 * @return true of the steal is successful
+	 */
+	public boolean successStealsMoney(){
+		double random = Math.random();
+		boolean success = false;
+		if(this.isInvisible){
+			if(random>20){
+				success = true;
+			}
+		} else {
+			if(random>80){
+				success = true;
+			}
+		}
+		
+		return success;
+	}
 
+	public int StealsMoney(Person personStolen){
+		//TODO ajoute l'argent au portefeuille et la supprime du porte feuille de l'autre
+		return 0;
+	}
+	
 	/***
 	 * 
 	 * Method to get the energy of the student with a string format
