@@ -1,4 +1,9 @@
 package zuul.foundobject;
+
+import java.util.ArrayList;
+
+import zuul.person.Person;
+
 /**
  * 
  * @author Mathieu Molinengo
@@ -6,11 +11,15 @@ package zuul.foundobject;
  */
 public class CarteMaraudeur {
 	
-	private ArrayList<Person> persons=new ArrayList<Person>();
+	private ArrayList<Person> persons;
+	private String password="je jure solennellement que mes intentions sont mauvaises ";
 	
-	
-
+	/**
+	 * 
+	 * Constructor to create by default, the Maraudeur Map
+	 * 
+	 */
 	public CarteMaraudeur(){
-		Arraylist
+		persons=new ArrayList<Person>();
 	}
 }
