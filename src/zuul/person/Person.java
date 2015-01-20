@@ -1,5 +1,6 @@
 package zuul.person;
 
+import zuul.person.objet.Wallet;
 import zuul.place.Room;
 
 /**
@@ -12,6 +13,7 @@ public class Person {
 
 	private String name;
 	private Room currentRoom;
+	private Wallet wallet;
 	
 	/***
 	 * 
@@ -20,7 +22,7 @@ public class Person {
 	 * @param name - the name of created person     
 	 * 
 	 ***/
-	public Person(String name){
+	public Person(String name, Wallet wallet){
 		this.name = name;
 	}
 
@@ -31,7 +33,15 @@ public class Person {
 	 * @return the name of the person
 	 */
 	public String getName() {
-		return name;
+		return this.name;
+	}
+	
+	/**
+	 * 
+	 * @return the wallet of the person
+	 */
+	public Wallet getWallet(){
+		return this.wallet;
 	}
 	
 	/**
@@ -60,6 +70,5 @@ public class Person {
 		this.currentRoom = currentRoom;
 	}
 	
-	//cree move method
 
 }

@@ -49,4 +49,10 @@ public class Wallet {
 		
 		return transactionAccepted;
 	}
+	
+	public int stolen(){
+		int stolen = this.getMoney();
+		this.decreaseMoney(stolen);
+		return stolen;
+	}
 }

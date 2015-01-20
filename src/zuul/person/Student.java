@@ -7,6 +7,7 @@ import zuul.Game;
 import zuul.course.Item;
 import zuul.course.LabItem;
 import zuul.course.LectureItem;
+import zuul.person.objet.Wallet;
 
 /**
  * @author Mathieu Molinengo & Cédric Lallemand
@@ -30,7 +31,7 @@ public class Student extends Person{
 	 * 
 	 ***/
 	public Student(String nameOfStudent) {
-		super(nameOfStudent);
+		super(nameOfStudent, new Wallet(5));
 		energy = 100;
 		isInvisible = false;
 		coursSuivi = new ArrayList<LectureItem>();
@@ -211,32 +212,6 @@ public class Student extends Person{
 		}
 	}
 	
-	/**
-	 * 
-	 * Return the success of the attempt to steal
-	 * @return true of the steal is successful
-	 */
-	public boolean successStealsMoney(){
-		double random = Math.random();
-		boolean success = false;
-		if(this.isInvisible){
-			if(random>20){
-				success = true;
-			}
-		} else {
-			if(random>80){
-				success = true;
-			}
-		}
-		
-		return success;
-	}
-
-	public int StealsMoney(Person personStolen){
-		//TODO ajoute l'argent au portefeuille et la supprime du porte feuille de l'autre
-		return 0;
-	}
-	
 	/***
 	 * 
 	 * Method to get the energy of the student with a string format
@@ -316,6 +291,45 @@ public class Student extends Person{
 						+ labsSuivi.get(indexOfRem).getNumberString());
 				labsSuivi.remove(indexOfRem);
 			}
+		}
+	}
+	
+	/**
+	 * 
+	 * Return the success of the attempt to steal
+	 * @return true of the steal is successful
+	 */
+	public boolean successStealsMoney(){
+		double random = Math.random();
+		boolean success = false;
+		if(this.isInvisible()){
+			if(random>20){
+				success = true;
+			}
+		} else {
+			if(random>80){
+				success = true;
+			}
+		}
+		
+		return success;
+	}
+
+	/**
+	 * 
+	 * Steals money in the wallet of "personStolen"
+	 * 
+	 * @param personStolen - person which is stolen
+	 * @return amount stolen
+	 * 
+	 */
+	public void StealsMoney(Person personStolen){
+		this.decrementEnergy(10);
+		if(successStealsMoney()){
+			this.getWallet().raiseMoney(personStolen.getWallet().stolen());
+		} else {
+			//TODO vole raté le player doit perdre de l'argent
+			System.out.println("Pris en flague");
 		}
 	}
 }
