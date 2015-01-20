@@ -115,7 +115,8 @@ public class LectureRoom extends StudySpace {
 	 * @param goodStudent
 	 *            the student who attends the lecture
 	 */
-	public void attendLecture(Person goodStudent) {
+	public void attendLecture(Person personne) {
+		Student student =  (Student) personne;
 		if (coursInThisRoom.getNumber() != 0) {
 			System.out.println(Game.res
 			        .getString("lectureroom.attendlecture.part1")
@@ -137,7 +138,7 @@ public class LectureRoom extends StudySpace {
 			isAttend = true;
 			System.out.println(Game.res
 			        .getString("lectureroom.attendlecture.part4"));
-			goodStudent.learnItem(coursInThisRoom);
+			student.learnItem(coursInThisRoom);
 		} else {
 			System.out.println(Game.res.getString(coursInThisRoom
 			        .getBundleKey()));

@@ -45,8 +45,8 @@ public class ExamRoom extends Room {
 	 * @return true if the student can enter and false if he can't
 	 */
 	@Override
-	public boolean canEnter(Person student) {
-
+	public boolean canEnter(Person personne) {
+		Student student =  (Student) personne;
 		if (exam.equals("noexam")) {
 			return true;
 		} else if (student.getEnergy() >= 50) {
@@ -72,7 +72,8 @@ public class ExamRoom extends Room {
 	 * @return true if the student did all OOP lectures and courses and false if
 	 *         he didn't
 	 */
-	public boolean doAllCourses(Student student) {
+	public boolean doAllCourses(Person personne) {
+		Student student = (Student) personne;
 		boolean allCourses = false;
 		boolean allLabs = false;
 		for (int i = 0; i < Game.NB_COURSES; ++i) {
@@ -153,7 +154,8 @@ public class ExamRoom extends Room {
 	 *            the student who passes it
 	 * 
 	 ***/
-	public void startExam(Person student) {
+	public void startExam(Person personne) {
+		Student student =  (Student) personne;
 		if (!exam.equals("noexam")) {
 
 			int questionsRight = 0;

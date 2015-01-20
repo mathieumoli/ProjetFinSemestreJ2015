@@ -70,6 +70,11 @@ public class Student extends Person{
 					+ itemListened.getNumberString());
 		}
 	}
+	
+	public void learnItem(Item item){
+		this.decrementEnergy(10);
+		this.addItem(item);
+	}
 
 	/***
 	 * 
@@ -331,5 +336,14 @@ public class Student extends Person{
 			//TODO vole raté le player doit perdre de l'argent
 			System.out.println("Pris en flague");
 		}
+	}
+	
+	/**
+	 * Call when a student play babyfoot
+	 */
+	public void playBabyFoot(){
+		this.getWallet().decreaseMoney(1);
+		this.decrementEnergy(30);
+		this.removeItem();
 	}
 }

@@ -64,8 +64,8 @@ public class Lunchroom extends Room {
 	 * @return true
 	 */
 	@Override
-	public boolean enter(Person student) {
-		
+	public boolean enter(Person person) {
+		Student student = (Student) person;
 		int random = (int) (Math.random() * 10);
 		playBabyFoot = random > 7;
 		

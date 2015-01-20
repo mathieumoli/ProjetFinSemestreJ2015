@@ -1,5 +1,12 @@
 package zuul.person;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import zuul.Game;
+import zuul.course.Item;
+import zuul.course.LabItem;
+import zuul.course.LectureItem;
 import zuul.person.objet.Wallet;
 import zuul.place.Room;
 
@@ -70,5 +77,11 @@ public class Person {
 		this.currentRoom = currentRoom;
 	}
 	
-
+	
+	public void randomMove(){
+		double rand = Math.random();
+		HashMap<String,Room> hm = this.currentRoom.getExits();
+		rand *= Math.round((hm.size()-1));
+		this.currentRoom= hm.get(rand);
+	}
 }
