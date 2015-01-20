@@ -158,7 +158,8 @@ public class Game {
 		} else {
 
 			// TODO internationalisation
-			System.out.println("You are Chuck Norris, you never lose so congratulation you win !!!");
+			System.out
+			        .println("You are Chuck Norris, you never lose so congratulation you win !!!");
 			System.out.println(res.getString("game.thankyou"));
 
 		}
@@ -232,81 +233,69 @@ public class Game {
 			return false;
 		}
 
-		String commandWord = command.getCommandWord();
-		if (commandWord.equals("help")) {
-			printHelp();
-		} else if (commandWord.equals("go")) {
+		switch (command.getCommandWord()) {
+		case "go":
 			goRoom(command);
-		} else if (commandWord.equals("quit")) {
-			wantToQuit = quit(command);
-		} else if (commandWord.equals("take")) {
-			if (currentRoom instanceof Lunchroom) {
-				wantCoffee(command);
-			} else if (currentRoom instanceof Library) {
-				wantBook(command);
-			}
-		} else if (commandWord.equals("lights")
-		        && (currentRoom instanceof Corridor)) {
-			goCorridor(command);
-		} else if (commandWord.equals("attend")
-		        && (currentRoom instanceof StudySpace)) {
-			wantAttend(command);
-		} else if (commandWord.equals("read")
-		        && ((currentRoom instanceof Library))
-		        || (!(gamer.getOOPbook().isEmpty()))) {
-			wantRead(command);
-		} else if (commandWord.equals("use")
-		        && (currentRoom instanceof Corridor)) {
-			wantUse(command);
-		} else if (commandWord.equals("search")
-		        && (currentRoom instanceof Corridor)) {
-			wantSearch(command);
-		} else if (commandWord.equals("start")
-		        && (currentRoom instanceof ExamRoom)) {
-			wantStart(command);
+			break;
+
+		case "help": currentRoom.printHelp(parser);
+			break;
+		case "quit":wantToQuit = quit(command);
+			break;
+		case "take":currentRoom.wantTake();
+			break;
+		case "lights":currentRoom.wantSwitchOn();
+			break;
+		case "attend":currentRoom.wantAttend();
+			break;
+		case "read":currentRoom.wantRead();
+			break;
+		case "use":currentRoom.wantUse();
+			break;
+		case "search":currentRoom.wantSearch();
+			break;
+		case "start":currentRoom.wantStart(command,gamer);
+			break;
 		}
+		// String commandWord = command.getCommandWord();
+		// if (commandWord.equals("help")) {
+		// printHelp();
+		// } else if (commandWord.equals("go")) {
+		// goRoom(command);
+		// } else if (commandWord.equals("quit")) {
+		// wantToQuit = quit(command);
+		// } else if (commandWord.equals("take")) {
+		// if (currentRoom instanceof Lunchroom) {
+		// wantCoffee(command);
+		// } else if (currentRoom instanceof Library) {
+		// wantBook(command);
+		// }
+		// } else if (commandWord.equals("lights")
+		// && (currentRoom instanceof Corridor)) {
+		// goCorridor(command);
+		// } else if (commandWord.equals("attend")
+		// && (currentRoom instanceof StudySpace)) {
+		// wantAttend(command);
+		// } else if (commandWord.equals("read")
+		// && ((currentRoom instanceof Library))
+		// || (!(gamer.getOOPbook().isEmpty()))) {
+		// wantRead(command);
+		// } else if (commandWord.equals("use")
+		// && (currentRoom instanceof Corridor)) {
+		// wantUse(command);
+		// } else if (commandWord.equals("search")
+		// && (currentRoom instanceof Corridor)) {
+		// wantSearch(command);
+		// } else if (commandWord.equals("start")
+		// && (currentRoom instanceof ExamRoom)) {
+		// wantStart(command);
+		// }
 
 		// else command not recognised.
 		return wantToQuit;
 	}
 
-	/**
-	 * Print out some help information. Here we print some stupid, cryptic
-	 * message and a list of the command words.
-	 */
-	private void printHelp() {
-		System.out.println(res.getString("game.help2"));
-		System.out.println(res.getString("game.help3"));
-		System.out.println();
-		System.out.println(res.getString("game.help4"));
-		parser.showCommands();
-	}
 
-	/**
-	 * Try to start the exam, if it's incomplete, display an error message
-	 * 
-	 * @param command
-	 *            The command to be processed.
-	 */
-	private void wantStart(Command command) {
-		if (!command.hasSecondWord()) {
-			// if there is no second word, we don't know where to go...
-			System.out.println(res.getString("game.start"));
-		} else if ((command.getSecondWord().equals("exam"))
-		        && (currentRoom instanceof ExamRoom)) {
-			((ExamRoom) currentRoom).startExam(gamer);
-			if (((ExamRoom) currentRoom).getExam().equals("noexam")) {
-				System.out.println(Game.res
-				        .getString("examroom.shortdescription")
-				        + "\n"
-				        + Game.res.getString("examroom.noexam")
-				        + "\n"
-				        + currentRoom.getExitString());
-			} else
-				System.out.println(currentRoom.getLongDescription());
-
-		}
-	}
 
 	/**
 	 * Try to use the tablet, if it's incomplete display an error message
@@ -487,5 +476,19 @@ public class Game {
 		}
 
 		return true; // signal that we want to quit
+	}
+	
+	/**
+	 * @return the parser
+	 */
+	public Parser getParser() {
+		return parser;
+	}
+
+	/**
+	 * @param parser the parser to set
+	 */
+	public void setParser(Parser parser) {
+		this.parser = parser;
 	}
 }
