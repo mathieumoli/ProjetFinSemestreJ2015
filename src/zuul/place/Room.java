@@ -24,6 +24,7 @@ import java.util.HashMap;
 public abstract class Room
 {
     protected String description;
+    protected boolean isSecret;
     protected HashMap<String, Room> exits;        // stores exits of this room.
 
     /**
@@ -51,6 +52,21 @@ public abstract class Room
     {
         this.description = description;
         exits = new HashMap<String, Room>();
+        isSecret=false;
+    }
+    
+    /**
+     * Create a room described "description". Initially, it has
+     * no exits. "description" is something like "a kitchen" or
+     * "an open court yard".
+     * @param description The room's description.
+     * @boolean secret if the room is a secret room or not
+     */
+    public Room(String description,boolean secret) 
+    {
+        this.description = description;
+        exits = new HashMap<String, Room>();
+        isSecret=secret;
     }
 
     /**

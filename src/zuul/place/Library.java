@@ -29,13 +29,37 @@ public class Library extends Room {
 		super(description);
 		poo2Book = new ArrayList<LectureItem>();
 
+		createPOOBook();
+
+	}
+
+	/***
+	 * 
+	 * Constructor to create a Library
+	 * 
+	 * @param description
+	 *            the description of the library
+	 * @param secret
+	 *            the boolean of the library if it's secret or not
+	 * 
+	 ***/
+	public Library(String description, boolean secret) {
+		super(description, secret);
+		createPOOBook();
+	}
+
+	/**
+	 * To create the PooBook with lessons in
+	 */
+	public void createPOOBook() {
+		poo2Book = new ArrayList<LectureItem>();
+
 		LectureItem poo2BookPage1 = new LectureItem("OOP", 1, "oop.lecture1");
 		LectureItem poo2BookPage2 = new LectureItem("OOP", 2, "oop.lecture2");
 		LectureItem poo2BookPage3 = new LectureItem("OOP", 3, "oop.lecture3");
 		poo2Book.add(poo2BookPage1);
 		poo2Book.add(poo2BookPage2);
 		poo2Book.add(poo2BookPage3);
-
 	}
 
 	/***
@@ -63,7 +87,7 @@ public class Library extends Room {
 	public boolean enter(Student student) {
 		if (canEnter(student)) {
 			System.out.println(Game.res.getString("library.description") + "\n"
-					+ getExitString());
+			        + getExitString());
 
 			return true;
 		}
@@ -93,7 +117,7 @@ public class Library extends Room {
 	public void takeBook(Student student) {
 		student.setOOPbook(poo2Book);
 		System.out.println(Game.res.getString("library.takebook") + "\n"
-				+ getExitString());
+		        + getExitString());
 	}
 
 	/***
@@ -110,7 +134,7 @@ public class Library extends Room {
 			if (!goodStudent.alreadyListenedLecture(poo2Book.get(i))) {
 				goodStudent.addItem(poo2Book.get(i));
 				System.out.println(Game.res.getString(poo2Book.get(i)
-						.getBundleKey()) + "\n");
+				        .getBundleKey()) + "\n");
 				try {
 					Thread.sleep(3000);
 				} catch (InterruptedException e) {

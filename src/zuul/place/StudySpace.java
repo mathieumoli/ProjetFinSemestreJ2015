@@ -33,6 +33,24 @@ public abstract class StudySpace extends Room {
 		coursInThisRoom = new Item();
 		this.nbRoom = nbRoom;
 	}
+	
+	/***
+	 * 
+	 * Constructor to create a StudySpace
+	 * 
+	 * @param description
+	 *            the description of the StudySpace
+	 * @param nbRoom
+	 *             the integer which defines the courses in this studyspace
+	 * @param secret
+	 *             the boolean which defines if the studyspace is secret or not
+	 * 
+	 ***/
+	public StudySpace(String description, int nbRoom, boolean secret) {
+		super(description,secret);
+		coursInThisRoom = new Item();
+		this.nbRoom = nbRoom;
+	}
 
 	/***
 	 * 

@@ -28,6 +28,24 @@ public class LabRoom extends StudySpace {
 		coursInThisRoom = new LabItem();
 
 	}
+	
+	/***
+	 * 
+	 * Constructor to create a LabRoom
+	 * 
+	 * @param description
+	 *            the description of the lectureroom
+	 * @param nbRoom
+	 *            the integer which defines the courses in this lectureroom
+	 * @param secret
+	 *            the boolean which defines if the LectureRoom is secret or not
+	 ***/
+	public LabRoom(String description, int nbRoom,boolean secret) {
+		super(description, nbRoom,secret);
+		coursInThisRoom = new LabItem();
+
+
+	}
 
 	/**
 	 * This function determines if the student can enter the labroom or not the

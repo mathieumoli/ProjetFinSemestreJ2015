@@ -29,6 +29,23 @@ public class LectureRoom extends StudySpace {
 		this.nbRoom = nbRoom;
 
 	}
+	
+	/***
+	 * 
+	 * Constructor to create a LectureRoom
+	 * 
+	 * @param description
+	 *            the description of the lectureroom
+	 * @param nbRoom
+	 *            the integer which defines the courses in this lectureroom
+	 * @param secret
+	 *            the boolean which defines if the LectureRoom is secret or not
+	 ***/
+	public LectureRoom(String description, int nbRoom,boolean secret) {
+		super(description, nbRoom,secret);
+		coursInThisRoom = new LectureItem();
+
+	}
 
 	/**
 	 * This function determines if the student can enter the lectureroom or not

@@ -22,6 +22,17 @@ public class Lunchroom extends Room {
 	public Lunchroom(String description) {
 		super(description);
 	}
+	
+	/***
+	 * 
+	 * Constructor to create a Lunchroom
+	 * @param description the description of the lunchroom
+	 * @param secret the boolean to define if the lunchroom is secret or not
+	 * 
+	 ***/
+	public Lunchroom(String description,boolean secret) {
+		super(description,secret);
+	}
 
 	/**
 	 * The student takes a coffee which allows him to gain 20 points of energy

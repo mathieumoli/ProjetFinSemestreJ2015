@@ -35,6 +35,23 @@ public class Corridor extends Room {
 
 	/***
 	 * 
+	 * Constructor to create a Corridor
+	 * @param description the description of the corridor
+	 * @param secret, the boolean to define if the room is secret or not
+	 * 
+	 ***/
+	public Corridor(String description,boolean secret) {
+		super(description,secret);
+		Random randomLight = new Random();
+		randomLight.nextBoolean();
+
+		lights = (randomLight.nextBoolean()) ? true : false;
+
+	}
+	
+	
+	/***
+	 * 
 	 * Method to randomize the apparition of tablet and cheatsheet
 	 * 
 	 ***/
