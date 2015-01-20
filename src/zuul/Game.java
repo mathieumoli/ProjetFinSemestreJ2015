@@ -1,6 +1,6 @@
 package zuul;
 
-// ceci est un commentaire 
+// ceci est un commentair
 
 import zuul.commands.*;
 import zuul.course.*;
