@@ -3,7 +3,9 @@ package zuul.place;
 import java.util.ArrayList;
 
 import zuul.Game;
+import zuul.commands.Command;
 import zuul.course.LectureItem;
+import zuul.person.Person;
 import zuul.person.Student;
 
 /**
@@ -71,7 +73,7 @@ public class Library extends Room {
 	 * @return true if the student can enter and false if he can't
 	 * 
 	 */
-	public boolean canEnter(Student student) {
+	public boolean canEnter(Person student) {
 		return isOpen();
 	}
 
@@ -84,7 +86,7 @@ public class Library extends Room {
 	 * @return true if he can go in and false if he can't
 	 * 
 	 ***/
-	public boolean enter(Student student) {
+	public boolean enter(Person student) {
 		if (canEnter(student)) {
 			System.out.println(Game.res.getString("library.description") + "\n"
 			        + getExitString());
@@ -146,4 +148,50 @@ public class Library extends Room {
 		System.out.println(getExitString());
 
 	}
+
+	/**
+	 * Try to take the book in the library, if it's incomplete display an error
+	 * message
+	 * 
+	 * @param command
+	 *            The command to be processed.
+	 * @param gamer
+	 *            The Student who want to take something
+	 */
+	@Override
+	public void wantTake(Command command, Student gamer) {
+		if (!command.hasSecondWord()) {
+			// if there is no second word, we don't know where to go...
+			System.out.println(Game.res.getString("game.take"));
+			return;
+		} else if (command.getSecondWord().equals("book")) {
+			this.takeBook(gamer);
+		} else {
+			System.out.println(this.getLongDescription());
+		}
+
+	}
+
+	/**
+	 * Try to read the book in the library, if it's incomplete display an error
+	 * message
+	 * 
+	 * @param command
+	 *            The command to be processed.
+	 * @param gamer
+	 *            The Student who want to read a book
+	 */
+	@Override
+	public void wantRead(Command command, Student gamer) {
+		if (!command.hasSecondWord()) {
+			// if there is no second word, we don't know where to go...
+			System.out.println(Game.res.getString("game.read"));
+		} else if (command.getSecondWord().equals("book")) {
+
+			this.learnPOO(gamer);
+		} else {
+			gamer.readTakenBook();
+		}
+	}
+
 }

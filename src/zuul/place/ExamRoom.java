@@ -4,6 +4,7 @@ import zuul.Game;
 import zuul.commands.Command;
 import zuul.course.LabItem;
 import zuul.course.LectureItem;
+import zuul.person.Person;
 import zuul.person.Student;
 
 import java.util.ArrayList;
@@ -44,7 +45,7 @@ public class ExamRoom extends Room {
 	 * @return true if the student can enter and false if he can't
 	 */
 	@Override
-	public boolean canEnter(Student student) {
+	public boolean canEnter(Person student) {
 
 		if (exam.equals("noexam")) {
 			return true;
@@ -98,7 +99,7 @@ public class ExamRoom extends Room {
 	 * 
 	 ***/
 	@Override
-	public boolean enter(Student student) {
+	public boolean enter(Person student) {
 		randomizeExams();
 		if (canEnter(student)) {
 			if (exam.equals("noexam")) {
@@ -152,7 +153,7 @@ public class ExamRoom extends Room {
 	 *            the student who passes it
 	 * 
 	 ***/
-	public void startExam(Student student) {
+	public void startExam(Person student) {
 		if (!exam.equals("noexam")) {
 
 			int questionsRight = 0;

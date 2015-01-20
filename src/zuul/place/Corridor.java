@@ -1,8 +1,10 @@
 package zuul.place;
 
 import zuul.Game;
+import zuul.commands.Command;
 import zuul.foundobject.Cheatsheet;
 import zuul.foundobject.Tablet;
+import zuul.person.Person;
 import zuul.person.Student;
 
 import java.util.Random;
@@ -71,7 +73,7 @@ public class Corridor extends Room {
 	 * 
 	 ***/
 	@Override
-	public boolean canEnter(Student student) {
+	public boolean canEnter(Person student) {
 		return true;
 	}
 
@@ -83,7 +85,7 @@ public class Corridor extends Room {
 	 * 
 	 ***/
 	@Override
-	public boolean enter(Student student) {
+	public boolean enter(Person student) {
 		if (isLights()) {
 			appearObject();
 			if (tablet) {
@@ -157,5 +159,67 @@ public class Corridor extends Room {
 	 */
 	public void setLights(boolean lights) {
 		this.lights = lights;
+	}
+	
+	/**
+	 * Try to use the tablet, if it's incomplete display an error message
+	 * 
+	 * @param command
+	 *            The command to be processed.
+	 * @param gamer
+	 *            The Student who want to use a tablet
+	 */
+	@Override
+    public void wantSwitchLights(Command command,Student gamer) {
+		if (!command.hasSecondWord()) {
+			// if there is no second word, we don't know what to do...
+			System.out.println(Game.res.getString("game.idontknow"));
+		} else if (command.getSecondWord().equals("on")) {
+			this.setLights(true);
+			this.enter(gamer);
+
+		} else if (command.getSecondWord().equals("off")) {
+			this.setLights(false);
+			System.out.println(Game.res.getString("corridor.dark"));
+		}
+	}
+	
+	/**
+	 * Try to use the tablet, if it's incomplete display an error message
+	 * 
+	 * @param command
+	 *            The command to be processed.
+	 */
+	public void wantUse(Command command,Student gamer) {
+		if (!command.hasSecondWord()) {
+			// if there is no second word, we don't know where to go...
+			System.out.println(Game.res.getString("game.use"));
+		} else if (command.getSecondWord().equals("tablet")) {
+			this.useTablet(gamer);
+		}
+
+	}
+	
+	/**
+	 * Try to search near the printer, if it's incomplete display an error
+	 * message Then, display the answers available on the cheatsheet
+	 * 
+	 * @param command
+	 *            The command to be processed.
+	 *            
+	 * @param gamer
+	 *            The Student who want to use a tablet
+	 */
+	@Override
+	public void wantSearch(Command command,Student gamer) {
+		if (!command.hasSecondWord()) {
+			// if there is no second word, we don't know where to go...
+			System.out.println(Game.res.getString("game.search"));
+		} else if (command.getSecondWord().equals("printer")) {
+			System.out.println(Game.res.getString("cheatsheet.description1"));
+			System.out.println(Game.res.getString("cheatsheet.description2"));
+			this.useCheatsheet(gamer);
+		}
+
 	}
 }

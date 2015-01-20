@@ -242,181 +242,29 @@ public class Game {
 			break;
 		case "quit":wantToQuit = quit(command);
 			break;
-		case "take":currentRoom.wantTake();
+		case "take":currentRoom.wantTake(command,gamer);
 			break;
-		case "lights":currentRoom.wantSwitchOn();
+		case "lights":currentRoom.wantSwitchLights(command,gamer);
 			break;
-		case "attend":currentRoom.wantAttend();
+		case "attend":currentRoom.wantAttend(command,gamer);
 			break;
-		case "read":currentRoom.wantRead();
+		case "read":currentRoom.wantRead(command,gamer);
 			break;
-		case "use":currentRoom.wantUse();
+		case "use":currentRoom.wantUse(command,gamer);
 			break;
-		case "search":currentRoom.wantSearch();
+		case "search":currentRoom.wantSearch(command,gamer);
 			break;
 		case "start":currentRoom.wantStart(command,gamer);
 			break;
 		}
-		// String commandWord = command.getCommandWord();
-		// if (commandWord.equals("help")) {
-		// printHelp();
-		// } else if (commandWord.equals("go")) {
-		// goRoom(command);
-		// } else if (commandWord.equals("quit")) {
-		// wantToQuit = quit(command);
-		// } else if (commandWord.equals("take")) {
-		// if (currentRoom instanceof Lunchroom) {
-		// wantCoffee(command);
-		// } else if (currentRoom instanceof Library) {
-		// wantBook(command);
-		// }
-		// } else if (commandWord.equals("lights")
-		// && (currentRoom instanceof Corridor)) {
-		// goCorridor(command);
-		// } else if (commandWord.equals("attend")
-		// && (currentRoom instanceof StudySpace)) {
-		// wantAttend(command);
-		// } else if (commandWord.equals("read")
-		// && ((currentRoom instanceof Library))
-		// || (!(gamer.getOOPbook().isEmpty()))) {
-		// wantRead(command);
-		// } else if (commandWord.equals("use")
-		// && (currentRoom instanceof Corridor)) {
-		// wantUse(command);
-		// } else if (commandWord.equals("search")
-		// && (currentRoom instanceof Corridor)) {
-		// wantSearch(command);
-		// } else if (commandWord.equals("start")
-		// && (currentRoom instanceof ExamRoom)) {
-		// wantStart(command);
-		// }
-
 		// else command not recognised.
 		return wantToQuit;
 	}
 
 
 
-	/**
-	 * Try to use the tablet, if it's incomplete display an error message
-	 * 
-	 * @param command
-	 *            The command to be processed.
-	 */
-	private void wantUse(Command command) {
-		if (!command.hasSecondWord()) {
-			// if there is no second word, we don't know where to go...
-			System.out.println(res.getString("game.use"));
-		} else if (command.getSecondWord().equals("tablet")) {
-			((Corridor) currentRoom).useTablet(gamer);
-		}
 
-	}
-
-	/**
-	 * Try to search near the printer, if it's incomplete display an error
-	 * message Then, display the answers available on the cheatsheet
-	 * 
-	 * @param command
-	 *            The command to be processed.
-	 */
-	private void wantSearch(Command command) {
-		if (!command.hasSecondWord()) {
-			// if there is no second word, we don't know where to go...
-			System.out.println(res.getString("game.search"));
-		} else if (command.getSecondWord().equals("printer")) {
-			System.out.println(Game.res.getString("cheatsheet.description1"));
-			System.out.println(Game.res.getString("cheatsheet.description2"));
-			((Corridor) currentRoom).useCheatsheet(gamer);
-		}
-
-	}
-
-	/**
-	 * Try to attend a lab or a lecture, if it's incomplete display an error
-	 * message
-	 * 
-	 * @param command
-	 *            The command to be processed.
-	 */
-	private void wantAttend(Command command) {
-		if (!command.hasSecondWord()) {
-			// if there is no second word, we don't know where to go...
-			System.out.println(res.getString("game.attend"));
-		} else if ((command.getSecondWord().equals("lab"))
-		        && (currentRoom instanceof LabRoom)) {
-			((LabRoom) currentRoom).attendLab(gamer);
-			System.out.println(currentRoom.getLongDescription());
-
-		} else if ((command.getSecondWord().equals("lecture"))
-		        && (currentRoom instanceof LectureRoom)) {
-			((LectureRoom) currentRoom).attendLecture(gamer);
-			System.out.println(currentRoom.getLongDescription());
-		}
-	}
-
-	/**
-	 * Try to take and drink a coffee, if it's incomplete display an error
-	 * message
-	 * 
-	 * @param command
-	 *            The command to be processed.
-	 */
-	private void wantCoffee(Command command) {
-		if (!command.hasSecondWord()) {
-			// if there is no second word, we don't know where to go...
-			System.out.println(res.getString("game.take"));
-			return;
-		} else if (command.getSecondWord().equals("coffee")) {
-			System.out.println(res.getString("lunchroom.coffee1"));
-			((Lunchroom) currentRoom).takeCoffee(gamer);
-			System.out.println(res.getString("lunchroom.coffee2"));
-		} else {
-			System.out.println(res.getString("game.take"));
-		}
-		System.out.println(currentRoom.getExitString());
-	}
-
-	/**
-	 * Try to read the book in the library, if it's incomplete display an error
-	 * message
-	 * 
-	 * @param command
-	 *            The command to be processed.
-	 */
-	private void wantRead(Command command) {
-		if (!command.hasSecondWord()) {
-			// if there is no second word, we don't know where to go...
-			System.out.println(res.getString("game.read"));
-		} else if (command.getSecondWord().equals("book")) {
-			if (currentRoom instanceof Library) {
-				((Library) currentRoom).learnPOO(gamer);
-			} else {
-				gamer.readTakenBook();
-			}
-		}
-
-	}
-
-	/**
-	 * Try to turn the lights on, if it's incomplete display an error message
-	 * 
-	 * @param command
-	 *            The command to be processed.
-	 */
-	private void goCorridor(Command command) {
-		if (!command.hasSecondWord()) {
-			// if there is no second word, we don't know what to do...
-			System.out.println(res.getString("game.idontknow"));
-		} else if (command.getSecondWord().equals("on")) {
-			((Corridor) currentRoom).setLights(true);
-			(currentRoom).enter(gamer);
-
-		} else if (command.getSecondWord().equals("off")) {
-			((Corridor) currentRoom).setLights(false);
-			System.out.println(res.getString("corridor.dark"));
-		}
-	}
+	
 
 	/**
 	 * Try to in to one direction. If there is an exit, enter the new room,
@@ -443,25 +291,6 @@ public class Game {
 		}
 	}
 
-	/**
-	 * Try to take the book in the library, if it's incomplete display an error
-	 * message
-	 * 
-	 * @param command
-	 *            The command to be processed.
-	 */
-	private void wantBook(Command command) {
-		if (!command.hasSecondWord()) {
-			// if there is no second word, we don't know where to go...
-			System.out.println(res.getString("game.take"));
-			return;
-		} else if (command.getSecondWord().equals("book")) {
-			((Library) currentRoom).takeBook(gamer);
-		} else {
-			System.out.println(currentRoom.getLongDescription());
-		}
-
-	}
 
 	/**
 	 * "Quit" was entered. Check the rest of the command to see whether we

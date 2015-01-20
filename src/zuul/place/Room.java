@@ -1,9 +1,9 @@
 package zuul.place;
 
-
 import zuul.Game;
 import zuul.commands.Command;
 import zuul.commands.Parser;
+import zuul.person.Person;
 import zuul.person.Student;
 
 import java.util.ResourceBundle;
@@ -35,15 +35,16 @@ public abstract class Room {
 	 * @param student
 	 * @return
 	 */
-	public abstract boolean enter(Student student);
+	public abstract boolean enter(Person student);
 
 	/**
-	 * Abstract method which will deterimport java.util.*;mine if the student can enter
+	 * Abstract method which will deterimport java.util.*;mine if the student
+	 * can enter
 	 * 
 	 * @param student
 	 * @return
 	 */
-	public abstract boolean canEnter(Student student);
+	public abstract boolean canEnter(Person student);
 
 	/**
 	 * Create a room described "description". Initially, it has no exits.
@@ -71,7 +72,7 @@ public abstract class Room {
 		exits = new HashMap<String, Room>();
 		isSecret = secret;
 	}
-	
+
 	/**
 	 * Create a room described "description". Initially, it has no exits.
 	 * "description" is something like "a kitchen" or "an open court yard".
@@ -154,12 +155,6 @@ public abstract class Room {
 		System.out.println("You can't do this here !");
 	}
 
-	// TODO
-	public void displayHelp() {
-		// TODO Auto-generated method stub
-
-	}
-
 	/**
 	 * To deal with starting command
 	 * 
@@ -198,6 +193,90 @@ public abstract class Room {
 		System.out.println();
 		System.out.println(Game.res.getString("game.help4"));
 		parser.showCommands();
+	}
+
+	/**
+	 * Try to take the book in the library, if it's incomplete display an error
+	 * message
+	 * 
+	 * @param command
+	 *            The command to be processed.
+	 * @param gamer
+	 *            The Student who want to take something
+	 */
+	public void wantTake(Command command, Student gamer) {
+		System.out.println("You can't do this here");
+
+	}
+
+	/**
+	 * Try to turn the lights on, if it's incomplete display an error message
+	 * 
+	 * @param command
+	 *            The command to be processed.
+	 * @param gamer
+	 *            The Student who want to switch on or off the lights
+	 */
+	public void wantSwitchLights(Command command, Student gamer) {
+		System.out.println("You can't do this here");
+
+	}
+
+	/**
+	 * Try to read the book in the library, if it's incomplete display an error
+	 * message
+	 * 
+	 * @param command
+	 *            The command to be processed.
+	 * 
+	 * @param gamer
+	 *            The Student who want to read a book
+	 */
+	public void wantRead(Command command, Student gamer) {
+		System.out.println("You can't do this here");
+	}
+
+	/**
+	 * Try to use the tablet, if it's incomplete display an error message
+	 * 
+	 * @param command
+	 *            The command to be processed.
+	 * @param gamer
+	 *            The Student who want to use a tablet
+	 */
+	public void wantUse(Command command, Student gamer) {
+		System.out.println("You can't do this here");
+
+	}
+
+	/**
+	 * Try to attend a lab or a lecture, if it's incomplete display an error
+	 * message
+	 * 
+	 * @param command
+	 *            The command to be processed.
+	 * 
+	 * @param gamer
+	 *            The Student who want to attend to a lecture or a lab
+	 */
+	public void wantAttend(Command command,Student gamer) {
+		System.out.println("You can't do this here");
+
+	}
+
+	/**
+	 * Try to search near the printer, if it's incomplete display an error
+	 * message Then, display the answers available on the cheatsheet
+	 * 
+	 * @param command
+	 *            The command to be processed.
+	 * 
+	 * @param gamer
+	 *            The Student who want to use a tablet
+	 */
+	public void wantSearch(Command command, Student gamer) {
+		System.out.println("You can't do this here");
+
 	}
 
 }

@@ -1,8 +1,10 @@
 package zuul.place;
 
 import zuul.Game;
+import zuul.commands.Command;
 import zuul.course.LabItem;
 import zuul.course.LectureItem;
+import zuul.person.Person;
 import zuul.person.Student;
 
 /**
@@ -56,7 +58,7 @@ public class LabRoom extends StudySpace {
 	 * @return true if the student can enter and false if he can't
 	 */
 	@Override
-	public boolean canEnter(Student student) {
+	public boolean canEnter(Person student) {
 		if (coursInThisRoom.getNumber() == 0) {
 			return true;
 		} else if (!student.alreadyListenedLecture(new LectureItem(
@@ -95,7 +97,7 @@ public class LabRoom extends StudySpace {
 	 * 
 	 ***/
 	@Override
-	public boolean enter(Student student) {
+	public boolean enter(Person student) {
 		randomizeCourses();
 
 		isAttend = false;
@@ -146,7 +148,7 @@ public class LabRoom extends StudySpace {
 	 * @param goodStudent
 	 *            the sSudent who attends the lab
 	 */
-	public void attendLab(Student goodStudent) {
+	public void attendLab(Person goodStudent) {
 		if (coursInThisRoom.getNumber() != 0) {
 			System.out.println(Game.res.getString("labroom.attendlab.part1")
 					+ coursInThisRoom.getModule()
@@ -190,4 +192,25 @@ public class LabRoom extends StudySpace {
 					+ getExitString();
 	}
 
+	/**
+	 * Try to attend a lab, if it's incomplete display an error
+	 * message
+	 * 
+	 * @param command
+	 *            The command to be processed.
+	 * 
+	 * @param gamer
+	 *            The Student who want to attend to a lecture or a lab
+	 */
+	@Override
+	public void wantAttend(Command command, Student gamer) {
+		if (!command.hasSecondWord()) {
+			// if there is no second word, we don't know where to go...
+			System.out.println(Game.res.getString("game.attend"));
+		} else if ((command.getSecondWord().equals("lab"))) {
+			this.attendLab(gamer);
+			System.out.println(this.getLongDescription());
+		}
+
+	}
 }

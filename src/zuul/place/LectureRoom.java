@@ -1,7 +1,9 @@
 package zuul.place;
 
 import zuul.Game;
+import zuul.commands.Command;
 import zuul.course.LectureItem;
+import zuul.person.Person;
 import zuul.person.Student;
 
 /**
@@ -29,7 +31,7 @@ public class LectureRoom extends StudySpace {
 		this.nbRoom = nbRoom;
 
 	}
-	
+
 	/***
 	 * 
 	 * Constructor to create a LectureRoom
@@ -41,8 +43,8 @@ public class LectureRoom extends StudySpace {
 	 * @param secret
 	 *            the boolean which defines if the LectureRoom is secret or not
 	 ***/
-	public LectureRoom(String description, int nbRoom,boolean secret) {
-		super(description, nbRoom,secret);
+	public LectureRoom(String description, int nbRoom, boolean secret) {
+		super(description, nbRoom, secret);
 		coursInThisRoom = new LectureItem();
 
 	}
@@ -55,21 +57,8 @@ public class LectureRoom extends StudySpace {
 	 * @return true if the student can enter and false if he can't
 	 */
 	@Override
-	public boolean canEnter(Student student) {
+	public boolean canEnter(Person student) {
 		return true;
-	}
-
-	/**
-	 * This function determines if the student must enter in the lectureroom (if
-	 * the lectureroom contains an OOP lecture) or not the student may enter if
-	 * he wants
-	 * 
-	 * @param student
-	 *            the Student who wants enter in this LabRoom
-	 * @return true if the student must enter and false if he mustn't
-	 */
-	public boolean mustEnter(Student student) {
-		return super.mustEnter(student);
 	}
 
 	/***
@@ -78,11 +67,11 @@ public class LectureRoom extends StudySpace {
 	 * 
 	 * @param student
 	 *            the student who wants to go in
-	 * @return true 
+	 * @return true
 	 * 
 	 ***/
 	@Override
-	public boolean enter(Student student) {
+	public boolean enter(Person student) {
 		randomizeCourses();
 		isAttend = false;
 		if (mustEnter(student)) {
@@ -106,11 +95,11 @@ public class LectureRoom extends StudySpace {
 			coursInThisRoom = Game.lectures.get((int) (Math.random() * 2));
 		else if (nbRoom == 2)
 			coursInThisRoom = Game.lectures
-					.get((int) (Math.random() * (5 - 3) + 3));
+			        .get((int) (Math.random() * (5 - 3) + 3));
 
 		else
 			coursInThisRoom = Game.lectures
-					.get((int) (Math.random() * (8 - 6) + 6));
+			        .get((int) (Math.random() * (8 - 6) + 6));
 
 		int noCours = (int) (Math.random() * 9);
 		if (noCours > 6) {
@@ -126,19 +115,19 @@ public class LectureRoom extends StudySpace {
 	 * @param goodStudent
 	 *            the student who attends the lecture
 	 */
-	public void attendLecture(Student goodStudent) {
+	public void attendLecture(Person goodStudent) {
 		if (coursInThisRoom.getNumber() != 0) {
 			System.out.println(Game.res
-					.getString("lectureroom.attendlecture.part1")
-					+ coursInThisRoom.getModule()
-					+ Game.res.getString("room.attend.part2")
-					+ coursInThisRoom.getNumber()
-					+ Game.res.getString("room.attend.part3"));
+			        .getString("lectureroom.attendlecture.part1")
+			        + coursInThisRoom.getModule()
+			        + Game.res.getString("room.attend.part2")
+			        + coursInThisRoom.getNumber()
+			        + Game.res.getString("room.attend.part3"));
 			try {
 				System.out.println(Game.res.getString("oop.lecture"));
 				Thread.sleep(3000);
 				System.out.println(Game.res.getString(coursInThisRoom
-						.getBundleKey()));
+				        .getBundleKey()));
 				Thread.sleep(3000);
 				System.out.println(Game.res.getString("oop.lectureend"));
 
@@ -147,12 +136,11 @@ public class LectureRoom extends StudySpace {
 			}
 			isAttend = true;
 			System.out.println(Game.res
-					.getString("lectureroom.attendlecture.part4"));
-			goodStudent.decrementEnergy(10);
-			goodStudent.addItem(coursInThisRoom);
+			        .getString("lectureroom.attendlecture.part4"));
+			goodStudent.learnItem(coursInThisRoom);
 		} else {
 			System.out.println(Game.res.getString(coursInThisRoom
-					.getBundleKey()));
+			        .getBundleKey()));
 		}
 	}
 
@@ -166,15 +154,36 @@ public class LectureRoom extends StudySpace {
 	public String getLongDescription() {
 		if (coursInThisRoom.getNumber() == 0) {
 			return Game.res.getString("lectureroom.shortdescription")
-					+ Game.res.getString(coursInThisRoom.getBundleKey()) + "\n"
-					+ getExitString();
+			        + Game.res.getString(coursInThisRoom.getBundleKey()) + "\n"
+			        + getExitString();
 		} else if (isAttend) {
 			return getExitString();
 		} else
 			return description + coursInThisRoom.getModule() + " numero "
-					+ coursInThisRoom.getNumberString() + ".\n"
-					+ Game.res.getString("lectureroom.description2")
-					+ getExitString();
+			        + coursInThisRoom.getNumberString() + ".\n"
+			        + Game.res.getString("lectureroom.description2")
+			        + getExitString();
 	}
 
+	/**
+	 * Try to attend a lecture, if it's incomplete display an error
+	 * message
+	 * 
+	 * @param command
+	 *            The command to be processed.
+	 * 
+	 * @param gamer
+	 *            The Student who want to attend to a lecture or a lab
+	 */
+	@Override
+	public void wantAttend(Command command, Student gamer) {
+		if (!command.hasSecondWord()) {
+			// if there is no second word, we don't know where to go...
+			System.out.println(Game.res.getString("game.attend"));
+		} else if ((command.getSecondWord().equals("lab"))) {
+			this.attendLecture(gamer);
+			System.out.println(this.getLongDescription());
+		}
+
+	}
 }

@@ -3,6 +3,7 @@ package zuul.place;
 import java.util.ResourceBundle;
 
 import zuul.course.Item;
+import zuul.person.Person;
 import zuul.person.Student;
 
 /**
@@ -95,7 +96,7 @@ public abstract class StudySpace extends Room {
 	 *            the Student who wants enter in this StudySpace
 	 * @return true if the student must enter and false if he mustn't
 	 */
-	public boolean mustEnter(Student student) {
+	public boolean mustEnter(Person student) {
 		if (coursInThisRoom.getModule().equals("OOP")) {
 			return true;
 		}

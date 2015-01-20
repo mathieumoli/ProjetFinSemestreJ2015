@@ -1,6 +1,8 @@
 package zuul.place;
 
 import zuul.Game;
+import zuul.commands.Command;
+import zuul.person.Person;
 import zuul.person.Student;
 
 /**
@@ -39,7 +41,9 @@ public class Lunchroom extends Room {
 	 * @param gamer the student who takes a coffee and who increments his energy
 	 */
 	public void takeCoffee(Student gamer) {
+		System.out.println(Game.res.getString("lunchroom.coffee1"));
 		gamer.incrementEnergy(20);
+		System.out.println(Game.res.getString("lunchroom.coffee2"));
 
 	}
 
@@ -49,7 +53,7 @@ public class Lunchroom extends Room {
 	 * @return true
 	 */
 	@Override
-	public boolean canEnter(Student student) {
+	public boolean canEnter(Person student) {
 		return true;
 	}
 
@@ -60,15 +64,14 @@ public class Lunchroom extends Room {
 	 * @return true
 	 */
 	@Override
-	public boolean enter(Student student) {
+	public boolean enter(Person student) {
 		
 		int random = (int) (Math.random() * 10);
 		playBabyFoot = random > 7;
 		
 		if (playBabyFoot) {
 			System.out.println(Game.res.getString("lunchroom.babyFoot"));
-			student.decrementEnergy(30);
-			student.removeItem();
+			student.playBabyFoot();
 			System.out.println(getExitString());
 		} else {
 			System.out.println(getLongDescription());
@@ -76,5 +79,28 @@ public class Lunchroom extends Room {
 
 		return true;
 
+	}
+	
+	/**
+	 * Try to take the book in the library, if it's incomplete display an error
+	 * message
+	 * 
+	 * @param command
+	 *            The command to be processed.
+	 * @param gamer
+	 * 			  The Student who want to take something
+	 */
+	@Override
+	public void wantTake(Command command,Student gamer) {
+		if (!command.hasSecondWord()) {
+			// if there is no second word, we don't know where to go...
+			System.out.println(Game.res.getString("game.take"));
+			return;
+		} else if (command.getSecondWord().equals("coffee")) {
+			this.takeCoffee(gamer);
+		} else {
+			System.out.println(Game.res.getString("game.take"));
+		}
+		System.out.println(this.getExitString());
 	}
 }
