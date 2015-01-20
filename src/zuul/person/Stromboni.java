@@ -1,5 +1,7 @@
 package zuul.person;
 
+import zuul.person.objet.Wallet;
+
 /**
  * @author Cédric Lallemand
  * @version 2015.01.20
@@ -16,7 +18,7 @@ public class Stromboni extends Person{
 	 * 
 	 ***/
 	public Stromboni() {
-		super(nameStromboni);
+		super(nameStromboni, new Wallet(30));
 	}
 
 	/**
