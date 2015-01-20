@@ -1,7 +1,5 @@
 package zuul;
 
-// ceci est un commentair
-
 import zuul.commands.*;
 import zuul.course.*;
 import zuul.person.Student;
