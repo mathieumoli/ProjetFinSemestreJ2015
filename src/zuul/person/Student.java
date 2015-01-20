@@ -18,6 +18,7 @@ public class Student extends Person{
 
 	private ArrayList<LectureItem> oopBook;
 	private int energy;
+	private boolean isInvisible;
 	private ArrayList<LectureItem> coursSuivi;
 	private ArrayList<LabItem> labsSuivi;
 
@@ -31,6 +32,7 @@ public class Student extends Person{
 	public Student(String nameOfStudent) {
 		super(nameOfStudent);
 		energy = 100;
+		isInvisible = false;
 		coursSuivi = new ArrayList<LectureItem>();
 		labsSuivi = new ArrayList<LabItem>();
 		oopBook = new ArrayList<LectureItem>();
@@ -183,6 +185,30 @@ public class Student extends Person{
 	public int getEnergy() {
 		return energy;
 
+	}
+	
+	/***
+	 * 
+	 * Method to know if the student is invisible
+	 * 
+	 * @return true if the student is invisible
+	 * 
+	 */
+	public boolean isInvisible(){
+		return isInvisible;
+	}
+	
+	/**
+	 * 
+	 * Change the visibility of the Student
+	 * 
+	 */
+	public void changeVisibility(){
+		if(isInvisible){
+			isInvisible = false;
+		}else{
+			isInvisible = true;
+		}
 	}
 
 	/***

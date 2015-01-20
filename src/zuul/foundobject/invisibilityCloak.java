@@ -6,8 +6,10 @@ public class invisibilityCloak implements FoundObject {
 
 	@Override
 	public void useObject(Student student) {
-		// TODO Auto-generated method stub
-		
+		if(!student.isInvisible()){
+			student.decrementEnergy(10);
+		}
+		student.changeVisibility();
 	}
 
 	

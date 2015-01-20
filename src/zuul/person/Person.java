@@ -30,5 +30,15 @@ public class Person {
 	public String getName() {
 		return name;
 	}
+	
+	/**
+	 * 
+	 * Method to know if the Person can allow a student to pass the exam
+	 * @return true if the  person can allow student to passe the exam
+	 * 
+	 */
+	public boolean canAllowToPassExam(){
+		return false;
+	}
 
 }
