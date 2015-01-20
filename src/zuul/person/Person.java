@@ -1,5 +1,7 @@
 package zuul.person;
 
+import zuul.room.Room;
+
 /**
  * @author Cédric Lallemand
  * @version 2015.01.20
@@ -9,6 +11,7 @@ package zuul.person;
 public class Person {
 
 	private String name;
+	private Room currentRoom;
 	
 	/***
 	 * 
@@ -30,5 +33,23 @@ public class Person {
 	public String getName() {
 		return name;
 	}
+
+	/**
+	 * Method to know where are the person
+	 * @return the currentRoom
+	 */
+	public Room getCurrentRoom() {
+		return currentRoom;
+	}
+
+	/**
+	 * Method to modify where are the person
+	 * @param currentRoom the currentRoom to set
+	 */
+	public void setCurrentRoom(Room currentRoom) {
+		this.currentRoom = currentRoom;
+	}
+	
+	
 
 }
