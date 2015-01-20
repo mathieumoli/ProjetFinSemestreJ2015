@@ -2,7 +2,6 @@ package zuul;
 
 // ceci est un commentaire 
 
-
 import zuul.commands.*;
 import zuul.course.*;
 import zuul.person.Student;
@@ -37,8 +36,8 @@ public class Game {
 	public static final int NB_COURSES = 3;
 	public static final String COURSES[] = { "OOP", "C", "ALGO" };
 	public static final String COURSESBUNDLEKEY[] = { "oop.lecture1",
-			"oop.lecture2", "oop.lecture3", "c.lecture1", "c.lecture2",
-			"c.lecture3", "algo.lecture1", "algo.lecture2", "algo.lecture3" };
+	        "oop.lecture2", "oop.lecture3", "c.lecture1", "c.lecture2",
+	        "c.lecture3", "algo.lecture1", "algo.lecture2", "algo.lecture3" };
 	public static List<LabItem> labs = new ArrayList<LabItem>();
 	public static List<LectureItem> lectures = new ArrayList<LectureItem>();
 
@@ -56,9 +55,9 @@ public class Game {
 	 */
 	private void getLanguage() {
 		System.out
-				.println("Voulez-vous jouer en français ? Si oui, appuyez sur 1.");
+		        .println("Voulez-vous jouer en français ? Si oui, appuyez sur 1.");
 		System.out
-				.println("Or do you prefer playing in English ? If so, press 2.");
+		        .println("Or do you prefer playing in English ? If so, press 2.");
 
 		Scanner scanner = new Scanner(System.in);
 		String choice = scanner.nextLine();
@@ -79,24 +78,24 @@ public class Game {
 
 		// create the rooms
 		Lunchroom lunchroom = new Lunchroom(
-				res.getString("lunchroom.description"));
+		        res.getString("lunchroom.description"));
 		LectureRoom lectureroom1 = new LectureRoom(
-				res.getString("lectureroom.description1"), 1);
+		        res.getString("lectureroom.description1"), 1);
 		LectureRoom lectureroom2 = new LectureRoom(
-				res.getString("lectureroom.description1"), 2);
+		        res.getString("lectureroom.description1"), 2);
 		LectureRoom lectureroom3 = new LectureRoom(
-				res.getString("lectureroom.description1"), 3);
+		        res.getString("lectureroom.description1"), 3);
 		LabRoom labroom1 = new LabRoom(res.getString("labroom.description1"), 1);
 		LabRoom labroom2 = new LabRoom(res.getString("labroom.description1"), 2);
 		LabRoom labroom3 = new LabRoom(res.getString("labroom.description1"), 3);
 		Corridor corridor1 = new Corridor(
-				res.getString("corridor1.description"));
+		        res.getString("corridor1.description"));
 		Corridor corridor2 = new Corridor(
-				res.getString("corridor2.description"));
+		        res.getString("corridor2.description"));
 		Corridor corridor3 = new Corridor(
-				res.getString("corridor3.description"));
+		        res.getString("corridor3.description"));
 		Corridor corridor4 = new Corridor(
-				res.getString("corridor4.description"));
+		        res.getString("corridor4.description"));
 		Library library = new Library(res.getString("library.description"));
 		ExamRoom examroom = new ExamRoom(res.getString("examroom.description"));
 
@@ -146,17 +145,26 @@ public class Game {
 		createCourses();
 		createRooms();
 		createGamer();
-		printGamer();
+		if (!(gamer.getName().equals("Chuck Norris"))) {
+			printGamer();
 
-		// Enter the main command loop. Here we repeatedly read commands and
-		// execute them until the game is over.
+			// Enter the main command loop. Here we repeatedly read commands and
+			// execute them until the game is over.
 
-		boolean finished = false;
-		while (!finished) {
-			Command command = parser.getCommand();
-			finished = processCommand(command);
+			boolean finished = false;
+			while (!finished) {
+				Command command = parser.getCommand();
+				finished = processCommand(command);
+			}
+			System.out.println(res.getString("game.thankyou"));
+		} else {
+
+			// TODO internationalisation
+			System.out.println("You are Chuck Norris, you never lose so congratulation you win !!!");
+			System.out.println(res.getString("game.thankyou"));
+
 		}
-		System.out.println(res.getString("game.thankyou"));
+
 	}
 
 	/**
@@ -188,8 +196,8 @@ public class Game {
 
 	private void printGamer() {
 		String string = new String(res.getString("game.welcomename1")
-				+ gamer.getName() + res.getString("game.welcomename2")
-				+ gamer.getName() + res.getString("game.welcomename3"));
+		        + gamer.getName() + res.getString("game.welcomename2")
+		        + gamer.getName() + res.getString("game.welcomename3"));
 		System.out.println(string);
 		System.out.println();
 		System.out.println(currentRoom.getLongDescription());
@@ -205,7 +213,7 @@ public class Game {
 			for (int j = 0; j < COURSES.length; ++j) {
 				labs.add(new LabItem(COURSES[j], i + 1));
 				lectures.add(new LectureItem(COURSES[j], i + 1,
-						COURSESBUNDLEKEY[k]));
+				        COURSESBUNDLEKEY[k]));
 				k += 3;
 			}
 		}
@@ -240,23 +248,23 @@ public class Game {
 				wantBook(command);
 			}
 		} else if (commandWord.equals("lights")
-				&& (currentRoom instanceof Corridor)) {
+		        && (currentRoom instanceof Corridor)) {
 			goCorridor(command);
 		} else if (commandWord.equals("attend")
-				&& (currentRoom instanceof StudySpace)) {
+		        && (currentRoom instanceof StudySpace)) {
 			wantAttend(command);
 		} else if (commandWord.equals("read")
-				&& ((currentRoom instanceof Library))
-				|| (!(gamer.getOOPbook().isEmpty()))) {
+		        && ((currentRoom instanceof Library))
+		        || (!(gamer.getOOPbook().isEmpty()))) {
 			wantRead(command);
 		} else if (commandWord.equals("use")
-				&& (currentRoom instanceof Corridor)) {
+		        && (currentRoom instanceof Corridor)) {
 			wantUse(command);
 		} else if (commandWord.equals("search")
-				&& (currentRoom instanceof Corridor)) {
+		        && (currentRoom instanceof Corridor)) {
 			wantSearch(command);
 		} else if (commandWord.equals("start")
-				&& (currentRoom instanceof ExamRoom)) {
+		        && (currentRoom instanceof ExamRoom)) {
 			wantStart(command);
 		}
 
@@ -287,15 +295,15 @@ public class Game {
 			// if there is no second word, we don't know where to go...
 			System.out.println(res.getString("game.start"));
 		} else if ((command.getSecondWord().equals("exam"))
-				&& (currentRoom instanceof ExamRoom)) {
+		        && (currentRoom instanceof ExamRoom)) {
 			((ExamRoom) currentRoom).startExam(gamer);
 			if (((ExamRoom) currentRoom).getExam().equals("noexam")) {
 				System.out.println(Game.res
-						.getString("examroom.shortdescription")
-						+ "\n"
-						+ Game.res.getString("examroom.noexam")
-						+ "\n"
-						+ currentRoom.getExitString());
+				        .getString("examroom.shortdescription")
+				        + "\n"
+				        + Game.res.getString("examroom.noexam")
+				        + "\n"
+				        + currentRoom.getExitString());
 			} else
 				System.out.println(currentRoom.getLongDescription());
 
@@ -349,12 +357,12 @@ public class Game {
 			// if there is no second word, we don't know where to go...
 			System.out.println(res.getString("game.attend"));
 		} else if ((command.getSecondWord().equals("lab"))
-				&& (currentRoom instanceof LabRoom)) {
+		        && (currentRoom instanceof LabRoom)) {
 			((LabRoom) currentRoom).attendLab(gamer);
 			System.out.println(currentRoom.getLongDescription());
 
 		} else if ((command.getSecondWord().equals("lecture"))
-				&& (currentRoom instanceof LectureRoom)) {
+		        && (currentRoom instanceof LectureRoom)) {
 			((LectureRoom) currentRoom).attendLecture(gamer);
 			System.out.println(currentRoom.getLongDescription());
 		}
