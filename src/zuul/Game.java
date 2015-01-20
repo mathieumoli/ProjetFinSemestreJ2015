@@ -5,7 +5,7 @@ package zuul;
 import zuul.commands.*;
 import zuul.course.*;
 import zuul.person.Student;
-import zuul.room.*;
+import zuul.place.*;
 
 import java.util.*;
 

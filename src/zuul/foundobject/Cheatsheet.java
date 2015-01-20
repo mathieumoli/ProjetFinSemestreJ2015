@@ -2,7 +2,7 @@ package zuul.foundobject;
 
 import zuul.Game;
 import zuul.person.Student;
-import zuul.room.ExamRoom;
+import zuul.place.ExamRoom;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,6 +1,6 @@
 package zuul.person;
 
-import zuul.room.Room;
+import zuul.place.Room;
 
 /**
  * @author Cédric Lallemand
