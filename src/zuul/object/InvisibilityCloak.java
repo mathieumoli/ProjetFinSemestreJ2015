@@ -2,7 +2,7 @@ package zuul.object;
 
 import zuul.person.Student;
 
-public class invisibilityCloak extends ZuulObject {
+public class InvisibilityCloak extends ZuulObject {
 
 	@Override
 	public void useObject(Student student) {

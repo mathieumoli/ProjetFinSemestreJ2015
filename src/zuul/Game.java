@@ -2,6 +2,7 @@ package zuul;
 
 import zuul.commands.*;
 import zuul.course.*;
+import zuul.object.MaraudeurMap;
 import zuul.person.Person;
 import zuul.person.Stromboni;
 import zuul.person.Student;
@@ -90,7 +91,6 @@ public class Game {
 		lecture3 = new LectureRoom(res.getString("lectureroom.description1"), 3);
 		library = new Library(res.getString("library.description"));
 		lunchRoom = new Lunchroom(res.getString("lunchroom.description"));
-		// enlev� la print room
 		secretariat = new Secretariat("au secretariat"); // TODO
 															  // internationnalisation
 		c1 = new Corridor(res.getString("corridor1.description"));
@@ -105,8 +105,6 @@ public class Game {
 		c10 = new Corridor("corridor10.description");
 		c11 = new Corridor("corridor11.description");
 		c12 = new Corridor("corridor12.description");
-		// Room u1 = new UselessRoom();
-		// Room u2 = new UselessRoom();
 		c1.setExit("north", c2);
 		c1.setExit("south", foyer);
 		c1.setExit("east", lecture1);
@@ -114,7 +112,6 @@ public class Game {
 		c2.setExit("north", c3);
 		c2.setExit("south", c1);
 		c2.setExit("east", lecture2);
-		// c2.setExit("west", u1);
 		c3.setExit("north", c6);
 		c3.setExit("south", c2);
 		c3.setExit("east", lecture3);
@@ -141,8 +138,6 @@ public class Game {
 		c11.setExit("east", c12);
 		c11.setExit("west", c9);
 		c12.setExit("north", ali);
-		// c12.setExit("south", print);
-		// c12.setExit("east", u2);
 		c12.setExit("west", c11);
 		lecture1.setExit("west", c1);
 		lecture2.setExit("west", c2);
@@ -152,68 +147,12 @@ public class Game {
 		lab3.setExit("west", c8);
 		secretariat.setExit("east", c1);
 		exam.setExit("north", c5);
-		// u1.setExit("east", c2);
-		// u2.setExit("west", c12);
 		lunchRoom.setExit("east", c9);
 		library.setExit("south", c10);
-		// print.setExit("north", c12);
 		foyer.setExit("north", c1);
 		ali.setExit("south", c12);
 		currentRoom = foyer;
-
-		createGamer();
 		
-		/**
-		 * // create the rooms Lunchroom lunchroom = new Lunchroom(
-		 * res.getString("lunchroom.description")); LectureRoom lectureroom1 =
-		 * new LectureRoom( res.getString("lectureroom.description1"), 1);
-		 * LectureRoom lectureroom2 = new LectureRoom(
-		 * res.getString("lectureroom.description1"), 2); LectureRoom
-		 * lectureroom3 = new LectureRoom(
-		 * res.getString("lectureroom.description1"), 3); LabRoom labroom1 = new
-		 * LabRoom(res.getString("labroom.description1"), 1); LabRoom labroom2 =
-		 * new LabRoom(res.getString("labroom.description1"), 2); LabRoom
-		 * labroom3 = new LabRoom(res.getString("labroom.description1"), 3);
-		 * Corridor corridor1 = new Corridor(
-		 * res.getString("corridor1.description")); Corridor corridor2 = new
-		 * Corridor( res.getString("corridor2.description")); Corridor corridor3
-		 * = new Corridor( res.getString("corridor3.description")); Corridor
-		 * corridor4 = new Corridor( res.getString("corridor4.description"));
-		 * Library library = new Library(res.getString("library.description"));
-		 * ExamRoom examroom = new
-		 * ExamRoom(res.getString("examroom.description"));
-		 * 
-		 * // initialise room exits
-		 * 
-		 * corridor1.setExit("west", labroom1); corridor1.setExit("east",
-		 * lunchroom); corridor1.setExit("north", corridor2);
-		 * 
-		 * corridor2.setExit("south", corridor1); corridor2.setExit("west",
-		 * lectureroom2); corridor2.setExit("east", lectureroom1);
-		 * corridor2.setExit("north", corridor3);
-		 * 
-		 * corridor3.setExit("south", corridor2); corridor3.setExit("west",
-		 * labroom2); corridor3.setExit("east", labroom3);
-		 * corridor3.setExit("north", corridor4);
-		 * 
-		 * corridor4.setExit("south", corridor3); corridor4.setExit("west",
-		 * library); corridor4.setExit("east", lectureroom3);
-		 * corridor4.setExit("north", examroom);
-		 * 
-		 * labroom1.setExit("east", corridor1); labroom2.setExit("east",
-		 * corridor3); labroom3.setExit("west", corridor3);
-		 * 
-		 * lunchroom.setExit("west", corridor1);
-		 * 
-		 * library.setExit("east", corridor4);
-		 * 
-		 * lectureroom1.setExit("west", corridor2); lectureroom2.setExit("east",
-		 * corridor2); lectureroom3.setExit("west", corridor4);
-		 * 
-		 * examroom.setExit("south", corridor4);
-		 * 
-		 * currentRoom = corridor1; // start game in the first corridor
-		 */
 	}
 
 	/**
@@ -223,7 +162,9 @@ public class Game {
 		printWelcome();
 		createCourses();
 		createRooms();
-		//createGamer();
+		createGamer();
+		MaraudeurMap c1= new MaraudeurMap(people,gamer);
+		gamer.addInBag(c1);
 		if (!(gamer.getName().equals("Chuck Norris"))) {
 			printGamer();
 
