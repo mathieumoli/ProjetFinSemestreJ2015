@@ -1,6 +1,9 @@
 package zuul.person;
 
+import java.util.ArrayList;
+
 import zuul.person.object.Wallet;
+import zuul.place.Room;
 
 /**
  * @author Cédric Lallemand
@@ -34,5 +37,10 @@ public class Stromboni extends Person{
 	
 	public  void allowStudentToPassExam(){
 		//TODO method to allow a student to passe exam
+	}
+	
+	@Override
+	public void randomMove(){
+	
 	}
 }
