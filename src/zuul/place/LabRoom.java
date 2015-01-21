@@ -207,10 +207,12 @@ public class LabRoom extends StudySpace {
 		if (!command.hasSecondWord()) {
 			// if there is no second word, we don't know where to go...
 			System.out.println(Game.res.getString("game.attend"));
-		} else if ((command.getSecondWord().equals("lab"))) {
+		} else {if ((command.getSecondWord().equals("lab"))) {
 			this.attendLab(gamer);
 			System.out.println(this.getLongDescription());
-		}
+		}else
+			System.out.println(Game.res.getString("game.attend"));}
+
 
 	}
 }
