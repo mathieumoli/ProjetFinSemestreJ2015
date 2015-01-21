@@ -52,7 +52,7 @@ public class Zuul_en_US extends ListResourceBundle {
 					"library.closed",
 					"The door is closed. The library is closed 7 out of 10 times... Come back later !" },
 			{ "lunchroom.coffee1",
-					"It's not the best coffee of my life but I'm feeling better !" },
+					"I had add a thermo of coffee in my backpack !" },
 			{ "lunchroom.coffee2", "Thank you Mocoffee !" },
 
 			{ "oop.lecture", "You need to know...blabla" },

@@ -361,7 +361,7 @@ public class Game {
 			currentRoom.wantStart(command, gamer);
 			break;
 		case "use":
-			gamer.wantUse(command);
+			gamer.wantUse(command.getSecondWord());
 			break;
 		case "say":
 		    gamer.wantSayHello(command, people, currentRoom);

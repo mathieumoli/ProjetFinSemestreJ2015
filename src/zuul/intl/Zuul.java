@@ -35,7 +35,7 @@ public class Zuul extends ListResourceBundle {
             {"examroom.noexam", "Il n'y a pas d'exament prévu pour le moment.Revenez plus tard ! "},
             {"corridor.dark","Ce couloir est d'une obscurité déconcertante, vous pourriez allumer la lumiere pour mieux y voir...\n Pour allumer la lumiere, tapez \"lights on\""},
             {"library.closed","La porte est fermée à clé. Il est vrai que la bibliothèque est fermée 7 fois sur 10. Revenez plus tard !"},
-            {"lunchroom.coffee1","C'est pas le meilleur café de ma vie mais je me sens mieux !"},
+            {"lunchroom.coffee1","J'ai ajouté une thermo de café dans mon sac !"},
             {"lunchroom.coffee2", "Merci Mocoffee !"},
 
             {"oop.lecture", "Il faut savoir...blabla"},

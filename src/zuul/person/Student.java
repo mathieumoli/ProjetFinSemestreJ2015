@@ -1,6 +1,7 @@
 package zuul.person;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.ResourceBundle;
 
 import zuul.Game;
@@ -20,12 +21,16 @@ import zuul.place.Room;
  */
 public class Student extends Person{
 
+	final int ADD_ENERGIE_COFFEE = 30;
+	final int LOSE_ENERGIE_BABYFOOT = 20;
+	
+	
 	private ArrayList<LectureItem> oopBook;
 	private int energy;
 	private boolean isInvisible;
 	private ArrayList<LectureItem> coursSuivi;
 	private ArrayList<LabItem> labsSuivi;
-	private ArrayList<FoundObject> sacaDos;
+	private HashMap<String, FoundObject> bag;
 
 	/***
 	 * 
@@ -41,7 +46,7 @@ public class Student extends Person{
 		coursSuivi = new ArrayList<LectureItem>();
 		labsSuivi = new ArrayList<LabItem>();
 		oopBook = new ArrayList<LectureItem>();
-		sacaDos= new ArrayList<FoundObject>();
+		bag= new HashMap<String, FoundObject>();
 	}
 
 	/***
@@ -348,24 +353,19 @@ public class Student extends Person{
 	 */
 	public void playBabyFoot(){
 		this.getWallet().decreaseMoney(1);
-		this.decrementEnergy(30);
+		this.decrementEnergy(LOSE_ENERGIE_BABYFOOT);
 		this.removeItem();
 	}
 
-	public void wantUse(Command command) {
-	   String word2=command.getSecondWord().toLowerCase();
-	   boolean find=false;
-	  int i ;
-	   for(i=0; i<sacaDos.size();i++){
-		   if(word2.equals((sacaDos.get(i)).getName())){
-			   FoundObject wanted=sacaDos.get(i);
-			   wanted.useObject(this);
-			   sacaDos.remove(i);
-			   find=true;
-			   break;
-		   }
-	   }//TODO internationalisation
-	   if(!find){System.out.println("Nothing to use");}
+	
+	public void wantUse(String object) {
+	   object=object.toLowerCase();
+	   if(bag.containsKey(object)){
+		   bag.get(object).useObject(this);
+	   } else {
+		   //TODO internationalisation
+		   System.out.println("Je n'ai pas ca dans mon sac.");
+	   }
 	    
     }
 	
@@ -407,6 +407,22 @@ public class Student extends Person{
 			}
 		}
 		
+	}
+	
+
+	/**
+	 * The student drink the coffee in it backpack
+	 */
+	public void drinkCoffee(){
+		if(bag.containsKey("coffee")){
+			bag.remove("coffee");
+			this.incrementEnergy(ADD_ENERGIE_COFFEE);
+			//TODO internationalize
+			System.out.println("bu caffé");
+		} else {
+			//TODO internationalize
+			System.out.println("Je n'ai pas de caffé sur moi :( ");
+		}
 	}
 	
 }
