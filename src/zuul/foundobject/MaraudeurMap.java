@@ -11,7 +11,7 @@ import zuul.person.Student;
  * @author Mathieu Molinengo
  *
  */
-public class MaraudeurMap {
+public class MaraudeurMap implements FoundObject{
 
 	private ArrayList<Person> persons;
 	private String password;
@@ -72,7 +72,7 @@ public class MaraudeurMap {
 	/**
 	 * To see other People
 	 */
-	public void seePeople() {
+	private void seePeople() {
 		// TODO internationalisation
 		System.out.println("--- Marauder Map ---");
 		if (locked == false) {
@@ -99,7 +99,7 @@ public class MaraudeurMap {
 	 * 
 	 * @param pass the scanned string which can be the password
 	 */
-	public void unlockMap(String pass) {
+	private void unlockMap(String pass) {
 		// TODO internationalisation
 		if (pass.equals("i am dark vador") || password.equals(pass)) {
 			locked = false;
@@ -109,4 +109,16 @@ public class MaraudeurMap {
 			        .println("You don't know the password, you'll never know where are the others");
 
 	}
+
+	@Override
+    public void useObject(Student student) {
+	    seePeople();
+	    
+    }
+
+	@Override
+    public void addStuff() {
+	   //Nothing to do
+	    
+    }
 }
