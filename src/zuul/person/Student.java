@@ -352,7 +352,15 @@ public class Student extends Person{
 
 	public void wantUse(Command command) {
 	   String word2=command.getSecondWord().toLowerCase();
-	   if(sacaDos.contains(word2));
+	  int i ;
+	   for(i=0; i<sacaDos.size();i++){
+		   if(word2.equals((sacaDos.get(i)).getName())){
+			   FoundObject wanted=sacaDos.get(i);
+			   wanted.useObject(this);
+			   sacaDos.remove(i);
+			   break;
+		   }
+	   }
 	    
     }
 }

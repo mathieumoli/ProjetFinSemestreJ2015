@@ -10,7 +10,7 @@ import zuul.person.Student;
  *          objects in the room
  */
 public abstract class FoundObject {
-	
+	private String name;
 	
 	/***
 	 * 
@@ -28,4 +28,20 @@ public abstract class FoundObject {
 	 * 
 	 ***/
 	public abstract void addStuff();
+
+	/**
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * @param name the name to set
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	
 }
