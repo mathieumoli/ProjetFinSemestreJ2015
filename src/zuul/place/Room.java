@@ -7,6 +7,7 @@ import zuul.object.ZuulObject;
 import zuul.person.Student;
 
 import java.util.ArrayList;
+import java.util.EmptyStackException;
 import java.util.Set;
 import java.util.HashMap;
 
@@ -287,13 +288,38 @@ public abstract class Room {
 
 	}
 	
-//	public zuulObject search(){
-//		return this.objectInRoom.get(0);
-//	}
+	/**
+	 * 
+	 * Call only when there is one or more object is the room to search a object in the room
+	 * 
+	 * @return a object present in the room
+	 * @throws EmptyStackException
+	 */
+	public ZuulObject search() throws EmptyStackException{
+		if(this.objectInRoom()){
+			return this.objectInRoom.get(0);
+		} else {
+			throw new EmptyStackException();
+		}
+	}
 	
+	/**
+	 * 
+	 * Call to know if the room has object
+	 * 
+	 * @return true if there is one or more object in the room
+	 */
 	public boolean objectInRoom(){
 		return !this.objectInRoom.isEmpty();
 	}
+	
+	
+	/**
+	 * 
+	 * Call to know if the room is secret
+	 * 
+	 * @return true if the room is secret
+	 */
 	public boolean isSecret(){
 		return this.secret;
 	}
