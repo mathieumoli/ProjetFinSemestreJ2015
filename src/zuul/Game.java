@@ -45,6 +45,7 @@ public class Game {
 	public static ArrayList<Person> people = new ArrayList<Person>();
 	private Room ali, exam, foyer, lab1, lab2, lab3, lecture1, lecture2, lecture3, lunchRoom, library, secretariat;
 	private Room c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12;
+	Scanner scanner = new Scanner(System.in);
 	
 	/**
 	 * Create the game and initialize its internal map.
@@ -64,7 +65,7 @@ public class Game {
 		System.out
 		        .println("Or do you prefer playing in English ? If so, press 2.");
 
-		Scanner scanner = new Scanner(System.in);
+		
 		String choice = scanner.nextLine();
 
 		if (choice.equals("1")) {
@@ -210,7 +211,6 @@ public class Game {
 
 	private void createPersons() {
 		System.out.println(res.getString("game.askname"));
-		Scanner scanner = new Scanner(System.in);
 		String name = scanner.nextLine();
 		gamer = new Student(name);
 		// creates other players
@@ -227,6 +227,7 @@ public class Game {
 		people.add(person3);
 		people.add(stromboni);
 		gamer.setCurrentRoom(foyer);
+		
 
 	}
 

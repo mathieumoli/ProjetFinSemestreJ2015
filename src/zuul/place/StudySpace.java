@@ -1,10 +1,7 @@
 package zuul.place;
 
-import java.util.ResourceBundle;
-
 import zuul.course.Item;
 import zuul.person.Person;
-import zuul.person.Student;
 
 /**
  * @author Mathieu Molinengo and Martinez Lucas

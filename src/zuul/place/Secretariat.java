@@ -17,7 +17,7 @@ public class Secretariat extends Room {
 	@Override
 	public boolean enter(Student student) {
 		// TODO internationnalisation
-		System.out.println("Vous êtes au secretariat. Les gens ici font comme si ils ne vous voyaient pas. Vous devriez partir.");
+		System.out.println("Vous Ãªtes au secretariat. Les gens ici font comme si ils ne vous voyaient pas. Vous devriez partir.");
 		return true;
 	}
 

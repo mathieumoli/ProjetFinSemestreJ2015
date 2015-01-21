@@ -2,8 +2,6 @@ package zuul.person;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.ResourceBundle;
-
 import zuul.Game;
 import zuul.commands.Command;
 import zuul.course.Item;

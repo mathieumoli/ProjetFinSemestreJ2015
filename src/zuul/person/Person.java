@@ -1,8 +1,6 @@
 package zuul.person;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-
 import zuul.person.object.Wallet;
 import zuul.place.Room;
 

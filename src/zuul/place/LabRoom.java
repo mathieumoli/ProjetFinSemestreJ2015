@@ -4,7 +4,6 @@ import zuul.Game;
 import zuul.commands.Command;
 import zuul.course.LabItem;
 import zuul.course.LectureItem;
-import zuul.person.Person;
 import zuul.person.Student;
 
 /**

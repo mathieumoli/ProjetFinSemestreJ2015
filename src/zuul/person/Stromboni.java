@@ -1,9 +1,6 @@
 package zuul.person;
 
-import java.util.ArrayList;
-
 import zuul.person.object.Wallet;
-import zuul.place.Room;
 
 /**
  * @author Cédric Lallemand

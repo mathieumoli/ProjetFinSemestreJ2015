@@ -1,7 +1,5 @@
 package zuul.object;
 
-import zuul.person.Student;
-
 abstract class PayingObject extends ZuulObject{
 	
 	private int price;

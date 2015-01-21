@@ -1,6 +1,5 @@
 package zuul.object;
 
-import zuul.Game;
 import zuul.person.Student;
 /**
  * 

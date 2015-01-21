@@ -4,7 +4,6 @@ import zuul.Game;
 import zuul.commands.Command;
 import zuul.object.Cheatsheet;
 import zuul.object.Tablet;
-import zuul.person.Person;
 import zuul.person.Student;
 
 import java.util.Random;

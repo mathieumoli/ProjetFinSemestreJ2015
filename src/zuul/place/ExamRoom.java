@@ -193,7 +193,9 @@ public class ExamRoom extends Room {
 				student.decrementEnergy(40);
 				System.out.println(getExitString());
 			}
+			scanner.close();
 		}
+		
 	}
 
 	/**

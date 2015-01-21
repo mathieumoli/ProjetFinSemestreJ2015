@@ -2,7 +2,6 @@ package zuul.place;
 
 import zuul.Game;
 import zuul.commands.Command;
-import zuul.person.Person;
 import zuul.person.Student;
 
 /**
