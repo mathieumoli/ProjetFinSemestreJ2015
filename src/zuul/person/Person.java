@@ -1,12 +1,7 @@
 package zuul.person;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
-import zuul.Game;
-import zuul.course.Item;
-import zuul.course.LabItem;
-import zuul.course.LectureItem;
 import zuul.person.objet.Wallet;
 import zuul.place.Room;
 
