@@ -141,6 +141,11 @@ public class Wallet{
 		return transactionAccepted;
 	}
 	
+	/**
+	 * 
+	 * Call when the wallet is stolen, all the money is lost.
+	 * @return
+	 */
 	public int stolen(){
 		int stolen = this.getMoney();
 		this.decreaseMoney(stolen);

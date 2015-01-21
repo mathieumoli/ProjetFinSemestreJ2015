@@ -409,6 +409,9 @@ public class Student extends Person{
 		
 	}
 	
+	public void addInBag(ZuulObject obj){
+		this.bag.put(obj.getName(), obj);
+	}
 
 	/**
 	 * The student drink the coffee in it backpack
@@ -424,5 +427,10 @@ public class Student extends Person{
 			System.out.println("Je n'ai pas de caffé sur moi :( ");
 		}
 	}
+	
+//	public void searchInRoom(){
+//		if(this.getCurrentRoom().)
+//		this.getCurrentRoom()
+//	}
 	
 }

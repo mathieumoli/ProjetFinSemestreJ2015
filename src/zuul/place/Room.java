@@ -287,6 +287,13 @@ public abstract class Room {
 
 	}
 	
+//	public zuulObject search(){
+//		return this.objectInRoom.get(0);
+//	}
+	
+	public boolean objectInRoom(){
+		return !this.objectInRoom.isEmpty();
+	}
 	public boolean isSecret(){
 		return this.secret;
 	}
