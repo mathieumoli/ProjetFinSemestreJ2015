@@ -74,7 +74,7 @@ public abstract class Room {
 	public Room(String description, boolean secret) {
 		this.description = description;
 		exits = new HashMap<String, Room>();
-		secret = secret;
+		this.secret = secret;
 	}
 
 	/**
@@ -154,7 +154,7 @@ public abstract class Room {
 	 * @param command
 	 *            The command to be processed.
 	 */
-	private void wantStart(Command command) {
+	public void wantStart(Command command) {
 		// TODO internationalisation
 		System.out.println("You can't do this here !");
 	}
