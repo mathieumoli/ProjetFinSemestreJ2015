@@ -17,7 +17,7 @@ import zuul.person.objet.Wallet;
  * 
  *          Class to create a Student
  */
-public class Student extends Person {
+public class Student extends Person{
 
 	private ArrayList<LectureItem> oopBook;
 	private int energy;
@@ -30,8 +30,7 @@ public class Student extends Person {
 	 * 
 	 * Constructor to create a Student
 	 * 
-	 * @param nameOfStudent
-	 *            - the name of created student
+	 * @param nameOfStudent - the name of created student      
 	 * 
 	 ***/
 	public Student(String nameOfStudent) {
@@ -41,7 +40,7 @@ public class Student extends Person {
 		coursSuivi = new ArrayList<LectureItem>();
 		labsSuivi = new ArrayList<LabItem>();
 		oopBook = new ArrayList<LectureItem>();
-		sacaDos = new ArrayList<FoundObject>();
+		sacaDos= new ArrayList<FoundObject>();
 	}
 
 	/***
@@ -55,28 +54,28 @@ public class Student extends Person {
 	public void addItem(Item itemListened) {
 		if (itemListened instanceof LabItem) {
 			if (!alreadyListenedLab(new LabItem(itemListened.getModule(),
-			        itemListened.getNumber()))) {
+					itemListened.getNumber()))) {
 				labsSuivi.add((LabItem) itemListened);
 			}
 			System.out.println(this.getName()
-			        + Game.res.getString("student.addLab.part1")
-			        + itemListened.getModule()
-			        + Game.res.getString("student.add.part2")
-			        + itemListened.getNumberString());
+					+ Game.res.getString("student.addLab.part1")
+					+ itemListened.getModule()
+					+ Game.res.getString("student.add.part2")
+					+ itemListened.getNumberString());
 		} else {
 			if (!alreadyListenedLecture(new LectureItem(
-			        itemListened.getModule(), itemListened.getNumber()))) {
+					itemListened.getModule(), itemListened.getNumber()))) {
 				coursSuivi.add((LectureItem) itemListened);
 			}
 			System.out.println(this.getName()
-			        + Game.res.getString("student.addLecture.part1")
-			        + itemListened.getModule()
-			        + Game.res.getString("student.add.part2")
-			        + itemListened.getNumberString());
+					+ Game.res.getString("student.addLecture.part1")
+					+ itemListened.getModule()
+					+ Game.res.getString("student.add.part2")
+					+ itemListened.getNumberString());
 		}
 	}
-
-	public void learnItem(Item item) {
+	
+	public void learnItem(Item item){
 		this.decrementEnergy(10);
 		this.addItem(item);
 	}
@@ -94,9 +93,8 @@ public class Student extends Person {
 		if (energy > theEnergy) {
 			energy -= theEnergy;
 			System.out.println(Game.res.getString("student.energy.part1")
-			        + this.getName()
-			        + Game.res.getString("student.energy.part2")
-			        + this.getEnergyString());
+					+ this.getName() + Game.res.getString("student.energy.part2")
+					+ this.getEnergyString());
 		} else {
 			energy = 0;
 			System.out.println(Game.res.getString("student.energy0"));
@@ -120,8 +118,8 @@ public class Student extends Person {
 		}
 
 		System.out.println(Game.res.getString("student.energy.part1")
-		        + this.getName() + Game.res.getString("student.energy.part2")
-		        + this.getEnergyString() + ".");
+				+ this.getName() + Game.res.getString("student.energy.part2")
+				+ this.getEnergyString() + ".");
 	}
 
 	/***
@@ -158,7 +156,7 @@ public class Student extends Person {
 		for (int i = 0; i < oopBook.size(); i++) {
 			this.addItem(oopBook.get(i));
 			System.out.println(Game.res
-			        .getString(oopBook.get(i).getBundleKey()));
+					.getString(oopBook.get(i).getBundleKey()));
 		}
 		this.decrementEnergy(35);
 	}
@@ -198,7 +196,7 @@ public class Student extends Person {
 		return energy;
 
 	}
-
+	
 	/***
 	 * 
 	 * Method to know if the student is invisible
@@ -206,23 +204,23 @@ public class Student extends Person {
 	 * @return true if the student is invisible
 	 * 
 	 */
-	public boolean isInvisible() {
+	public boolean isInvisible(){
 		return isInvisible;
 	}
-
+	
 	/**
 	 * 
 	 * Change the visibility of the Student
 	 * 
 	 */
-	public void changeVisibility() {
-		if (isInvisible) {
+	public void changeVisibility(){
+		if(isInvisible){
 			isInvisible = false;
-		} else {
+		}else{
 			isInvisible = true;
 		}
 	}
-
+	
 	/***
 	 * 
 	 * Method to get the energy of the student with a string format
@@ -286,44 +284,43 @@ public class Student extends Person {
 
 			int index = (int) (Math.random() * taille);
 			System.out.println(Game.res.getString("student.removeLecture1")
-			        + coursSuivi.get(index).getModule()
-			        + Game.res.getString("student.removeLecture2")
-			        + coursSuivi.get(index).getNumberString());
+					+ coursSuivi.get(index).getModule()
+					+ Game.res.getString("student.removeLecture2")
+					+ coursSuivi.get(index).getNumberString());
 			lab = new LabItem(coursSuivi.get(index).getModule(), coursSuivi
-			        .get(index).getNumber());
+					.get(index).getNumber());
 			coursSuivi.remove(index);
 
 			if (labsSuivi.contains(lab)) {
 				int indexOfRem = labsSuivi.indexOf(lab);
 
 				System.out.println(Game.res.getString("student.removeLab1")
-				        + labsSuivi.get(indexOfRem).getModule()
-				        + Game.res.getString("student.removeLecture2")
-				        + labsSuivi.get(indexOfRem).getNumberString());
+						+ labsSuivi.get(indexOfRem).getModule()
+						+ Game.res.getString("student.removeLecture2")
+						+ labsSuivi.get(indexOfRem).getNumberString());
 				labsSuivi.remove(indexOfRem);
 			}
 		}
 	}
-
+	
 	/**
 	 * 
 	 * Return the success of the attempt to steal
-	 * 
 	 * @return true of the steal is successful
 	 */
-	public boolean successStealsMoney() {
+	public boolean successStealsMoney(){
 		double random = Math.random();
 		boolean success = false;
-		if (this.isInvisible()) {
-			if (random > 20) {
+		if(this.isInvisible()){
+			if(random>20){
 				success = true;
 			}
 		} else {
-			if (random > 80) {
+			if(random>80){
 				success = true;
 			}
 		}
-
+		
 		return success;
 	}
 
@@ -331,46 +328,43 @@ public class Student extends Person {
 	 * 
 	 * Steals money in the wallet of "personStolen"
 	 * 
-	 * @param personStolen
-	 *            - person which is stolen
+	 * @param personStolen - person which is stolen
 	 * @return amount stolen
 	 * 
 	 */
-	public void StealsMoney(Person personStolen) {
+	public void StealsMoney(Person personStolen){
 		this.decrementEnergy(10);
-		if (successStealsMoney()) {
+		if(successStealsMoney()){
 			this.getWallet().raiseMoney(personStolen.getWallet().stolen());
 		} else {
-			// TODO vole raté le player doit perdre de l'argent
+			//TODO vole raté le player doit perdre de l'argent
 			System.out.println("Pris en flague");
 		}
 	}
-
+	
 	/**
 	 * Call when a student play babyfoot
 	 */
-	public void playBabyFoot() {
+	public void playBabyFoot(){
 		this.getWallet().decreaseMoney(1);
 		this.decrementEnergy(30);
 		this.removeItem();
 	}
 
 	public void wantUse(Command command) {
-		String word2 = command.getSecondWord().toLowerCase();
-		boolean find = false;
-		int i;
-		for (i = 0; i < sacaDos.size(); i++) {
-			if (word2.equals((sacaDos.get(i)).getName())) {
-				FoundObject wanted = sacaDos.get(i);
-				wanted.useObject(this);
-				sacaDos.remove(i);
-				find = true;
-				break;
-			}
-		}// TODO internationalisation
-		if (!find) {
-			System.out.println("Nothing to use");
-		}
-
-	}
+	   String word2=command.getSecondWord().toLowerCase();
+	   boolean find=false;
+	  int i ;
+	   for(i=0; i<sacaDos.size();i++){
+		   if(word2.equals((sacaDos.get(i)).getName())){
+			   FoundObject wanted=sacaDos.get(i);
+			   wanted.useObject(this);
+			   sacaDos.remove(i);
+			   find=true;
+			   break;
+		   }
+	   }//TODO internationalisation
+	   if(!find){System.out.println("Nothing to use");}
+	    
+    }
 }

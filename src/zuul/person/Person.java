@@ -29,6 +29,18 @@ public class Person {
 	 * @param name - the name of created person     
 	 * 
 	 ***/
+	public Person(String name){
+		this.name = name;
+		this.wallet=wallet;
+	}
+	
+	/***
+	 * 
+	 * Constructor to create a Person
+	 * 
+	 * @param name - the name of created person     
+	 * 
+	 ***/
 	public Person(String name, Wallet wallet){
 		this.name = name;
 		this.wallet=wallet;
