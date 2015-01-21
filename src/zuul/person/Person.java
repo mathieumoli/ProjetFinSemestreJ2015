@@ -85,7 +85,11 @@ public class Person {
 		this.currentRoom = currentRoom;
 	}
 	
-	
+	/**
+	 * 
+	 * The person do a random move to go in a accessible room
+	 * 
+	 */
 	public void randomMove(){
 		int rand;
 		boolean trouve = false;
