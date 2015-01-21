@@ -267,6 +267,10 @@ public abstract class Room {
 		System.out.println("You can't do this here");
 
 	}
+	
+	public void addAnObjectInRoom(ZuulObject obj){
+		this.objectInRoom.add(obj);
+	}
 
 	/**
 	 * Try to search near the printer, if it's incomplete display an error
