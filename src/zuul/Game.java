@@ -42,7 +42,9 @@ public class Game {
 	public static List<LabItem> labs = new ArrayList<LabItem>();
 	public static List<LectureItem> lectures = new ArrayList<LectureItem>();
 	public static ArrayList<Person> people = new ArrayList<Person>();
-
+	private Room ali, exam, foyer, lab1, lab2, lab3, lecture1, lecture2, lecture3, lunchRoom, library, secretariat;
+	private Room c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12;
+	
 	/**
 	 * Create the game and initialize its internal map.
 	 */
@@ -77,36 +79,32 @@ public class Game {
 	 * Create all the rooms and link their exits together.
 	 */
 	private void createRooms() {
-		Room ali = new AliOffice("le bureau d'Ali"); // TODO
-													 // internationnalisation
-		Room exam = new ExamRoom(res.getString("examroom.description"));
-		Room foyer = new Foyer("le foyer"); // TODO internationnalisation
-		Room lab1 = new LabRoom(res.getString("labroom.description1"), 1);
-		Room lab2 = new LabRoom(res.getString("labroom.description1"), 2);
-		Room lab3 = new LabRoom(res.getString("labroom.description1"), 3);
-		Room lecture1 = new LectureRoom(
-		        res.getString("lectureroom.description1"), 1);
-		Room lecture2 = new LectureRoom(
-		        res.getString("lectureroom.description1"), 2);
-		Room lecture3 = new LectureRoom(
-		        res.getString("lectureroom.description1"), 3);
-		Room library = new Library(res.getString("library.description"));
-		Room lunchRoom = new Lunchroom(res.getString("lunchroom.description"));
+		ali = new AliOffice("le bureau d'Ali"); // TODO internationnalisation
+		exam = new ExamRoom(res.getString("examroom.description"));
+		foyer = new Foyer("le foyer"); // TODO internationnalisation
+		lab1 = new LabRoom(res.getString("labroom.description1"), 1);
+		lab2 = new LabRoom(res.getString("labroom.description1"), 2);
+		lab3 = new LabRoom(res.getString("labroom.description1"), 3);
+		lecture1 = new LectureRoom(res.getString("lectureroom.description1"), 1);
+		lecture2 = new LectureRoom(res.getString("lectureroom.description1"), 2);
+		lecture3 = new LectureRoom(res.getString("lectureroom.description1"), 3);
+		library = new Library(res.getString("library.description"));
+		lunchRoom = new Lunchroom(res.getString("lunchroom.description"));
 		// enlev� la print room
-		Room secretariat = new Secretariat("au secretariat"); // TODO
+		secretariat = new Secretariat("au secretariat"); // TODO
 															  // internationnalisation
-		Room c1 = new Corridor(res.getString("corridor1.description"));
-		Room c2 = new Corridor(res.getString("corridor2.description"));
-		Room c3 = new Corridor(res.getString("corridor3.description"));
-		Room c4 = new Corridor(res.getString("corridor4.description"));
-		Room c5 = new Corridor("corridor5.description");
-		Room c6 = new Corridor("corridor6.description");
-		Room c7 = new Corridor("corridor7.description");
-		Room c8 = new Corridor("corridor8.description");
-		Room c9 = new Corridor("corridor9.description");
-		Room c10 = new Corridor("corridor10.description");
-		Room c11 = new Corridor("corridor11.description");
-		Room c12 = new Corridor("corridor12.description");
+		c1 = new Corridor(res.getString("corridor1.description"));
+		c2 = new Corridor(res.getString("corridor2.description"));
+		c3 = new Corridor(res.getString("corridor3.description"));
+		c4 = new Corridor(res.getString("corridor4.description"));
+		c5 = new Corridor("corridor5.description");
+		c6 = new Corridor("corridor6.description");
+		c7 = new Corridor("corridor7.description");
+		c8 = new Corridor("corridor8.description");
+		c9 = new Corridor("corridor9.description");
+		c10 = new Corridor("corridor10.description");
+		c11 = new Corridor("corridor11.description");
+		c12 = new Corridor("corridor12.description");
 		// Room u1 = new UselessRoom();
 		// Room u2 = new UselessRoom();
 		c1.setExit("north", c2);
@@ -274,8 +272,10 @@ public class Game {
 		Person person1 = new Person("Cédric", new Wallet(10));
 		Person person2 = new Person("Mathieu", new Wallet(4));
 		Person person3 = new Person("Lisa", new Wallet(5));
-		person1.setCurrentRoom(currentRoom);
-		person2.setCurrentRoom(currentRoom);
+		person1.setCurrentRoom(foyer);
+		person2.setCurrentRoom(foyer);
+		person3.setCurrentRoom(ali);
+		stromboni.setCurrentRoom(library);
 		people.add(person1);
 		people.add(person2);
 		people.add(person3);
