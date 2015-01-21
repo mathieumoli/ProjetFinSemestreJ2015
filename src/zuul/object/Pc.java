@@ -32,10 +32,4 @@ public class Pc extends ZuulObject {
 		
 	}
 
-	@Override
-	public void addStuff() {
-		// TODO Auto-generated method stub
-		
-	}
-
 }

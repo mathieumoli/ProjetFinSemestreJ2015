@@ -17,11 +17,6 @@ public class InvisibilityCloak extends ZuulObject {
 		student.changeVisibility();
 	}
 
-	
-	public void addStuff() {
-		//Nothings to do
-		
-	}
 
 	
 }

@@ -410,7 +410,12 @@ public class Student extends Person{
 	}
 	
 	public void addInBag(ZuulObject obj){
-		bag.put(obj.getName().toLowerCase(), obj);
+		if(!bag.containsKey(obj.getName())){
+			bag.put(obj.getName().toLowerCase(), obj);
+		} else {
+			//TODO internationalize
+			System.out.println("Un object de ce type est déjà dans le sac, je ne peux pas en avoir plusieurs");
+		}
 	}
 
 	/**
@@ -428,9 +433,17 @@ public class Student extends Person{
 		}
 	}
 	
-//	public void searchInRoom(){
-//		if(this.getCurrentRoom().)
-//		this.getCurrentRoom()
-//	}
+	/**
+	 * 
+	 * If there is an object in the current room, it is add in the bag (if the room has more than one object 
+	 * only one is add to the bag, a other search is mandatory to discover the other)
+	 * 
+	 */
+	public void searchInRoom(){
+		if(this.getCurrentRoom().objectInRoom()){
+			ZuulObject objectFound = this.getCurrentRoom().search();
+			this.addInBag(objectFound);
+		}
+	}
 	
 }

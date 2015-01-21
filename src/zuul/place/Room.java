@@ -297,7 +297,8 @@ public abstract class Room {
 	 */
 	public ZuulObject search() throws EmptyStackException{
 		if(this.objectInRoom()){
-			return this.objectInRoom.get(0);
+			int rand = (int) Math.round(Math.random() * (this.objectInRoom.size()-1));
+			return this.objectInRoom.get(rand);
 		} else {
 			throw new EmptyStackException();
 		}

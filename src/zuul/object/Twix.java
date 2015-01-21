@@ -27,10 +27,4 @@ public class Twix extends PayingObject {
 		
 	}
 
-	@Override
-	public void addStuff() {
-		//nothing to do
-		
-	}
-
 }

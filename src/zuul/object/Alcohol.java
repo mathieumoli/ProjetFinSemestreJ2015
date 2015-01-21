@@ -26,11 +26,5 @@ public class Alcohol extends PayingObject {
 		student.decrementEnergy(40);
 		
 	}
-
-	@Override
-	public void addStuff() {
-		//nothing to do
-		
-	}
 	
 }

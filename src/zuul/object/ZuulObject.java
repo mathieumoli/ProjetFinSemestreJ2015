@@ -29,13 +29,6 @@ public abstract class ZuulObject {
 	 ***/
 	public abstract void useObject(Student student);
 
-	/***
-	 * 
-	 * Add stuff to an object
-	 * 
-	 ***/
-	public abstract void addStuff();
-
 	/**
 	 * @return the name
 	 */

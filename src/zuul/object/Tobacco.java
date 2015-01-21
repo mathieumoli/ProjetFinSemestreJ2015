@@ -28,10 +28,4 @@ public class Tobacco extends PayingObject{
 		
 	}
 
-	@Override
-	public void addStuff() {
-		//nothing to do
-		
-	}
-
 }

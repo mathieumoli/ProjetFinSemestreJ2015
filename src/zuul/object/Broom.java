@@ -39,10 +39,4 @@ public class Broom extends ZuulObject {
 
 	}
 
-	@Override
-	public void addStuff() {
-		// TODO Auto-generated method stub
-
-	}
-
 }

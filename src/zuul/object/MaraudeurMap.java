@@ -120,10 +120,4 @@ public class MaraudeurMap extends ZuulObject{
 	   System.out.println(student.getCurrentRoom().getExitString());
 	    
     }
-
-	@Override
-    public void addStuff() {
-	   //Nothing to do
-	    
-    }
 }

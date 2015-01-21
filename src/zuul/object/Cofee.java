@@ -25,15 +25,7 @@ public class Cofee extends PayingObject {
 	 ***/
 	@Override
 	public void useObject(Student student) {
-		student.incrementEnergy(30);
-		
-		
-	}
-
-	@Override
-	public void addStuff() {
-		//nothing to do
-		
+		student.incrementEnergy(30);	
 	}
 	
 }

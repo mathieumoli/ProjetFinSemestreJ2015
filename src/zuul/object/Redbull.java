@@ -29,11 +29,5 @@ public class Redbull extends PayingObject {
 		student.incrementEnergy(40);
 		
 	}
-
-	@Override
-	public void addStuff() {
-		//nothing to do
-		
-	}
 	
 }
