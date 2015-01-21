@@ -410,7 +410,7 @@ public class Student extends Person{
 	}
 	
 	public void addInBag(ZuulObject obj){
-		this.bag.put(obj.getName(), obj);
+		bag.put(obj.getName().toLowerCase(), obj);
 	}
 
 	/**

@@ -22,6 +22,7 @@ public class Cheatsheet extends ZuulObject {
 	 * 
 	 ***/
 	public Cheatsheet() {
+		super("cheatsheet");
 		addStuff();
 	}
 

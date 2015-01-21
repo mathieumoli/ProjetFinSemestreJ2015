@@ -12,6 +12,13 @@ import zuul.person.Student;
 public abstract class ZuulObject {
 	private String name;
 	
+	/**
+	 * Constructor with name
+	 */
+	public ZuulObject(String name){
+		this.name=name;
+	}
+	
 	/***
 	 * 
 	 * Method to use the object

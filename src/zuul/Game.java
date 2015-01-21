@@ -162,7 +162,7 @@ public class Game {
 		printWelcome();
 		createCourses();
 		createRooms();
-		createGamer();
+		createPersons();
 		MaraudeurMap c1= new MaraudeurMap(people,gamer);
 		gamer.addInBag(c1);
 		if (!(gamer.getName().equals("Chuck Norris"))) {
@@ -175,6 +175,11 @@ public class Game {
 			while (!finished) {
 				Command command = parser.getCommand();
 				finished = processCommand(command);
+				int i;
+				for(i=0;i<people.size();i++){
+				people.get(i).randomMove();
+				}
+				gamer.setCurrentRoom(currentRoom);
 			}
 			System.out.println(res.getString("game.thankyou"));
 		} else {
@@ -203,7 +208,7 @@ public class Game {
 	 * Create the player based on the given name
 	 */
 
-	private void createGamer() {
+	private void createPersons() {
 		System.out.println(res.getString("game.askname"));
 		Scanner scanner = new Scanner(System.in);
 		String name = scanner.nextLine();
@@ -221,6 +226,7 @@ public class Game {
 		people.add(person2);
 		people.add(person3);
 		people.add(stromboni);
+		gamer.setCurrentRoom(foyer);
 
 	}
 

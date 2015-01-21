@@ -19,6 +19,7 @@ public class Tablet extends ZuulObject {
 	 * 
 	 ***/
 	public Tablet() {
+		super("tablet");
 		addStuff();
 
 	}

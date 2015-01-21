@@ -1,5 +1,6 @@
 package zuul.person;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import zuul.person.object.Wallet;
@@ -86,13 +87,13 @@ public class Person {
 	
 	
 	public void randomMove(){
-		double rand;
+		int rand;
 		boolean trouve = false;
 		while(!trouve){
-			rand = Math.random();
-			HashMap<String,Room> hm = this.currentRoom.getExits();
+			rand = (int) Math.random();
+			ArrayList<Room> hm = new ArrayList<Room>(this.currentRoom.getExits().values());
 			rand *= Math.round((hm.size()-1));
-			if(hm.get(rand).isSecret()){
+			if(!hm.get(rand).isSecret()){
 				this.currentRoom= hm.get(rand);
 				trouve = true;
 			}

@@ -24,6 +24,7 @@ public class MaraudeurMap extends ZuulObject{
 	 * 
 	 */
 	public MaraudeurMap(Student player) {
+		super("Map");
 		persons = new ArrayList<Person>();
 		// TODO internationalisation
 		password = "je jure solennellement que mes intentions sont mauvaises";
@@ -37,6 +38,7 @@ public class MaraudeurMap extends ZuulObject{
 	 * 
 	 */
 	public MaraudeurMap(ArrayList<Person> baladeurs,Student player) {
+		super("Map");
 		persons = baladeurs;
 		password = "je jure solennellement que mes intentions sont mauvaises";
 		locked = true;
@@ -50,6 +52,7 @@ public class MaraudeurMap extends ZuulObject{
 	 * 
 	 */
 	public MaraudeurMap(ArrayList<Person> baladeurs, String passwordChanged,Student player) {
+		super("Map");
 		persons = baladeurs;
 		password = passwordChanged;
 		locked = true;
@@ -64,6 +67,7 @@ public class MaraudeurMap extends ZuulObject{
 	 */
 	public MaraudeurMap(ArrayList<Person> baladeurs, String passwordChanged,
 	        boolean lock) {
+		super("Map");
 		persons = baladeurs;
 		password = passwordChanged;
 		locked = lock;
@@ -79,10 +83,10 @@ public class MaraudeurMap extends ZuulObject{
 			int i;
 			for(i=0;i<persons.size();i++){
 				// TODO internationalisation
-				System.out.println(persons.get(i).getName()+"is in "+persons.get(i).getCurrentRoom());
+				System.out.println(persons.get(i).getName()+" is in "+persons.get(i).getCurrentRoom().getClass().getSimpleName());
 			}
 			// TODO internationalisation
-			System.out.println("You are in : "+owner.getCurrentRoom());
+			System.out.println("You are in : "+owner.getCurrentRoom().getClass().getSimpleName());
 		}
 		else
 		{
@@ -113,6 +117,7 @@ public class MaraudeurMap extends ZuulObject{
 	@Override
     public void useObject(Student student) {
 	    seePeople();
+	   System.out.println(student.getCurrentRoom().getExitString());
 	    
     }
 
