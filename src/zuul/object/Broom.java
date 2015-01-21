@@ -3,6 +3,12 @@ package zuul.object;
 import zuul.person.Student;
 
 public class Broom extends ZuulObject {
+	
+	public Broom() {
+		super("broom");
+		
+	}
+
 	int i = 0;
 
 	@Override

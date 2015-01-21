@@ -4,12 +4,15 @@ import zuul.person.Student;
 
 public class PayingObject extends ZuulObject{
 	private int price;
+	
 
 	PayingObject(){
+		super("") ;
 		price=0;
 	}
 	
-	PayingObject(int theprice){
+	PayingObject(String name ,int theprice){
+		super(name);
 		price=theprice;
 	}
 

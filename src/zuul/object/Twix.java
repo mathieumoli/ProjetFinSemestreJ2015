@@ -11,7 +11,7 @@ public class Twix extends PayingObject {
 	 * Constructor for create a Twix
 	 */
 	public Twix(){
-		super(1);
+		super("twix",1);
 	}
 	
 	@Override

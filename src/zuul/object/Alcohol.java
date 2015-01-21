@@ -5,7 +5,7 @@ import zuul.person.Student;
 public class Alcohol extends PayingObject {
 
 	public Alcohol(){
-		super(3);
+		super("alcohol",3);
 	}
 	
 	@Override

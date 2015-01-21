@@ -6,7 +6,7 @@ import zuul.person.Student;
 public class Cofee extends PayingObject {
 	
 	public Cofee(){
-		super(1);
+		super("cofee",1);
 	}
 
 	@Override

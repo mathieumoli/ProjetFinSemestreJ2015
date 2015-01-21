@@ -3,6 +3,12 @@ package zuul.object;
 import zuul.person.Student;
 
 public class Wand extends ZuulObject {
+	
+
+	public Wand() {
+		super("wand");
+		
+	}
 
 	@Override
 	public void useObject(Student student) {

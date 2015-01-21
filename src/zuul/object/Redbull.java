@@ -5,7 +5,7 @@ import zuul.person.Student;
 public class Redbull extends PayingObject {
 	
 	public Redbull(){
-		super(2);
+		super("redbull",2);
 	}
 	
 	@Override

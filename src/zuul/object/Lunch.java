@@ -5,7 +5,7 @@ import zuul.person.Student;
 public class Lunch extends PayingObject {
 	
 	public Lunch(){
-		super(4);
+		super("lunch",4);
 	}
 	
 	@Override
