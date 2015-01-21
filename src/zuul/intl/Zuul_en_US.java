@@ -30,7 +30,7 @@ public class Zuul_en_US extends ListResourceBundle {
 			{ "corridor3.description", "You are in the third corridor" },
 			{ "corridor4.description", "You are in the fourth corridor" },
 			{ "corridor.tablet",
-					"You find a tablet in the corridor. To use it, type \"use tablet\"" },
+					"You find a tablet in the corridor. To turn it on, type \"turn tablet\"" },
 			{ "corridor.notablet", "Which tablet?" },
 			{
 					"corridor.cheatsheet",

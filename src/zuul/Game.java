@@ -73,19 +73,24 @@ public class Game {
 	 * Create all the rooms and link their exits together.
 	 */
 	private void createRooms() {
-		Room ali = new AliOffice("le bureau d'Ali"); // TODO internationnalisation
+		Room ali = new AliOffice("le bureau d'Ali"); // TODO
+													 // internationnalisation
 		Room exam = new ExamRoom(res.getString("examroom.description"));
 		Room foyer = new Foyer("le foyer"); // TODO internationnalisation
 		Room lab1 = new LabRoom(res.getString("labroom.description1"), 1);
 		Room lab2 = new LabRoom(res.getString("labroom.description1"), 2);
 		Room lab3 = new LabRoom(res.getString("labroom.description1"), 3);
-		Room lecture1 = new LectureRoom(res.getString("lectureroom.description1"), 1);
-		Room lecture2 = new LectureRoom(res.getString("lectureroom.description1"), 2);
-		Room lecture3 = new LectureRoom(res.getString("lectureroom.description1"), 3);
+		Room lecture1 = new LectureRoom(
+		        res.getString("lectureroom.description1"), 1);
+		Room lecture2 = new LectureRoom(
+		        res.getString("lectureroom.description1"), 2);
+		Room lecture3 = new LectureRoom(
+		        res.getString("lectureroom.description1"), 3);
 		Room library = new Library(res.getString("library.description"));
 		Room lunchRoom = new Lunchroom(res.getString("lunchroom.description"));
-		// enlevé la print room
-		Room secretariat = new Secretariat("au secretariat"); // TODO internationnalisation
+		// enlevï¿½ la print room
+		Room secretariat = new Secretariat("au secretariat"); // TODO
+															  // internationnalisation
 		Room c1 = new Corridor(res.getString("corridor1.description"));
 		Room c2 = new Corridor(res.getString("corridor2.description"));
 		Room c3 = new Corridor(res.getString("corridor3.description"));
@@ -98,8 +103,8 @@ public class Game {
 		Room c10 = new Corridor("corridor10.description");
 		Room c11 = new Corridor("corridor11.description");
 		Room c12 = new Corridor("corridor12.description");
-		//Room u1 = new UselessRoom();
-		//Room u2 = new UselessRoom();
+		// Room u1 = new UselessRoom();
+		// Room u2 = new UselessRoom();
 		c1.setExit("north", c2);
 		c1.setExit("south", foyer);
 		c1.setExit("east", lecture1);
@@ -107,7 +112,7 @@ public class Game {
 		c2.setExit("north", c3);
 		c2.setExit("south", c1);
 		c2.setExit("east", lecture2);
-		//c2.setExit("west", u1);
+		// c2.setExit("west", u1);
 		c3.setExit("north", c6);
 		c3.setExit("south", c2);
 		c3.setExit("east", lecture3);
@@ -134,8 +139,8 @@ public class Game {
 		c11.setExit("east", c12);
 		c11.setExit("west", c9);
 		c12.setExit("north", ali);
-		//c12.setExit("south", print);
-		//c12.setExit("east", u2);
+		// c12.setExit("south", print);
+		// c12.setExit("east", u2);
 		c12.setExit("west", c11);
 		lecture1.setExit("west", c1);
 		lecture2.setExit("west", c2);
@@ -145,77 +150,66 @@ public class Game {
 		lab3.setExit("west", c8);
 		secretariat.setExit("east", c1);
 		exam.setExit("north", c5);
-		//u1.setExit("east", c2);
-		//u2.setExit("west", c12);
+		// u1.setExit("east", c2);
+		// u2.setExit("west", c12);
 		lunchRoom.setExit("east", c9);
 		library.setExit("south", c10);
-		//print.setExit("north", c12);
+		// print.setExit("north", c12);
 		foyer.setExit("north", c1);
 		ali.setExit("south", c12);
 		currentRoom = foyer;
-		
-		
-		
+
 		/**
-		// create the rooms
-		Lunchroom lunchroom = new Lunchroom(
-		        res.getString("lunchroom.description"));
-		LectureRoom lectureroom1 = new LectureRoom(
-		        res.getString("lectureroom.description1"), 1);
-		LectureRoom lectureroom2 = new LectureRoom(
-		        res.getString("lectureroom.description1"), 2);
-		LectureRoom lectureroom3 = new LectureRoom(
-		        res.getString("lectureroom.description1"), 3);
-		LabRoom labroom1 = new LabRoom(res.getString("labroom.description1"), 1);
-		LabRoom labroom2 = new LabRoom(res.getString("labroom.description1"), 2);
-		LabRoom labroom3 = new LabRoom(res.getString("labroom.description1"), 3);
-		Corridor corridor1 = new Corridor(
-		        res.getString("corridor1.description"));
-		Corridor corridor2 = new Corridor(
-		        res.getString("corridor2.description"));
-		Corridor corridor3 = new Corridor(
-		        res.getString("corridor3.description"));
-		Corridor corridor4 = new Corridor(
-		        res.getString("corridor4.description"));
-		Library library = new Library(res.getString("library.description"));
-		ExamRoom examroom = new ExamRoom(res.getString("examroom.description"));
-
-		// initialise room exits
-
-		corridor1.setExit("west", labroom1);
-		corridor1.setExit("east", lunchroom);
-		corridor1.setExit("north", corridor2);
-
-		corridor2.setExit("south", corridor1);
-		corridor2.setExit("west", lectureroom2);
-		corridor2.setExit("east", lectureroom1);
-		corridor2.setExit("north", corridor3);
-
-		corridor3.setExit("south", corridor2);
-		corridor3.setExit("west", labroom2);
-		corridor3.setExit("east", labroom3);
-		corridor3.setExit("north", corridor4);
-
-		corridor4.setExit("south", corridor3);
-		corridor4.setExit("west", library);
-		corridor4.setExit("east", lectureroom3);
-		corridor4.setExit("north", examroom);
-
-		labroom1.setExit("east", corridor1);
-		labroom2.setExit("east", corridor3);
-		labroom3.setExit("west", corridor3);
-
-		lunchroom.setExit("west", corridor1);
-
-		library.setExit("east", corridor4);
-
-		lectureroom1.setExit("west", corridor2);
-		lectureroom2.setExit("east", corridor2);
-		lectureroom3.setExit("west", corridor4);
-
-		examroom.setExit("south", corridor4);
-
-		currentRoom = corridor1; // start game in the first corridor    */
+		 * // create the rooms Lunchroom lunchroom = new Lunchroom(
+		 * res.getString("lunchroom.description")); LectureRoom lectureroom1 =
+		 * new LectureRoom( res.getString("lectureroom.description1"), 1);
+		 * LectureRoom lectureroom2 = new LectureRoom(
+		 * res.getString("lectureroom.description1"), 2); LectureRoom
+		 * lectureroom3 = new LectureRoom(
+		 * res.getString("lectureroom.description1"), 3); LabRoom labroom1 = new
+		 * LabRoom(res.getString("labroom.description1"), 1); LabRoom labroom2 =
+		 * new LabRoom(res.getString("labroom.description1"), 2); LabRoom
+		 * labroom3 = new LabRoom(res.getString("labroom.description1"), 3);
+		 * Corridor corridor1 = new Corridor(
+		 * res.getString("corridor1.description")); Corridor corridor2 = new
+		 * Corridor( res.getString("corridor2.description")); Corridor corridor3
+		 * = new Corridor( res.getString("corridor3.description")); Corridor
+		 * corridor4 = new Corridor( res.getString("corridor4.description"));
+		 * Library library = new Library(res.getString("library.description"));
+		 * ExamRoom examroom = new
+		 * ExamRoom(res.getString("examroom.description"));
+		 * 
+		 * // initialise room exits
+		 * 
+		 * corridor1.setExit("west", labroom1); corridor1.setExit("east",
+		 * lunchroom); corridor1.setExit("north", corridor2);
+		 * 
+		 * corridor2.setExit("south", corridor1); corridor2.setExit("west",
+		 * lectureroom2); corridor2.setExit("east", lectureroom1);
+		 * corridor2.setExit("north", corridor3);
+		 * 
+		 * corridor3.setExit("south", corridor2); corridor3.setExit("west",
+		 * labroom2); corridor3.setExit("east", labroom3);
+		 * corridor3.setExit("north", corridor4);
+		 * 
+		 * corridor4.setExit("south", corridor3); corridor4.setExit("west",
+		 * library); corridor4.setExit("east", lectureroom3);
+		 * corridor4.setExit("north", examroom);
+		 * 
+		 * labroom1.setExit("east", corridor1); labroom2.setExit("east",
+		 * corridor3); labroom3.setExit("west", corridor3);
+		 * 
+		 * lunchroom.setExit("west", corridor1);
+		 * 
+		 * library.setExit("east", corridor4);
+		 * 
+		 * lectureroom1.setExit("west", corridor2); lectureroom2.setExit("east",
+		 * corridor2); lectureroom3.setExit("west", corridor4);
+		 * 
+		 * examroom.setExit("south", corridor4);
+		 * 
+		 * currentRoom = corridor1; // start game in the first corridor
+		 */
 	}
 
 	/**
@@ -321,33 +315,42 @@ public class Game {
 			goRoom(command);
 			break;
 
-		case "help": currentRoom.printHelp(parser);
+		case "help":
+			currentRoom.printHelp(parser);
 			break;
-		case "quit":wantToQuit = quit(command);
+		case "quit":
+			wantToQuit = quit(command);
 			break;
-		case "take":currentRoom.wantTake(command,gamer);
+		case "take":
+			currentRoom.wantTake(command, gamer);
 			break;
-		case "lights":currentRoom.wantSwitchLights(command,gamer);
+		case "lights":
+			currentRoom.wantSwitchLights(command, gamer);
 			break;
-		case "attend":currentRoom.wantAttend(command,gamer);
+		case "attend":
+			currentRoom.wantAttend(command, gamer);
 			break;
-		case "read":currentRoom.wantRead(command,gamer);
+		case "read":
+			currentRoom.wantRead(command, gamer);
 			break;
-		case "use":currentRoom.wantUse(command,gamer);
+		case "turn":
+			currentRoom.wantTurn(command, gamer);
 			break;
-		case "search":currentRoom.wantSearch(command,gamer);
+		case "search":
+			currentRoom.wantSearch(command, gamer);
 			break;
-		case "start":currentRoom.wantStart(command,gamer);
+		case "start":
+			currentRoom.wantStart(command, gamer);
+			break;
+		case "use":
+			gamer.wantUse(command);
+			break;
+		default:
 			break;
 		}
 		// else command not recognised.
 		return wantToQuit;
 	}
-
-
-
-
-	
 
 	/**
 	 * Try to in to one direction. If there is an exit, enter the new room,
@@ -374,7 +377,6 @@ public class Game {
 		}
 	}
 
-
 	/**
 	 * "Quit" was entered. Check the rest of the command to see whether we
 	 * really quit the game.
@@ -389,7 +391,7 @@ public class Game {
 
 		return true; // signal that we want to quit
 	}
-	
+
 	/**
 	 * @return the parser
 	 */
@@ -398,7 +400,8 @@ public class Game {
 	}
 
 	/**
-	 * @param parser the parser to set
+	 * @param parser
+	 *            the parser to set
 	 */
 	public void setParser(Parser parser) {
 		this.parser = parser;

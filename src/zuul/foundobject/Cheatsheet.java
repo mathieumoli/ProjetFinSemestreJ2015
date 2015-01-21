@@ -13,7 +13,7 @@ import java.util.List;
  * 
  *          Class to create an OOP Cheatsheet
  */
-public class Cheatsheet implements FoundObject {
+public class Cheatsheet extends FoundObject {
 	private List<String> answers = new ArrayList<String>();
 
 	/***

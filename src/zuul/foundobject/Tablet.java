@@ -10,7 +10,7 @@ import zuul.person.Student;
  * 
  *          Class to create an Tablet
  */
-public class Tablet implements FoundObject {
+public class Tablet extends FoundObject {
 	private LectureItem coursInThisTablet;
 
 	/***

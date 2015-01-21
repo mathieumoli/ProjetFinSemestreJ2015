@@ -24,7 +24,7 @@ public class Zuul extends ListResourceBundle {
             {"corridor2.description", "Vous êtes dans le deuxième couloir"},
             {"corridor3.description", "Vous êtes dans le troisième couloir"},
             {"corridor4.description", "Vous êtes dans le quatrième couloir"},
-            {"corridor.tablet", "Vous trouvez une tablette dans le couloir. Pour l'utiliser, tapez \"use tablet\""},
+            {"corridor.tablet", "Vous trouvez une tablette dans le couloir. Pour l'allumer, tapez \"turn tablet\""},
             {"corridor.notablet", "Quelle tablette ?"},
             {"corridor.cheatsheet", "Un bout de papier dépasse de l'imprimante...Pour aller voir, tapez \"search printer\""},
             {"corridor.nocheatsheet", "Quelle imprimante ?"},

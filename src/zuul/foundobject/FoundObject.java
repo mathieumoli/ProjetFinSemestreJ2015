@@ -9,8 +9,9 @@ import zuul.person.Student;
  *          The FoundObject class is the abstract base class for all the found
  *          objects in the room
  */
-public interface FoundObject {
-
+public abstract class FoundObject {
+	
+	
 	/***
 	 * 
 	 * Method to use the object

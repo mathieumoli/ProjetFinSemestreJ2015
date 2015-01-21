@@ -11,7 +11,7 @@ import zuul.person.Student;
  * @author Mathieu Molinengo
  *
  */
-public class MaraudeurMap implements FoundObject{
+public class MaraudeurMap extends FoundObject{
 
 	private ArrayList<Person> persons;
 	private String password;

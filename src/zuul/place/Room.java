@@ -244,7 +244,7 @@ public abstract class Room {
 	 * @param gamer
 	 *            The Student who want to use a tablet
 	 */
-	public void wantUse(Command command, Student gamer) {
+	public void wantTurn(Command command, Student gamer) {
 		System.out.println("You can't do this here");
 
 	}

@@ -2,7 +2,7 @@ package zuul.foundobject;
 
 import zuul.person.Student;
 
-public class invisibilityCloak implements FoundObject {
+public class invisibilityCloak extends FoundObject {
 
 	@Override
 	public void useObject(Student student) {

@@ -190,7 +190,8 @@ public class Corridor extends Room {
 	 * @param command
 	 *            The command to be processed.
 	 */
-	public void wantUse(Command command,Student gamer) {
+	@Override
+	public void wantTurn(Command command,Student gamer) {
 		if (!command.hasSecondWord()) {
 			// if there is no second word, we don't know where to go...
 			System.out.println(Game.res.getString("game.use"));

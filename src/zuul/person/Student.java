@@ -4,9 +4,11 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import zuul.Game;
+import zuul.commands.Command;
 import zuul.course.Item;
 import zuul.course.LabItem;
 import zuul.course.LectureItem;
+import zuul.foundobject.FoundObject;
 import zuul.person.objet.Wallet;
 
 /**
@@ -22,6 +24,7 @@ public class Student extends Person{
 	private boolean isInvisible;
 	private ArrayList<LectureItem> coursSuivi;
 	private ArrayList<LabItem> labsSuivi;
+	private ArrayList<FoundObject> sacaDos;
 
 	/***
 	 * 
@@ -346,4 +349,10 @@ public class Student extends Person{
 		this.decrementEnergy(30);
 		this.removeItem();
 	}
+
+	public void wantUse(Command command) {
+	   String word2=command.getSecondWord().toLowerCase();
+	   if(sacaDos.contains(word2));
+	    
+    }
 }
