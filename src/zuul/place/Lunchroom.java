@@ -43,7 +43,8 @@ public class Lunchroom extends Room {
 	public void buyCoffee(Student gamer) {
 		System.out.println(Game.res.getString("lunchroom.coffee1"));
 		gamer.getWallet().decreaseMoney(1); //Coffee cost 1 euro
-		gamer.incrementEnergy(20);
+		//gamer.incrementEnergy(20); quand on le boit
+		//TODO rajouter l'objet dans le sac
 		System.out.println(Game.res.getString("lunchroom.coffee2"));
 
 	}

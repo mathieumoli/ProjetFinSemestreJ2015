@@ -1,4 +1,4 @@
-package zuul.foundobject;
+package zuul.object;
 
 import zuul.Game;
 import zuul.person.Student;
@@ -13,7 +13,7 @@ import java.util.List;
  * 
  *          Class to create an OOP Cheatsheet
  */
-public class Cheatsheet extends FoundObject {
+public class Cheatsheet extends ZuulObject {
 	private List<String> answers = new ArrayList<String>();
 
 	/***

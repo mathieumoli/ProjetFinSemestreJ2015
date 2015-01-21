@@ -26,7 +26,6 @@ public class Person {
 	 ***/
 	public Person(String name){
 		this.name = name;
-		this.wallet=wallet;
 	}
 	
 	/***
@@ -87,9 +86,16 @@ public class Person {
 	
 	
 	public void randomMove(){
-		double rand = Math.random();
-		HashMap<String,Room> hm = this.currentRoom.getExits();
-		rand *= Math.round((hm.size()-1));
-		this.currentRoom= hm.get(rand);
+		double rand;
+		boolean trouve = false;
+		while(!trouve){
+			rand = Math.random();
+			HashMap<String,Room> hm = this.currentRoom.getExits();
+			rand *= Math.round((hm.size()-1));
+			if(hm.get(rand).isSecret()){
+				this.currentRoom= hm.get(rand);
+				trouve = true;
+			}
+		}
 	}
 }

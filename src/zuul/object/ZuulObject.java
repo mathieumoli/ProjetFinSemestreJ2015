@@ -1,4 +1,4 @@
-package zuul.foundobject;
+package zuul.object;
 
 import zuul.person.Student;
 
@@ -9,7 +9,7 @@ import zuul.person.Student;
  *          The FoundObject class is the abstract base class for all the found
  *          objects in the room
  */
-public abstract class FoundObject {
+public abstract class ZuulObject {
 	private String name;
 	
 	/***

@@ -1,4 +1,4 @@
-package zuul.foundobject;
+package zuul.object;
 
 import zuul.Game;
 import zuul.course.LectureItem;
@@ -10,7 +10,7 @@ import zuul.person.Student;
  * 
  *          Class to create an Tablet
  */
-public class Tablet extends FoundObject {
+public class Tablet extends ZuulObject {
 	private LectureItem coursInThisTablet;
 
 	/***

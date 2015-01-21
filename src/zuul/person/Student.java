@@ -9,7 +9,7 @@ import zuul.commands.Command;
 import zuul.course.Item;
 import zuul.course.LabItem;
 import zuul.course.LectureItem;
-import zuul.foundobject.FoundObject;
+import zuul.object.ZuulObject;
 import zuul.person.objet.Wallet;
 import zuul.place.Room;
 
@@ -30,7 +30,7 @@ public class Student extends Person{
 	private boolean isInvisible;
 	private ArrayList<LectureItem> coursSuivi;
 	private ArrayList<LabItem> labsSuivi;
-	private HashMap<String, FoundObject> bag;
+	private HashMap<String, ZuulObject> bag;
 
 	/***
 	 * 
@@ -46,7 +46,7 @@ public class Student extends Person{
 		coursSuivi = new ArrayList<LectureItem>();
 		labsSuivi = new ArrayList<LabItem>();
 		oopBook = new ArrayList<LectureItem>();
-		bag= new HashMap<String, FoundObject>();
+		bag= new HashMap<String, ZuulObject>();
 	}
 
 	/***

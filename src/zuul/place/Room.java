@@ -26,7 +26,7 @@ import java.util.HashMap;
 
 public abstract class Room {
 	protected String description;
-	protected boolean isSecret;
+	protected boolean secret;
 	protected HashMap<String, Room> exits; // stores exits of this room.
 
 	/**
@@ -56,7 +56,7 @@ public abstract class Room {
 	public Room(String description) {
 		this.description = description;
 		exits = new HashMap<String, Room>();
-		isSecret = false;
+		this.secret = false;
 	}
 
 	/**
@@ -70,7 +70,7 @@ public abstract class Room {
 	public Room(String description, boolean secret) {
 		this.description = description;
 		exits = new HashMap<String, Room>();
-		isSecret = secret;
+		secret = secret;
 	}
 
 	/**
@@ -84,7 +84,7 @@ public abstract class Room {
 	public Room() {
 		this.description = null;
 		exits = new HashMap<String, Room>();
-		isSecret = false;
+		secret = false;
 	}
 
 	/**
@@ -277,6 +277,10 @@ public abstract class Room {
 	public void wantSearch(Command command, Student gamer) {
 		System.out.println("You can't do this here");
 
+	}
+	
+	public boolean isSecret(){
+		return this.secret;
 	}
 
 }

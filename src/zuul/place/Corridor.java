@@ -2,8 +2,8 @@ package zuul.place;
 
 import zuul.Game;
 import zuul.commands.Command;
-import zuul.foundobject.Cheatsheet;
-import zuul.foundobject.Tablet;
+import zuul.object.Cheatsheet;
+import zuul.object.Tablet;
 import zuul.person.Person;
 import zuul.person.Student;
 

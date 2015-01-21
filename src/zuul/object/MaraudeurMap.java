@@ -1,4 +1,4 @@
-package zuul.foundobject;
+package zuul.object;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -11,7 +11,7 @@ import zuul.person.Student;
  * @author Mathieu Molinengo
  *
  */
-public class MaraudeurMap extends FoundObject{
+public class MaraudeurMap extends ZuulObject{
 
 	private ArrayList<Person> persons;
 	private String password;
