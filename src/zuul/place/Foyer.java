@@ -1,9 +1,15 @@
 package zuul.place;
 
 import java.util.Random;
-import zuul.foundobject.Advertisement;
+
+import zuul.Advertisement;
 import zuul.person.Student;
 
+/**
+ * A room where you can check the board, typing "check board".
+ * @author user
+ *
+ */
 public class Foyer extends Room {
 	protected boolean lights;
 	protected Advertisement advertisement;
@@ -18,7 +24,7 @@ public class Foyer extends Room {
 
 	@Override
 	public boolean enter(Student student) {
-		annonce();
+		annonce(); // TODO verifier secondWord "board".
 		return true;
 	}
 
@@ -28,12 +34,12 @@ public class Foyer extends Room {
 	}
 
 	/**
-	 * A class printing an advertisement if the player chooses to look at the board,
-	 * by typing "see board".
+	 * A class printing an advertisement if the player chooses to check the board,
+	 * by typing "check board".
 	 */
 	private void annonce() {
 		System.out.println("Vous regardez sur le tableau.");
-        // ici déjà on va voir si il y a une annonce, une chance sur 2
+        // ici dï¿½jï¿½ on va voir si il y a une annonce, une chance sur 2
 	    Random rnd = new Random();
 	    int intRandom = rnd.nextInt(10);
 	    if (intRandom > 4) {
@@ -41,7 +47,6 @@ public class Foyer extends Room {
 	    } else {
 	    	advertisement.displayNewAd();
 	    }
-	    
 	}
 	
 }

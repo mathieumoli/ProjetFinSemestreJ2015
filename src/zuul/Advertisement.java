@@ -1,20 +1,20 @@
-package zuul.foundobject;
+package zuul;
 
 // TODO internationnalisation
-
-// ATTENTION, emplacement temporaire, cette classe n'hérite pas de FoundObject!
 
 /**
  * A class randomly generating an advertisement, when the player is in the foyer
  * and uses the command "see ads".
+ * 
+ * To add an ad, you must declaire a new adx, and add it to allAds.
  * @author user
  *
  */
 public class Advertisement {
-    private String ad1 = "...don du sang le moi prochain ...";
-    private String ad2 = "...la BU sera exceptionellement fermée lundi, mardi, mercredi, jeudi et vendredi prochains...";
-    private String ad3 = "...vendredi soir, soirée BDE à Nice...";
-    private String ad4 = "...forum des métiers la semaine prochaine...";
+    private String ad1 = "...don du sang le mois prochain ...";
+    private String ad2 = "...la BU sera exceptionellement fermÃ©e lundi, mardi, mercredi, jeudi et vendredi prochains...";
+    private String ad3 = "...vendredi soir, soirÃ©e BDE Ã  Nice...";
+    private String ad4 = "...forum des mÃ©tiers la semaine prochaine...";
     private String [] allAds = {ad1, ad2, ad3, ad4};
     // useful to know what ad was already printed
     private int numeroAnnonce;
@@ -24,7 +24,7 @@ public class Advertisement {
     }
     
     /**
-     * A class printing a new ad, followinf the ones printed before.
+     * A class printing a new ad, following the ones printed before.
      * An ad can only be printed once.
      * If there's no ad left, it's just as if the board was empty.
      */
