@@ -10,6 +10,7 @@ import zuul.course.LabItem;
 import zuul.course.LectureItem;
 import zuul.foundobject.FoundObject;
 import zuul.person.objet.Wallet;
+import zuul.place.Room;
 
 /**
  * @author Mathieu Molinengo & Cédric Lallemand
@@ -367,4 +368,45 @@ public class Student extends Person{
 	   if(!find){System.out.println("Nothing to use");}
 	    
     }
+	
+	/**
+	 * This method interacts with other people in the room, following if there
+	 * are one or several people in the room. You can say "hello".
+	 * @param command
+	 * @param people
+	 */
+	public void wantSayHello(Command command, ArrayList<Person> people, Room currentRoom) {   // TODO internationnalisation
+		String word2 = "";
+		if (command.getSecondWord() != null) {
+		    word2 = command.getSecondWord().toLowerCase();
+		}
+		
+		// ici récupérer les personnes qui sont bien dans la currentRoom de this
+		ArrayList<Person> peopleInTheRoom = new ArrayList<Person>();
+		for (Person person : people) {
+		    if (person.getCurrentRoom() == currentRoom) {
+		   	    peopleInTheRoom.add(person);
+		    }
+		}
+		
+		int nbOfPeople = peopleInTheRoom.size();
+		if (nbOfPeople==0) { // no one in the room
+			System.out.println("There is no one here !");
+		} else if (nbOfPeople == 1) { // there is only one person here
+			String hisName = peopleInTheRoom.get(nbOfPeople-1).getName();
+			if (word2.equals("hello")) {
+				System.out.println(hisName + " says hello too !");
+			} else {
+				System.out.println(hisName + " acts like he doesn't know you.");
+			}
+		} else { // There are several people here
+			if (word2.equalsIgnoreCase("hello")) {
+				System.out.println("They say hello back.");
+			} else {
+				System.out.println("\n...\n\nThey probably didn't hear you...");
+			}
+		}
+		
+	}
+	
 }

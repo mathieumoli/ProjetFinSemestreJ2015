@@ -61,7 +61,7 @@ public class Corridor extends Room {
 		int chance1 = (int) (Math.random() * 20);
 		tablet = (chance1 > 14) ? true : false;
 		int chance2 = (int) (Math.random() * 20);
-		cheatsheet = (chance2 > 17) ? true : false;
+		cheatsheet = (chance2 > 18) ? true : false;
 
 	}
 

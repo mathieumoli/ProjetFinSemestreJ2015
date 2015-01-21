@@ -2,7 +2,11 @@ package zuul;
 
 import zuul.commands.*;
 import zuul.course.*;
+import zuul.person.Person;
+import zuul.person.Stromboni;
 import zuul.person.Student;
+import zuul.person.objet.StudentWallet;
+import zuul.person.objet.Wallet;
 import zuul.place.*;
 
 import java.util.*;
@@ -38,6 +42,7 @@ public class Game {
 	        "c.lecture3", "algo.lecture1", "algo.lecture2", "algo.lecture3" };
 	public static List<LabItem> labs = new ArrayList<LabItem>();
 	public static List<LectureItem> lectures = new ArrayList<LectureItem>();
+	public static ArrayList<Person> people = new ArrayList<Person>();
 
 	/**
 	 * Create the game and initialize its internal map.
@@ -159,6 +164,8 @@ public class Game {
 		ali.setExit("south", c12);
 		currentRoom = foyer;
 
+		createGamer();
+		
 		/**
 		 * // create the rooms Lunchroom lunchroom = new Lunchroom(
 		 * res.getString("lunchroom.description")); LectureRoom lectureroom1 =
@@ -219,7 +226,7 @@ public class Game {
 		printWelcome();
 		createCourses();
 		createRooms();
-		createGamer();
+		//createGamer();
 		if (!(gamer.getName().equals("Chuck Norris"))) {
 			printGamer();
 
@@ -263,6 +270,17 @@ public class Game {
 		Scanner scanner = new Scanner(System.in);
 		String name = scanner.nextLine();
 		gamer = new Student(name);
+		// creates other players
+		Stromboni stromboni = new Stromboni();
+		Person person1 = new Person("Cédric", new Wallet(10));
+		Person person2 = new Person("Mathieu", new Wallet(4));
+		Person person3 = new Person("Lisa", new Wallet(5));
+		person1.setCurrentRoom(currentRoom);
+		person2.setCurrentRoom(currentRoom);
+		people.add(person1);
+		people.add(person2);
+		people.add(person3);
+		people.add(stromboni);
 
 	}
 
@@ -345,6 +363,9 @@ public class Game {
 		case "use":
 			gamer.wantUse(command);
 			break;
+		case "say":
+		    gamer.wantSayHello(command, people, currentRoom);
+		    break;
 		default:
 			break;
 		}

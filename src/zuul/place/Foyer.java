@@ -38,8 +38,8 @@ public class Foyer extends Room {
 	 * by typing "check board".
 	 */
 	private void annonce() {
-		System.out.println("Vous regardez sur le tableau.");
-        // ici d�j� on va voir si il y a une annonce, une chance sur 2
+		System.out.println("Vous regardez sur le tableau.");    // TODO internationnalisation
+		// une chance sur 2 qu'il y ait une annonce
 	    Random rnd = new Random();
 	    int intRandom = rnd.nextInt(10);
 	    if (intRandom > 4) {
