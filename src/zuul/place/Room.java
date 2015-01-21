@@ -3,10 +3,10 @@ package zuul.place;
 import zuul.Game;
 import zuul.commands.Command;
 import zuul.commands.Parser;
-import zuul.person.Person;
+import zuul.object.ZuulObject;
 import zuul.person.Student;
 
-import java.util.ResourceBundle;
+import java.util.ArrayList;
 import java.util.Set;
 import java.util.HashMap;
 
@@ -25,10 +25,14 @@ import java.util.HashMap;
  */
 
 public abstract class Room {
-	protected String description;
-	protected boolean secret;
-	protected HashMap<String, Room> exits; // stores exits of this room.
+	private String description;
+	private boolean secret;
+	private ArrayList<ZuulObject> objectInRoom;
+	private HashMap<String, Room> exits; // stores exits of this room.
 
+	protected String getDescription(){
+		return description;
+	}
 	/**
 	 * Abstract method which will be overriden in each class
 	 * 

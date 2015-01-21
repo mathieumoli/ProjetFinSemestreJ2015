@@ -159,7 +159,7 @@ public class LectureRoom extends StudySpace {
 		} else if (isAttend) {
 			return getExitString();
 		} else
-			return description + coursInThisRoom.getModule() + " numero "
+			return this.getDescription() + coursInThisRoom.getModule() + " numero "
 			        + coursInThisRoom.getNumberString() + ".\n"
 			        + Game.res.getString("lectureroom.description2")
 			        + getExitString();
