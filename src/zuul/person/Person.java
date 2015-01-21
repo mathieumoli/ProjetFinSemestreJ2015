@@ -31,6 +31,7 @@ public class Person {
 	 ***/
 	public Person(String name, Wallet wallet){
 		this.name = name;
+		this.wallet=wallet;
 	}
 
 	/***
