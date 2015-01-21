@@ -1,4 +1,4 @@
-package zuul.person.objet;
+package zuul.person.object;
 
 /**
  * 

@@ -10,7 +10,7 @@ import zuul.course.Item;
 import zuul.course.LabItem;
 import zuul.course.LectureItem;
 import zuul.object.ZuulObject;
-import zuul.person.objet.Wallet;
+import zuul.person.object.Wallet;
 import zuul.place.Room;
 
 /**

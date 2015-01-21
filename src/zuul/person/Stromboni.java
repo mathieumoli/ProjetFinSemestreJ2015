@@ -1,6 +1,6 @@
 package zuul.person;
 
-import zuul.person.objet.Wallet;
+import zuul.person.object.Wallet;
 
 /**
  * @author Cédric Lallemand

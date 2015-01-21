@@ -2,7 +2,7 @@ package zuul.person;
 
 import java.util.HashMap;
 
-import zuul.person.objet.Wallet;
+import zuul.person.object.Wallet;
 import zuul.place.Room;
 
 /**

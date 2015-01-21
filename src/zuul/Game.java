@@ -5,7 +5,7 @@ import zuul.course.*;
 import zuul.person.Person;
 import zuul.person.Stromboni;
 import zuul.person.Student;
-import zuul.person.objet.Wallet;
+import zuul.person.object.Wallet;
 import zuul.place.*;
 
 import java.util.*;
