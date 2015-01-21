@@ -55,7 +55,7 @@ public class Game {
 	 */
 	private void getLanguage() {
 		System.out
-		        .println("Voulez-vous jouer en franÃ§ais ? Si oui, appuyez sur 1.");
+		        .println("Voulez-vous jouer en francais ? Si oui, appuyez sur 1.");
 		System.out
 		        .println("Or do you prefer playing in English ? If so, press 2.");
 
@@ -75,7 +75,90 @@ public class Game {
 	 * Create all the rooms and link their exits together.
 	 */
 	private void createRooms() {
-
+		Room ali = new AliOffice("le bureau d'Ali"); // TODO internationnalisation
+		Room exam = new ExamRoom(res.getString("examroom.description"));
+		Room foyer = new Foyer("le foyer"); // TODO internationnalisation
+		Room lab1 = new LabRoom(res.getString("labroom.description1"), 1);
+		Room lab2 = new LabRoom(res.getString("labroom.description1"), 2);
+		Room lab3 = new LabRoom(res.getString("labroom.description1"), 3);
+		Room lecture1 = new LectureRoom(res.getString("lectureroom.description1"), 1);
+		Room lecture2 = new LectureRoom(res.getString("lectureroom.description1"), 2);
+		Room lecture3 = new LectureRoom(res.getString("lectureroom.description1"), 3);
+		Room library = new Library(res.getString("library.description"));
+		Room lunchRoom = new Lunchroom(res.getString("lunchroom.description"));
+		// enlevé la print room
+		Room secretariat = new Secretariat("au secretariat"); // TODO internationnalisation
+		Room c1 = new Corridor(res.getString("corridor1.description"));
+		Room c2 = new Corridor(res.getString("corridor2.description"));
+		Room c3 = new Corridor(res.getString("corridor3.description"));
+		Room c4 = new Corridor(res.getString("corridor4.description"));
+		Room c5 = new Corridor("corridor5.description");
+		Room c6 = new Corridor("corridor6.description");
+		Room c7 = new Corridor("corridor7.description");
+		Room c8 = new Corridor("corridor8.description");
+		Room c9 = new Corridor("corridor9.description");
+		Room c10 = new Corridor("corridor10.description");
+		Room c11 = new Corridor("corridor11.description");
+		Room c12 = new Corridor("corridor12.description");
+		//Room u1 = new UselessRoom();
+		//Room u2 = new UselessRoom();
+		c1.setExit("north", c2);
+		c1.setExit("south", foyer);
+		c1.setExit("east", lecture1);
+		c1.setExit("west", secretariat);
+		c2.setExit("north", c3);
+		c2.setExit("south", c1);
+		c2.setExit("east", lecture2);
+		//c2.setExit("west", u1);
+		c3.setExit("north", c6);
+		c3.setExit("south", c2);
+		c3.setExit("east", lecture3);
+		c3.setExit("west", c4);
+		c4.setExit("east", c3);
+		c4.setExit("west", c5);
+		c5.setExit("south", exam);
+		c5.setExit("east", c4);
+		c6.setExit("north", c7);
+		c6.setExit("south", c3);
+		c6.setExit("east", lab1);
+		c7.setExit("north", c8);
+		c7.setExit("south", c6);
+		c7.setExit("east", lab2);
+		c8.setExit("north", c9);
+		c8.setExit("south", c7);
+		c8.setExit("east", lab3);
+		c9.setExit("north", c10);
+		c9.setExit("south", c8);
+		c9.setExit("east", c11);
+		c9.setExit("west", lunchRoom);
+		c10.setExit("north", library);
+		c10.setExit("south", c9);
+		c11.setExit("east", c12);
+		c11.setExit("west", c9);
+		c12.setExit("north", ali);
+		//c12.setExit("south", print);
+		//c12.setExit("east", u2);
+		c12.setExit("west", c11);
+		lecture1.setExit("west", c1);
+		lecture2.setExit("west", c2);
+		lecture3.setExit("west", c3);
+		lab1.setExit("west", c6);
+		lab2.setExit("west", c7);
+		lab3.setExit("west", c8);
+		secretariat.setExit("east", c1);
+		exam.setExit("north", c5);
+		//u1.setExit("east", c2);
+		//u2.setExit("west", c12);
+		lunchRoom.setExit("east", c9);
+		library.setExit("south", c10);
+		//print.setExit("north", c12);
+		foyer.setExit("north", c1);
+		ali.setExit("south", c12);
+		currentRoom = foyer;
+		
+		
+		
+		/**
 		// create the rooms
 		Lunchroom lunchroom = new Lunchroom(
 		        res.getString("lunchroom.description"));
@@ -134,7 +217,7 @@ public class Game {
 
 		examroom.setExit("south", corridor4);
 
-		currentRoom = corridor1; // start game in the first corridor
+		currentRoom = corridor1; // start game in the first corridor    */
 	}
 
 	/**
