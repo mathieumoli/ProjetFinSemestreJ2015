@@ -104,4 +104,15 @@ public class Lunchroom extends Room {
 		}
 		System.out.println(this.getExitString());
 	}
+	
+	/**
+	 * 
+	 * Call to know if it's possible to buy something
+	 * 
+	 * @return true if a player can buy something
+	 */
+	@Override
+	public boolean canBuy(){
+		return true;
+	}
 }

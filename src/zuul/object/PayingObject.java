@@ -1,6 +1,6 @@
 package zuul.object;
 
-abstract class PayingObject extends ZuulObject{
+public abstract class PayingObject extends ZuulObject{
 	
 	private int price;
 	

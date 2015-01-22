@@ -368,6 +368,9 @@ public class Game {
 		case "start":
 			currentRoom.wantStart(command, gamer);
 			break;
+		case "buy":
+			gamer.wantBuy(command);
+			break;
 		case "use":
 			gamer.wantUse(command.getSecondWord());
 			break;
@@ -379,6 +382,7 @@ public class Game {
 		    break;
 		case "see":
 			gamer.seePlan(command);
+			break;
 		default:
 			break;
 		}

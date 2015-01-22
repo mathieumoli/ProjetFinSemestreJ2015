@@ -435,6 +435,11 @@ public class Student extends Person {
 
 	}
 
+	/**
+	* Add a object in the bag
+	* 
+	* @param obj - object to add in the bag
+	*/
 	public void addInBag(ZuulObject obj) {
 		if (!bag.containsKey(obj.getName())) {
 			bag.put(obj.getName().toLowerCase(), obj);
@@ -469,6 +474,14 @@ public class Student extends Person {
 		} else {
 		    System.out.println("What do you want to see ?");
 		}	
+	}
+
+	/**
+	 * Call when a student want buy something
+	 * @param commande give by the user
+	 */
+	public void wantBuy(Command commande){
+		//if(this.ge)
 	}
 
 }

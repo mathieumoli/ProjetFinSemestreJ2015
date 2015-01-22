@@ -315,8 +315,24 @@ public abstract class Room {
 		return this.secret;
 	}
 
+	/**
+	 * 
+	 * Call to know the name of the room
+	 * 
+	 * @return the name of the room
+	 */
 	public String getName() {
 		return this.getClass().getSimpleName();
+	}
+	
+	/**
+	 * 
+	 * Call to know if it's possible to buy something 
+	 * 
+	 * @return true if a player can buy something
+	 */
+	public boolean canBuy(){
+		return false;
 	}
 
 }
