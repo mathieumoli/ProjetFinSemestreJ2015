@@ -17,12 +17,11 @@ import zuul.place.Room;
  * 
  *          Class to create a Student
  */
-public class Student extends Person{
+public class Student extends Person {
 
 	final int ADD_ENERGIE_COFFEE = 30;
 	final int LOSE_ENERGIE_BABYFOOT = 20;
-	
-	
+
 	private ArrayList<LectureItem> oopBook;
 	private int energy;
 	private boolean isInvisible;
@@ -34,7 +33,8 @@ public class Student extends Person{
 	 * 
 	 * Constructor to create a Student
 	 * 
-	 * @param nameOfStudent - the name of created student      
+	 * @param nameOfStudent
+	 *            - the name of created student
 	 * 
 	 ***/
 	public Student(String nameOfStudent) {
@@ -44,7 +44,7 @@ public class Student extends Person{
 		coursSuivi = new ArrayList<LectureItem>();
 		labsSuivi = new ArrayList<LabItem>();
 		oopBook = new ArrayList<LectureItem>();
-		bag= new HashMap<String, ZuulObject>();
+		bag = new HashMap<String, ZuulObject>();
 	}
 
 	/***
@@ -78,8 +78,8 @@ public class Student extends Person{
 					+ itemListened.getNumberString());
 		}
 	}
-	
-	public void learnItem(Item item){
+
+	public void learnItem(Item item) {
 		this.decrementEnergy(10);
 		this.addItem(item);
 	}
@@ -97,7 +97,8 @@ public class Student extends Person{
 		if (energy > theEnergy) {
 			energy -= theEnergy;
 			System.out.println(Game.res.getString("student.energy.part1")
-					+ this.getName() + Game.res.getString("student.energy.part2")
+					+ this.getName()
+					+ Game.res.getString("student.energy.part2")
 					+ this.getEnergyString());
 		} else {
 			energy = 0;
@@ -200,7 +201,7 @@ public class Student extends Person{
 		return energy;
 
 	}
-	
+
 	/***
 	 * 
 	 * Method to know if the student is invisible
@@ -208,23 +209,23 @@ public class Student extends Person{
 	 * @return true if the student is invisible
 	 * 
 	 */
-	public boolean isInvisible(){
+	public boolean isInvisible() {
 		return isInvisible;
 	}
-	
+
 	/**
 	 * 
 	 * Change the visibility of the Student
 	 * 
 	 */
-	public void changeVisibility(){
-		if(isInvisible){
+	public void changeVisibility() {
+		if (isInvisible) {
 			isInvisible = false;
-		}else{
+		} else {
 			isInvisible = true;
 		}
 	}
-	
+
 	/***
 	 * 
 	 * Method to get the energy of the student with a string format
@@ -306,25 +307,26 @@ public class Student extends Person{
 			}
 		}
 	}
-	
+
 	/**
 	 * 
 	 * Return the success of the attempt to steal
+	 * 
 	 * @return true of the steal is successful
 	 */
-	public boolean successStealsMoney(){
+	public boolean successStealsMoney() {
 		double random = Math.random();
 		boolean success = false;
-		if(this.isInvisible()){
-			if(random>20){
+		if (this.isInvisible()) {
+			if (random > 20) {
 				success = true;
 			}
 		} else {
-			if(random>80){
+			if (random > 80) {
 				success = true;
 			}
 		}
-		
+
 		return success;
 	}
 
@@ -332,119 +334,150 @@ public class Student extends Person{
 	 * 
 	 * Steals money in the wallet of "personStolen"
 	 * 
-	 * @param personStolen - person which is stolen
+	 * @param personStolen
+	 *            - person which is stolen
 	 * @return amount stolen
 	 * 
 	 */
-	public void StealsMoney(Person personStolen){
+	public void StealsMoney(Person personStolen) {
 		this.decrementEnergy(10);
-		if(successStealsMoney()){
+		if (successStealsMoney()) {
 			this.getWallet().raiseMoney(personStolen.getWallet().stolen());
 		} else {
-			//TODO vole raté le player doit perdre de l'argent
+			// TODO vole raté le player doit perdre de l'argent
 			System.out.println("Pris en flague");
 		}
 	}
-	
+
 	/**
 	 * Call when a student play babyfoot
 	 */
-	public void playBabyFoot(){
+	public void playBabyFoot() {
 		this.getWallet().decreaseMoney(1);
 		this.decrementEnergy(LOSE_ENERGIE_BABYFOOT);
 		this.removeItem();
 	}
 
-	
 	public void wantUse(String object) {
-	   object=object.toLowerCase();
-	   if(bag.containsKey(object)){
-		   bag.get(object).useObject(this);
-	   } else {
-		   //TODO internationalisation
-		   System.out.println("Je n'ai pas ca dans mon sac.");
-	   }
-	    
-    }
-	
+		object = object.toLowerCase();
+		if (bag.containsKey(object)) {
+			bag.get(object).useObject(this);
+		} else {
+			// TODO internationalisation
+			System.out.println("Je n'ai pas ca dans mon sac.");
+		}
+
+	}
+
 	/**
 	 * This method interacts with other people in the room, following if there
 	 * are one or several people in the room. You can say "hello".
+	 * 
 	 * @param command
 	 * @param people
 	 */
-	public void wantSayHello(Command command, ArrayList<Person> people, Room currentRoom) {   // TODO internationnalisation
+	public void wantSayHello(Command command, ArrayList<Person> people,
+			Room currentRoom) { // TODO internationnalisation
 		String word2 = "";
+		boolean stromboniIsHere = false;
+		boolean youCanPassExam = (labsSuivi.size() == 9);
 		if (command.getSecondWord() != null) {
-		    word2 = command.getSecondWord().toLowerCase();
+			word2 = command.getSecondWord().toLowerCase();
 		}
-		
+		boolean wordHello = word2.equals("hello");
 		// ici récupérer les personnes qui sont bien dans la currentRoom de this
 		ArrayList<Person> peopleInTheRoom = new ArrayList<Person>();
 		for (Person person : people) {
-		    if (person.getCurrentRoom() == currentRoom) {
-		   	    peopleInTheRoom.add(person);
-		    }
+			if (person.getCurrentRoom() == currentRoom) {
+				peopleInTheRoom.add(person);
+			}
 		}
-		
 		int nbOfPeople = peopleInTheRoom.size();
-		if (nbOfPeople==0) { // no one in the room
+		if (nbOfPeople == 0) { // no one in the room
 			System.out.println("There is no one here !");
-		} else if (nbOfPeople == 1) { // there is only one person here
-			String hisName = peopleInTheRoom.get(nbOfPeople-1).getName();
-			if (word2.equals("hello")) {
-				System.out.println(hisName + " says hello too !");
-			} else {
-				System.out.println(hisName + " acts like he doesn't know you.");
+			return;
+		}
+		
+		for (Person person : peopleInTheRoom) {
+			if (person.canAllowToPassExam()) {
+				stromboniIsHere = true;
 			}
-		} else { // There are several people here
-			if (word2.equalsIgnoreCase("hello")) {
-				System.out.println("They say hello back.");
+		}
+		System.out.println(wordHello);
+		if (wordHello) {  // on a bien dit hello.
+			if (stromboniIsHere) {
+				if (youCanPassExam) {
+					System.out
+					.println("Stromboni congratulates you because you have successfully followed every lectures & labs. He also allows you to pass the exam.");
+					// MaJ de badge
+					this.getWallet().canPassExam();
+				} else {
+					System.out.println("Stromboni tells you that you should come back to see him when you have followed every labs & lectures.");
+				}
 			} else {
-				System.out.println("\n...\n\nThey probably didn't hear you...");
+				if (nbOfPeople == 1) { // there is only one person here
+					String hisName = peopleInTheRoom.get(nbOfPeople - 1).getName();
+					System.out.println(hisName + " says hello too !");
+				} else { // There are several people here
+					System.out.println("They say hello back.");
+				}
+			}
+		} else { // the command isn't hello
+			if (nbOfPeople == 1) { // there is only one person here
+				String hisName = peopleInTheRoom.get(nbOfPeople - 1).getName();
+				System.out.println(hisName + " snubs you.");
+			} else { // There are several people here
+				System.out.println("\n\nThey act like they doesn't know you...\n\n");
 			}
 		}
 		
+
+
+
+
 	}
-	
-	public void addInBag(ZuulObject obj){
-		if(!bag.containsKey(obj.getName())){
+
+	public void addInBag(ZuulObject obj) {
+		if (!bag.containsKey(obj.getName())) {
 			bag.put(obj.getName().toLowerCase(), obj);
 		} else {
-			//TODO internationalize
-			System.out.println("Un object de ce type est déjà dans le sac, je ne peux pas en avoir plusieurs");
+			// TODO internationalize
+			System.out
+					.println("Un object de ce type est déjà dans le sac, je ne peux pas en avoir plusieurs");
 		}
 	}
 
 	/**
 	 * The student drink the coffee in it backpack
 	 */
-	public void drinkCoffee(){
-		if(bag.containsKey("coffee")){
+	public void drinkCoffee() {
+		if (bag.containsKey("coffee")) {
 			bag.remove("coffee");
 			this.incrementEnergy(ADD_ENERGIE_COFFEE);
-			//TODO internationalize
+			// TODO internationalize
 			System.out.println("bu caffé");
 		} else {
-			//TODO internationalize
+			// TODO internationalize
 			System.out.println("Je n'ai pas de caffé sur moi :( ");
 		}
 	}
-	
+
 	/**
 	 * 
-	 * If there is an object in the current room, it is add in the bag (if the room has more than one object 
-	 * only one is add to the bag, a other search is mandatory to discover the other)
+	 * If there is an object in the current room, it is add in the bag (if the
+	 * room has more than one object only one is add to the bag, a other search
+	 * is mandatory to discover the other)
 	 * 
 	 */
-	public void searchInRoom(){
-		if(this.getCurrentRoom().objectInRoom()){
+	public void searchInRoom() {
+		if (this.getCurrentRoom().objectInRoom()) {
 			ZuulObject objectFound = this.getCurrentRoom().search();
-			System.out.println("J'ajoute " + objectFound.getName() + " a mon sac !");
+			System.out.println("J'ajoute " + objectFound.getName()
+					+ " a mon sac !");
 			this.addInBag(objectFound);
 		} else {
 			System.out.println("Je n'ai trouvé aucun objet ici.");
 		}
 	}
-	
+
 }

@@ -40,4 +40,9 @@ public class Stromboni extends Person{
 	public void randomMove(){
 	
 	}
+	
+	public String getStromboniName() {
+		return nameStromboni;
+	}
+	
 }

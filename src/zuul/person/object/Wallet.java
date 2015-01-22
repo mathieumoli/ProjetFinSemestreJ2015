@@ -22,7 +22,7 @@ public class Wallet{
 	public Wallet() {
 		this.money= 1000;
 		this.level = 1;
-		this.passExam = true;
+		this.passExam = false;
 	}
 	/**
 	 * 
@@ -81,7 +81,7 @@ public class Wallet{
 	 * 
 	 * @return if the person can pass the exam or not
 	 */
-	public boolean isPassExam() {
+	public boolean canPassExam() {
 		return passExam;
 	}
 
@@ -101,10 +101,8 @@ public class Wallet{
 	/**
 	 * Modify the boolean passExam with true
 	 */
-	public void changePassExam() {
-		if (passExam == false) {
-			passExam = true;
-		}
+	public void canNowPassExam() {
+		passExam = true;
 	}
 
 	/**
