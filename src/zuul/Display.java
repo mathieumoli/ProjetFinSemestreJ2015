@@ -12,17 +12,28 @@ public class Display {
 	/**
 	 * Main use of this class. Is linked to ResourceBundle :
 	 * checks if the key exists, if it doesn't, prints the key.
+	 * 
+	 * If the String to print is an error, you must not use this method.
 	 * @param sentence
 	 */
-    public void display(String key) {
-    	//if () {// check if the key exists in the resource bundle
+    public static void display(String key) {
+    	if (Game.res.containsKey(key)) {// check if the key exists in the resource bundle
+    	    System.out.println(Game.res.getString(key));
+    	} else { // is doesn't exist
     	    System.out.println(key);
-    	//} else {
-    	    System.out.println(key);
-        //}
+        }
     }
     
-    public void displayError(String key) {
-    	
+    /**
+     * This method does the same thing as the one above, but
+     * this one is for errors.
+     * @param key
+     */
+    public static void displayError(String key) {
+    	if (Game.res.containsKey(key)) {// check if the key exists in the resource bundle
+    	    System.out.println(Game.res.getString(key));
+    	} else { // is doesn't exist
+    	    System.out.println(key);
+        }   	
     }
 }
