@@ -44,8 +44,6 @@ public class Game {
 	public static List<LectureItem> lectures = new ArrayList<LectureItem>();
 	public static ArrayList<Person> people = new ArrayList<Person>();
 	private HashMap<String,Room> hashmapRoom = new HashMap<String,Room>();
-	private Person person1,person2,person3;
-	private Stromboni stromboni;
 	Scanner scanner = new Scanner(System.in);
 	
 	/**
@@ -83,6 +81,7 @@ public class Game {
 	 */
 	private void createRooms() {
 		Room ali, exam, foyer, lab1, lab2, lab3, lecture1, lecture2, lecture3, lunchRoom, library, secretariat,c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12;
+		boolean secret = true; //use to set secrete room
 		
 		ali = new AliOffice("le bureau d'Ali"); // TODO internationnalisation
 		exam = new ExamRoom(res.getString("examroom.description"));
@@ -100,13 +99,13 @@ public class Game {
 		c2 = new Corridor(res.getString("corridor2.description"),2);
 		c3 = new Corridor(res.getString("corridor3.description"),3);
 		c4 = new Corridor(res.getString("corridor4.description"),4);
-		c5 = new Corridor("corridor5.description",5);
+		c5 = new Corridor("corridor5.description",5, secret);
 		c6 = new Corridor("corridor6.description",6);
 		c7 = new Corridor("corridor7.description",7);
 		c8 = new Corridor("corridor8.description",8);
 		c9 = new Corridor("corridor9.description",9);
 		c10 = new Corridor("corridor10.description",10);
-		c11 = new Corridor("corridor11.description",11);
+		c11 = new Corridor("corridor11.description",11, secret);
 		c12 = new Corridor("corridor12.description",12);
 		
 		c1.setExit("north", c2);
@@ -241,19 +240,51 @@ public class Game {
 		System.out.println(res.getString("game.askname"));
 		String name = scanner.nextLine();
 		gamer = new Student(name);
+		
 		// creates other players
+		Stromboni stromboni;
+		Person person1,person2,person3, person4, person5, person6, person7, person8, person9;
+		
 		stromboni = new Stromboni();
-		person1 = new Person("Cédric", new Wallet(10));
-		person2 = new Person("Mathieu", new Wallet(4));
-		person3 = new Person("Lisa", new Wallet(5));
-		person1.setCurrentRoom(hashmapRoom.get("c5"));
-		person2.setCurrentRoom(hashmapRoom.get("c5"));
-		person3.setCurrentRoom(hashmapRoom.get("c1"));
 		stromboni.setCurrentRoom(hashmapRoom.get("c1"));
-		people.add(person1);
-		people.add(person2);
-		people.add(person3);
 		people.add(stromboni);
+
+		person1 = new Person("Cédric", new Wallet(10));
+		person1.setCurrentRoom(hashmapRoom.get("c5"));
+		people.add(person1);
+
+		person2 = new Person("Mathieu", new Wallet(4));
+		person2.setCurrentRoom(hashmapRoom.get("c5"));
+		people.add(person2);
+
+		person3 = new Person("Lisa", new Wallet(5));
+		person3.setCurrentRoom(hashmapRoom.get("c1"));
+		people.add(person3);
+		
+		person4 = new Person("Tom", new Wallet(1));
+		person3.setCurrentRoom(hashmapRoom.get("c1"));
+		people.add(person3);
+		
+		person5 = new Person("Jenna", new Wallet(7));
+		person3.setCurrentRoom(hashmapRoom.get("c1"));
+		people.add(person3);
+		
+		person6 = new Person("Jenna", new Wallet(7));
+		person3.setCurrentRoom(hashmapRoom.get("c1"));
+		people.add(person3);
+		
+		person7 = new Person("Jenna", new Wallet(7));
+		person3.setCurrentRoom(hashmapRoom.get("c1"));
+		people.add(person3);
+		
+		person8 = new Person("Jenna", new Wallet(7));
+		person3.setCurrentRoom(hashmapRoom.get("c1"));
+		people.add(person3);
+		
+		person9 = new Person("Jenna", new Wallet(7));
+		person3.setCurrentRoom(hashmapRoom.get("c1"));
+		people.add(person3);
+
 		gamer.setCurrentRoom(hashmapRoom.get("foyer"));
 	}
 

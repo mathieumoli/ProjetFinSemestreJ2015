@@ -81,20 +81,6 @@ public abstract class Room {
 	}
 
 	/**
-	 * Create a room described "description". Initially, it has no exits.
-	 * "description" is something like "a kitchen" or "an open court yard".
-	 * 
-	 * @param description
-	 *            The room's description.
-	 * @boolean secret if the room is a secret room or not
-	 */
-	public Room() {
-		this.description = null;
-		exits = new HashMap<String, Room>();
-		secret = false;
-	}
-
-	/**
 	 * Define an exit from this room.
 	 * 
 	 * @param direction

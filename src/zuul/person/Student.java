@@ -430,10 +430,6 @@ public class Student extends Person {
 				System.out.println("\n\nThey act like they doesn't know you...\n\n");
 			}
 		}
-		
-
-
-
 
 	}
 
@@ -444,21 +440,6 @@ public class Student extends Person {
 			// TODO internationalize
 			System.out
 					.println("Un object de ce type est déjà dans le sac, je ne peux pas en avoir plusieurs");
-		}
-	}
-
-	/**
-	 * The student drink the coffee in it backpack
-	 */
-	public void drinkCoffee() {
-		if (bag.containsKey("coffee")) {
-			bag.remove("coffee");
-			this.incrementEnergy(ADD_ENERGIE_COFFEE);
-			// TODO internationalize
-			System.out.println("bu caffé");
-		} else {
-			// TODO internationalize
-			System.out.println("Je n'ai pas de caffé sur moi :( ");
 		}
 	}
 

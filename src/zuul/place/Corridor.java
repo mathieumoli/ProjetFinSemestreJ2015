@@ -28,11 +28,11 @@ public class Corridor extends Room {
 	 * @param description the description of the corridor
 	 * 
 	 ***/
-	public Corridor(String description,int nobRoom) {
+	public Corridor(String description,int numRoom) {
 		super(description);
 		Random randomLight = new Random();
 		randomLight.nextBoolean();
-		nbRoom=nobRoom;
+		nbRoom=numRoom;
 		lights = (randomLight.nextBoolean()) ? true : false;
 
 	}
@@ -44,11 +44,11 @@ public class Corridor extends Room {
 	 * @param secret, the boolean to define if the room is secret or not
 	 * 
 	 ***/
-	public Corridor(String description,boolean secret, int nobRoom) {
+	public Corridor(String description, int numRoom, boolean secret) {
 		super(description,secret);
 		Random randomLight = new Random();
 		randomLight.nextBoolean();
-		nbRoom=nobRoom;
+		nbRoom=numRoom;
 		lights = (randomLight.nextBoolean()) ? true : false;
 
 	}
