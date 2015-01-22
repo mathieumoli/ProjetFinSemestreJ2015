@@ -210,7 +210,8 @@ public class Zuul_en_US extends ListResourceBundle {
 					+ "I believe I can soar \n "
 					+ "I see me running through that open door \n "
 					+ "I believe I can fly \n " + "I believe I can fly "},
-			{"password","I solemnly swear that I am up to no good"}
+			{"password","I solemnly swear that I am up to no good"},
+			{"maraudeur.show","--- Marauder Map ---"}
 
 	};
 

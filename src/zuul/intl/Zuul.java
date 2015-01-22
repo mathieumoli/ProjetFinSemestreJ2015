@@ -149,7 +149,7 @@ public class Zuul extends ListResourceBundle {
 					+ "I see me running through that open door \n "
 					+ "I believe I can fly \n " + "I believe I can fly "},
 			{"password","je jure solennellement que mes intentions sont mauvaises"},
-			{"maraudeur."
+			{"maraudeur.show","--- Marauder Map ---"}
 
     };
 
