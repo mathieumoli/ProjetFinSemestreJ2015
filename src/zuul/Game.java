@@ -58,6 +58,7 @@ public class Game {
 	}
 
 	private void initPayingObject(){
+		this.listPayingObject = new HashMap<String, PayingObject>();
 		this.listPayingObject.put("alcohol",new Alcohol());
 		this.listPayingObject.put("coffee",new Cofee());
 		this.listPayingObject.put("lunch",new Lunch());
@@ -351,6 +352,7 @@ public class Game {
 
 		case "help":
 			currentRoom.printHelp(parser);
+			printPeopleInRoom();
 			break;
 		case "quit":
 			wantToQuit = quit(command);
@@ -398,6 +400,25 @@ public class Game {
 		return wantToQuit;
 	}
 
+	
+	/**
+	 * a method printing every people in the room.
+	 */
+	private void printPeopleInRoom() {
+		System.out.print("Les personnes présentes dans cette salle sont : ");
+		ArrayList<Person> peopleInRoom = new ArrayList<Person>();
+		for (Person person : people) {
+			if (person.getCurrentRoom()==currentRoom) {
+				peopleInRoom.add(person);
+			}
+		}
+		for (Person person : peopleInRoom) {
+			System.out.print(person.getName()+ "   ");			
+		}
+		System.out.println();
+	}
+	
+	
 	/**
 	 * Try to in to one direction. If there is an exit, enter the new room,
 	 * otherwise print an error message.
