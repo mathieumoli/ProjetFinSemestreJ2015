@@ -95,6 +95,7 @@ public class Person {
 		boolean trouve = false;
 		ArrayList<Room> hm = new ArrayList<Room>();
 		hm.addAll(this.currentRoom.getExits().values());
+		hm.add(this.currentRoom);
 		while(!trouve){
 			
 			rand = Math.random();
