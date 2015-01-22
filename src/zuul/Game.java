@@ -84,9 +84,9 @@ public class Game {
 		Room ali, exam, foyer, lab1, lab2, lab3, lecture1, lecture2, lecture3, lunchRoom, library, secretariat,c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12;
 		boolean secret = true; //use to set secrete room
 		
-		ali = new AliOffice("le bureau d'Ali"); // TODO internationnalisation
+		ali = new AliOffice(res.getString("alioffice.description"));
 		exam = new ExamRoom(res.getString("examroom.description"));
-		foyer = new Foyer("le foyer"); // TODO internationnalisation
+		foyer = new Foyer(res.getString("club.description"));
 		lab1 = new LabRoom(res.getString("labroom.description1"), 1);
 		lab2 = new LabRoom(res.getString("labroom.description1"), 2);
 		lab3 = new LabRoom(res.getString("labroom.description1"), 3);
@@ -95,7 +95,7 @@ public class Game {
 		lecture3 = new LectureRoom(res.getString("lectureroom.description1"), 3);
 		library = new Library(res.getString("library.description"));
 		lunchRoom = new Lunchroom(res.getString("lunchroom.description"));
-		secretariat = new Secretariat("au secretariat"); // TODO internationnalisation
+		secretariat = new Secretariat(res.getString("secretarialDepartment.description"));
 		c1 = new Corridor(res.getString("corridor1.description"),1);
 		c2 = new Corridor(res.getString("corridor2.description"),2);
 		c3 = new Corridor(res.getString("corridor3.description"),3);
@@ -214,7 +214,7 @@ public class Game {
 
 			// TODO internationalisation
 			System.out
-			        .println("You are Chuck Norris, you never lose so congratulation you win !!!");
+			        .println(res.getString("name.CN"));
 			System.out.println(res.getString("game.thankyou"));
 
 		}

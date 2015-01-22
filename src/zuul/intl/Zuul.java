@@ -19,7 +19,10 @@ public class Zuul extends ListResourceBundle {
             {"labroom.description1", "Vous êtes dans la salle de TP.\nVous pouvez assister au cours de "},
             {"labroom.description2", "pour cela, tapez \"attend lab\" \n" },
             {"labroom.shortdescription", "Vous êtes dans la salle de TP.\n"},
-
+            {"alioffice.description","le bureau d'Ali Beikbaghban\n"},
+            {"club.description", "le foyer\n"},
+            {"secretarialDepartment.description","le secretariat\n"},
+            
             {"corridor1.description", "Vous êtes dans le premier couloir"},
             {"corridor2.description", "Vous êtes dans le deuxième couloir"},
             {"corridor3.description", "Vous êtes dans le troisième couloir"},
@@ -133,8 +136,9 @@ public class Zuul extends ListResourceBundle {
 
         	{"room.nothing","Désolé il n'y a pas de cours dans cette salle, Revenez plus tard"},
             {"cheatsheet.description1", "Vous venez de trouver une feuille avec quelque chose d'écrit dessus..."},
-            {"cheatsheet.description2", "Réponses à l'examen de POO : "}
-            
+            {"cheatsheet.description2", "Réponses à l'examen de POO : "},
+            {"name.CN","Vous êtes Chuck Norris vous ne perdez jamais ! Bravo vous avez donc gagné !"}
+
     };
 
     /***

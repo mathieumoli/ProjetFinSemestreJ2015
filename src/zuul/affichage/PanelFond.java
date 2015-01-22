@@ -6,14 +6,26 @@ import java.awt.Toolkit;
 
 import javax.swing.JPanel;
 
+/**
+ * 
+ * @author Mathieu Molinengo
+ * @version 01.22.2015
+ */
 public class PanelFond extends JPanel {
 	private Image image;
+	/**
+	 * Constructor to create the PanelFond
+	 */
 	public PanelFond() {
 		super();
 		image = Toolkit.getDefaultToolkit().getImage("plan.jpg");
 		
 	}
-	
+	/**
+	 * paintComponent to show the picture
+	 * @param
+	 * 		the graphics where the picture is displayed
+	 */
 	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
@@ -23,6 +35,7 @@ public class PanelFond extends JPanel {
 	}
 
 	/**
+	 * To get the picture
 	 * @return the image
 	 */
 	public Image getImage() {
