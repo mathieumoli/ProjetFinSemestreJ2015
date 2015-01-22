@@ -96,18 +96,18 @@ public class Game {
 		library = new Library(res.getString("library.description"));
 		lunchRoom = new Lunchroom(res.getString("lunchroom.description"));
 		secretariat = new Secretariat("au secretariat"); // TODO internationnalisation
-		c1 = new Corridor(res.getString("corridor1.description"));
-		c2 = new Corridor(res.getString("corridor2.description"));
-		c3 = new Corridor(res.getString("corridor3.description"));
-		c4 = new Corridor(res.getString("corridor4.description"));
-		c5 = new Corridor("corridor5.description");
-		c6 = new Corridor("corridor6.description");
-		c7 = new Corridor("corridor7.description");
-		c8 = new Corridor("corridor8.description");
-		c9 = new Corridor("corridor9.description");
-		c10 = new Corridor("corridor10.description");
-		c11 = new Corridor("corridor11.description");
-		c12 = new Corridor("corridor12.description");
+		c1 = new Corridor(res.getString("corridor1.description"),1);
+		c2 = new Corridor(res.getString("corridor2.description"),2);
+		c3 = new Corridor(res.getString("corridor3.description"),3);
+		c4 = new Corridor(res.getString("corridor4.description"),4);
+		c5 = new Corridor("corridor5.description",5);
+		c6 = new Corridor("corridor6.description",6);
+		c7 = new Corridor("corridor7.description",7);
+		c8 = new Corridor("corridor8.description",8);
+		c9 = new Corridor("corridor9.description",9);
+		c10 = new Corridor("corridor10.description",10);
+		c11 = new Corridor("corridor11.description",11);
+		c12 = new Corridor("corridor12.description",12);
 		
 		c1.setExit("north", c2);
 		c1.setExit("south", foyer);
@@ -204,10 +204,6 @@ public class Game {
 			while (!finished) {
 				Command command = parser.getCommand();
 				finished = processCommand(command);
-				int i;
-				for(i=0;i<people.size();i++){
-				people.get(i).randomMove();
-				}
 				gamer.setCurrentRoom(currentRoom);
 			}
 			System.out.println(res.getString("game.thankyou"));
@@ -373,6 +369,10 @@ public class Game {
 			System.out.println(res.getString("game.nodoor"));
 		} else if (nextRoom.enter(gamer)) {
 			currentRoom = nextRoom;
+			int i;
+			for(i=0;i<people.size();i++){
+			people.get(i).randomMove();
+			}
 		} else {
 			System.out.println(currentRoom.getLongDescription());
 		}
