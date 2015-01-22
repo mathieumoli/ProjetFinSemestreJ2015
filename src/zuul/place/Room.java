@@ -62,6 +62,7 @@ public abstract class Room {
 		this.description = description;
 		exits = new HashMap<String, Room>();
 		this.secret = false;
+		this.objectInRoom = new ArrayList<ZuulObject>();
 	}
 
 	/**
@@ -283,10 +284,10 @@ public abstract class Room {
 	 * @param gamer
 	 *            The Student who want to use a tablet
 	 */
-	public void wantSearch(Command command, Student gamer) {
-		System.out.println("You can't do this here");
-
-	}
+//	public void wantSearch(Command command, Student gamer) {
+//		System.out.println("You can't do this here");
+//
+//	}
 	
 	/**
 	 * 

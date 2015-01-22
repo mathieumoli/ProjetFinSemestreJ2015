@@ -302,7 +302,7 @@ public class Game {
 			currentRoom.wantTurn(command, gamer);
 			break;
 		case "search":
-			currentRoom.wantSearch(command, gamer);
+			gamer.searchInRoom();
 			break;
 		case "start":
 			currentRoom.wantStart(command, gamer);

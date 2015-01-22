@@ -440,7 +440,10 @@ public class Student extends Person{
 	public void searchInRoom(){
 		if(this.getCurrentRoom().objectInRoom()){
 			ZuulObject objectFound = this.getCurrentRoom().search();
+			System.out.println("J'ajoute " + objectFound.getName() + " a mon sac !");
 			this.addInBag(objectFound);
+		} else {
+			System.out.println("Je n'ai trouvé aucun objet ici.");
 		}
 	}
 	

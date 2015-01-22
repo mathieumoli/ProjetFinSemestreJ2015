@@ -210,16 +210,16 @@ public class Corridor extends Room {
 	 * @param gamer
 	 *            The Student who want to use a tablet
 	 */
-	@Override
-	public void wantSearch(Command command,Student gamer) {
-		if (!command.hasSecondWord()) {
-			// if there is no second word, we don't know where to go...
-			System.out.println(Game.res.getString("game.search"));
-		} else if (command.getSecondWord().equals("printer")) {
-			System.out.println(Game.res.getString("cheatsheet.description1"));
-			System.out.println(Game.res.getString("cheatsheet.description2"));
-			this.useCheatsheet(gamer);
-		}
-
-	}
+//	@Override
+//	public void wantSearch(Command command,Student gamer) {
+//		if (!command.hasSecondWord()) {
+//			// if there is no second word, we don't know where to go...
+//			System.out.println(Game.res.getString("game.search"));
+//		} else if (command.getSecondWord().equals("printer")) {
+//			System.out.println(Game.res.getString("cheatsheet.description1"));
+//			System.out.println(Game.res.getString("cheatsheet.description2"));
+//			this.useCheatsheet(gamer);
+//		}
+//
+//	}
 }

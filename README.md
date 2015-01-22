@@ -18,6 +18,16 @@ Projet de fin de semestre Janvier 2015
     ###4MM
           Creation de la secretRoom     
     
-## 1CL
-	Ajout de la carte d'invisibilité et mise en place d'un héritage pour ajouter la classe Stromboni et la classe Person
+## CL
+	### 1CL 
+	Ajout de la cap d'invisibilité et mise en place d'un héritage pour ajouter la classe 		Stromboni et la classe Person
+	###2CL
+	Ajout de Personn et de Stromboni
+	Gérer les mouvements aléatoire des Personn
+	Implementation du Wallet
+	Implementation du vol
+	###3CL
+	Les commandes deviennent des enums
+	Amélioration de la structure du programme
+	Implémentation de la recherche d'objet dans une salle
     
