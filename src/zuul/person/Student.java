@@ -2,7 +2,9 @@ package zuul.person;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+
 import zuul.Game;
+import zuul.affichage.Plan;
 import zuul.commands.Command;
 import zuul.course.Item;
 import zuul.course.LabItem;
@@ -403,7 +405,7 @@ public class Student extends Person {
 				stromboniIsHere = true;
 			}
 		}
-		System.out.println(wordHello);
+
 		if (wordHello) {  // on a bien dit hello.
 			if (stromboniIsHere) {
 				if (youCanPassExam) {
@@ -458,6 +460,15 @@ public class Student extends Person {
 			this.addInBag(objectFound);
 		} else {
 			System.out.println("Je n'ai trouvé aucun objet ici.");
+		}
+	}
+	
+	public void seePlan(Command command){
+		if(command.getSecondWord().toLowerCase().equals("plan")){
+			new Plan();
+		}
+		else{
+			System.out.println("What do you want to see ?");
 		}
 	}
 

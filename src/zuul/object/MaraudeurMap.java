@@ -83,10 +83,10 @@ public class MaraudeurMap extends ZuulObject{
 			int i;
 			for(i=0;i<persons.size();i++){
 				// TODO internationalisation
-				System.out.println(persons.get(i).getName()+" is in "+persons.get(i).getCurrentRoom().getClass().getSimpleName());
+				System.out.println(persons.get(i).getName()+" is in "+persons.get(i).getCurrentRoom().getName());
 			}
 			// TODO internationalisation
-			System.out.println("You are in : "+owner.getCurrentRoom().getClass().getSimpleName());
+			System.out.println("You are in "+owner.getCurrentRoom().getName());
 		}
 		else
 		{
