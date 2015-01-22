@@ -148,9 +148,20 @@ public class Zuul extends ListResourceBundle {
 					+ "I believe I can soar \n "
 					+ "I see me running through that open door \n "
 					+ "I believe I can fly \n " + "I believe I can fly "},
-			{"password","je jure solennellement que mes intentions sont mauvaises"},
-			{"maraudeur.show","--- Marauder Map ---"}
-
+			{"pc.action","ça faisait longtemps que je me suis pas connecté ...\nFacebook.com \nConnexion échouée..."},
+			{"phone.action","biip biip ... \nVeuillez laisser votre message apres le bip "},
+			{"redbull.action","Le redbull c'est trop bon !"},		
+			{"tobacco.action","Allez une petite cigarette ! (La cigarette est mauvaise pour la santé vous le savez non ?"},
+			{"twix.action","TWIX ces doigts coupent faim !"},
+			{"wand.action","Wingardium Leviosa \n...\nPourquoi il se passe rien... \ntant pis, j ai un exam à réussir "},
+			
+			{"maraudeur.password","je jure solennellement que mes intentions sont mauvaises"},
+			{"maraudeur.show","--- Carte du Maraudeur ---"},
+			{"maraudeur.see"," est dans "},
+			{"maraudeur.you","Vous êtes dans "},
+			{"maraudeur.passwordAnnonce","Donne moi le mot de passe stupide humain"},
+			{"maraudeur.failpassword","Vous ne connaissez pas le mot de passe vous ne saurez jamais où sont les autres."}
+			
     };
 
     /***

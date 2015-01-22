@@ -30,7 +30,7 @@ public class Cofee extends PayingObject {
 		student.incrementEnergy(30);
 		Display.display("energy.part2");
 		Display.displayln(Integer.toString((student.getEnergy())));
-		Display.display("lunchroom.coffee2");
+		Display.displayln("lunchroom.coffee2");
 	}
 	
 }

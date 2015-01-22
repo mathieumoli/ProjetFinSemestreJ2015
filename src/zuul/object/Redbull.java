@@ -1,5 +1,6 @@
 package zuul.object;
 
+import zuul.Display;
 import zuul.person.Student;
 /**
  * 
@@ -24,9 +25,12 @@ public class Redbull extends PayingObject {
 	 ***/
 	@Override
 	public void useObject(Student student) {
-		//TODO internationalisation
-		System.out.println("le redbull c'est trop bon") ;
+		Display.display("energy.part1");
+		Display.display(student.getName());
 		student.incrementEnergy(40);
+		Display.display("energy.part2");
+		Display.displayln(Integer.toString((student.getEnergy())));
+		Display.displayln("redbull.action");
 		
 	}
 	
