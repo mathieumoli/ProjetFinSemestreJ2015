@@ -194,6 +194,7 @@ public class Game {
 		hashmapRoom.put("c12",c12);
 		
 		currentRoom = foyer;
+
 	}
 
 	/**
@@ -208,7 +209,7 @@ public class Game {
 		gamer.addInBag(c1);
 		if (!(gamer.getName().equals("Chuck Norris"))) {
 			printGamer();
-
+			printPeopleInRoom();
 			// Enter the main command loop. Here we repeatedly read commands and
 			// execute them until the game is over.
 
@@ -352,7 +353,7 @@ public class Game {
 
 		case "help":
 			currentRoom.printHelp(parser);
-			printPeopleInRoom();
+			
 			break;
 		case "quit":
 			wantToQuit = quit(command);
@@ -439,9 +440,10 @@ public class Game {
 			System.out.println(res.getString("game.nodoor"));
 		} else if (nextRoom.enter(gamer)) {
 			currentRoom = nextRoom;
+			printPeopleInRoom();
 			int i;
 			for(i=0;i<people.size();i++){
-			people.get(i).randomMove();
+			    people.get(i).randomMove();
 			}
 		} else {
 			System.out.println(currentRoom.getLongDescription());
