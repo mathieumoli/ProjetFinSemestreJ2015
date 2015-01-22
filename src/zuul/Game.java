@@ -373,6 +373,8 @@ public class Game {
 		case "say":
 		    gamer.wantSayHello(command, people, currentRoom);
 		    break;
+		case "see":
+			gamer.seePlan(command);
 		default:
 			break;
 		}

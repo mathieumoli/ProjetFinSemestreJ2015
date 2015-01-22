@@ -17,7 +17,7 @@ public class CommandWords
     private static final String[] validCommands = {
         "go", "quit", "help",
         //update from Martinez Lucas and Molinengo Mathieu
-        "take", "lights", "attend", "read", "use", "search", "start", "turn", "say", "check"
+        "take", "lights", "attend", "read", "use", "search", "start", "turn", "say", "check", "see"
     };
 
     /**
