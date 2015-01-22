@@ -213,32 +213,16 @@ y an error
 	 * @param gamer
 	 *            The Student who want to use a tablet
 	 */
-//	@Override
-//	public void wantSearch(Command command,Student gamer) {
-//		if (!command.hasSecondWord()) {
-//			// if there is no second word, we don't know where to go...
-//			System.out.println(Game.res.getString("game.search"));
-//		} else if (command.getSecondWord().equals("printer")) {
-//			System.out.println(Game.res.getString("cheatsheet.description1"));
-//			System.out.println(Game.res.getString("cheatsheet.description2"));
-//			this.useCheatsheet(gamer);
-//		}
-//
-//	}
-	
-//	/**
-//	 * 
-//	 * Call only when there is one or more object is the room to search a object in the room
-//	 * 
-//	 * @return a object present in the room
-//	 * @throws EmptyStackException
-//	 */
-//	public ZuulObject search() throws EmptyStackException{
-//		if(this.objectInRoom()){
-//			int rand = (int) Math.round(Math.random() * (this.objectInRoom.size()-1));
-//			return this.objectInRoom.get(rand);
-//		} else {
-//			throw new EmptyStackException();
-//		}
-//	}
+	@Override
+	public void checkPrinter(Command command,Student gamer) {
+		if (!command.hasSecondWord()) {
+			// if there is no second word, we don't know where to go...
+			System.out.println(Game.res.getString("game.search"));
+		} else if (command.getSecondWord().equals("printer")) {
+			System.out.println(Game.res.getString("cheatsheet.description1"));
+			System.out.println(Game.res.getString("cheatsheet.description2"));
+			this.useCheatsheet(gamer);
+		}
+
+	}
 }
