@@ -30,6 +30,7 @@ public class Seller extends Person {
 	 * @param s - player which want buy 
 	 */
 	public void sell(String object, Student s){
+		//TODO 
 		if(this.stock.containsKey(object)){
 			s.addInBag(this.stock.get(object));
 			//TODO interna

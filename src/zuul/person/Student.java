@@ -360,13 +360,20 @@ public class Student extends Person {
 		this.removeItem();
 	}
 
-	public void wantUse(String object) {
-		object = object.toLowerCase();
-		if (bag.containsKey(object)) {
-			bag.get(object).useObject(this);
+	public void wantUse(Command command) {
+		if(command.hasSecondWord()){
+			String object = command.getSecondWord();
+			object = object.toLowerCase();
+			if (bag.containsKey(object)) {
+				bag.get(object).useObject(this);
+				bag.remove(object);
+			} else {
+				// TODO internationalisation
+				System.out.println("Je n'ai pas ca dans mon sac.");
+			}
 		} else {
-			// TODO internationalisation
-			System.out.println("Je n'ai pas ca dans mon sac.");
+			//TODO interna
+			System.out.println("Utilisation : use + nom de l'objet");
 		}
 
 	}
@@ -435,13 +442,16 @@ public class Student extends Person {
 
 	}
 
+	public boolean canAddInBag(String objectName){
+		return !bag.containsKey(objectName);
+	}
 	/**
 	* Add a object in the bag
 	* 
 	* @param obj - object to add in the bag
 	*/
 	public void addInBag(ZuulObject obj) {
-		if (!bag.containsKey(obj.getName())) {
+		if (!this.canAddInBag(obj.getName())) {
 			bag.put(obj.getName().toLowerCase(), obj);
 		} else {
 			// TODO internationalize
@@ -485,7 +495,13 @@ public class Student extends Person {
 			if(!command.hasSecondWord()){
 				this.getCurrentRoom().diplayAvalaiblePayingObject();
 			} else {
-				this.getCurrentRoom().buy(command.getSecondWord().toLowerCase(), this);
+				String objectName = command.getSecondWord().toLowerCase();
+				if(this.canAddInBag(objectName)){
+					this.getCurrentRoom().buy(objectName, this);
+				} else {
+					//TODO interna
+					System.out.println("Vous ne pouvez pas acheter cet object vous en avez déjà un dans votre sac.");
+				}
 			}
 		} else {
 			//TODO interna

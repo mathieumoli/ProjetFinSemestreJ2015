@@ -8,12 +8,12 @@ import zuul.person.Student;
  *
  */
 
-public class Cofee extends PayingObject {
+public class Coffee extends PayingObject {
 	/**
 	 * Constructor for create a Cofee
 	 */
-	public Cofee(){
-		super("cofee",1);
+	public Coffee(){
+		super("coffee",1);
 	}
 	/***
 	 * 
@@ -25,6 +25,7 @@ public class Cofee extends PayingObject {
 	 ***/
 	@Override
 	public void useObject(Student student) {
+		//TODO  supprimer la phrase déja implémenter de le implément/décrémente
 		Display.display("energy.part1");
 		Display.display(student.getName());
 		student.incrementEnergy(30);

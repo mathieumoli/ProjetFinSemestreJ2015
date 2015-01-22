@@ -60,7 +60,7 @@ public class Game {
 	private void initPayingObject(){
 		this.listPayingObject = new HashMap<String, PayingObject>();
 		this.listPayingObject.put("alcohol",new Alcohol());
-		this.listPayingObject.put("coffee",new Cofee());
+		this.listPayingObject.put("coffee",new Coffee());
 		this.listPayingObject.put("lunch",new Lunch());
 		this.listPayingObject.put("redbull",new Redbull());
 	}
@@ -221,8 +221,6 @@ public class Game {
 			}
 			System.out.println(res.getString("game.thankyou"));
 		} else {
-
-			// TODO internationalisation
 			System.out
 			        .println(res.getString("name.CN"));
 			System.out.println(res.getString("game.thankyou"));
@@ -383,7 +381,7 @@ public class Game {
 			gamer.wantBuy(command);
 			break;
 		case "use":
-			gamer.wantUse(command.getSecondWord());
+			gamer.wantUse(command);
 			break;
 		case "check":
 			currentRoom.checkPrinter(command, gamer);
