@@ -201,7 +201,16 @@ public class Zuul_en_US extends ListResourceBundle {
 	        { "cheatsheet.description1",
 	                "You just found a paper, and there is something written on it..." },
 	        { "cheatsheet.description2", "Answers to the OOP exam : " },
-	        {"name.CN","You are Chuck Norris, you never lose so congratulation you win !!!"}
+	        {"name.CN","You are Chuck Norris, you never lose so congratulation you win !!!"},
+	        {"alcohol.action","Wow, I have drunk to much alcohol !"},
+	        {"broom.action","I believe I can fly \n"
+					+ "I believe I can touch the sky \n"
+					+ "I think about it every night and day \n"
+					+ "Spread my wings and fly away \n "
+					+ "I believe I can soar \n "
+					+ "I see me running through that open door \n "
+					+ "I believe I can fly \n " + "I believe I can fly "},
+			{"password","I solemnly swear that I am up to no good"}
 
 	};
 

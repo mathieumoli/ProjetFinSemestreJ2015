@@ -1,5 +1,7 @@
 package zuul.object;
 
+import zuul.Display;
+import zuul.Game;
 import zuul.person.Student;
 /**
  * 
@@ -24,6 +26,7 @@ public class Alcohol extends PayingObject {
 	@Override
 	public void useObject(Student student) {
 		student.decrementEnergy(40);
+		Display.display(Game.res.getString("alcohol.action"));
 		
 	}
 	

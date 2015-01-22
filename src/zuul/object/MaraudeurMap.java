@@ -3,6 +3,8 @@ package zuul.object;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import zuul.Display;
+import zuul.Game;
 import zuul.person.Person;
 import zuul.person.Student;
 
@@ -26,8 +28,8 @@ public class MaraudeurMap extends ZuulObject{
 	public MaraudeurMap(Student player) {
 		super("Map");
 		persons = new ArrayList<Person>();
-		// TODO internationalisation
-		password = "je jure solennellement que mes intentions sont mauvaises";
+		
+		password = Game.res.getString("password");
 		locked = true;
 		owner=player;
 	}
@@ -78,7 +80,7 @@ public class MaraudeurMap extends ZuulObject{
 	 */
 	private void seePeople() {
 		// TODO internationalisation
-		System.out.println("--- Marauder Map ---");
+		Display.displayln("maraudeur.affichage");
 		if (locked == false) {
 			int i;
 			for(i=0;i<persons.size();i++){

@@ -2,6 +2,8 @@ package zuul.intl;
 
 import java.util.ListResourceBundle;
 
+import zuul.Display;
+
 /**
  * @author Lucas Martinez
   * @version 2014.11.30
@@ -137,7 +139,17 @@ public class Zuul extends ListResourceBundle {
         	{"room.nothing","Désolé il n'y a pas de cours dans cette salle, Revenez plus tard"},
             {"cheatsheet.description1", "Vous venez de trouver une feuille avec quelque chose d'écrit dessus..."},
             {"cheatsheet.description2", "Réponses à l'examen de POO : "},
-            {"name.CN","Vous êtes Chuck Norris vous ne perdez jamais ! Bravo vous avez donc gagné !"}
+            {"name.CN","Vous êtes Chuck Norris vous ne perdez jamais ! Bravo vous avez donc gagné !"},
+            {"alcohol.action","Oh j'ai la tête qui tourne ..."},
+            {"broom.action","I believe I can fly \n"
+					+ "I believe I can touch the sky \n"
+					+ "I think about it every night and day \n"
+					+ "Spread my wings and fly away \n "
+					+ "I believe I can soar \n "
+					+ "I see me running through that open door \n "
+					+ "I believe I can fly \n " + "I believe I can fly "},
+			{"password","je jure solennellement que mes intentions sont mauvaises"},
+			{"maraudeur."
 
     };
 

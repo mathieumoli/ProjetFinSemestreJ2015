@@ -1,5 +1,6 @@
 package zuul.object;
 
+import zuul.Display;
 import zuul.person.Student;
 /**
  * 
@@ -24,7 +25,12 @@ public class Cofee extends PayingObject {
 	 ***/
 	@Override
 	public void useObject(Student student) {
-		student.incrementEnergy(30);	
+		Display.display("energy.part1");
+		Display.display(student.getName());
+		student.incrementEnergy(30);
+		Display.display("energy.part2");
+		Display.displayln(Integer.toString((student.getEnergy())));
+		Display.display("lunchroom.coffee2");
 	}
 	
 }
