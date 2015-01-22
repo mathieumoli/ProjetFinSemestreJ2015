@@ -250,10 +250,10 @@ public class Game {
 		person1 = new Person("Cédric", new Wallet(10));
 		person2 = new Person("Mathieu", new Wallet(4));
 		person3 = new Person("Lisa", new Wallet(5));
-		person1.setCurrentRoom(hashmapRoom.get("ali"));
-		person2.setCurrentRoom(hashmapRoom.get("foyer"));
-		person3.setCurrentRoom(hashmapRoom.get("exam"));
-		stromboni.setCurrentRoom(hashmapRoom.get("exam"));
+		person1.setCurrentRoom(hashmapRoom.get("c5"));
+		person2.setCurrentRoom(hashmapRoom.get("c5"));
+		person3.setCurrentRoom(hashmapRoom.get("c1"));
+		stromboni.setCurrentRoom(hashmapRoom.get("c1"));
 		people.add(person1);
 		people.add(person2);
 		people.add(person3);
