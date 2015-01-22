@@ -403,7 +403,7 @@ public class Student extends Person {
 				stromboniIsHere = true;
 			}
 		}
-		System.out.println(wordHello);
+
 		if (wordHello) {  // on a bien dit hello.
 			if (stromboniIsHere) {
 				if (youCanPassExam) {
