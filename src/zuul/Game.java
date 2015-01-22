@@ -2,9 +2,9 @@ package zuul;
 
 import zuul.commands.*;
 import zuul.course.*;
-import zuul.object.MaraudeurMap;
 import zuul.object.*;
 import zuul.person.Person;
+import zuul.person.Seller;
 import zuul.person.Stromboni;
 import zuul.person.Student;
 import zuul.person.object.Wallet;
@@ -46,6 +46,7 @@ public class Game {
 	public static ArrayList<Person> people = new ArrayList<Person>();
 	private HashMap<String,Room> hashmapRoom = new HashMap<String,Room>();
 	Scanner scanner = new Scanner(System.in);
+	HashMap<String,PayingObject> listPayingObject;
 	
 	/**
 	 * Create the game and initialize its internal map.
@@ -56,6 +57,12 @@ public class Game {
 		res = ResourceBundle.getBundle("zuul.intl.Zuul", locale);
 	}
 
+	private void initPayingObject(){
+		this.listPayingObject.put("alcohol",new Alcohol());
+		this.listPayingObject.put("coffee",new Cofee());
+		this.listPayingObject.put("lunch",new Lunch());
+		this.listPayingObject.put("redbull",new Redbull());
+	}
 	/**
 	 * Ask to the user his prefered language and set it
 	 */
@@ -83,6 +90,7 @@ public class Game {
 	private void createRooms() {
 		Room ali, exam, foyer, lab1, lab2, lab3, lecture1, lecture2, lecture3, lunchRoom, library, secretariat,c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12;
 		boolean secret = true; //use to set secrete room
+		initPayingObject();
 		
 		ali = new AliOffice(res.getString("alioffice.description"));
 		exam = new ExamRoom(res.getString("examroom.description"));
@@ -94,7 +102,7 @@ public class Game {
 		lecture2 = new LectureRoom(res.getString("lectureroom.description1"), 2);
 		lecture3 = new LectureRoom(res.getString("lectureroom.description1"), 3);
 		library = new Library(res.getString("library.description"));
-		lunchRoom = new Lunchroom(res.getString("lunchroom.description"));
+		lunchRoom = new Lunchroom(res.getString("lunchroom.description"), new Seller("Oussama", this.listPayingObject));
 		secretariat = new Secretariat(res.getString("secretarialDepartment.description"));
 		c1 = new Corridor(res.getString("corridor1.description"),1);
 		c2 = new Corridor(res.getString("corridor2.description"),2);
