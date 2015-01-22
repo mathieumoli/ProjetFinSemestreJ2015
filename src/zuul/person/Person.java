@@ -1,6 +1,8 @@
 package zuul.person;
 
 import java.util.ArrayList;
+import java.util.Iterator;
+
 import zuul.person.object.Wallet;
 import zuul.place.Room;
 
@@ -89,16 +91,17 @@ public class Person {
 	 * 
 	 */
 	public void randomMove(){
-		int rand;
+		double rand;
 		boolean trouve = false;
+		ArrayList<Room> hm = new ArrayList<Room>();
+		hm.addAll(this.currentRoom.getExits().values());
+		hm.add(this.currentRoom);
 		while(!trouve){
-			rand = (int) Math.random();
-			ArrayList<Room> hm = new ArrayList<Room>();
-			hm.addAll(this.currentRoom.getExits().values());
-			this.currentRoom.getExits().keySet().iterator();
-			rand *= Math.round((hm.size()-1));
-			if(!hm.get(rand).isSecret()){
-				this.currentRoom= hm.get(rand);
+			
+			rand = Math.random();
+			rand = Math.round(rand*((hm.size()-1)));
+			if(!hm.get((int) rand).isSecret()){
+				this.currentRoom= hm.get((int)rand);
 				trouve = true;
 			}
 		}

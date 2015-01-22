@@ -16,18 +16,26 @@ Projet de fin de semestre Janvier 2015
     ###3MM
          Descente des actions dans les Rooms en fonction de ce qu'elle peut faire  **OKAY**
     ###4MM
-          Creation de la secretRoom     
+          Creation de la secretRoom
+    ###5MM
+            Stromboni can't move  
+    ###6MM
+            Add number in corridor for MarauderMap 
     
 ## CL
 	### 1CL 
-	Ajout de la cap d'invisibilité et mise en place d'un héritage pour ajouter la classe 		Stromboni et la classe Person
+		Ajout de la cap d'invisibilité et mise en place d'un héritage pour ajouter la classe
+		Stromboni et la classe Person
 	###2CL
-	Ajout de Personn et de Stromboni
-	Gérer les mouvements aléatoire des Personn
-	Implementation du Wallet
-	Implementation du vol
+		Ajout de Personn et de Stromboni
+		Gérer les mouvements aléatoire des Personn
+		Implementation du Wallet
+		Implementation du vol
 	###3CL
-	Les commandes deviennent des enums
-	Amélioration de la structure du programme
-	Implémentation de la recherche d'objet dans une salle
+		Les commandes deviennent des enums
+		Amélioration de la structure du programme
+		Implémentation de la recherche d'objet dans une salle
+	###4CL
+		Commande d'aide plus explicite 
+		
     
