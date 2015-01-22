@@ -31,9 +31,10 @@ public abstract class Room {
 	private ArrayList<ZuulObject> objectInRoom;
 	private HashMap<String, Room> exits; // stores exits of this room.
 
-	protected String getDescription(){
+	protected String getDescription() {
 		return description;
 	}
+
 	/**
 	 * Abstract method which will be overriden in each class
 	 * 
@@ -265,12 +266,12 @@ public abstract class Room {
 	 * @param gamer
 	 *            The Student who want to attend to a lecture or a lab
 	 */
-	public void wantAttend(Command command,Student gamer) {
+	public void wantAttend(Command command, Student gamer) {
 		System.out.println("You can't do this here");
 
 	}
-	
-	public void addAnObjectInRoom(ZuulObject obj){
+
+	public void addAnObjectInRoom(ZuulObject obj) {
 		this.objectInRoom.add(obj);
 	}
 
@@ -288,42 +289,47 @@ public abstract class Room {
 		System.out.println("You can't do this here");
 
 	}
-	
+
 	/**
 	 * 
-	 * Call only when there is one or more object is the room to search a object in the room
+	 * Call only when there is one or more object is the room to search a object
+	 * in the room
 	 * 
 	 * @return a object present in the room
 	 * @throws EmptyStackException
 	 */
-	public ZuulObject search() throws EmptyStackException{
-		if(this.objectInRoom()){
-			int rand = (int) Math.round(Math.random() * (this.objectInRoom.size()-1));
+	public ZuulObject search() throws EmptyStackException {
+		if (this.objectInRoom()) {
+			int rand = (int) Math.round(Math.random()
+			        * (this.objectInRoom.size() - 1));
 			return this.objectInRoom.get(rand);
 		} else {
 			throw new EmptyStackException();
 		}
 	}
-	
+
 	/**
 	 * 
 	 * Call to know if the room has object
 	 * 
 	 * @return true if there is one or more object in the room
 	 */
-	public boolean objectInRoom(){
+	public boolean objectInRoom() {
 		return !this.objectInRoom.isEmpty();
 	}
-	
-	
+
 	/**
 	 * 
 	 * Call to know if the room is secret
 	 * 
 	 * @return true if the room is secret
 	 */
-	public boolean isSecret(){
+	public boolean isSecret() {
 		return this.secret;
+	}
+
+	public String getName() {
+		return this.getClass().getSimpleName();
 	}
 
 }

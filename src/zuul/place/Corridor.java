@@ -20,6 +20,7 @@ public class Corridor extends Room {
 	private boolean lights, tablet, cheatsheet;
 	private Tablet tabletInTheCorridor;
 	private Cheatsheet cheatsheetInTheCorridor;
+	private int nbRoom;
 
 	/***
 	 * 
@@ -27,11 +28,11 @@ public class Corridor extends Room {
 	 * @param description the description of the corridor
 	 * 
 	 ***/
-	public Corridor(String description) {
+	public Corridor(String description,int nobRoom) {
 		super(description);
 		Random randomLight = new Random();
 		randomLight.nextBoolean();
-
+		nbRoom=nobRoom;
 		lights = (randomLight.nextBoolean()) ? true : false;
 
 	}
@@ -43,11 +44,11 @@ public class Corridor extends Room {
 	 * @param secret, the boolean to define if the room is secret or not
 	 * 
 	 ***/
-	public Corridor(String description,boolean secret) {
+	public Corridor(String description,boolean secret, int nobRoom) {
 		super(description,secret);
 		Random randomLight = new Random();
 		randomLight.nextBoolean();
-
+		nbRoom=nobRoom;
 		lights = (randomLight.nextBoolean()) ? true : false;
 
 	}
@@ -224,5 +225,10 @@ y an error
 			this.useCheatsheet(gamer);
 		}
 
+	}
+	
+	@Override
+	public String getName() {
+		return this.getClass().getSimpleName()+" "+Integer.toString(nbRoom);
 	}
 }
