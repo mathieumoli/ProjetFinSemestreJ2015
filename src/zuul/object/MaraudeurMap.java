@@ -95,7 +95,6 @@ public class MaraudeurMap extends ZuulObject{
 			Scanner scanner = new Scanner(System.in);
 			String pass = scanner.nextLine();
 			unlockMap(pass);
-			scanner.close();
 		}
 
 	}
