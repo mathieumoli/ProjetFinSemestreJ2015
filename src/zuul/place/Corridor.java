@@ -4,10 +4,8 @@ import zuul.Game;
 import zuul.commands.Command;
 import zuul.object.Cheatsheet;
 import zuul.object.Tablet;
-import zuul.object.ZuulObject;
 import zuul.person.Student;
 
-import java.util.EmptyStackException;
 import java.util.Random;
 
 /**

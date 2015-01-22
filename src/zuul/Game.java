@@ -246,43 +246,43 @@ public class Game {
 		Person person1,person2,person3, person4, person5, person6, person7, person8, person9;
 		
 		stromboni = new Stromboni();
-		stromboni.setCurrentRoom(hashmapRoom.get("c1"));
+		stromboni.setCurrentRoom(hashmapRoom.get("c5"));
 		people.add(stromboni);
 
 		person1 = new Person("Cédric", new Wallet(10));
-		person1.setCurrentRoom(hashmapRoom.get("c5"));
+		person1.setCurrentRoom(hashmapRoom.get("foyer"));
 		people.add(person1);
 
 		person2 = new Person("Mathieu", new Wallet(4));
-		person2.setCurrentRoom(hashmapRoom.get("c5"));
+		person2.setCurrentRoom(hashmapRoom.get("foyer"));
 		people.add(person2);
 
 		person3 = new Person("Lisa", new Wallet(5));
-		person3.setCurrentRoom(hashmapRoom.get("c1"));
+		person3.setCurrentRoom(hashmapRoom.get("foyer"));
 		people.add(person3);
 		
 		person4 = new Person("Tom", new Wallet(1));
-		person3.setCurrentRoom(hashmapRoom.get("c1"));
+		person3.setCurrentRoom(hashmapRoom.get("c4"));
 		people.add(person3);
 		
-		person5 = new Person("Jenna", new Wallet(7));
-		person3.setCurrentRoom(hashmapRoom.get("c1"));
+		person5 = new Person("Dorian", new Wallet(6));
+		person3.setCurrentRoom(hashmapRoom.get("c6"));
 		people.add(person3);
 		
-		person6 = new Person("Jenna", new Wallet(7));
-		person3.setCurrentRoom(hashmapRoom.get("c1"));
+		person6 = new Person("Florent", new Wallet(12));
+		person3.setCurrentRoom(hashmapRoom.get("c11"));
 		people.add(person3);
 		
-		person7 = new Person("Jenna", new Wallet(7));
-		person3.setCurrentRoom(hashmapRoom.get("c1"));
+		person7 = new Person("Nicolas", new Wallet(16));
+		person3.setCurrentRoom(hashmapRoom.get("library"));
 		people.add(person3);
 		
-		person8 = new Person("Jenna", new Wallet(7));
-		person3.setCurrentRoom(hashmapRoom.get("c1"));
+		person8 = new Person("Dominque", new Wallet(0));
+		person3.setCurrentRoom(hashmapRoom.get("library"));
 		people.add(person3);
 		
-		person9 = new Person("Jenna", new Wallet(7));
-		person3.setCurrentRoom(hashmapRoom.get("c1"));
+		person9 = new Person("Alison", new Wallet(2));
+		person3.setCurrentRoom(hashmapRoom.get("library"));
 		people.add(person3);
 
 		gamer.setCurrentRoom(hashmapRoom.get("foyer"));
