@@ -340,6 +340,9 @@ public class Game {
 		case "use":
 			gamer.wantUse(command.getSecondWord());
 			break;
+		case "check":
+			currentRoom.checkPrinter(command, gamer);
+			break;
 		case "say":
 		    gamer.wantSayHello(command, people, currentRoom);
 		    break;

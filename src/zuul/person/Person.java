@@ -93,7 +93,9 @@ public class Person {
 		boolean trouve = false;
 		while(!trouve){
 			rand = (int) Math.random();
-			ArrayList<Room> hm = new ArrayList<Room>(this.currentRoom.getExits().values());
+			ArrayList<Room> hm = new ArrayList<Room>();
+			hm.addAll(this.currentRoom.getExits().values());
+			this.currentRoom.getExits().keySet().iterator();
 			rand *= Math.round((hm.size()-1));
 			if(!hm.get(rand).isSecret()){
 				this.currentRoom= hm.get(rand);
