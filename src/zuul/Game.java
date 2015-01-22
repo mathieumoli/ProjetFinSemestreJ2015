@@ -43,8 +43,9 @@ public class Game {
 	public static List<LabItem> labs = new ArrayList<LabItem>();
 	public static List<LectureItem> lectures = new ArrayList<LectureItem>();
 	public static ArrayList<Person> people = new ArrayList<Person>();
-	private Room ali, exam, foyer, lab1, lab2, lab3, lecture1, lecture2, lecture3, lunchRoom, library, secretariat;
-	private Room c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12;
+	private HashMap<String,Room> hashmapRoom = new HashMap<String,Room>();
+	private Person person1,person2,person3;
+	private Stromboni stromboni;
 	Scanner scanner = new Scanner(System.in);
 	
 	/**
@@ -81,6 +82,8 @@ public class Game {
 	 * Create all the rooms and link their exits together.
 	 */
 	private void createRooms() {
+		Room ali, exam, foyer, lab1, lab2, lab3, lecture1, lecture2, lecture3, lunchRoom, library, secretariat,c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12;
+		
 		ali = new AliOffice("le bureau d'Ali"); // TODO internationnalisation
 		exam = new ExamRoom(res.getString("examroom.description"));
 		foyer = new Foyer("le foyer"); // TODO internationnalisation
@@ -92,8 +95,7 @@ public class Game {
 		lecture3 = new LectureRoom(res.getString("lectureroom.description1"), 3);
 		library = new Library(res.getString("library.description"));
 		lunchRoom = new Lunchroom(res.getString("lunchroom.description"));
-		secretariat = new Secretariat("au secretariat"); // TODO
-															  // internationnalisation
+		secretariat = new Secretariat("au secretariat"); // TODO internationnalisation
 		c1 = new Corridor(res.getString("corridor1.description"));
 		c2 = new Corridor(res.getString("corridor2.description"));
 		c3 = new Corridor(res.getString("corridor3.description"));
@@ -106,6 +108,7 @@ public class Game {
 		c10 = new Corridor("corridor10.description");
 		c11 = new Corridor("corridor11.description");
 		c12 = new Corridor("corridor12.description");
+		
 		c1.setExit("north", c2);
 		c1.setExit("south", foyer);
 		c1.setExit("east", lecture1);
@@ -152,8 +155,33 @@ public class Game {
 		library.setExit("south", c10);
 		foyer.setExit("north", c1);
 		ali.setExit("south", c12);
-		currentRoom = foyer;
 		
+		hashmapRoom.put("ali",ali);		
+		hashmapRoom.put("exam",exam);
+		hashmapRoom.put("foyer",foyer);
+		hashmapRoom.put("lab1",lab1);
+		hashmapRoom.put("lab2",lab2);
+		hashmapRoom.put("lab3",lab3);
+		hashmapRoom.put("lecture1",lecture1);
+		hashmapRoom.put("lecture2",lecture2);
+		hashmapRoom.put("lecture3",lecture3);
+		hashmapRoom.put("library",ali);
+		hashmapRoom.put("lunchroom",ali);
+		hashmapRoom.put("secretariat",ali);
+		hashmapRoom.put("c1",c1);
+		hashmapRoom.put("c2",c2);
+		hashmapRoom.put("c3",c3);
+		hashmapRoom.put("c4",c4);
+		hashmapRoom.put("c5",c5);
+		hashmapRoom.put("c6",c6);
+		hashmapRoom.put("c7",c7);
+		hashmapRoom.put("c8",c8);
+		hashmapRoom.put("c9",c9);
+		hashmapRoom.put("c10",c10);
+		hashmapRoom.put("c11",c11);
+		hashmapRoom.put("c12",c12);
+		
+		currentRoom = foyer;
 	}
 
 	/**
@@ -206,7 +234,11 @@ public class Game {
 	}
 
 	/**
-	 * Create the player based on the given name
+	 * Create the player based on the given name.
+	 * 
+	 * Here we create every people in the game, by giving their names and how much
+	 * money they have, and  you must set their current room.
+	 * You must also set the player's current room.
 	 */
 
 	private void createPersons() {
@@ -214,21 +246,19 @@ public class Game {
 		String name = scanner.nextLine();
 		gamer = new Student(name);
 		// creates other players
-		Stromboni stromboni = new Stromboni();
-		Person person1 = new Person("Cédric", new Wallet(10));
-		Person person2 = new Person("Mathieu", new Wallet(4));
-		Person person3 = new Person("Lisa", new Wallet(5));
-		person1.setCurrentRoom(foyer);
-		person2.setCurrentRoom(foyer);
-		person3.setCurrentRoom(ali);
-		stromboni.setCurrentRoom(library);
+		stromboni = new Stromboni();
+		person1 = new Person("Cédric", new Wallet(10));
+		person2 = new Person("Mathieu", new Wallet(4));
+		person3 = new Person("Lisa", new Wallet(5));
+		person1.setCurrentRoom(hashmapRoom.get("ali"));
+		person2.setCurrentRoom(hashmapRoom.get("foyer"));
+		person3.setCurrentRoom(hashmapRoom.get("exam"));
+		stromboni.setCurrentRoom(hashmapRoom.get("exam"));
 		people.add(person1);
 		people.add(person2);
 		people.add(person3);
 		people.add(stromboni);
-		gamer.setCurrentRoom(foyer);
-		
-
+		gamer.setCurrentRoom(hashmapRoom.get("foyer"));
 	}
 
 	/**
