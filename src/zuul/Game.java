@@ -164,9 +164,9 @@ public class Game {
 		hashmapRoom.put("lecture1",lecture1);
 		hashmapRoom.put("lecture2",lecture2);
 		hashmapRoom.put("lecture3",lecture3);
-		hashmapRoom.put("library",ali);
-		hashmapRoom.put("lunchroom",ali);
-		hashmapRoom.put("secretariat",ali);
+		hashmapRoom.put("library",library);
+		hashmapRoom.put("lunchroom",lunchRoom);
+		hashmapRoom.put("secretariat",secretariat);
 		hashmapRoom.put("c1",c1);
 		hashmapRoom.put("c2",c2);
 		hashmapRoom.put("c3",c3);
@@ -262,28 +262,28 @@ public class Game {
 		people.add(person3);
 		
 		person4 = new Person("Tom", new Wallet(1));
-		person3.setCurrentRoom(hashmapRoom.get("c4"));
-		people.add(person3);
+		person4.setCurrentRoom(hashmapRoom.get("c4"));
+		people.add(person4);
 		
 		person5 = new Person("Dorian", new Wallet(6));
-		person3.setCurrentRoom(hashmapRoom.get("c6"));
-		people.add(person3);
+		person5.setCurrentRoom(hashmapRoom.get("c6"));
+		people.add(person5);
 		
 		person6 = new Person("Florent", new Wallet(12));
-		person3.setCurrentRoom(hashmapRoom.get("c11"));
-		people.add(person3);
+		person6.setCurrentRoom(hashmapRoom.get("c11"));
+		people.add(person6);
 		
 		person7 = new Person("Nicolas", new Wallet(16));
-		person3.setCurrentRoom(hashmapRoom.get("library"));
-		people.add(person3);
+		person7.setCurrentRoom(hashmapRoom.get("library"));
+		people.add(person7);
 		
 		person8 = new Person("Dominque", new Wallet(0));
-		person3.setCurrentRoom(hashmapRoom.get("library"));
-		people.add(person3);
+		person8.setCurrentRoom(hashmapRoom.get("library"));
+		people.add(person8);
 		
 		person9 = new Person("Alison", new Wallet(2));
-		person3.setCurrentRoom(hashmapRoom.get("library"));
-		people.add(person3);
+		person9.setCurrentRoom(hashmapRoom.get("library"));
+		people.add(person9);
 
 		gamer.setCurrentRoom(hashmapRoom.get("foyer"));
 	}
