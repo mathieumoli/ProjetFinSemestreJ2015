@@ -4,8 +4,10 @@ import zuul.Game;
 import zuul.commands.Command;
 import zuul.object.Cheatsheet;
 import zuul.object.Tablet;
+import zuul.object.ZuulObject;
 import zuul.person.Student;
 
+import java.util.EmptyStackException;
 import java.util.Random;
 
 /**
@@ -201,7 +203,8 @@ public class Corridor extends Room {
 	}
 	
 	/**
-	 * Try to search near the printer, if it's incomplete display an error
+	 * Try to search near the printer, if it's incomplete displa//		}
+y an error
 	 * message Then, display the answers available on the cheatsheet
 	 * 
 	 * @param command
@@ -221,5 +224,21 @@ public class Corridor extends Room {
 //			this.useCheatsheet(gamer);
 //		}
 //
+//	}
+	
+//	/**
+//	 * 
+//	 * Call only when there is one or more object is the room to search a object in the room
+//	 * 
+//	 * @return a object present in the room
+//	 * @throws EmptyStackException
+//	 */
+//	public ZuulObject search() throws EmptyStackException{
+//		if(this.objectInRoom()){
+//			int rand = (int) Math.round(Math.random() * (this.objectInRoom.size()-1));
+//			return this.objectInRoom.get(rand);
+//		} else {
+//			throw new EmptyStackException();
+//		}
 //	}
 }
