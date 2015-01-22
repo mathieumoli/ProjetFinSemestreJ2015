@@ -334,5 +334,24 @@ public abstract class Room {
 	public boolean canBuy(){
 		return false;
 	}
+	
+	/**
+	 * Display the list of object which can be buy.
+	 */
+	public void diplayAvalaiblePayingObject(){
+		//TODO interna
+		System.out.println("Il n'y a pas de vendeur ici.");
+	}
+	
+	/**
+	 * 
+	 * Call by the student to buy a object
+	 * 
+	 * @param object - name of the object to buy
+	 */
+	public void buy(String object, Student s){
+		//TODO interna
+		System.out.println("Il n'y a pas de vendeur ici.");
+	}
 
 }
