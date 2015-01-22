@@ -464,12 +464,11 @@ public class Student extends Person {
 	}
 	
 	public void seePlan(Command command){
-		if(command.getSecondWord().toLowerCase().equals("plan")){
-			new Plan();
-		}
-		else{
-			System.out.println("What do you want to see ?");
-		}
+		if (command.getSecondWord() != null && command.getSecondWord().toLowerCase().equals("plan")) {
+			new Plan();		
+		} else {
+		    System.out.println("What do you want to see ?");
+		}	
 	}
 
 }
