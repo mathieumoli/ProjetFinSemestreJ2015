@@ -485,7 +485,7 @@ public class Student extends Person {
 			if(!command.hasSecondWord()){
 				this.getCurrentRoom().diplayAvalaiblePayingObject();
 			} else {
-				this.getCurrentRoom().buy(command.getSecondWord(), this);
+				this.getCurrentRoom().buy(command.getSecondWord().toLowerCase(), this);
 			}
 		} else {
 			//TODO interna

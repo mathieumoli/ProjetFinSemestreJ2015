@@ -29,7 +29,7 @@ public class MaraudeurMap extends ZuulObject{
 		super("Map");
 		persons = new ArrayList<Person>();
 		
-		password = Game.res.getString("password");
+		password = Game.res.getString("maraudeur.password");
 		locked = true;
 		owner=player;
 	}
@@ -79,21 +79,24 @@ public class MaraudeurMap extends ZuulObject{
 	 * To see other People
 	 */
 	private void seePeople() {
-		// TODO internationalisation
-		Display.displayln("maraudeur.affichage");
+		
+		Display.displayln("maraudeur.show");
 		if (locked == false) {
 			int i;
 			for(i=0;i<persons.size();i++){
-				// TODO internationalisation
-				System.out.println(persons.get(i).getName()+" is in "+persons.get(i).getCurrentRoom().getName());
+				
+				Display.display(persons.get(i).getName());
+				Display.display("maraudeur.see");
+				Display.displayln(persons.get(i).getCurrentRoom().getName());
 			}
-			// TODO internationalisation
-			System.out.println("You are in "+owner.getCurrentRoom().getName());
+			
+			Display.display("maraudeur.you");
+			Display.displayln(owner.getCurrentRoom().getName());
 		}
 		else
 		{
-			// TODO internationalisation
-			System.out.println("Give my the password stupid human");
+			
+			Display.displayln("maraudeur.passwordAnnonce");
 			Scanner scanner = new Scanner(System.in);
 			String pass = scanner.nextLine();
 			unlockMap(pass);
@@ -106,13 +109,13 @@ public class MaraudeurMap extends ZuulObject{
 	 * @param pass the scanned string which can be the password
 	 */
 	private void unlockMap(String pass) {
-		// TODO internationalisation
-		if (pass.equals("i am dark vador") || password.equals(pass)) {
+		
+		if (pass.equals(Game.res.getString("maraudeur.alterpassword")) || password.equals(pass)) {
 			locked = false;
 			seePeople();
 		} else
-			System.out
-			        .println("You don't know the password, you'll never know where are the others");
+			Display.displayln("maraudeur.failpassword");
+
 
 	}
 

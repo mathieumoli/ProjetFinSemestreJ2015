@@ -2,6 +2,8 @@ package zuul.intl;
 
 import java.util.ListResourceBundle;
 
+import zuul.Display;
+
 /**
  * @author Lucas Martinez
  * @version 2014.11.30
@@ -210,8 +212,22 @@ public class Zuul_en_US extends ListResourceBundle {
 					+ "I believe I can soar \n "
 					+ "I see me running through that open door \n "
 					+ "I believe I can fly \n " + "I believe I can fly "},
-			{"password","I solemnly swear that I am up to no good"},
-			{"maraudeur.show","--- Marauder Map ---"}
+			{"pc.action","Let's go facebook!!!\nFacebook.com \nYou're not connected..."},
+			{"phone.action","biip biip ... \nLet's us a message after the sound. Thank You ! BIP"},
+			{"redbull.action","Redbull is so good !"},
+			{"tobacco.action","Let's smoke a cigaret (it's bad for health you know it no ?)"},
+			{"twix.action","TWIX I love it"},
+			{"wand.action","Wingardium Leviosa \n...\n Why does nothing not change ?... \nIt's doesn't matter I must pass my exam"},
+
+
+			{"maraudeur.password","I solemnly swear that I am up to no good"},
+			{"maraudeur.show","--- Marauder Map ---"},
+			{"maraudeur.see"," is in "},
+			{"maraudeur.you","You are in"},
+			{"maraudeur.passwordAnnonce","Give my the password stupid human"},
+			{"maraudeur.alterpassword","i am dark vador"},
+			{"maraudeur.failpassword","You don't know the password, you'll never know where are the others"}
+
 
 	};
 

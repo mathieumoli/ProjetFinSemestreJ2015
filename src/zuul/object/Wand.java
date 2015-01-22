@@ -25,9 +25,7 @@ public class Wand extends ZuulObject {
 	 ***/
 	@Override
 	public void useObject(Student student) {
-		System.out.println("Wingardium Leviosa \n"+"...\n"+
-				"Pourquoi il se passe rien... \n" +
-				"tant pis, j ai un exam à réussir ") ;
+		System.out.println("Wingardium Leviosa \n...\nPourquoi il se passe rien... \ntant pis, j ai un exam à réussir ") ;
 		
 	}
 

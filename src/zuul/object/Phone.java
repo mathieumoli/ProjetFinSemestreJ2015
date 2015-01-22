@@ -1,5 +1,6 @@
 package zuul.object;
 
+import zuul.Display;
 import zuul.person.Student;
 /**
  * 
@@ -25,8 +26,7 @@ public class Phone extends ZuulObject {
 	 ***/
 	@Override
 	public void useObject(Student student) {
-		System.out.println("biip biip ... \n"+
-	"Veuillez laisser votre message apres le bip ");			
+		Display.displayln("phone.action");			
 	}
 
 }
