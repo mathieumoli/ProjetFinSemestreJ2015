@@ -45,6 +45,7 @@ public class Cheatsheet extends ZuulObject {
 	 *            the student who use the cheatsheet
 	 * 
 	 ***/
+	@Override
 	public void useObject(Student student) {
 		System.out.println(answers);
 		student.decrementEnergy(20);
