@@ -3,6 +3,7 @@ package zuul;
 import zuul.commands.*;
 import zuul.course.*;
 import zuul.object.MaraudeurMap;
+import zuul.object.*;
 import zuul.person.Person;
 import zuul.person.Stromboni;
 import zuul.person.Student;
@@ -155,6 +156,9 @@ public class Game {
 		foyer.setExit("north", c1);
 		ali.setExit("south", c12);
 		
+		foyer.addAnObjectInRoom(new Wand());
+		foyer.addAnObjectInRoom(new Pc());
+		c1.addAnObjectInRoom(new Broom());
 		hashmapRoom.put("ali",ali);		
 		hashmapRoom.put("exam",exam);
 		hashmapRoom.put("foyer",foyer);
