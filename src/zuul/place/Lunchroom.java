@@ -2,6 +2,7 @@ package zuul.place;
 
 import zuul.Game;
 import zuul.commands.Command;
+import zuul.person.Seller;
 import zuul.person.Student;
 
 /**
@@ -13,6 +14,7 @@ import zuul.person.Student;
 public class Lunchroom extends Room {
 
 	boolean playBabyFoot;
+	Seller seller;
 
 	/***
 	 * 
@@ -20,8 +22,10 @@ public class Lunchroom extends Room {
 	 * @param description the description of the lunchroom
 	 * 
 	 ***/
-	public Lunchroom(String description) {
+	public Lunchroom(String description, Seller seller) {
 		super(description);
+		this.seller = seller;
+		
 	}
 	
 	/***
@@ -114,5 +118,24 @@ public class Lunchroom extends Room {
 	@Override
 	public boolean canBuy(){
 		return true;
+	}
+	
+	/**
+	 * Display the list of object which can be buy.
+	 */
+	@Override
+	public void diplayAvalaiblePayingObject(){
+		this.seller.displayStock();
+	}
+	
+	/**
+	 * 
+	 * Call by the student to buy a object
+	 * 
+	 * @param object - name of the object to buy
+	 */
+	@Override
+	public void buy(String object, Student s){
+		this.seller.sell(object, s);
 	}
 }

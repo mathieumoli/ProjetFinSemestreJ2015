@@ -480,8 +480,17 @@ public class Student extends Person {
 	 * Call when a student want buy something
 	 * @param commande give by the user
 	 */
-	public void wantBuy(Command commande){
-		//if(this.ge)
+	public void wantBuy(Command command){
+		if(this.getCurrentRoom().canBuy()){
+			if(!command.hasSecondWord()){
+				this.getCurrentRoom().diplayAvalaiblePayingObject();
+			} else {
+				this.getCurrentRoom().buy(command.getSecondWord(), this);
+			}
+		} else {
+			//TODO interna
+			System.out.println("Il n'y a pas de vendeur ici.");
+		}
 	}
 
 }
