@@ -491,9 +491,9 @@ public class Student extends Person {
 		if (command.getSecondWord() != null
 		        && command.getSecondWord().toLowerCase().equals("plan")) {
 			if (bag.containsKey("map")) {
-				new Plan("planAvecSallesSecretes");
+				new Plan("planAvecSallesSecretes.jpg");
 			} else {
-				new Plan("planSansSallesSecretes");
+				new Plan("planSansSallesSecretes.jpg");
 			}
 		} else {
 			System.out.println("What do you want to see ?");

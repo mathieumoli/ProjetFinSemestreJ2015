@@ -19,7 +19,7 @@ public class Plan extends JFrame {
 		PanelFond g= new PanelFond(plan);
 		setContentPane(g);
 		getContentPane().add(new JLabel("Plan"));
-		setSize(600, 700);
+		setSize(600, 750);
 		setLocationRelativeTo(null);
 		setVisible(true);
 	}
