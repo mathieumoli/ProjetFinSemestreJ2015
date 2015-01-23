@@ -274,8 +274,16 @@ public class Zuul_en_US extends ListResourceBundle {
 	    	{"advertisement.ad3","...this friday, party in Nice..."},
 	    	{"advertisement.ad4","...conference next week..."},
 	                
-	    	{"foyer.noannonce","There is no ads."}
-	    };
+	    	{"foyer.noannonce","There is no ads."},
+	    	
+			{"seller.seewhatisell","Hey my friend, I have some interesting objects to sell : "},
+			{"seller.nothingmore","Unfortunately, I have nothing left to sell.\nI sold everything..."},
+	    	
+			{"seller.foryou","For you, a "},
+			{"seller.comeback",", come back any time!"},
+			{"seller.notfree","You really thought you could have this for free ? You don't have enough money !"},
+			{"seller.idonthavethis","Sorry, I don't sell some of this."},			   
+	};
 	
 	
 	

@@ -189,7 +189,14 @@ public class Zuul extends ListResourceBundle {
 			{"advertisement.ad3","...vendredi soir, soirée BDE à Nice..."},
 			{"advertisement.ad4","...forum des métiers la semaine prochaine..."},
 			
-			{"foyer.noannonce","Il n'y a pas d'annonce."}
+			{"foyer.noannonce","Il n'y a pas d'annonce."},
+			
+			{"seller.seewhatisell","Voici tout ce que je peux te vendre l'ami : "},
+			{"seller.nothingmore","Malheureusement je ne peux rien te vendre.\nJ'ai été dévalisé, plus un seul article en stock ..."},
+			{"seller.foryou","Et voila un "},
+			{"seller.comeback"," pour toi, reviens me voir quand tu veux !"},
+			{"seller.notfree","T'as cru que cétait gratuit !? T'as pas assez d'argent pour acheter ca !"},
+			{"seller.idonthavethis","Désolé je n'ai pas ca en stock ..."},			
     };
 
     /***
