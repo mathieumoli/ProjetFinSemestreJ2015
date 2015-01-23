@@ -1,5 +1,6 @@
 package zuul.place;
 
+import zuul.Display;
 import zuul.Game;
 import zuul.commands.Command;
 import zuul.object.Cheatsheet;
@@ -162,26 +163,24 @@ public class Corridor extends Room {
 	}
 	
 	/**
-	 * Try to use the tablet, if it's incomplete display an error message
+	 * Switch the light on
 	 * 
-	 * @param command
-	 *            The command to be processed.
-	 * @param gamer
-	 *            The Student who want to use a tablet
 	 */
 	@Override
-    public void wantSwitchLights(Command command,Student gamer) {
-		if (!command.hasSecondWord()) {
-			// if there is no second word, we don't know what to do...
-			System.out.println(Game.res.getString("game.idontknow"));
-		} else if (command.getSecondWord().equals("on")) {
+    public void switchLightsOn() {
 			this.setLights(true);
-			this.enter(gamer);
+			
 
-		} else if (command.getSecondWord().equals("off")) {
+		} 
+	
+	/**
+	 * Switch the light off
+	 * 
+	 */
+	@Override
+	public void switchLightsOff(){
 			this.setLights(false);
-			System.out.println(Game.res.getString("corridor.dark"));
-		}
+			Display.displayln("corridor.dark");
 	}
 	
 	/**

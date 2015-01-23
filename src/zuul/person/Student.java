@@ -368,7 +368,7 @@ public class Student extends Person {
 			if (bag.containsKey(object)) {
 				bag.get(object).useObject(this);
 				if (!object.equals("map")) {
-					 bag.remove(object);
+					bag.remove(object);
 				}
 			} else {
 				// TODO internationalisation
@@ -403,7 +403,7 @@ public class Student extends Person {
 				peopleInTheRoom.add(person);
 			}
 		}
-		
+
 		int nbOfPeople = peopleInTheRoom.size();
 		if (nbOfPeople == 0) {
 			Display.displayln("room.empty");
@@ -507,6 +507,41 @@ public class Student extends Person {
 			// TODO interna
 			System.out.println("Il n'y a pas de vendeur ici.");
 		}
+	}
+
+	public void checkPrinter(Command command) {
+		if (!command.hasSecondWord()) {
+			// if there is no second word, we don't know what to do...
+			System.out.println(Game.res.getString("game.idontknow"));
+	   getCurrentRoom().checkPrinter(command, this);} 
+		else if (command.getSecondWord().equals("on")) {getCurrentRoom().switchthe
+			getCurrentRoom().enter(this);
+			}else if (command.getSecondWord().equals("off")) {
+		}
+			this.setLights(false);
+			System.out.println(Game.res.getString("corridor.dark"));
+		
+	    
+    }
+
+	public void wantStart(Command command) {
+		// TODO Auto-generated method stub
+
+	}
+
+	public void wantTurn(Command command) {
+		// TODO Auto-generated method stub
+
+	}
+
+	public void wantSwitchLights(Command command) {
+		// TODO Auto-generated method stub
+
+	}
+
+	public void wantAttend(Command command) {
+		// TODO Auto-generated method stub
+
 	}
 
 }

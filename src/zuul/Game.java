@@ -118,11 +118,11 @@ public class Game {
 				finished = processCommand(command);
 				gamer.setCurrentRoom(currentRoom);
 			}
-			Display.displayln(res.getString("game.thankyou"));
+			System.out.println(res.getString("game.thankyou"));
 		} else {
 			System.out
 			        .println(res.getString("name.CN"));
-			Display.displayln(res.getString("game.thankyou"));
+			System.out.println(res.getString("game.thankyou"));
 
 		}
 
@@ -132,11 +132,11 @@ public class Game {
 	 * Print out the opening message for the player.
 	 */
 	private void printWelcome() {
-		Display.displayln("");
-		Display.displayln(res.getString("game.welcome"));
-		Display.displayln(res.getString("game.boring"));
-		Display.displayln(res.getString("game.help"));
-        Display.displayln("");
+		System.out.println();
+		System.out.println(res.getString("game.welcome"));
+		System.out.println(res.getString("game.boring"));
+		System.out.println(res.getString("game.help"));
+		System.out.println();
 	}
 
 	/**
@@ -148,7 +148,7 @@ public class Game {
 	 */
 
 	private void createPersons() {
-		Display.displayln(res.getString("game.askname"));
+		System.out.println(res.getString("game.askname"));
 		String name = scanner.nextLine();
 		gamer = new Student(name);
 		
@@ -219,9 +219,9 @@ public class Game {
 		String string = new String(res.getString("game.welcomename1")
 		        + gamer.getName() + res.getString("game.welcomename2")
 		        + gamer.getName() + res.getString("game.welcomename3"));
-		Display.displayln(string);
-		Display.displayln("");
-		Display.displayln(currentRoom.getLongDescription());
+		System.out.println(string);
+		System.out.println();
+		System.out.println(currentRoom.getLongDescription());
 	}
 
 	/**
@@ -268,19 +268,19 @@ public class Game {
 			wantToQuit = quit(command);
 			break;
 		case "lights":
-			currentRoom.wantSwitchLights(command, gamer);
+			gamer.wantSwitchLights(command);
 			break;
 		case "attend":
-			currentRoom.wantAttend(command, gamer);
+			gamer.wantAttend(command);
 			break;
 		case "turn":
-			currentRoom.wantTurn(command, gamer);
+			gamer.wantTurn(command);
 			break;
 		case "search":
 			gamer.searchInRoom();
 			break;
 		case "start":
-			currentRoom.wantStart(command, gamer);
+			gamer.wantStart(command);
 			break;
 		case "buy":
 			gamer.wantBuy(command);
@@ -289,8 +289,7 @@ public class Game {
 			gamer.wantUse(command);
 			break;
 		case "check":
-			currentRoom.checkPrinter(command, gamer);
-			break;
+			gamer.checkPrinter(command);
 		case "say":
 		    gamer.wantSayHello(command, people, currentRoom);
 		    break;
@@ -309,22 +308,17 @@ public class Game {
 	 * a method printing every people in the room.
 	 */
 	private void printPeopleInRoom() {
-		
+		System.out.print("Les personnes présentes dans cette salle sont : ");
 		ArrayList<Person> peopleInRoom = new ArrayList<Person>();
 		for (Person person : people) {
 			if (person.getCurrentRoom()==currentRoom) {
 				peopleInRoom.add(person);
 			}
 		}
-		if (people.size() == 0) {
-			Display.displayln("Il n'y a personne dans cette salle."); // TODO interna
-			return;
-		}
-		Display.display("Les personnes présentes dans cette salle sont : ");
 		for (Person person : peopleInRoom) {
-			Display.display(person.getName()+ "   ");			
+			System.out.print(person.getName()+ "   ");			
 		}
-		Display.displayln("");
+		System.out.println();
 	}
 	
 	
@@ -338,14 +332,14 @@ public class Game {
 	private void goRoom(Command command) {
 		if (!command.hasSecondWord()) {
 			// if there is no second word, we don't know where to go...
-			Display.displayError(res.getString("game.where"));
+			System.out.println(res.getString("game.where"));
 			return;
 		}
 		String direction = command.getSecondWord();
 		// Try to leave current room.
 		Room nextRoom = currentRoom.getExit(direction);
 		if (nextRoom == null) {
-			Display.displayError(res.getString("game.nodoor"));
+			System.out.println(res.getString("game.nodoor"));
 		} else if (nextRoom.enter(gamer)) {
 			currentRoom = nextRoom;
 			printPeopleInRoom();
@@ -354,21 +348,22 @@ public class Game {
 			    people.get(i).randomMove();
 			}
 		} else {
-			Display.displayln(currentRoom.getLongDescription());
+			System.out.println(currentRoom.getLongDescription());
 		}
 	}
 
 	/**
 	 * "Quit" was entered. Check the rest of the command to see whether we
 	 * really quit the game.
-	 * 
+	 *
 	 * @return true, if this command quits the game, false otherwise.
 	 */
 	private boolean quit(Command command) {
 		if (command.hasSecondWord()) {
-			Display.displayError(res.getString("game.quitwhat"));
+			System.out.println(res.getString("game.quitwhat"));
 			return false;
 		}
+
 		return true; // signal that we want to quit
 	}
 

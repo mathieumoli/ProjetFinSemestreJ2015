@@ -1,5 +1,6 @@
 package zuul.place;
 
+import zuul.Display;
 import zuul.Game;
 import zuul.commands.Command;
 import zuul.commands.Parser;
@@ -145,8 +146,7 @@ public abstract class Room {
 	 *            The command to be processed.
 	 */
 	public void wantStart(Command command) {
-		// TODO internationalisation
-		System.out.println("You can't do this here !");
+		Display.display("room.cantDoThis");
 	}
 
 	/**
@@ -158,8 +158,7 @@ public abstract class Room {
 	 *            the student who want to start something
 	 */
 	public void wantStart(Command command, Student gamer) {
-		// TODO internationalisation
-		System.out.println("You can't do this here");
+		Display.display("room.cantDoThis");
 	}
 
 	/**
@@ -182,10 +181,9 @@ public abstract class Room {
 	 * message and a list of the command words.
 	 */
 	public void printHelp(Parser parser) {
-		System.out.println(Game.res.getString("game.help2"));
-		System.out.println(Game.res.getString("game.help3"));
-		System.out.println();
-		System.out.println(Game.res.getString("game.help4"));
+		Display.display("game.help2");
+		Display.display("game.help3");
+		Display.displayln("game.help4");
 		parser.showCommands();
 	}
 
@@ -198,7 +196,7 @@ public abstract class Room {
 	 *            The Student who want to switch on or off the lights
 	 */
 	public void wantSwitchLights(Command command, Student gamer) {
-		System.out.println("You can't do this here");
+		Display.display("room.cantDoThis");
 
 	}
 
@@ -211,7 +209,7 @@ public abstract class Room {
 	 *            The Student who want to use a tablet
 	 */
 	public void wantTurn(Command command, Student gamer) {
-		System.out.println("You can't do this here");
+		Display.display("room.cantDoThis");
 
 	}
 
@@ -226,7 +224,7 @@ public abstract class Room {
 	 *            The Student who want to attend to a lecture or a lab
 	 */
 	public void wantAttend(Command command, Student gamer) {
-		System.out.println("You can't do this here");
+		Display.display("room.cantDoThis");
 
 	}
 
@@ -245,7 +243,7 @@ public abstract class Room {
 	 *            The Student who want to use a tablet
 	 */
 	public void checkPrinter(Command command, Student gamer) {
-		System.out.println("You can't do this here");
+		Display.display("room.cantDoThis");
 
 	}
 
@@ -314,8 +312,7 @@ public abstract class Room {
 	 * Display the list of object which can be buy.
 	 */
 	public void diplayAvalaiblePayingObject(){
-		//TODO interna
-		System.out.println("Il n'y a pas de vendeur ici.");
+		Display.display("room.cantBuy");
 	}
 	
 	/**
@@ -325,8 +322,24 @@ public abstract class Room {
 	 * @param object - name of the object to buy
 	 */
 	public void buy(String object, Student s){
-		//TODO interna
-		System.out.println("Il n'y a pas de vendeur ici.");
+		Display.display("room.cantBuy");
 	}
 
+	/**
+	 * Switch the light on
+	 * 
+	 */
+    public void switchLightsOn() {
+    	Display.display("room.cantDoThis");
+			
+
+		} 
+	
+	/**
+	 * Switch the light off
+	 * 
+	 */
+	public void switchLightsOff(){
+		Display.display("room.cantDoThis");
+	}
 }
