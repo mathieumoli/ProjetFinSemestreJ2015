@@ -2,6 +2,7 @@ package zuul.person;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map.Entry;
 
 import zuul.Display;
 import zuul.Game;
@@ -376,7 +377,8 @@ public class Student extends Person {
 			}
 		} else {
 			// TODO interna
-			System.out.println("Utilisation : use + nom de l'objet");
+			System.out.println("Utilisation : use + nom de l'objet. Les objets suivant sont dans votre sac :");
+			this.displayObjectsInBag();
 		}
 
 	}
@@ -427,10 +429,30 @@ public class Student extends Person {
 
 	}
 
+	/**
+	 * 
+	 * Call to know if a object can be add in bag
+	 * 
+	 * @param objectName - the name of the object to add in bag
+	 * @return - true if we can add the object in the bag
+	 */
 	public boolean canAddInBag(String objectName) {
 		return !bag.containsKey(objectName);
 	}
 
+	/**
+	 * Display the object in the bag
+	 */
+	public void displayObjectsInBag(){
+		if(!this.bag.isEmpty()){
+			for(Entry<String, ZuulObject> entry : this.bag.entrySet()){
+				System.out.println("- " + entry.getValue().getName());
+			}
+		} else {
+			System.out.println("Le sac est vide.");
+		}
+	}
+	
 	/**
 	 * Add a object in the bag
 	 * 
