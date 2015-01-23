@@ -5,6 +5,7 @@ import zuul.Game;
 import zuul.commands.Command;
 import zuul.commands.Parser;
 import zuul.object.ZuulObject;
+import zuul.person.Person;
 import zuul.person.Student;
 
 import java.util.ArrayList;
@@ -253,6 +254,16 @@ public abstract class Room {
 		} else {
 			throw new EmptyStackException();
 		}
+	}
+	
+	public ArrayList<Person> peopleInRoom(ArrayList<Person> allPeople){
+		ArrayList<Person> peopleInTheRoom = new ArrayList<Person>();
+		for (Person person : allPeople) {
+			if (person.getCurrentRoom() == this) {
+				peopleInTheRoom.add(person);
+			}
+		}
+		return peopleInTheRoom;
 	}
 
 	/**
