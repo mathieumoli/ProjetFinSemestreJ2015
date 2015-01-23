@@ -19,7 +19,6 @@ public class Plan extends JFrame {
 		PanelFond g= new PanelFond();
 		setContentPane(g);
 		getContentPane().add(new JLabel("Plan"));
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(600, 700);
 		setLocationRelativeTo(null);
 		setVisible(true);
