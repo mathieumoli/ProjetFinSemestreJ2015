@@ -53,7 +53,7 @@ public class Zuul_en_US extends ListResourceBundle {
 	                "You're not allow to pass this exam you must attend all courses and see (if you can) Mr Stromboni" },
 	        {
 	                "corridor.dark",
-	                "This corridor is very dark, you could switch the lights on to see clearly the room.\n Type \"lights on\" to switch the lights on !" },
+	                "This corridor is very dark, you could switch the lights on to see clearly the room.\n Type \"lights on\" to switch the lights on !\n" },
 	        {
 	                "library.closed",
 	                "The door is closed. The library is closed 7 out of 10 times... Come back later !" },
