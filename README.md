@@ -26,6 +26,7 @@ Projet de fin de semestre Janvier 2015
     ###8MM Creation MysteriousPerson, Creation Window when the user want to see the plan, creating clue
     ###9MM Modification de Stromboni, Person, Student chaque classe gere son hello
     refactoring de code
+    ###10MM Creation School
     
 ## CL
 	### 1CL 
