@@ -355,7 +355,7 @@ public class Game {
 			    people.get(i).randomMove();
 			}
 		} else {
-			Display.displayln(currentRoom.getLongDescription());
+			Display.display(currentRoom.getLongDescription());
 		}
 	}
 

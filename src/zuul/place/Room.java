@@ -110,7 +110,7 @@ public abstract class Room {
 	 * @return A long description of this room
 	 */
 	public String getLongDescription() {
-		return description + ".\n" + getExitString();
+		return Game.res.getString(description ) + getExitString();
 	}
 
 	/**
