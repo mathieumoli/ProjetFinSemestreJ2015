@@ -6,20 +6,49 @@ import java.util.HashMap;
 import zuul.object.*;
 import zuul.person.*;
 
+/**
+ * 
+ * @author Mathieu Molinengo
+ *
+ */
 public class School {
 
 	private HashMap<String, Room> hashmapRoom;
 	private Room currentRoom;
 
+	/**
+	 * 
+	 * Constructor to create the school with all rooms
+	 * 
+	 * @param people
+	 *            the ArrayList of person who move in the school
+	 * @param gamer
+	 *            the Student who moves in the school
+	 * @param listPayingObject
+	 *            the HashMap with the paying object which can be sell in the
+	 *            school
+	 */
 	public School(ArrayList<Person> people, Student gamer,
 	        HashMap<String, PayingObject> listPayingObject) {
 		hashmapRoom = new HashMap<String, Room>();
 		init(people, gamer, listPayingObject);
 	}
 
+	/**
+	 * 
+	 * The method to initialize the rooms and objects inside the school
+	 * 
+	 * @param people
+	 *            the ArrayList of person who move in the school
+	 * @param gamer
+	 *            the Student who moves in the school
+	 * @param listPayingObject
+	 *            the HashMap with the paying object which can be sell in the
+	 *            school
+	 */
 	public void init(ArrayList<Person> people, Student gamer,
 	        HashMap<String, PayingObject> listPayingObject) {
-		
+
 		Room ali, exam, foyer, lab1, lab2, lab3, lecture1, lecture2, lecture3, lunchRoom, library, secretariat, c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13;
 		boolean secret = true; // use to set secrete room
 		hashmapRoom = new HashMap<String, Room>();
@@ -104,12 +133,11 @@ public class School {
 		ali.addAnObjectInRoom(new InvisibilityCloak());
 		foyer.addAnObjectInRoom(new Wand());
 		foyer.addAnObjectInRoom(new Pc());
-		
+
 		c1.addAnObjectInRoom(new Broom());
-		
+
 		library.addAnObjectInRoom(new JavaBook());
-		
-		
+
 		hashmapRoom.put("ali", ali);
 		hashmapRoom.put("exam", exam);
 		hashmapRoom.put("foyer", foyer);
@@ -141,10 +169,11 @@ public class School {
 
 	/**
 	 * A method returning all the rooms.
+	 * 
 	 * @return
 	 */
-	public HashMap<String,Room> getRooms() {
+	public HashMap<String, Room> getRooms() {
 		return hashmapRoom;
 	}
-	
+
 }

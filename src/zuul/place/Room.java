@@ -23,7 +23,8 @@ import java.util.HashMap;
  * to other rooms via exits. For each existing exit, the room stores a reference
  * to the neighboring room.
  * 
- * @author Michael Kölling and David J. Barnes
+ * @author Michael Kölling and David J. Barnes updated by Mathieu Molinengo
+ * 
  * @version 2011.08.10
  */
 
@@ -46,7 +47,7 @@ public abstract class Room {
 	public abstract boolean enter(Student student);
 
 	/**
-	 * Abstract method which will deterimport java.util.*;mine if the student
+	 * Abstract method which will determine if the student
 	 * can enter
 	 * 
 	 * @param student
@@ -187,33 +188,6 @@ public abstract class Room {
 		Display.displayln("game.help4");
 		parser.showCommands();
 	}
-
-	/**
-	 * Try to turn the lights on, if it's incomplete display an error message
-	 * 
-	 * @param command
-	 *            The command to be processed.
-	 * @param gamer
-	 *            The Student who want to switch on or off the lights
-	 */
-	public void wantSwitchLights(Command command, Student gamer) {
-		Display.display("room.cantDoThis");
-
-	}
-
-//	/**
-//	 * Try to use the tablet, if it's incomplete display an error message
-//	 * 
-//	 * @param command
-//	 *            The command to be processed.
-//	 * @param gamer
-//	 *            The Student who want to use a tablet
-//	 */
-//	public void wantTurn(Command command, Student gamer) {
-//		Display.display("room.cantDoThis");
-//
-//	}
-
 
 
 	public void addAnObjectInRoom(ZuulObject obj) {

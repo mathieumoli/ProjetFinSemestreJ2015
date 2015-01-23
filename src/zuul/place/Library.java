@@ -17,7 +17,6 @@ import zuul.person.Student;
 public class Library extends Room {
 
 	boolean isOpen = false;
-	private ArrayList<LectureItem> poo2Book;
 
 	/***
 	 * 

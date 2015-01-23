@@ -65,6 +65,9 @@ public abstract class StudySpace extends Room {
 		coursInThisRoom = itemInThisRoom;
 	}
 
+	/**
+	 * Abstract method to randomize Courses
+	 */
 	public abstract void randomizeCourses();
 
 	/**
