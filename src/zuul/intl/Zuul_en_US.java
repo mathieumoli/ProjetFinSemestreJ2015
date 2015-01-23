@@ -35,6 +35,17 @@ public class Zuul_en_US extends ListResourceBundle {
 	        { "corridor2.description", "You are in the second corridor" },
 	        { "corridor3.description", "You are in the third corridor" },
 	        { "corridor4.description", "You are in the fourth corridor" },
+	        { "corridor5.description", "You are in the fifth corridor" },
+	        { "corridor6.description", "You are in the sixth corridor" },
+	        { "corridor7.description", "You are in the heighth corridor" },
+	        { "corridor8.description", "You are in the heighth corridor" },
+	        { "corridor9.description", "You are in the ninth corridor" },
+	        { "corridor10.description", "You are in the tenth corridor" },
+	        { "corridor11.description", "You are in the eleventh corridor" },
+	        { "corridor12.description", "You are in the twelfth corridor" },
+	        { "corridor13.description", "You are in the thirteenth corridor" },
+
+
 	        { "corridor.tablet",
 	                "You find a tablet in the corridor. To turn it on, type \"turn tablet\"" },
 	        { "corridor.notablet", "Which tablet?" },
