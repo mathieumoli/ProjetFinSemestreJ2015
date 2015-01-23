@@ -1,5 +1,6 @@
 package zuul.place;
 
+import zuul.Display;
 import zuul.Game;
 import zuul.commands.Command;
 import zuul.course.LabItem;
@@ -46,48 +47,24 @@ public class ExamRoom extends Room {
 	 */
 	@Override
 	public boolean canEnter(Student personne) {
-		Student student =  (Student) personne;
+		Student student = (Student) personne;
 		if (exam.equals("noexam")) {
 			return true;
-		} else if (student.getEnergy() >= 50) {
-			if (exam.equals("OOP")) {
-				if (doAllCourses(student)) {
+		} else if (student.getWallet().canPassExam()) {
+			if (student.getEnergy() >= 50) {
+				if (exam.equals("OOP")) {
+
 					return true;
 				}
-			} else if (exam.equals("C")) {
-				return true;
-			} else if (exam.equals("ALGO")) {
-				return true;
+			} else {
+				if (exam.equals("C")) {
+					return true;
+				} else if (exam.equals("ALGO")) {
+					return true;
+				}
 			}
 		}
 		return false;
-	}
-
-	/***
-	 *
-	 * Method to know if the student did all OOP lectures and courses
-	 *
-	 * @param student
-	 *            the student who wants to do the exam
-	 * @return true if the student did all OOP lectures and courses and false if
-	 *         he didn't
-	 */
-	public boolean doAllCourses(Person personne) {
-		Student student = (Student) personne;
-		boolean allCourses = false;
-		boolean allLabs = false;
-		for (int i = 0; i < Game.NB_COURSES; ++i) {
-			lectureOOP.add(new LectureItem("OOP", i + 1));
-			labOOP.add(new LabItem("OOP", i + 1));
-		}
-		allCourses = ((student.getCoursSuivi().contains(lectureOOP.get(0)))
-		        && (student.getCoursSuivi().contains(lectureOOP.get(1))) && (student
-		        .getCoursSuivi().contains(lectureOOP.get(2))));
-		allLabs = ((student.getLabsSuivi().contains(labOOP.get(0)))
-		        && (student.getLabsSuivi().contains(labOOP.get(1))) && (student
-		        .getLabsSuivi().contains(labOOP.get(2))));
-
-		return (allCourses && allLabs);
 	}
 
 	/***
@@ -104,27 +81,22 @@ public class ExamRoom extends Room {
 		randomizeExams();
 		if (canEnter(student)) {
 			if (exam.equals("noexam")) {
-				System.out.println(Game.res
-				        .getString("examroom.shortdescription")
-				        + "\n"
-				        + Game.res.getString("examroom.noexam")
-				        + "\n"
-				        + getExitString());
+				Display.displayln("examroom.shortdescription");
+				Display.displayln("examroom.noexam");
+				Display.displayln(getExitString());
 			} else {
-				System.out.println(Game.res.getString("examroom.description"));
+				Display.displayln("examroom.description");
 				if (exam.equals("OOP")) {
-					System.out.println(Game.res
-					        .getString("OOP.exam.description"));
+					Display.displayln("OOP.exam.description");
 					startExam(student);
 
 				} else {
-					System.out.println(Game.res.getString(exam
-					        + ".exam.description"));
-					System.out.println(getExitString());
+					Display.displayln(exam + ".exam.description");
+					Display.displayln(getExitString());
 				}
 			}
 		} else {
-			System.out.println(Game.res.getString("examroom.cant"));
+			Display.displayln("examroom.cant");
 			return false;
 		}
 		return true;
@@ -155,7 +127,7 @@ public class ExamRoom extends Room {
 	 * 
 	 ***/
 	public void startExam(Person personne) {
-		Student student =  (Student) personne;
+		Student student = (Student) personne;
 		if (!exam.equals("noexam")) {
 
 			int questionsRight = 0;
@@ -163,8 +135,8 @@ public class ExamRoom extends Room {
 			Scanner scanner = new Scanner(System.in);
 
 			for (int i = 1; i <= NB_QUESTIONS; ++i) {
-				System.out.println(Game.res.getString(exam + ".exam.question"
-				        + i));
+				Display.displayln(exam + ".exam.question"
+				        + i);
 				answer = scanner.nextLine();
 				String rightAnswer = Game.res.getString(exam + ".exam.answer"
 				        + i);
@@ -172,30 +144,30 @@ public class ExamRoom extends Room {
 					++questionsRight;
 				}
 
-				System.out.println(Game.res.getString("exam.rightanswer")
-				        + rightAnswer);
-				System.out.println();
+				Display.display("exam.rightanswer");
+				Display.displayln(rightAnswer);
+				
 			}
 
-			System.out.println(Game.res.getString("student.youhave")
+			Display.displayln(Game.res.getString("student.youhave")
 			        + questionsRight + "/" + NB_QUESTIONS
 			        + Game.res.getString("student.answers"));
 			if (questionsRight > (NB_QUESTIONS / 2)) {
 				System.out.println(Game.res.getString("game.win") + exam + ".");
 				student.decrementEnergy(40);
 				if (exam.equals("OOP")) {
-					System.out.println(Game.res.getString("game.thankyou"));
+					Display.displayln("game.thankyou");
 					System.exit(1);
 				}
 			} else {
-				System.out.println(Game.res.getString("game.lose") + exam
+				Display.displayln(Game.res.getString("game.lose") + exam
 				        + Game.res.getString("game.lose2"));
 				student.decrementEnergy(40);
-				System.out.println(getExitString());
+				Display.displayln(getExitString());
 			}
 			scanner.close();
 		}
-		
+
 	}
 
 	/**
@@ -224,17 +196,14 @@ public class ExamRoom extends Room {
 		if (!command.hasSecondWord()) {
 			// if there is no second word, we don't know where to go...
 			System.out.println(Game.res.getString("game.start"));
-		} else if (command.getSecondWord().equals("exam")){
+		} else if (command.getSecondWord().equals("exam")) {
 			this.startExam(gamer);
 			if (this.getExam().equals("noexam")) {
-				System.out.println(Game.res
-				        .getString("examroom.shortdescription")
-				        + "\n"
-				        + Game.res.getString("examroom.noexam")
-				        + "\n"
-				        + this.getExitString());
+				Display.displayln("examroom.shortdescription");
+				Display.displayln("examroom.noexam");
+				Display.displayln(getExitString());
 			} else
-				System.out.println(this.getLongDescription());
+				Display.displayln(this.getLongDescription());
 
 		}
 	}

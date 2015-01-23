@@ -38,6 +38,8 @@ public class Zuul extends ListResourceBundle {
             {"examroom.description", "Vous êtes dans la salle d'examen. Pour répondre, veuillez taper VRAI ou FAUX."},
             {"examroom.shortdescription", "Vous êtes dans la salle d'examen."},
             {"examroom.noexam", "Il n'y a pas d'exament prévu pour le moment.Revenez plus tard ! "},
+            { "examroom.canNotPass","Vous ne pouvez assister à cet examen, assistez à tous les cours et trouvez, si vous le pouvez, monsieur Stromboni" },
+    
             {"corridor.dark","Ce couloir est d'une obscurité déconcertante, vous pourriez allumer la lumiere pour mieux y voir...\n Pour allumer la lumiere, tapez \"lights on\""},
             {"library.closed","La porte est fermée à clé. Il est vrai que la bibliothèque est fermée 7 fois sur 10. Revenez plus tard !"},
             {"lunchroom.coffee1","J'ai ajouté une thermo de café dans mon sac !"},

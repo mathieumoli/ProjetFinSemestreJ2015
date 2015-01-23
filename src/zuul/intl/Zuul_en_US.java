@@ -26,10 +26,11 @@ public class Zuul_en_US extends ListResourceBundle {
 	                "You are in the computing lab.\nYou can attend the lab of " },
 	        { "labroom.description2", "Type \"attend lab\" if you want \n" },
 	        { "labroom.shortdescription", "You are in the computing lab.\n" },
-	        {"alioffice.description","the Ali's office\n"},
-	        {"club.description", "youth club\n"}, 	
-	        {"secretarialDepartment.description","the secretarial department\n"},
-	        
+	        { "alioffice.description", "the Ali's office\n" },
+	        { "club.description", "youth club\n" },
+	        { "secretarialDepartment.description",
+	                "the secretarial department\n" },
+
 	        { "corridor1.description", "You are in the first corridor" },
 	        { "corridor2.description", "You are in the second corridor" },
 	        { "corridor3.description", "You are in the third corridor" },
@@ -50,6 +51,8 @@ public class Zuul_en_US extends ListResourceBundle {
 	        { "examroom.shortdescription", "You are in the exam room." },
 	        { "examroom.noexam",
 	                "There aren't scheduled exam in this room. Come back later !" },
+	        { "examroom.canNotPass",
+	                "You're not allow to pass this exam you must attend all courses and see (if you can) Mr Stromboni" },
 	        {
 	                "corridor.dark",
 	                "This corridor is very dark, you could switch the lights on to see clearly the room.\n Type \"lights on\" to switch the lights on !" },
@@ -169,10 +172,12 @@ public class Zuul_en_US extends ListResourceBundle {
 	        { "student.removeLab1", "You forget the lab of " },
 	        { "student.removeLab2", " number " },
 
-	        {"stromboni.canNotAllow", "I can not allow you to pass the exam, you must first validate all courses."},
-            {"stromboni.canAllow", "I authorize you to take the exam , my child, go in peace , and courage."},
-            
-            {"room.empty", "There is nobody in this room."},
+	        { "stromboni.canNotAllow",
+	                "I can not allow you to pass the exam, you must first validate all courses." },
+	        { "stromboni.canAllow",
+	                "I authorize you to take the exam , my child, go in peace , and courage." },
+
+	        { "room.empty", "There is nobody in this room." },
 	        { "lectureroom.attendlecture.part1", "Lecture of " },
 	        { "lectureroom.attendlecture.part4",
 	                "Thank you for your attention you can do the lab now !" },
@@ -184,12 +189,15 @@ public class Zuul_en_US extends ListResourceBundle {
 	                "labroom.noattend1",
 	                "The professor doesn't want you to attend this lab because you haven't assisted to the lecture of " },
 	        { "labroom.noattend2", " number " },
-	        {"lunchroom.babyFoot", "You are in the cafeteria. The call of the baby is too strong to resist, you'll do a game ..." },
-			{ "aliOffice.bordel","This is Ali's office. Wow! it's a mess here! For your sake , go!"},
-            {"foyer.lookTab", "You look on the table"},
-            {"secretariat.aimable", "You are at the secretariat. The people here are very kind."},
+	        {
+	                "lunchroom.babyFoot",
+	                "You are in the cafeteria. The call of the baby is too strong to resist, you'll do a game ..." },
+	        { "aliOffice.bordel",
+	                "This is Ali's office. Wow! it's a mess here! For your sake , go!" },
+	        { "foyer.lookTab", "You look on the table" },
+	        { "secretariat.aimable",
+	                "You are at the secretariat. The people here are very kind." },
 
-	        
 	        { "examroom.cant",
 	                "You can't pass the final exam of OOP in these conditions..." },
 
@@ -205,45 +213,60 @@ public class Zuul_en_US extends ListResourceBundle {
 	                "tablet.on",
 	                "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\n$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\n$$$$$$$$$$$$$$$$$_$$$$$$$$$$$$$$$$_$$$$$$$$$$$$$$$\n$$$$$$$$$$$$$$$$$__$$$$$$$$$$$$$$_$$$$$$$$$$$$$$$$\n$$$$$$$$$$$$$$$$$$_______________$$$$$$$$$$$$$$$$$\n$$$$$$$$$$$$$$$$___________________$$$$$$$$$$$$$$$\n$$$$$$$$$$$$$$____$$$_________$$$____$$$$$$$$$$$$$\n$$$$$$$$$$$$$_____$$$_________$$$_____$$$$$$$$$$$$\n$$$$$$$$$$$$___________________________$$$$$$$$$$$\n$$$$$$$$$$$$___________________________$$$$$$$$$$$\n$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\n$$$$_____$$$____________________________$$$____$$$\n$$$$_____$$$____________________________$$______$$\n$$$$_____$$$____________________________$$______$$\n$$$$_____$$$____________________________$$______$$\n$$$$_____$$$____________________________$$______$$\n$$$$_____$$$____________________________$$______$$\n$$$$_____$$$____________________________$$______$$\n$$$$______$$____________________________$$______$$\n$$$$_____$$$____________________________$$______$$\n$$$$$___$$$$____________________________$$$___$$$$\n$$$$$$$$$$$$____________________________$$$$$$$$$$\n$$$$$$$$$$$$____________________________$$$$$$$$$$\n$$$$$$$$$$$$___________________________$$$$$$$$$$$\n$$$$$$$$$$$$$$$$$______$$$$$$_____$$$$$$$$$$$$$$$$\n$$$$$$$$$$$$$$$$$______$$$$$$_____$$$$$$$$$$$$$$$$\n$$$$$$$$$$$$$$$$$______$$$$$$_____$$$$$$$$$$$$$$$$\n$$$$$$$$$$$$$$$$$______$$$$$$_____$$$$$$$$$$$$$$$$\n$$$$$$$$$$$$$$$$$______$$$$$$_____$$$$$$$$$$$$$$$$\n$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\nThe Android Tablet is ON !" },
 
-	        { "room.nothing", "Sorry but there aren't scheduled course in this room. Come back later !" },
-            {"room.cantDoThis", "You can't use this command in this room"},
-            {"room.noSeller", "There are no seller here. Try to go to the cafeteria, Oussama is always there if you need something."},
+	        { "room.nothing",
+	                "Sorry but there aren't scheduled course in this room. Come back later !" },
+	        { "room.cantDoThis", "You can't use this command in this room" },
+	        {
+	                "room.noSeller",
+	                "There are no seller here. Try to go to the cafeteria, Oussama is always there if you need something." },
 
-	        
-	        { "cheatsheet.description1", "You just found a paper, and there is something written on it..." },
+	        { "cheatsheet.description1",
+	                "You just found a paper, and there is something written on it..." },
 	        { "cheatsheet.description2", "Answers to the OOP exam : " },
-	        {"name.CN","You are Chuck Norris, you never lose so congratulation you win !!!"},
-	        {"alcohol.action","Wow, I have drunk to much alcohol !"},
-	        {"broom.action","I believe I can fly \n"
-					+ "I believe I can touch the sky \n"
-					+ "I think about it every night and day \n"
-					+ "Spread my wings and fly away \n "
-					+ "I believe I can soar \n "
-					+ "I see me running through that open door \n "
-					+ "I believe I can fly \n " + "I believe I can fly "},
-			{"pc.action","Let's go facebook!!!\nFacebook.com \nYou're not connected..."},
-			{"phone.action","biip biip ... \nLet's us a message after the sound. Thank You ! BIP"},
-			{"redbull.action","Redbull is so good !"},
-			{"tobacco.action","Let's smoke a cigaret (it's bad for health you know it no ?)"},
-			{"twix.action","TWIX I love it"},
-			{"wand.action","Wingardium Leviosa \n...\n Why does nothing not change ?... \nIt's doesn't matter I must pass my exam"},
+	        { "name.CN",
+	                "You are Chuck Norris, you never lose so congratulation you win !!!" },
+	        { "alcohol.action", "Wow, I have drunk to much alcohol !" },
+	        {
+	                "broom.action",
+	                "I believe I can fly \n"
+	                        + "I believe I can touch the sky \n"
+	                        + "I think about it every night and day \n"
+	                        + "Spread my wings and fly away \n "
+	                        + "I believe I can soar \n "
+	                        + "I see me running through that open door \n "
+	                        + "I believe I can fly \n "
+	                        + "I believe I can fly " },
+	        { "pc.action",
+	                "Let's go facebook!!!\nFacebook.com \nYou're not connected..." },
+	        { "phone.action",
+	                "biip biip ... \nLet's us a message after the sound. Thank You ! BIP" },
+	        { "redbull.action", "Redbull is so good !" },
+	        { "tobacco.action",
+	                "Let's smoke a cigaret (it's bad for health you know it no ?)" },
+	        { "twix.action", "TWIX I love it" },
+	        {
+	                "wand.action",
+	                "Wingardium Leviosa \n...\n Why does nothing not change ?... \nIt's doesn't matter I must pass my exam" },
 
+	        { "maraudeur.password", "I solemnly swear that I am up to no good" },
+	        { "maraudeur.show", "--- Marauder Map ---" },
+	        { "maraudeur.see", " is in " },
+	        { "maraudeur.you", "You are in" },
+	        { "maraudeur.passwordAnnonce", "Give my the password stupid human" },
+	        { "maraudeur.alterpassword", "i am dark vador" },
+	        { "maraudeur.failpassword",
+	                "You don't know the password, you'll never know where are the others" },
 
-			{"maraudeur.password","I solemnly swear that I am up to no good"},
-			{"maraudeur.show","--- Marauder Map ---"},
-			{"maraudeur.see"," is in "},
-			{"maraudeur.you","You are in"},
-			{"maraudeur.passwordAnnonce","Give my the password stupid human"},
-			{"maraudeur.alterpassword","i am dark vador"},
-			{"maraudeur.failpassword","You don't know the password, you'll never know where are the others"},
+	        { "person.hello", " says hello back  !" },
+	        { "person.notUnderstood",
+	                " does not understand what you are saying and you stare" },
 
-			{"person.hello"," says hello back  !"},
-			{"person.notUnderstood", " does not understand what you are saying and you stare"},
-			
-			{"mysteriousperson.indice1"," says that there is a secret room to the north of the corridor 4"},
-			{"mysteriousperson.indice2"," says that there is a secret room to the south of the lunchroom"},
-			{"mysteriousperson.indice3"," says that there is a secret room to the west of the corridor 7"}
-	};
+	        { "mysteriousperson.indice1",
+	                " says that there is a secret room to the north of the corridor 4" },
+	        { "mysteriousperson.indice2",
+	                " says that there is a secret room to the south of the lunchroom" },
+	        { "mysteriousperson.indice3",
+	                " says that there is a secret room to the west of the corridor 7" } };
 
 	/***
 	 * @return an array in which each item is a pair of objects in an Object
