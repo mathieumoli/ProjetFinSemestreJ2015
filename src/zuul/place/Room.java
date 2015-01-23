@@ -261,7 +261,9 @@ public abstract class Room {
 		if (this.objectInRoom()) {
 			int rand = (int) Math.round(Math.random() * (this.objectInRoom.size() - 1));
 			ZuulObject obj = this.objectInRoom.get(rand);
-			this.objectInRoom.remove(rand);
+			if(!this.objectInRoom.get(rand).getName().equals("book")){
+				this.objectInRoom.remove(rand);
+			}
 			return obj;
 		} else {
 			throw new EmptyStackException();
