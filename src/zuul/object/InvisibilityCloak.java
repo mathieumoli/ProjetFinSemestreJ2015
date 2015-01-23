@@ -12,7 +12,7 @@ public class InvisibilityCloak extends ZuulObject {
 	@Override
 	public void useObject(Student student) {
 		if(!student.isInvisible()){
-			student.decrementEnergy(10);
+			student.decrementEnergy(20);
 		}
 		student.changeVisibility();
 	}
