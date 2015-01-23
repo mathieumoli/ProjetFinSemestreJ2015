@@ -1,5 +1,6 @@
 package zuul.object;
 
+import zuul.Display;
 import zuul.Game;
 import zuul.person.Student;
 /**
@@ -27,11 +28,7 @@ public class Broom extends ZuulObject {
 	 ***/
 	@Override
 	public void useObject(Student student) {
-		 
-			System.out.println(Game.res.getString("broom.action"));
-		
-		
-
+			Display.displayln(Game.res.getString("broom.action"));
 	}
 
 }

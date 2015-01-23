@@ -19,7 +19,7 @@ public class Display {
     public static void display(String key) {
     	if (Game.res.containsKey(key)) {// check if the key exists in the resource bundle
     	    System.out.print(Game.res.getString(key));
-    	} else { // is doesn't exist
+    	} else { // it doesn't exist
     	    System.out.print(key);
         }
     }

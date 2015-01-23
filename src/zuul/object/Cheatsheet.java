@@ -1,5 +1,6 @@
 package zuul.object;
 
+import zuul.Display;
 import zuul.Game;
 import zuul.person.Student;
 import zuul.place.ExamRoom;
@@ -47,7 +48,7 @@ public class Cheatsheet extends ZuulObject {
 	 ***/
 	@Override
 	public void useObject(Student student) {
-		System.out.println(answers);
+		Display.displayln(answers.toString());
 		student.decrementEnergy(20);
 	}
 }

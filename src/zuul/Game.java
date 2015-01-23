@@ -251,7 +251,7 @@ public class Game {
 		boolean wantToQuit = false;
 
 		if (command.isUnknown()) {
-			Display.displayln(res.getString("game.idontknow"));
+			Display.displayError(res.getString("game.idontknow"));
 			return false;
 		}
 
@@ -309,13 +309,18 @@ public class Game {
 	 * a method printing every people in the room.
 	 */
 	private void printPeopleInRoom() {
-		Display.display("Les personnes présentes dans cette salle sont : ");
+		
 		ArrayList<Person> peopleInRoom = new ArrayList<Person>();
 		for (Person person : people) {
 			if (person.getCurrentRoom()==currentRoom) {
 				peopleInRoom.add(person);
 			}
 		}
+		if (people.size() == 0) {
+			Display.displayln("Il n'y a personne dans cette salle."); // TODO interna
+			return;
+		}
+		Display.display("Les personnes présentes dans cette salle sont : ");
 		for (Person person : peopleInRoom) {
 			Display.display(person.getName()+ "   ");			
 		}
@@ -333,14 +338,14 @@ public class Game {
 	private void goRoom(Command command) {
 		if (!command.hasSecondWord()) {
 			// if there is no second word, we don't know where to go...
-			Display.displayln(res.getString("game.where"));
+			Display.displayError(res.getString("game.where"));
 			return;
 		}
 		String direction = command.getSecondWord();
 		// Try to leave current room.
 		Room nextRoom = currentRoom.getExit(direction);
 		if (nextRoom == null) {
-			Display.displayln(res.getString("game.nodoor"));
+			Display.displayError(res.getString("game.nodoor"));
 		} else if (nextRoom.enter(gamer)) {
 			currentRoom = nextRoom;
 			printPeopleInRoom();
@@ -356,15 +361,14 @@ public class Game {
 	/**
 	 * "Quit" was entered. Check the rest of the command to see whether we
 	 * really quit the game.
-	 *
+	 * 
 	 * @return true, if this command quits the game, false otherwise.
 	 */
 	private boolean quit(Command command) {
 		if (command.hasSecondWord()) {
-			Display.displayln(res.getString("game.quitwhat"));
+			Display.displayError(res.getString("game.quitwhat"));
 			return false;
 		}
-
 		return true; // signal that we want to quit
 	}
 

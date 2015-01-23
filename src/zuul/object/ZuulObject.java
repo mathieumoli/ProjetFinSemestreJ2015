@@ -1,6 +1,7 @@
 package zuul.object;
 
 import zuul.person.Student;
+import zuul.Display;
 
 /**
  * @author Lucas Martinez

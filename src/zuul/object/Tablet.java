@@ -1,5 +1,6 @@
 package zuul.object;
 
+import zuul.Display;
 import zuul.Game;
 import zuul.course.LectureItem;
 import zuul.person.Student;
@@ -44,7 +45,7 @@ public class Tablet extends ZuulObject {
 	 * 
 	 ***/
 	public void useObject(Student student){
-		System.out.println(Game.res.getString("tablet.on"));
+		Display.displayln(Game.res.getString("tablet.on"));
 		int chance = (int) (Math.random() * 10);
 		if(chance > 7)
 			playZuul(student);
@@ -64,7 +65,7 @@ public class Tablet extends ZuulObject {
 	 * 
 	 ***/
 	private void playAppli(Student student) {
-		System.out.println(Game.res.getString("tablet.appli"));
+		Display.displayln(Game.res.getString("tablet.appli"));
 		student.decrementEnergy(30);
 		student.removeItem();		
 	}
@@ -78,7 +79,7 @@ public class Tablet extends ZuulObject {
 	 * 
 	 ***/
 	public void playZuul(Student student) {
-		System.out.println(Game.res.getString("tablet.zuul"));
+		Display.displayln(Game.res.getString("tablet.zuul"));
 		student.decrementEnergy(15);
 	}
 	
@@ -92,8 +93,8 @@ public class Tablet extends ZuulObject {
 	 ***/
 	public void learnLecture(Student student) {
 		addStuff();
-		System.out.println(Game.res.getString("tablet.lecture"));
-		System.out.println(Game.res.getString(coursInThisTablet.getBundleKey().toString()));
+		Display.displayln(Game.res.getString("tablet.lecture"));
+		Display.displayln(Game.res.getString(coursInThisTablet.getBundleKey().toString()));
 		student.decrementEnergy(10);
 		student.addItem(coursInThisTablet);
 

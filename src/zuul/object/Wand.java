@@ -1,5 +1,6 @@
 package zuul.object;
 
+import zuul.Display;
 import zuul.person.Student;
 /**
  * 
@@ -25,7 +26,7 @@ public class Wand extends ZuulObject {
 	 ***/
 	@Override
 	public void useObject(Student student) {
-		System.out.println("Wingardium Leviosa \n...\nPourquoi il se passe rien... \ntant pis, j ai un exam à réussir ") ;
+		Display.displayln("Wingardium Leviosa \n...\nPourquoi il se passe rien... \ntant pis, j ai un exam à réussir ") ;
 		
 	}
 

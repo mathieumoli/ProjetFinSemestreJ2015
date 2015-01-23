@@ -10,7 +10,7 @@ package zuul;
  * @author user
  *
  */
-public class Advertisement {
+public class Advertisement {  // TODO internationnalisation
     private String ad1 = "...don du sang le mois prochain ...";
     private String ad2 = "...la BU sera exceptionellement fermée lundi, mardi, mercredi, jeudi et vendredi prochains...";
     private String ad3 = "...vendredi soir, soirée BDE à Nice...";
@@ -30,9 +30,9 @@ public class Advertisement {
      */
     public void displayNewAd() {
         if (numeroAnnonce < allAds.length) {
-            System.out.println(allAds[numeroAnnonce]);
+            Display.displayln(allAds[numeroAnnonce]);
         } else {
-        	System.out.println("Il n'y a plus d'annonces.");
+        	Display.displayln("Il n'y a plus d'annonces.");
         }
         numeroAnnonce++;
     }

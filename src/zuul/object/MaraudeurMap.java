@@ -124,7 +124,7 @@ public class MaraudeurMap extends ZuulObject{
     public void useObject(Student student) {
 	    seePeople();
 	    Plan g=new Plan("maraudeurmap.jpg");
-	   System.out.println(student.getCurrentRoom().getExitString());
+	    Display.displayln(student.getCurrentRoom().getExitString());
 	    
     }
 }
