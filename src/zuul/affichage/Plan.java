@@ -14,9 +14,9 @@ public class Plan extends JFrame {
 	/**
 	 * Constructor to show the plan
 	 */
-	public Plan() {
+	public Plan(String plan) {
 		super("Plan");
-		PanelFond g= new PanelFond();
+		PanelFond g= new PanelFond(plan);
 		setContentPane(g);
 		getContentPane().add(new JLabel("Plan"));
 		setSize(600, 700);

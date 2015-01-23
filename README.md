@@ -21,6 +21,9 @@ Projet de fin de semestre Janvier 2015
             Stromboni can't move  
     ###6MM
             Add number in corridor for MarauderMap 
+    ###7MM
+            Internationalisation studies and changing sysout en display, fix bug display,creation bundle for internationalisation
+    ###8MM Creation MysteriousPerson, Creation Window when the user want to see the plan, creating clue
     
 ## CL
 	### 1CL 

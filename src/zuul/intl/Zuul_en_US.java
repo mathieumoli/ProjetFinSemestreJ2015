@@ -226,9 +226,12 @@ public class Zuul_en_US extends ListResourceBundle {
 			{"maraudeur.you","You are in"},
 			{"maraudeur.passwordAnnonce","Give my the password stupid human"},
 			{"maraudeur.alterpassword","i am dark vador"},
-			{"maraudeur.failpassword","You don't know the password, you'll never know where are the others"}
+			{"maraudeur.failpassword","You don't know the password, you'll never know where are the others"},
 
-
+			{"person.hello"," says hello back  !"},
+			{"mysteriousperson.indice1"," says that there is a secret room to the north of the corridor 4"},
+			{"mysteriousperson.indice2"," says that there is a secret room to the south of the lunchroom"},
+			{"mysteriousperson.indice3"," says that there is a secret room to the west of the corridor 7"}
 	};
 
 	/***

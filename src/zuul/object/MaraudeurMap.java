@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 import zuul.Display;
 import zuul.Game;
+import zuul.affichage.Plan;
 import zuul.person.Person;
 import zuul.person.Student;
 
@@ -122,6 +123,7 @@ public class MaraudeurMap extends ZuulObject{
 	@Override
     public void useObject(Student student) {
 	    seePeople();
+	    Plan g=new Plan("maraudeurmap.jpg");
 	   System.out.println(student.getCurrentRoom().getExitString());
 	    
     }

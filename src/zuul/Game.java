@@ -3,6 +3,7 @@ package zuul;
 import zuul.commands.*;
 import zuul.course.*;
 import zuul.object.*;
+import zuul.person.MysteriousPerson;
 import zuul.person.Person;
 import zuul.person.Seller;
 import zuul.person.Stromboni;
@@ -256,7 +257,7 @@ public class Game {
 		// creates other players
 		Stromboni stromboni;
 		Person person1,person2,person3, person4, person5, person6, person7, person8, person9;
-		
+		MysteriousPerson  mp1,mp2,mp3;
 		stromboni = new Stromboni();
 		stromboni.setCurrentRoom(hashmapRoom.get("c5"));
 		people.add(stromboni);
@@ -297,6 +298,18 @@ public class Game {
 		person9.setCurrentRoom(hashmapRoom.get("library"));
 		people.add(person9);
 
+		mp1 = new MysteriousPerson("Litovsky", new Wallet(8),"mysteriousperson.indice1");
+		mp1.setCurrentRoom(hashmapRoom.get("library"));
+		people.add(mp1);
+		
+		mp2 = new MysteriousPerson("Leroux", new Wallet(8),"mysteriousperson.indice2");
+		mp2.setCurrentRoom(hashmapRoom.get("lunchroom"));
+		people.add(mp2);
+		
+		mp3 = new MysteriousPerson("Giuleri", new Wallet(8),"mysteriousperson.indice2");
+		mp3.setCurrentRoom(hashmapRoom.get("c11"));
+		people.add(mp3);
+		
 		gamer.setCurrentRoom(hashmapRoom.get("foyer"));
 	}
 

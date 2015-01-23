@@ -3,6 +3,7 @@ package zuul.person;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import zuul.Display;
 import zuul.person.object.Wallet;
 import zuul.place.Room;
 
@@ -105,5 +106,10 @@ public class Person {
 				trouve = true;
 			}
 		}
+	}
+	
+	public void answerBack(){
+		Display.display(this.getName());
+		Display.displayln("person.hello");
 	}
 }

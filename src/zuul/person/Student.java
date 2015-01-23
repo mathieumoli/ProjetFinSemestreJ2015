@@ -451,7 +451,7 @@ public class Student extends Person {
 	* @param obj - object to add in the bag
 	*/
 	public void addInBag(ZuulObject obj) {
-		if (!this.canAddInBag(obj.getName())) {
+		if (this.canAddInBag(obj.getName())) {
 			bag.put(obj.getName().toLowerCase(), obj);
 		} else {
 			// TODO internationalize
@@ -480,7 +480,7 @@ public class Student extends Person {
 	
 	public void seePlan(Command command){
 		if (command.getSecondWord() != null && command.getSecondWord().toLowerCase().equals("plan")) {
-			new Plan();		
+			new Plan("plan.jpg");		
 		} else {
 		    System.out.println("What do you want to see ?");
 		}	

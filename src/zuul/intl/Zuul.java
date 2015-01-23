@@ -159,9 +159,14 @@ public class Zuul extends ListResourceBundle {
 			{"maraudeur.show","--- Carte du Maraudeur ---"},
 			{"maraudeur.see"," est dans "},
 			{"maraudeur.you","Vous êtes dans "},
+			{"maraudeur.alterpassword","i am dark vador"},
 			{"maraudeur.passwordAnnonce","Donne moi le mot de passe stupide humain"},
-			{"maraudeur.failpassword","Vous ne connaissez pas le mot de passe vous ne saurez jamais où sont les autres."}
+			{"maraudeur.failpassword","Vous ne connaissez pas le mot de passe vous ne saurez jamais où sont les autres."},
 			
+			{"person.hello"," vous renvoie le bonjour !"},
+			{"mysteriousperson.indice1"," vous apprend qu'il y a une salle secrete au nord du corridor 4"},
+			{"mysteriousperson.indice2"," vous apprend qu'il y a une salle secrete au sud de la lunchroom"},
+			{"mysteriousperson.indice3"," vous apprend qu'il y a une salle secrete a l'ouest du corridor 7"}
     };
 
     /***

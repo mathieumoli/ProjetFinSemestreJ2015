@@ -16,9 +16,9 @@ public class PanelFond extends JPanel {
 	/**
 	 * Constructor to create the PanelFond
 	 */
-	public PanelFond() {
+	public PanelFond(String plan) {
 		super();
-		image = Toolkit.getDefaultToolkit().getImage("plan.jpg");
+		image = Toolkit.getDefaultToolkit().getImage(plan);
 		
 	}
 	/**
