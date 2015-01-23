@@ -399,12 +399,7 @@ public class Student extends Person {
 			word2 = command.getSecondWord().toLowerCase();
 		}
 		// ici récupérer les personnes qui sont bien dans la currentRoom de this
-		ArrayList<Person> peopleInTheRoom = new ArrayList<Person>();
-		for (Person person : people) {
-			if (person.getCurrentRoom() == currentRoom) {
-				peopleInTheRoom.add(person);
-			}
-		}
+		ArrayList<Person> peopleInTheRoom = this.getCurrentRoom().peopleInRoom(people);
 
 		int nbOfPeople = peopleInTheRoom.size();
 		if (nbOfPeople == 0) {
@@ -624,14 +619,18 @@ public class Student extends Person {
 	 * @param command - the command of the user
 	 */
 	public void wantSteal(Command command, ArrayList<Person> allPeople) {
-//		if(command.hasSecondWord()){
-//			this.getCurrentRoom().peopleInRoom(allPeople);
-//			}
-//			if(this.getCurrentRoom().);)
-//			this.StealsMoney(command.getSecondWord());
-//		} else {
-//			System.err.println("Utilisation : steal + nom d'une personne dans la salle"); //TODO message erreur a internationaliser
-//		}
+		if(command.hasSecondWord()){
+			ArrayList<Person> peopleInRoom  = this.getCurrentRoom().peopleInRoom(allPeople);
+			for(Person p : peopleInRoom){
+				if(p.getName().equals(command.getSecondWord())){
+					this.StealsMoney(p);
+					return;
+				}
+			}
+			System.err.println("Cette personne n'est pas dans la salle");//TODO message erreur a internationaliser
+		} else {
+			System.err.println("Utilisation : steal + nom d'une personne dans la salle"); //TODO message erreur a internationaliser
+		}
 	}
 
 }
