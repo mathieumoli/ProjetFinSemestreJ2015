@@ -5,7 +5,6 @@ import zuul.course.*;
 import zuul.object.*;
 import zuul.person.MysteriousPerson;
 import zuul.person.Person;
-import zuul.person.Seller;
 import zuul.person.Stromboni;
 import zuul.person.Student;
 import zuul.person.object.Wallet;
