@@ -200,49 +200,36 @@ public abstract class Room {
 
 	}
 
-	/**
-	 * Try to use the tablet, if it's incomplete display an error message
-	 * 
-	 * @param command
-	 *            The command to be processed.
-	 * @param gamer
-	 *            The Student who want to use a tablet
-	 */
-	public void wantTurn(Command command, Student gamer) {
-		Display.display("room.cantDoThis");
+//	/**
+//	 * Try to use the tablet, if it's incomplete display an error message
+//	 * 
+//	 * @param command
+//	 *            The command to be processed.
+//	 * @param gamer
+//	 *            The Student who want to use a tablet
+//	 */
+//	public void wantTurn(Command command, Student gamer) {
+//		Display.display("room.cantDoThis");
+//
+//	}
 
-	}
 
-	/**
-	 * Try to attend a lab or a lecture, if it's incomplete display an error
-	 * message
-	 * 
-	 * @param command
-	 *            The command to be processed.
-	 * 
-	 * @param gamer
-	 *            The Student who want to attend to a lecture or a lab
-	 */
-	public void wantAttend(Command command, Student gamer) {
-		Display.display("room.cantDoThis");
-
-	}
 
 	public void addAnObjectInRoom(ZuulObject obj) {
 		this.objectInRoom.add(obj);
 	}
 
 	/**
-	 * Try to search near the printer, if it's incomplete display an error
+	 * Try to search near the printer, if it's incomplete display
 	 * message Then, display the answers available on the cheatsheet
 	 * 
-	 * @param command
-	 *            The command to be processed.
+	 *
 	 * 
 	 * @param gamer
 	 *            The Student who want to use a tablet
 	 */
-	public void checkPrinter(Command command, Student gamer) {
+	
+	public void checkPrinter(Student gamer) {
 		Display.display("room.cantDoThis");
 
 	}
@@ -349,6 +336,33 @@ public abstract class Room {
 	 */
 	public void startExam(Student student) {
 		Display.display("room.cantDoThis");
+	    
+    }
+
+	/***
+	 * 
+	 * Method to use tablet in this corridor
+	 * @param student the student who wants to use it
+	 * 
+	 ***/
+	public void useTablet(Student gamer) {
+		Display.display("room.cantDoThis");
+	    
+    }
+
+	/***
+	 * 
+	 * Method to attdent lab in a LabRoom
+	 * @param student the student who wants to use it
+	 * 
+	 ***/
+	public void attendLab(Student student) {
+		Display.display("room.cantDoThis");
+	    
+    }
+
+	public void attendLecture(Student student) {
+	    // TODO Auto-generated method stub
 	    
     }
 }

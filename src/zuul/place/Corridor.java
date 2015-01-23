@@ -24,14 +24,16 @@ public class Corridor extends Room {
 	/***
 	 * 
 	 * Constructor to create a Corridor
-	 * @param description the description of the corridor
+	 * 
+	 * @param description
+	 *            the description of the corridor
 	 * 
 	 ***/
-	public Corridor(String description,int numRoom) {
+	public Corridor(String description, int numRoom) {
 		super(description);
 		Random randomLight = new Random();
 		randomLight.nextBoolean();
-		nbRoom=numRoom;
+		nbRoom = numRoom;
 		lights = (randomLight.nextBoolean()) ? true : false;
 
 	}
@@ -39,20 +41,22 @@ public class Corridor extends Room {
 	/***
 	 * 
 	 * Constructor to create a Corridor
-	 * @param description the description of the corridor
-	 * @param secret, the boolean to define if the room is secret or not
+	 * 
+	 * @param description
+	 *            the description of the corridor
+	 * @param secret
+	 *            , the boolean to define if the room is secret or not
 	 * 
 	 ***/
 	public Corridor(String description, int numRoom, boolean secret) {
-		super(description,secret);
+		super(description, secret);
 		Random randomLight = new Random();
 		randomLight.nextBoolean();
-		nbRoom=numRoom;
+		nbRoom = numRoom;
 		lights = (randomLight.nextBoolean()) ? true : false;
 
 	}
-	
-	
+
 	/***
 	 * 
 	 * Method to randomize the apparition of tablet and cheatsheet
@@ -69,7 +73,9 @@ public class Corridor extends Room {
 	/***
 	 * 
 	 * Method to know if the student can enter in this corridor
-	 * @param student the student who wants to go in
+	 * 
+	 * @param student
+	 *            the student who wants to go in
 	 * @return true
 	 * 
 	 ***/
@@ -81,7 +87,9 @@ public class Corridor extends Room {
 	/***
 	 * 
 	 * Method to enter in this corridor
-	 * @param student the student who wants to go in
+	 * 
+	 * @param student
+	 *            the student who wants to go in
 	 * @return true
 	 * 
 	 ***/
@@ -109,11 +117,14 @@ public class Corridor extends Room {
 	/***
 	 * 
 	 * Method to use tablet in this corridor
-	 * @param student the student who wants to use it
+	 * 
+	 * @param student
+	 *            the student who wants to use it
 	 * 
 	 ***/
+	@Override
 	public void useTablet(Student student) {
-		if(tablet){
+		if (tablet) {
 			tabletInTheCorridor.useObject(student);
 			tablet = false;
 		} else {
@@ -125,14 +136,16 @@ public class Corridor extends Room {
 	/***
 	 * 
 	 * Method to use cheatsheet in this corridor
-	 * @param student the student who wants to use it
+	 * 
+	 * @param student
+	 *            the student who wants to use it
 	 * 
 	 ***/
 	public void useCheatsheet(Student student) {
-		if(cheatsheet){
+		if (cheatsheet) {
 			cheatsheetInTheCorridor.useObject(student);
 			cheatsheet = false;
-		} else{
+		} else {
 			System.out.println(Game.res.getString("corridor.nocheatsheet"));
 		}
 		System.out.println(this.getLongDescription());
@@ -161,71 +174,45 @@ public class Corridor extends Room {
 	public void setLights(boolean lights) {
 		this.lights = lights;
 	}
-	
+
 	/**
 	 * Switch the light on
 	 * 
 	 */
 	@Override
-    public void switchLightsOn() {
-			this.setLights(true);
-			
+	public void switchLightsOn() {
+		this.setLights(true);
 
-		} 
-	
+	}
+
 	/**
 	 * Switch the light off
 	 * 
 	 */
 	@Override
-	public void switchLightsOff(){
-			this.setLights(false);
-			Display.displayln("corridor.dark");
+	public void switchLightsOff() {
+		this.setLights(false);
+		Display.displayln("corridor.dark");
 	}
-	
-	/**
-	 * Try to use the tablet, if it's incomplete display an error message
-	 * 
-	 * @param command
-	 *            The command to be processed.
-	 */
-	@Override
-	public void wantTurn(Command command,Student gamer) {
-		if (!command.hasSecondWord()) {
-			// if there is no second word, we don't know where to go...
-			System.out.println(Game.res.getString("game.use"));
-		} else if (command.getSecondWord().equals("tablet")) {
-			this.useTablet(gamer);
-		}
 
-	}
-	
 	/**
-	 * Try to search near the printer, if it's incomplete displa//		}
-y an error
+	 * Try to search near the printer, if it's incomplete display
 	 * message Then, display the answers available on the cheatsheet
 	 * 
-	 * @param command
-	 *            The command to be processed.
-	 *            
+	 *
+	 * 
 	 * @param gamer
 	 *            The Student who want to use a tablet
 	 */
 	@Override
-	public void checkPrinter(Command command,Student gamer) {
-		if (!command.hasSecondWord()) {
-			// if there is no second word, we don't know where to go...
-			System.out.println(Game.res.getString("game.search"));
-		} else if (command.getSecondWord().equals("printer")) {
-			System.out.println(Game.res.getString("cheatsheet.description1"));
-			System.out.println(Game.res.getString("cheatsheet.description2"));
-			this.useCheatsheet(gamer);
-		}
-
+	public void checkPrinter(Student gamer) {
+		Display.display("cheatsheet.description1");
+		Display.display("cheatsheet.description2");
+		this.useCheatsheet(gamer);
 	}
-	
+
 	@Override
 	public String getName() {
-		return this.getClass().getSimpleName()+" "+Integer.toString(nbRoom);
+		return this.getClass().getSimpleName() + " " + Integer.toString(nbRoom);
 	}
 }

@@ -509,11 +509,17 @@ public class Student extends Person {
 		}
 	}
 
+	/**
+	 * To verify the command and launch the fonction in the room to switch the
+	 * light
+	 * 
+	 * @param command
+	 *            the command of the user
+	 */
 	public void wantSwitchLights(Command command) {
 		if (!command.hasSecondWord()) {
 			// if there is no second word, we don't know what to do...
-			System.out.println(Game.res.getString("game.idontknow"));
-			getCurrentRoom().checkPrinter(command, this);
+			Display.displayln("game.idontknow");
 		} else if (command.getSecondWord().equals("on")) {
 			getCurrentRoom().switchLightsOn();
 			getCurrentRoom().enter(this);
@@ -523,29 +529,68 @@ public class Student extends Person {
 
 	}
 
+	/**
+	 * To verify the command and launch the fonction in the room to start an
+	 * exam
+	 * 
+	 * @param command
+	 *            the command of the user
+	 */
 	public void wantStart(Command command) {
 		if (!command.hasSecondWord()) {
 			// if there is no second word, we don't know where to go...
 			System.out.println(Game.res.getString("game.start"));
 		} else if (command.getSecondWord().equals("exam")) {
 			getCurrentRoom().startExam(this);
-	}
+		}
 
 	}
 
+	/**
+	 * Try to use the tablet, if it's incomplete display an error message
+	 * 
+	 * @param command
+	 *            The command to be processed.
+	 */
 	public void wantTurn(Command command) {
-		// TODO Auto-generated method stub
+		if (!command.hasSecondWord()) {
+			// if there is no second word, we don't know where to go...
+			System.out.println(Game.res.getString("game.turn"));
+		} else if (command.getSecondWord().equals("tablet")) {
+			getCurrentRoom().useTablet(this);
+		}
 
 	}
 
+	/**
+	 * To verify the command and launch the fonction in the room to check the
+	 * pointer
+	 * 
+	 * @param command
+	 *            the command of the user
+	 */
 	public void checkPrinter(Command command) {
-		// TODO Auto-generated method stub
+		if (!command.hasSecondWord()) {
+			// if there is no second word, we don't know where to go...
+			Display.displayln("game.search");
+		} else if (command.getSecondWord().equals("printer")) {
+
+			getCurrentRoom().checkPrinter(this);
+		}
 
 	}
 
 	public void wantAttend(Command command) {
-		// TODO Auto-generated method stub
+		if (!command.hasSecondWord()) {
+			// if there is no second word, we don't know where to go...
+			Display.displayln("game.attend");
+		} else if ((command.getSecondWord().equals("lab"))) {
+			getCurrentRoom().attendLab(this);
+		} else if ((command.getSecondWord().equals("lecture"))) {
+			getCurrentRoom().attendLecture(this);
+		} else {
+			Display.displayln("game.attend");
+		}
 
 	}
-
 }

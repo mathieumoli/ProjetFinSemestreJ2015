@@ -1,5 +1,6 @@
 package zuul.place;
 
+import zuul.Display;
 import zuul.Game;
 import zuul.commands.Command;
 import zuul.course.LabItem;
@@ -167,7 +168,7 @@ public class LabRoom extends StudySpace {
 			goodStudent.decrementEnergy(10);
 			goodStudent.addItem(coursInThisRoom);
 		}
-
+		Display.displayln(this.getLongDescription());
 	}
 
 	/**
@@ -191,27 +192,4 @@ public class LabRoom extends StudySpace {
 					+ getExitString();
 	}
 
-	/**
-	 * Try to attend a lab, if it's incomplete display an error
-	 * message
-	 * 
-	 * @param command
-	 *            The command to be processed.
-	 * 
-	 * @param gamer
-	 *            The Student who want to attend to a lecture or a lab
-	 */
-	@Override
-	public void wantAttend(Command command, Student gamer) {
-		if (!command.hasSecondWord()) {
-			// if there is no second word, we don't know where to go...
-			System.out.println(Game.res.getString("game.attend"));
-		} else {if ((command.getSecondWord().equals("lab"))) {
-			this.attendLab(gamer);
-			System.out.println(this.getLongDescription());
-		}else
-			System.out.println(Game.res.getString("game.attend"));}
-
-
-	}
 }

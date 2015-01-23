@@ -141,6 +141,7 @@ public class LectureRoom extends StudySpace {
 			System.out.println(Game.res.getString(coursInThisRoom
 			        .getBundleKey()));
 		}
+		System.out.println(this.getLongDescription());
 	}
 
 	/**
@@ -162,30 +163,5 @@ public class LectureRoom extends StudySpace {
 			        + coursInThisRoom.getNumberString() + ".\n"
 			        + Game.res.getString("lectureroom.description2")
 			        + getExitString();
-	}
-
-	/**
-	 * Try to attend a lecture, if it's incomplete display an error message
-	 * 
-	 * @param command
-	 *            The command to be processed.
-	 * 
-	 * @param gamer
-	 *            The Student who want to attend to a lecture or a lab
-	 */
-	@Override
-	public void wantAttend(Command command, Student gamer) {
-		if (!command.hasSecondWord()) {
-			// if there is no second word, we don't know where to go...
-			System.out.println(Game.res.getString("game.attend"));
-		} else {
-			if ((command.getSecondWord().equals("lecture"))) {
-				this.attendLecture(gamer);
-				System.out.println(this.getLongDescription());
-			} else
-				System.out.println(Game.res.getString("game.attend"));
-
-		}
-
 	}
 }
