@@ -256,6 +256,13 @@ public abstract class Room {
 		}
 	}
 	
+	/**
+	 * 
+	 * Know the people present in this room
+	 * 
+	 * @param allPeople - all the people of the game
+	 * @return people present in the room
+	 */
 	public ArrayList<Person> peopleInRoom(ArrayList<Person> allPeople){
 		ArrayList<Person> peopleInTheRoom = new ArrayList<Person>();
 		for (Person person : allPeople) {
