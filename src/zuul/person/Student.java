@@ -377,7 +377,7 @@ public class Student extends Person {
 			}
 		} else {
 			// TODO interna
-			System.out.println("Utilisation : use + nom de l'objet.\nLes objets suivant sont dans votre sac :");
+			System.out.println("Utilisation : use + nom de l'objet. Les objets suivant sont dans votre sac :");
 			this.displayObjectsInBag();
 		}
 
@@ -615,4 +615,23 @@ public class Student extends Person {
 		}
 
 	}
+	
+
+	/**
+	 * 
+	 * Call when the user want steal
+	 * 
+	 * @param command - the command of the user
+	 */
+	public void wantSteal(Command command, ArrayList<Person> allPeople) {
+//		if(command.hasSecondWord()){
+//			this.getCurrentRoom().peopleInRoom(allPeople);
+//			}
+//			if(this.getCurrentRoom().);)
+//			this.StealsMoney(command.getSecondWord());
+//		} else {
+//			System.err.println("Utilisation : steal + nom d'une personne dans la salle"); //TODO message erreur a internationaliser
+//		}
+	}
+
 }

@@ -258,7 +258,7 @@ public abstract class Room {
 	
 	/**
 	 * 
-	 * Know the people present in this room
+	 * Know the people present in this room.
 	 * 
 	 * @param allPeople - all the people of the game
 	 * @return people present in the room

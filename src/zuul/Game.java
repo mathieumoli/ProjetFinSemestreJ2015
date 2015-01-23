@@ -259,10 +259,8 @@ public class Game {
 		case "go":
 			goRoom(command);
 			break;
-
 		case "help":
 			currentRoom.printHelp(parser);
-			
 			break;
 		case "quit":
 			wantToQuit = quit(command);
@@ -288,8 +286,12 @@ public class Game {
 		case "use":
 			gamer.wantUse(command);
 			break;
+		case "steal":
+			gamer.wantSteal(command, people);
+			break;
 		case "check":
 			gamer.checkPrinter(command);
+			break;
 		case "say":
 		    gamer.wantSayHello(command, people, currentRoom);
 		    break;
