@@ -4,8 +4,8 @@ import zuul.person.Student;
 
 public class InvisibilityCloak extends ZuulObject {
 
-	public InvisibilityCloak(String name) {
-	    super(name);
+	public InvisibilityCloak() {
+	    super("cloak");
     }
 
 

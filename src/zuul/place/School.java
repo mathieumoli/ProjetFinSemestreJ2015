@@ -101,7 +101,7 @@ public class School {
 		c7.setExit("west", c13);
 
 		c13.addAnObjectInRoom(new MaraudeurMap(people, gamer));
-		
+		ali.addAnObjectInRoom(new InvisibilityCloak());
 		foyer.addAnObjectInRoom(new Wand());
 		foyer.addAnObjectInRoom(new Pc());
 		
