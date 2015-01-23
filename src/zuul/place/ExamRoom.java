@@ -135,8 +135,7 @@ public class ExamRoom extends Room {
 			Scanner scanner = new Scanner(System.in);
 
 			for (int i = 1; i <= NB_QUESTIONS; ++i) {
-				Display.displayln(exam + ".exam.question"
-				        + i);
+				Display.displayln(exam + ".exam.question" + i);
 				answer = scanner.nextLine();
 				String rightAnswer = Game.res.getString(exam + ".exam.answer"
 				        + i);
@@ -146,7 +145,7 @@ public class ExamRoom extends Room {
 
 				Display.display("exam.rightanswer");
 				Display.displayln(rightAnswer);
-				
+
 			}
 
 			Display.displayln(Game.res.getString("student.youhave")
@@ -166,7 +165,12 @@ public class ExamRoom extends Room {
 				Display.displayln(getExitString());
 			}
 			scanner.close();
+		} else {
+			Display.displayln("examroom.shortdescription");
+			Display.displayln("examroom.noexam");
+			Display.displayln(getExitString());
 		}
+		Display.displayln(this.getLongDescription());
 
 	}
 

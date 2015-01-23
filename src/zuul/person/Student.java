@@ -509,23 +509,27 @@ public class Student extends Person {
 		}
 	}
 
-	public void checkPrinter(Command command) {
+	public void wantSwitchLights(Command command) {
 		if (!command.hasSecondWord()) {
 			// if there is no second word, we don't know what to do...
 			System.out.println(Game.res.getString("game.idontknow"));
-	   getCurrentRoom().checkPrinter(command, this);} 
-		else if (command.getSecondWord().equals("on")) {getCurrentRoom().switchthe
+			getCurrentRoom().checkPrinter(command, this);
+		} else if (command.getSecondWord().equals("on")) {
+			getCurrentRoom().switchLightsOn();
 			getCurrentRoom().enter(this);
-			}else if (command.getSecondWord().equals("off")) {
+		} else if (command.getSecondWord().equals("off")) {
 		}
-			this.setLights(false);
-			System.out.println(Game.res.getString("corridor.dark"));
-		
-	    
-    }
+		getCurrentRoom().switchLightsOff();
+
+	}
 
 	public void wantStart(Command command) {
-		// TODO Auto-generated method stub
+		if (!command.hasSecondWord()) {
+			// if there is no second word, we don't know where to go...
+			System.out.println(Game.res.getString("game.start"));
+		} else if (command.getSecondWord().equals("exam")) {
+			getCurrentRoom().startExam(this);
+	}
 
 	}
 
@@ -534,7 +538,7 @@ public class Student extends Person {
 
 	}
 
-	public void wantSwitchLights(Command command) {
+	public void checkPrinter(Command command) {
 		// TODO Auto-generated method stub
 
 	}

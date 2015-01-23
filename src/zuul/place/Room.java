@@ -342,4 +342,13 @@ public abstract class Room {
 	public void switchLightsOff(){
 		Display.display("room.cantDoThis");
 	}
+
+	/**
+	 * To Start an exam
+	 * @param student the student who wants pass an exam
+	 */
+	public void startExam(Student student) {
+		Display.display("room.cantDoThis");
+	    
+    }
 }
