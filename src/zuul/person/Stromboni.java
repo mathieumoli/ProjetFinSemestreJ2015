@@ -1,5 +1,10 @@
 package zuul.person;
 
+import java.util.ArrayList;
+
+import zuul.Display;
+import zuul.commands.Command;
+import zuul.course.LabItem;
 import zuul.person.object.Wallet;
 
 /**
@@ -8,10 +13,10 @@ import zuul.person.object.Wallet;
  * 
  *          Class to create a Stromboni
  */
-public class Stromboni extends Person{
+public class Stromboni extends Person {
 
 	final static String nameStromboni = "Stromboni";
-	
+
 	/***
 	 * 
 	 * Constructor to create a Stromboni
@@ -24,25 +29,43 @@ public class Stromboni extends Person{
 	/**
 	 * 
 	 * Method to know if the Person can allow a student to pass the exam
-	 * @return true if the  person can allow student to passe the exam
+	 * 
+	 * @return true if the person can allow student to passe the exam
 	 * 
 	 */
 	@Override
-	public boolean canAllowToPassExam(){
+	public boolean canAllowToPassExam() {
 		return true;
 	}
-	
-	public  void allowStudentToPassExam(){
-		//TODO method to allow a student to passe exam
+
+	public void allowStudentToPassExam(Wallet wallet, ArrayList<LabItem> labs) {
+		if (labs.size() == 9) {
+			wallet.canNowPassExam();
+			Display.display(this.getName());
+			Display.displayln("stromboni.allow");
+		} else
+			Display.display(this.getName());
+		Display.displayln("stromboni.canNotAllow");
 	}
-	
+
 	@Override
-	public void randomMove(){
-	
+	public void randomMove() {
+
 	}
-	
+
 	public String getStromboniName() {
 		return nameStromboni;
 	}
-	
+
+	public void answerBack(Command command, Wallet wallet,
+	        ArrayList<LabItem> labs) {
+		if (command.getSecondWord().equals("hello")) {
+			Display.display(this.getName());
+			Display.displayln("person.hello");
+			this.allowStudentToPassExam(wallet, labs);
+		} else {
+			Display.display(this.getName());
+			Display.displayln("person.notUnderstood");
+		}
+	}
 }

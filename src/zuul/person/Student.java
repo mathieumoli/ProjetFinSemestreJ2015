@@ -3,6 +3,7 @@ package zuul.person;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import zuul.Display;
 import zuul.Game;
 import zuul.affichage.Plan;
 import zuul.commands.Command;
@@ -60,24 +61,24 @@ public class Student extends Person {
 	public void addItem(Item itemListened) {
 		if (itemListened instanceof LabItem) {
 			if (!alreadyListenedLab(new LabItem(itemListened.getModule(),
-					itemListened.getNumber()))) {
+			        itemListened.getNumber()))) {
 				labsSuivi.add((LabItem) itemListened);
 			}
 			System.out.println(this.getName()
-					+ Game.res.getString("student.addLab.part1")
-					+ itemListened.getModule()
-					+ Game.res.getString("student.add.part2")
-					+ itemListened.getNumberString());
+			        + Game.res.getString("student.addLab.part1")
+			        + itemListened.getModule()
+			        + Game.res.getString("student.add.part2")
+			        + itemListened.getNumberString());
 		} else {
 			if (!alreadyListenedLecture(new LectureItem(
-					itemListened.getModule(), itemListened.getNumber()))) {
+			        itemListened.getModule(), itemListened.getNumber()))) {
 				coursSuivi.add((LectureItem) itemListened);
 			}
 			System.out.println(this.getName()
-					+ Game.res.getString("student.addLecture.part1")
-					+ itemListened.getModule()
-					+ Game.res.getString("student.add.part2")
-					+ itemListened.getNumberString());
+			        + Game.res.getString("student.addLecture.part1")
+			        + itemListened.getModule()
+			        + Game.res.getString("student.add.part2")
+			        + itemListened.getNumberString());
 		}
 	}
 
@@ -99,9 +100,9 @@ public class Student extends Person {
 		if (energy > theEnergy) {
 			energy -= theEnergy;
 			System.out.println(Game.res.getString("student.energy.part1")
-					+ this.getName()
-					+ Game.res.getString("student.energy.part2")
-					+ this.getEnergyString());
+			        + this.getName()
+			        + Game.res.getString("student.energy.part2")
+			        + this.getEnergyString());
 		} else {
 			energy = 0;
 			System.out.println(Game.res.getString("student.energy0"));
@@ -125,8 +126,8 @@ public class Student extends Person {
 		}
 
 		System.out.println(Game.res.getString("student.energy.part1")
-				+ this.getName() + Game.res.getString("student.energy.part2")
-				+ this.getEnergyString() + ".");
+		        + this.getName() + Game.res.getString("student.energy.part2")
+		        + this.getEnergyString() + ".");
 	}
 
 	/***
@@ -163,7 +164,7 @@ public class Student extends Person {
 		for (int i = 0; i < oopBook.size(); i++) {
 			this.addItem(oopBook.get(i));
 			System.out.println(Game.res
-					.getString(oopBook.get(i).getBundleKey()));
+			        .getString(oopBook.get(i).getBundleKey()));
 		}
 		this.decrementEnergy(35);
 	}
@@ -291,20 +292,20 @@ public class Student extends Person {
 
 			int index = (int) (Math.random() * taille);
 			System.out.println(Game.res.getString("student.removeLecture1")
-					+ coursSuivi.get(index).getModule()
-					+ Game.res.getString("student.removeLecture2")
-					+ coursSuivi.get(index).getNumberString());
+			        + coursSuivi.get(index).getModule()
+			        + Game.res.getString("student.removeLecture2")
+			        + coursSuivi.get(index).getNumberString());
 			lab = new LabItem(coursSuivi.get(index).getModule(), coursSuivi
-					.get(index).getNumber());
+			        .get(index).getNumber());
 			coursSuivi.remove(index);
 
 			if (labsSuivi.contains(lab)) {
 				int indexOfRem = labsSuivi.indexOf(lab);
 
 				System.out.println(Game.res.getString("student.removeLab1")
-						+ labsSuivi.get(indexOfRem).getModule()
-						+ Game.res.getString("student.removeLecture2")
-						+ labsSuivi.get(indexOfRem).getNumberString());
+				        + labsSuivi.get(indexOfRem).getModule()
+				        + Game.res.getString("student.removeLecture2")
+				        + labsSuivi.get(indexOfRem).getNumberString());
 				labsSuivi.remove(indexOfRem);
 			}
 		}
@@ -361,7 +362,7 @@ public class Student extends Person {
 	}
 
 	public void wantUse(Command command) {
-		if(command.hasSecondWord()){
+		if (command.hasSecondWord()) {
 			String object = command.getSecondWord();
 			object = object.toLowerCase();
 			if (bag.containsKey(object)) {
@@ -372,7 +373,7 @@ public class Student extends Person {
 				System.out.println("Je n'ai pas ca dans mon sac.");
 			}
 		} else {
-			//TODO interna
+			// TODO interna
 			System.out.println("Utilisation : use + nom de l'objet");
 		}
 
@@ -386,14 +387,13 @@ public class Student extends Person {
 	 * @param people
 	 */
 	public void wantSayHello(Command command, ArrayList<Person> people,
-			Room currentRoom) { // TODO internationnalisation
+	        Room currentRoom) {
 		String word2 = "";
+		Stromboni s = null;
 		boolean stromboniIsHere = false;
-		boolean youCanPassExam = (labsSuivi.size() == 9);
 		if (command.getSecondWord() != null) {
 			word2 = command.getSecondWord().toLowerCase();
 		}
-		boolean wordHello = word2.equals("hello");
 		// ici récupérer les personnes qui sont bien dans la currentRoom de this
 		ArrayList<Person> peopleInTheRoom = new ArrayList<Person>();
 		for (Person person : people) {
@@ -402,61 +402,45 @@ public class Student extends Person {
 			}
 		}
 		int nbOfPeople = peopleInTheRoom.size();
-		if (nbOfPeople == 0) { // no one in the room
-			System.out.println("There is no one here !");
+		if (nbOfPeople == 0) {
+			Display.displayln("room.empty");
 			return;
 		}
-		
+
 		for (Person person : peopleInTheRoom) {
 			if (person.canAllowToPassExam()) {
+				s = (Stromboni) person;
 				stromboniIsHere = true;
 			}
 		}
-
-		if (wordHello) {  // on a bien dit hello.
-			if (stromboniIsHere) {
-				if (youCanPassExam) {
-					System.out
-					.println("Stromboni congratulates you because you have successfully followed every lectures & labs. He also allows you to pass the exam.");
-					// MaJ de badge
-					this.getWallet().canPassExam();
-				} else {
-					System.out.println("Stromboni tells you that you should come back to see him when you have followed every labs & lectures.");
-				}
-			} else {
-				if (nbOfPeople == 1) { // there is only one person here
-					String hisName = peopleInTheRoom.get(nbOfPeople - 1).getName();
-					System.out.println(hisName + " says hello too !");
-				} else { // There are several people here
-					System.out.println("They say hello back.");
-				}
-			}
-		} else { // the command isn't hello
-			if (nbOfPeople == 1) { // there is only one person here
-				String hisName = peopleInTheRoom.get(nbOfPeople - 1).getName();
-				System.out.println(hisName + " snubs you.");
-			} else { // There are several people here
-				System.out.println("\n\nThey act like they doesn't know you...\n\n");
+		if (stromboniIsHere) {
+			s.answerBack(command, this.getWallet(), labsSuivi);
+		} else {
+			int i;
+			for (i = 0; i < people.size(); i++) {
+				peopleInTheRoom.get(i).answerBack(command);
 			}
 		}
 
 	}
 
-	public boolean canAddInBag(String objectName){
+	public boolean canAddInBag(String objectName) {
 		return !bag.containsKey(objectName);
 	}
+
 	/**
-	* Add a object in the bag
-	* 
-	* @param obj - object to add in the bag
-	*/
+	 * Add a object in the bag
+	 * 
+	 * @param obj
+	 *            - object to add in the bag
+	 */
 	public void addInBag(ZuulObject obj) {
 		if (this.canAddInBag(obj.getName())) {
 			bag.put(obj.getName().toLowerCase(), obj);
 		} else {
 			// TODO internationalize
 			System.out
-					.println("Un object de ce type est déjà dans le sac, je ne peux pas en avoir plusieurs");
+			        .println("Un object de ce type est déjà dans le sac, je ne peux pas en avoir plusieurs");
 		}
 	}
 
@@ -471,40 +455,44 @@ public class Student extends Person {
 		if (this.getCurrentRoom().objectInRoom()) {
 			ZuulObject objectFound = this.getCurrentRoom().search();
 			System.out.println("J'ajoute " + objectFound.getName()
-					+ " a mon sac !");
+			        + " a mon sac !");
 			this.addInBag(objectFound);
 		} else {
 			System.out.println("Je n'ai trouvé aucun objet ici.");
 		}
 	}
-	
-	public void seePlan(Command command){
-		if (command.getSecondWord() != null && command.getSecondWord().toLowerCase().equals("plan")) {
-			new Plan("plan.jpg");		
+
+	public void seePlan(Command command) {
+		if (command.getSecondWord() != null
+		        && command.getSecondWord().toLowerCase().equals("plan")) {
+			new Plan("plan.jpg");
 		} else {
-		    System.out.println("What do you want to see ?");
-		}	
+			System.out.println("What do you want to see ?");
+		}
 	}
 
 	/**
 	 * Call when a student want buy something
-	 * @param commande give by the user
+	 * 
+	 * @param commande
+	 *            give by the user
 	 */
-	public void wantBuy(Command command){
-		if(this.getCurrentRoom().canBuy()){
-			if(!command.hasSecondWord()){
+	public void wantBuy(Command command) {
+		if (this.getCurrentRoom().canBuy()) {
+			if (!command.hasSecondWord()) {
 				this.getCurrentRoom().diplayAvalaiblePayingObject();
 			} else {
 				String objectName = command.getSecondWord().toLowerCase();
-				if(this.canAddInBag(objectName)){
+				if (this.canAddInBag(objectName)) {
 					this.getCurrentRoom().buy(objectName, this);
 				} else {
-					//TODO interna
-					System.out.println("Vous ne pouvez pas acheter cet object vous en avez déjà un dans votre sac.");
+					// TODO interna
+					System.out
+					        .println("Vous ne pouvez pas acheter cet object vous en avez déjà un dans votre sac.");
 				}
 			}
 		} else {
-			//TODO interna
+			// TODO interna
 			System.out.println("Il n'y a pas de vendeur ici.");
 		}
 	}

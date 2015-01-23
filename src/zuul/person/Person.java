@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 import zuul.Display;
+import zuul.commands.Command;
 import zuul.person.object.Wallet;
 import zuul.place.Room;
 
@@ -108,8 +109,16 @@ public class Person {
 		}
 	}
 	
-	public void answerBack(){
+	public void answerBack(Command command){
+		if(command.getSecondWord().equals("hello"))
+		{
 		Display.display(this.getName());
 		Display.displayln("person.hello");
+		}
+		else
+		{
+			Display.display(this.getName());
+			Display.displayln("person.notUnderstood");
+		}
 	}
 }
