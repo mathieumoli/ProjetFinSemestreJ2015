@@ -1,14 +1,16 @@
 package zuul.person;
 
-import java.util.HashMap;
+import java.util.Map;
+import java.util.Iterator;
+import java.util.Map.Entry;
 
 import zuul.object.PayingObject;
 
 public class Seller extends Person {
 
-	HashMap<String, PayingObject> stock;
+	Map<String, PayingObject> stock;
 	
-	public Seller(String name, HashMap<String, PayingObject> stock) {
+	public Seller(String name, Map<String, PayingObject> stock) {
 		super(name);
 		this.stock = stock;
 	}
@@ -16,12 +18,16 @@ public class Seller extends Person {
 	public void  displayStock(){
 		if(stock.size() != 0){
 			//TODO interna
-			System.out.println("Voici tout ce que je peux te vendre l'ami : " + stock.toString());
+			System.out.println("Voici tout ce que je peux te vendre l'ami : ");
+			for(Entry<String, PayingObject> entry : stock.entrySet()){
+				System.out.println("- " + entry.getValue().getName());
+			}
 		} else {
 			//TODO internationalisation
 			System.out.println("Malheureusement je ne peux rien te vendre.\n"
 					+ "J'ai été dévalisé plus un seul article en stock ...");
-		}
+			}
+		
 	}
 	
 	/**

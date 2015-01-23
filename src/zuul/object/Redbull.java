@@ -25,10 +25,10 @@ public class Redbull extends PayingObject {
 	 ***/
 	@Override
 	public void useObject(Student student) {
-		Display.display("energy.part1");
+		Display.display("student.energy.part1");
 		Display.display(student.getName());
 		student.incrementEnergy(40);
-		Display.display("energy.part2");
+		Display.display("student.energy.part2");
 		Display.displayln(Integer.toString((student.getEnergy())));
 		Display.displayln("redbull.action");
 		
