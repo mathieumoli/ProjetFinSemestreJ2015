@@ -90,7 +90,7 @@ public class Game {
 	 * Create all the rooms and link their exits together.
 	 */
 	private void createRooms() {
-		Room ali, exam, foyer, lab1, lab2, lab3, lecture1, lecture2, lecture3, lunchRoom, library, secretariat,c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12;
+		Room ali, exam, foyer, lab1, lab2, lab3, lecture1, lecture2, lecture3, lunchRoom, library, secretariat,c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13;
 		boolean secret = true; //use to set secrete room
 		initPayingObject();
 		
@@ -118,6 +118,7 @@ public class Game {
 		c10 = new Corridor("corridor10.description",10);
 		c11 = new Corridor("corridor11.description",11, secret);
 		c12 = new Corridor("corridor12.description",12);
+		c13 = new Corridor("corridor13.description",13,secret);
 		
 		c1.setExit("north", c2);
 		c1.setExit("south", foyer);
@@ -165,7 +166,10 @@ public class Game {
 		library.setExit("south", c10);
 		foyer.setExit("north", c1);
 		ali.setExit("south", c12);
+		c13.setExit("east", c7);
+        c7.setExit("west", c13);
 		
+		c13.addAnObjectInRoom(new MaraudeurMap(people, gamer));
 		foyer.addAnObjectInRoom(new Wand());
 		foyer.addAnObjectInRoom(new Pc());
 		c1.addAnObjectInRoom(new Broom());
@@ -193,6 +197,7 @@ public class Game {
 		hashmapRoom.put("c10",c10);
 		hashmapRoom.put("c11",c11);
 		hashmapRoom.put("c12",c12);
+		hashmapRoom.put("c13",c13);
 		
 		currentRoom = foyer;
 
@@ -206,8 +211,8 @@ public class Game {
 		createCourses();
 		createRooms();
 		createPersons();
-		MaraudeurMap c1= new MaraudeurMap(people,gamer);
-		gamer.addInBag(c1);
+		//MaraudeurMap c1= new MaraudeurMap(people,gamer);
+		//gamer.addInBag(c1);
 		if (!(gamer.getName().equals("Chuck Norris"))) {
 			printGamer();
 			printPeopleInRoom();

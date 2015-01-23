@@ -367,7 +367,9 @@ public class Student extends Person {
 			object = object.toLowerCase();
 			if (bag.containsKey(object)) {
 				bag.get(object).useObject(this);
-				bag.remove(object);
+				if (!object.equals("map")) {
+					 bag.remove(object);
+				}
 			} else {
 				// TODO internationalisation
 				System.out.println("Je n'ai pas ca dans mon sac.");
@@ -462,10 +464,19 @@ public class Student extends Person {
 		}
 	}
 
+	/**
+	 * A method printing the map.
+	 * 
+	 * @param command
+	 */
 	public void seePlan(Command command) {
 		if (command.getSecondWord() != null
 		        && command.getSecondWord().toLowerCase().equals("plan")) {
-			new Plan("plan.jpg");
+			if (bag.containsKey("marauderMap")) {
+				new Plan("planAvecSallesSecretes");
+			} else {
+				new Plan("planSansSallesSecretes");
+			}
 		} else {
 			System.out.println("What do you want to see ?");
 		}
