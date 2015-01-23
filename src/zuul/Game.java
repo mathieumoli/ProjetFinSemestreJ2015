@@ -317,7 +317,7 @@ public class Game {
 			}
 		}
 		if (peopleInRoom.size() == 0) {
-			Display.displayError("game.noonehere");
+			Display.displayln("game.noonehere");
 			return;
 		}
 		
