@@ -65,7 +65,7 @@ public class Student extends Person {
 			        itemListened.getNumber()))) {
 				labsSuivi.add((LabItem) itemListened);
 			}
-			System.out.println(this.getName()
+			Display.displayln(this.getName()
 			        + Game.res.getString("student.addLab.part1")
 			        + itemListened.getModule()
 			        + Game.res.getString("student.add.part2")
@@ -75,7 +75,7 @@ public class Student extends Person {
 			        itemListened.getModule(), itemListened.getNumber()))) {
 				coursSuivi.add((LectureItem) itemListened);
 			}
-			System.out.println(this.getName()
+			Display.displayln(this.getName()
 			        + Game.res.getString("student.addLecture.part1")
 			        + itemListened.getModule()
 			        + Game.res.getString("student.add.part2")
@@ -97,17 +97,16 @@ public class Student extends Person {
 	 * 
 	 ***/
 	public void decrementEnergy(int theEnergy) {
-
 		if (energy > theEnergy) {
 			energy -= theEnergy;
-			System.out.println(Game.res.getString("student.energy.part1")
+			Display.displayln(Game.res.getString("student.energy.part1")
 			        + this.getName()
 			        + Game.res.getString("student.energy.part2")
 			        + this.getEnergyString());
 		} else {
 			energy = 0;
-			System.out.println(Game.res.getString("student.energy0"));
-			System.out.println(Game.res.getString("game.thankyou"));
+			Display.displayln(Game.res.getString("student.energy0"));
+			Display.displayln(Game.res.getString("game.thankyou"));
 			System.exit(1);
 		}
 	}
@@ -125,8 +124,7 @@ public class Student extends Person {
 		if (energy > 100) {
 			energy = 100;
 		}
-
-		System.out.println(Game.res.getString("student.energy.part1")
+		Display.displayln(Game.res.getString("student.energy.part1")
 		        + this.getName() + Game.res.getString("student.energy.part2")
 		        + this.getEnergyString() + ".");
 	}
@@ -150,9 +148,7 @@ public class Student extends Person {
 			if (listened)
 				break;
 		}
-
 		return listened;
-
 	}
 
 	/***
@@ -164,7 +160,7 @@ public class Student extends Person {
 	public void readTakenBook() {
 		for (int i = 0; i < oopBook.size(); i++) {
 			this.addItem(oopBook.get(i));
-			System.out.println(Game.res
+			Display.displayln(Game.res
 			        .getString(oopBook.get(i).getBundleKey()));
 		}
 		this.decrementEnergy(35);
@@ -225,8 +221,10 @@ public class Student extends Person {
 	public void changeVisibility() {
 		if (isInvisible) {
 			isInvisible = false;
+			Display.displayln("student.cloakoff");
 		} else {
 			isInvisible = true;
+			Display.displayln("student.cloakon");
 		}
 	}
 
@@ -292,7 +290,7 @@ public class Student extends Person {
 			int taille = coursSuivi.size() - 1;
 
 			int index = (int) (Math.random() * taille);
-			System.out.println(Game.res.getString("student.removeLecture1")
+			Display.displayln(Game.res.getString("student.removeLecture1")
 			        + coursSuivi.get(index).getModule()
 			        + Game.res.getString("student.removeLecture2")
 			        + coursSuivi.get(index).getNumberString());
@@ -303,7 +301,7 @@ public class Student extends Person {
 			if (labsSuivi.contains(lab)) {
 				int indexOfRem = labsSuivi.indexOf(lab);
 
-				System.out.println(Game.res.getString("student.removeLab1")
+				Display.displayln(Game.res.getString("student.removeLab1")
 				        + labsSuivi.get(indexOfRem).getModule()
 				        + Game.res.getString("student.removeLecture2")
 				        + labsSuivi.get(indexOfRem).getNumberString());
@@ -348,8 +346,7 @@ public class Student extends Person {
 		if (successStealsMoney()) {
 			this.getWallet().raiseMoney(personStolen.getWallet().stolen());
 		} else {
-			// TODO vole raté le player doit perdre de l'argent
-			System.out.println("Pris en flague");
+			Display.displayln("student.spotted");
 		}
 	}
 
@@ -372,12 +369,10 @@ public class Student extends Person {
 					bag.remove(object);
 				}
 			} else {
-				// TODO internationalisation
-				System.out.println("Je n'ai pas ca dans mon sac.");
+				Display.displayln("student.donthavethisinbag");
 			}
 		} else {
-			// TODO interna
-			System.out.println("Utilisation : use + nom de l'objet. Les objets suivant sont dans votre sac :");
+			Display.displayError("student.utilisationobject");
 			this.displayObjectsInBag();
 		}
 
@@ -441,10 +436,10 @@ public class Student extends Person {
 	public void displayObjectsInBag(){
 		if(!this.bag.isEmpty()){
 			for(Entry<String, ZuulObject> entry : this.bag.entrySet()){
-				System.out.println("- " + entry.getValue().getName());
+				Display.displayln("- " + entry.getValue().getName());
 			}
 		} else {
-			System.out.println("Le sac est vide.");
+			Display.displayln("student.emptybag");
 		}
 	}
 	
@@ -458,9 +453,8 @@ public class Student extends Person {
 		if (this.canAddInBag(obj.getName())) {
 			bag.put(obj.getName().toLowerCase(), obj);
 		} else {
-			// TODO internationalize
 			System.out
-			        .println("Un object de ce type est déjà dans le sac, je ne peux pas en avoir plusieurs");
+			        .println("student.canthavemoreobjects");
 		}
 	}
 
@@ -474,11 +468,11 @@ public class Student extends Person {
 	public void searchInRoom() {
 		if (this.getCurrentRoom().objectInRoom()) {
 			ZuulObject objectFound = this.getCurrentRoom().search();
-			System.out.println("J'ajoute " + objectFound.getName()
-			        + " a mon sac !");
+			Display.displayln(Game.res.getString("student.iadd") + objectFound.getName()
+			        + Game.res.getString("student.inmybag"));
 			this.addInBag(objectFound);
 		} else {
-			System.out.println("Je n'ai trouvé aucun objet ici.");
+			Display.displayln("student.noobjecthere");
 		}
 	}
 
@@ -496,7 +490,7 @@ public class Student extends Person {
 				new Plan("planSansSallesSecretes.jpg");
 			}
 		} else {
-			System.out.println("What do you want to see ?");
+			Display.displayln("student.whattosee");
 		}
 	}
 
@@ -515,14 +509,12 @@ public class Student extends Person {
 				if (this.canAddInBag(objectName)) {
 					this.getCurrentRoom().buy(objectName, this);
 				} else {
-					// TODO interna
 					System.out
-					        .println("Vous ne pouvez pas acheter cet object vous en avez déjà un dans votre sac.");
+					        .println("student.cantbuythis");
 				}
 			}
 		} else {
-			// TODO interna
-			System.out.println("Il n'y a pas de vendeur ici.");
+			Display.displayln("room.cantBuy");
 		}
 	}
 
@@ -556,7 +548,7 @@ public class Student extends Person {
 	public void wantStart(Command command) {
 		if (!command.hasSecondWord()) {
 			// if there is no second word, we don't know where to go...
-			System.out.println(Game.res.getString("game.start"));
+			Display.displayln(Game.res.getString("game.start"));
 		} else if (command.getSecondWord().equals("exam")) {
 			getCurrentRoom().startExam(this);
 		}
@@ -572,7 +564,7 @@ public class Student extends Person {
 	public void wantTurn(Command command) {
 		if (!command.hasSecondWord()) {
 			// if there is no second word, we don't know where to go...
-			System.out.println(Game.res.getString("game.turn"));
+			Display.displayln(Game.res.getString("game.turn"));
 		} else if (command.getSecondWord().equals("tablet")) {
 			getCurrentRoom().useTablet(this);
 		}
@@ -627,9 +619,9 @@ public class Student extends Person {
 					return;
 				}
 			}
-			System.err.println("Cette personne n'est pas dans la salle");//TODO message erreur a internationaliser
+			Display.displayError("student.personnothere");
 		} else {
-			System.err.println("Utilisation : steal + nom d'une personne dans la salle"); //TODO message erreur a internationaliser
+			Display.displayError("student.utilisationsteal");
 		}
 	}
 
