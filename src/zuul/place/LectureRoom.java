@@ -142,7 +142,7 @@ public class LectureRoom extends StudySpace {
 			Display.displayln(Game.res.getString(coursInThisRoom
 			        .getBundleKey()));
 		}
-		Display.displayln(this.getLongDescription());
+		
 	}
 
 	/**
