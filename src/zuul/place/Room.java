@@ -190,20 +190,6 @@ public abstract class Room {
 	}
 
 	/**
-	 * Try to take the book in the library, if it's incomplete display an error
-	 * message
-	 * 
-	 * @param command
-	 *            The command to be processed.
-	 * @param gamer
-	 *            The Student who want to take something
-	 */
-	public void wantTake(Command command, Student gamer) {
-		System.out.println("You can't do this here");
-
-	}
-
-	/**
 	 * Try to turn the lights on, if it's incomplete display an error message
 	 * 
 	 * @param command
@@ -214,20 +200,6 @@ public abstract class Room {
 	public void wantSwitchLights(Command command, Student gamer) {
 		System.out.println("You can't do this here");
 
-	}
-
-	/**
-	 * Try to read the book in the library, if it's incomplete display an error
-	 * message
-	 * 
-	 * @param command
-	 *            The command to be processed.
-	 * 
-	 * @param gamer
-	 *            The Student who want to read a book
-	 */
-	public void wantRead(Command command, Student gamer) {
-		System.out.println("You can't do this here");
 	}
 
 	/**

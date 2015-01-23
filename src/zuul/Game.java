@@ -268,17 +268,11 @@ public class Game {
 		case "quit":
 			wantToQuit = quit(command);
 			break;
-		case "take":
-			currentRoom.wantTake(command, gamer);
-			break;
 		case "lights":
 			currentRoom.wantSwitchLights(command, gamer);
 			break;
 		case "attend":
 			currentRoom.wantAttend(command, gamer);
-			break;
-		case "read":
-			currentRoom.wantRead(command, gamer);
 			break;
 		case "turn":
 			currentRoom.wantTurn(command, gamer);

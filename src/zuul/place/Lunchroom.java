@@ -74,27 +74,6 @@ public class Lunchroom extends Room {
 	}
 	
 	/**
-	 * Try to take the book in the library, if it's incomplete display an error
-	 * message
-	 * 
-	 * @param command
-	 *            The command to be processed.
-	 * @param gamer
-	 * 			  The Student who want to take something
-	 */
-	@Override
-	public void wantTake(Command command,Student gamer) {
-		if (!command.hasSecondWord()) {
-			// if there is no second word, we don't know where to go...
-			System.out.println(Game.res.getString("game.take"));
-			return;
-		} else {
-			System.out.println(Game.res.getString("game.take"));
-		}
-		System.out.println(this.getExitString());
-	}
-	
-	/**
 	 * 
 	 * Call to know if it's possible to buy something
 	 * 
