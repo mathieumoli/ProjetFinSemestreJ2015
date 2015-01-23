@@ -34,7 +34,8 @@ public class Zuul extends ListResourceBundle {
             {"corridor.cheatsheet", "Un bout de papier dépasse de l'imprimante...Pour aller voir, tapez \"search printer\""},
             {"corridor.nocheatsheet", "Quelle imprimante ?"},
             {"library.takebook","Vous prenez le livre avec vous !"},
-            {"library.description", "Vous êtes dans la bibliothèque. Dans la bibliothèque, vous trouvez le livre de POO2 renfermant l'ensemble des cours de la matière.\nPour lire le livre et acquérir l'ensemble des cours, tapez \"read book\".\nVous pouvez le prendre avec vous  en tapant \"take book\"et ainsi\nvous pourrez le lire quand vous le souhaiterez en tapant \"read book\""},
+            {"library.description", "Vous êtes dans la bibliothèque. Il semblerait que vous puissiez trouver ici un livre de POO."},
+   
             {"examroom.description", "Vous êtes dans la salle d'examen. Pour répondre, veuillez taper VRAI ou FAUX."},
             {"examroom.shortdescription", "Vous êtes dans la salle d'examen."},
             {"examroom.noexam", "Il n'y a pas d'exament prévu pour le moment.Revenez plus tard ! "},
@@ -88,7 +89,7 @@ public class Zuul extends ListResourceBundle {
             {"game.boring", "Le Monde de Zuul est un nouveau jeu d'aventure incroyablement (un peu moins) chiant."},
             {"game.help", "Tapez 'help' si vous avez besoin d'aide."},
             {"game.idontknow", "Je ne comprends pas..."},
-            {"game.use","Utiliser quoi ? une tablette peut être ?"},
+            {"game.turn","Utiliser quoi ? une tablette peut être ?"},
             {"game.start", "Commencer quoi ?"},
             {"game.attend","Assister à quoi ? lab ? cours ?"},
             {"game.help2", "Vous êtes un étudiant et vous devez passer l'examen final de POO."},
@@ -108,7 +109,9 @@ public class Zuul extends ListResourceBundle {
             {"game.win", "Félicitations ! Vous avez réussi à passer l'examen final de "},
             {"game.lose", "Désolé, vous n'avez pas la moyenne à l'examen final de "},
             {"game.lose2", " et vous devez le repasser..."},
-
+            {"game.noonehere","Il n'y a personne dans cette salle."},
+            {"game.peopleHereAre","Les personnes présentes dans cette salle sont : "},
+            
             {"student.youhave", "Vous avez "},
             {"student.answers", " réponses justes."},
             {"student.energy.part1", "L'énergie de "},
@@ -179,7 +182,12 @@ public class Zuul extends ListResourceBundle {
 			
 			{"mysteriousperson.indice1"," vous apprend qu'il y a une salle secrete au nord du corridor 4"},
 			{"mysteriousperson.indice2"," vous apprend qu'il y a une salle secrete au sud de la lunchroom"},
-			{"mysteriousperson.indice3"," vous apprend qu'il y a une salle secrete a l'ouest du corridor 7"}
+			{"mysteriousperson.indice3"," vous apprend qu'il y a une salle secrete a l'ouest du corridor 7"},
+			
+			{"advertisement.ad1","...don du sang le mois prochain ..."},
+			{"advertisement.ad2","...la BU sera exceptionellement fermée lundi, mardi, mercredi, jeudi et vendredi prochains..."},
+			{"advertisement.ad3","...vendredi soir, soirée BDE à Nice..."},
+			{"advertisement.ad4","...forum des métiers la semaine prochaine..."}
     };
 
     /***

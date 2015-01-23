@@ -118,11 +118,11 @@ public class Game {
 				finished = processCommand(command);
 				gamer.setCurrentRoom(currentRoom);
 			}
-			System.out.println(res.getString("game.thankyou"));
+			Display.displayln(res.getString("game.thankyou"));
 		} else {
 			System.out
 			        .println(res.getString("name.CN"));
-			System.out.println(res.getString("game.thankyou"));
+			Display.displayln(res.getString("game.thankyou"));
 
 		}
 
@@ -132,11 +132,11 @@ public class Game {
 	 * Print out the opening message for the player.
 	 */
 	private void printWelcome() {
-		System.out.println();
-		System.out.println(res.getString("game.welcome"));
-		System.out.println(res.getString("game.boring"));
-		System.out.println(res.getString("game.help"));
-		System.out.println();
+		Display.displayln("");
+		Display.displayln(res.getString("game.welcome"));
+		Display.displayln(res.getString("game.boring"));
+		Display.displayln(res.getString("game.help"));
+		Display.displayln("");
 	}
 
 	/**
@@ -148,7 +148,7 @@ public class Game {
 	 */
 
 	private void createPersons() {
-		System.out.println(res.getString("game.askname"));
+		Display.displayln(res.getString("game.askname"));
 		String name = scanner.nextLine();
 		gamer = new Student(name);
 		
@@ -219,9 +219,9 @@ public class Game {
 		String string = new String(res.getString("game.welcomename1")
 		        + gamer.getName() + res.getString("game.welcomename2")
 		        + gamer.getName() + res.getString("game.welcomename3"));
-		System.out.println(string);
-		System.out.println();
-		System.out.println(currentRoom.getLongDescription());
+		Display.displayln(string);
+		Display.displayln("");
+		Display.displayln(currentRoom.getLongDescription());
 	}
 
 	/**
@@ -308,17 +308,22 @@ public class Game {
 	 * a method printing every people in the room.
 	 */
 	private void printPeopleInRoom() {
-		System.out.print("Les personnes présentes dans cette salle sont : ");
 		ArrayList<Person> peopleInRoom = new ArrayList<Person>();
 		for (Person person : people) {
 			if (person.getCurrentRoom()==currentRoom) {
 				peopleInRoom.add(person);
 			}
 		}
-		for (Person person : peopleInRoom) {
-			System.out.print(person.getName()+ "   ");			
+		if (peopleInRoom.size() == 0) {
+			Display.displayln("game.noonehere");
+			return;
 		}
-		System.out.println();
+		
+		Display.displayError("game.peopleHereAre");	
+		for (Person person : peopleInRoom) {
+			Display.display(person.getName()+ "   ");			
+		}
+		Display.displayln("");
 	}
 	
 	
@@ -332,14 +337,14 @@ public class Game {
 	private void goRoom(Command command) {
 		if (!command.hasSecondWord()) {
 			// if there is no second word, we don't know where to go...
-			System.out.println(res.getString("game.where"));
+			Display.displayError(res.getString("game.where"));
 			return;
 		}
 		String direction = command.getSecondWord();
 		// Try to leave current room.
 		Room nextRoom = currentRoom.getExit(direction);
 		if (nextRoom == null) {
-			System.out.println(res.getString("game.nodoor"));
+			Display.displayError(res.getString("game.nodoor"));
 		} else if (nextRoom.enter(gamer)) {
 			currentRoom = nextRoom;
 			printPeopleInRoom();
@@ -348,7 +353,7 @@ public class Game {
 			    people.get(i).randomMove();
 			}
 		} else {
-			System.out.println(currentRoom.getLongDescription());
+			Display.displayln(currentRoom.getLongDescription());
 		}
 	}
 
@@ -360,7 +365,7 @@ public class Game {
 	 */
 	private boolean quit(Command command) {
 		if (command.hasSecondWord()) {
-			System.out.println(res.getString("game.quitwhat"));
+			Display.displayError(res.getString("game.quitwhat"));
 			return false;
 		}
 

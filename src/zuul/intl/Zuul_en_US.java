@@ -42,9 +42,7 @@ public class Zuul_en_US extends ListResourceBundle {
 	                "corridor.cheatsheet",
 	                "A piece of paper exceeds behind the printer...To check it, type \"search printer \"" },
 	        { "corridor.nocheatsheet", "Which printer ?" },
-	        {
-	                "library.description",
-	                "You are in the library.In the library you can see the OOP2 book. This book contains all lecture you can learn about OOP2. \nIf you want to read it, just type \"read book\" \nand if you want to take it just type \"take book\" \nyou will read it when you want just when you will type \"read book\"" },
+	        {"library.description","You are in the library. It seems like you can find a OOP book here." },	       
 	        { "library.takebook", "You take the book and put it in your bag." },
 	        { "examroom.description",
 	                "You are in the exam room. To answer, please type TRUE or FALSE." },
@@ -130,7 +128,7 @@ public class Zuul_en_US extends ListResourceBundle {
 	                "World of Zuul is a new, incredibly (slightly less) boring adventure game." },
 	        { "game.help", "Type 'help' if you need help." },
 	        { "game.idontknow", "I don't know what you mean..." },
-	        { "game.use", "Use what ? tablet maybe ?" },
+	        { "game.turn", "Use what ? tablet maybe ?" },
 	        { "game.start", "Start what ?" },
 	        { "game.attend", "Attend what ? lab ? lecture ?" },
 	        { "game.help2",
@@ -156,7 +154,9 @@ public class Zuul_en_US extends ListResourceBundle {
 	                "Congratulations ! You passed the final OOP exam and therefore you finished the game." },
 	        { "game.lose", "Sorry, you didn't pass the final exam of " },
 	        { "game.lose2", " and you need to pass it again..." },
-
+            { "game.noonehere","There is no one in this room."},
+            { "game.peopleHereAre","People present in this room are : "},
+            
 	        { "student.youhave", "You have " },
 	        { "student.answers", " right answers." },
 	        {
@@ -266,7 +266,18 @@ public class Zuul_en_US extends ListResourceBundle {
 	        { "mysteriousperson.indice2",
 	                " says that there is a secret room to the south of the lunchroom" },
 	        { "mysteriousperson.indice3",
-	                " says that there is a secret room to the west of the corridor 7" } };
+	                " says that there is a secret room to the west of the corridor 7" },
+	         
+
+	    	{"advertisement.ad1","...blood collection next month..."},
+	    	{"advertisement.ad2","...The BU will exceptionnally be closed next Monday, Tuesday, Wednesday, Thursday and Friday..."},
+	    	{"advertisement.ad3","...this friday, party in Nice..."},
+	    	{"advertisement.ad4","...conference next week..."}
+	                
+	    };
+	
+	
+	
 
 	/***
 	 * @return an array in which each item is a pair of objects in an Object
