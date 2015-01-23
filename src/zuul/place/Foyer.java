@@ -38,7 +38,7 @@ public class Foyer extends Room {
 	 * by typing "check board".
 	 */
 	private void annonce() {
-		System.out.println("Vous regardez sur le tableau.");    // TODO internationnalisation
+		System.out.println("foyer.lookTab");
 		// une chance sur 2 qu'il y ait une annonce
 	    Random rnd = new Random();
 	    int intRandom = rnd.nextInt(10);

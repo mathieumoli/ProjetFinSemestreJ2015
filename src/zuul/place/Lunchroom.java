@@ -40,19 +40,6 @@ public class Lunchroom extends Room {
 	}
 
 	/**
-	 * The student takes a coffee which allows him to gain 20 points of energy
-	 * @param gamer the student who takes a coffee and who increments his energy
-	 */
-	public void buyCoffee(Student gamer) {
-		System.out.println(Game.res.getString("lunchroom.coffee1"));
-		gamer.getWallet().decreaseMoney(1); //Coffee cost 1 euro
-		//gamer.incrementEnergy(20); quand on le boit
-		//TODO rajouter l'objet dans le sac
-		System.out.println(Game.res.getString("lunchroom.coffee2"));
-
-	}
-
-	/**
 	 * This function determines if the student can enter the lunchroom or not
 	 * @param student the student who wants enter
 	 * @return true
@@ -101,8 +88,6 @@ public class Lunchroom extends Room {
 			// if there is no second word, we don't know where to go...
 			System.out.println(Game.res.getString("game.take"));
 			return;
-		} else if (command.getSecondWord().equals("coffee")) {
-			this.buyCoffee(gamer);
 		} else {
 			System.out.println(Game.res.getString("game.take"));
 		}

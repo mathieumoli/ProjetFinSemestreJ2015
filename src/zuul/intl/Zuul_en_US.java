@@ -169,6 +169,10 @@ public class Zuul_en_US extends ListResourceBundle {
 	        { "student.removeLab1", "You forget the lab of " },
 	        { "student.removeLab2", " number " },
 
+	        {"stromboni.canNotAllow", "I can not allow you to pass the exam, you must first validate all courses."},
+            {"stromboni.canAllow", "I authorize you to take the exam , my child, go in peace , and courage."},
+            
+            {"room.empty", "There is nobody in this room."},
 	        { "lectureroom.attendlecture.part1", "Lecture of " },
 	        { "lectureroom.attendlecture.part4",
 	                "Thank you for your attention you can do the lab now !" },
@@ -180,9 +184,12 @@ public class Zuul_en_US extends ListResourceBundle {
 	                "labroom.noattend1",
 	                "The professor doesn't want you to attend this lab because you haven't assisted to the lecture of " },
 	        { "labroom.noattend2", " number " },
-	        {
-	                "lunchroom.babyFoot",
-	                "You're in the lunchroom. Salah and Fanfan la tulipe say to you : \"It's babyfoot time !\" You can't refuse." },
+	        {"lunchroom.babyFoot", "You are in the cafeteria. The call of the baby is too strong to resist, you'll do a game ..." },
+			{ "aliOffice.bordel","This is Ali's office. Wow! it's a mess here! For your sake , go!"},
+            {"foyer.lookTab", "You look on the table"},
+            {"secretariat.aimable", "You are at the secretariat. The people here are very kind."},
+
+	        
 	        { "examroom.cant",
 	                "You can't pass the final exam of OOP in these conditions..." },
 
@@ -198,10 +205,12 @@ public class Zuul_en_US extends ListResourceBundle {
 	                "tablet.on",
 	                "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\n$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\n$$$$$$$$$$$$$$$$$_$$$$$$$$$$$$$$$$_$$$$$$$$$$$$$$$\n$$$$$$$$$$$$$$$$$__$$$$$$$$$$$$$$_$$$$$$$$$$$$$$$$\n$$$$$$$$$$$$$$$$$$_______________$$$$$$$$$$$$$$$$$\n$$$$$$$$$$$$$$$$___________________$$$$$$$$$$$$$$$\n$$$$$$$$$$$$$$____$$$_________$$$____$$$$$$$$$$$$$\n$$$$$$$$$$$$$_____$$$_________$$$_____$$$$$$$$$$$$\n$$$$$$$$$$$$___________________________$$$$$$$$$$$\n$$$$$$$$$$$$___________________________$$$$$$$$$$$\n$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\n$$$$_____$$$____________________________$$$____$$$\n$$$$_____$$$____________________________$$______$$\n$$$$_____$$$____________________________$$______$$\n$$$$_____$$$____________________________$$______$$\n$$$$_____$$$____________________________$$______$$\n$$$$_____$$$____________________________$$______$$\n$$$$_____$$$____________________________$$______$$\n$$$$______$$____________________________$$______$$\n$$$$_____$$$____________________________$$______$$\n$$$$$___$$$$____________________________$$$___$$$$\n$$$$$$$$$$$$____________________________$$$$$$$$$$\n$$$$$$$$$$$$____________________________$$$$$$$$$$\n$$$$$$$$$$$$___________________________$$$$$$$$$$$\n$$$$$$$$$$$$$$$$$______$$$$$$_____$$$$$$$$$$$$$$$$\n$$$$$$$$$$$$$$$$$______$$$$$$_____$$$$$$$$$$$$$$$$\n$$$$$$$$$$$$$$$$$______$$$$$$_____$$$$$$$$$$$$$$$$\n$$$$$$$$$$$$$$$$$______$$$$$$_____$$$$$$$$$$$$$$$$\n$$$$$$$$$$$$$$$$$______$$$$$$_____$$$$$$$$$$$$$$$$\n$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\nThe Android Tablet is ON !" },
 
-	        { "room.nothing",
-	                "Sorry but there aren't scheduled course in this room. Come back later !" },
-	        { "cheatsheet.description1",
-	                "You just found a paper, and there is something written on it..." },
+	        { "room.nothing", "Sorry but there aren't scheduled course in this room. Come back later !" },
+            {"room.cantDoThis", "You can't use this command in this room"},
+            {"room.noSeller", "There are no seller here. Try to go to the cafeteria, Oussama is always there if you need something."},
+
+	        
+	        { "cheatsheet.description1", "You just found a paper, and there is something written on it..." },
 	        { "cheatsheet.description2", "Answers to the OOP exam : " },
 	        {"name.CN","You are Chuck Norris, you never lose so congratulation you win !!!"},
 	        {"alcohol.action","Wow, I have drunk to much alcohol !"},
@@ -229,6 +238,8 @@ public class Zuul_en_US extends ListResourceBundle {
 			{"maraudeur.failpassword","You don't know the password, you'll never know where are the others"},
 
 			{"person.hello"," says hello back  !"},
+			{"person.notUnderstood", " does not understand what you are saying and you stare"},
+			
 			{"mysteriousperson.indice1"," says that there is a secret room to the north of the corridor 4"},
 			{"mysteriousperson.indice2"," says that there is a secret room to the south of the lunchroom"},
 			{"mysteriousperson.indice3"," says that there is a secret room to the west of the corridor 7"}

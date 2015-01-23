@@ -16,8 +16,7 @@ public class AliOffice extends Room {
 
 	@Override
 	public boolean enter(Student student) {
-		// TODO internationnalisation
-		System.out.println("C'est le bureau d'Ali. Wow! c'est le bordel ici ! Pour votre bien, partez !");
+		System.out.println("aliOffice.bordel");
 		return true;
 	}
 

@@ -120,6 +120,13 @@ public class Zuul extends ListResourceBundle {
             {"student.removeLab1","Vous avez oublié le lab de "},
             {"student.removeLab2"," numéro "},
             
+            {"stromboni.canNotAllow", " ne peux pas vous autoriser à passer les examen, vous devez d'abord valider tous les cours."},
+            {"stromboni.canAllow", " vous autorise à passer l'examen mon enfant, allez en paix, et courage."},
+            
+            {"room.empty", "Il n'y a personne dans cette salle"},
+            {"room.cantDoThis", "Vous ne pouvez pas utiliser cette commande dans cette salle"},
+            {"room.noSeller", "Il n'y à pas de vendeur ici. Essayer de vous rendre à la cafétéria, Oussama est toujours la si vous avez besoin de quelque chose."},
+            
             {"lectureroom.attendlecture.part1","le cours de "},
             {"lectureroom.attendlecture.part4","Merci d'avoir écouté ce cours vous pouvez donc assister au lab !"},
             {"room.attend.part2"," numéro "},
@@ -128,9 +135,11 @@ public class Zuul extends ListResourceBundle {
             {"labroom.attendlab.part4","Merci d'avoir participé à ce lab !"},
             {"labroom.noattend1","Le professeur ne veut pas de vous car vous n'avez pas assisté au cours concernant le module de "},
             {"labroom.noattend2"," numéro "},
-            {"lunchroom.babyFoot","Vous êtes dans la cafétéria. Salah et Fanfan la tulipe vous attrapent au passage : C'est l'heure du baby ! Vous ne pouvez refuser."},
-            {"examroom.cant", "Vous ne pouvez pas passer l'examen de POO dans ces conditions..."},
-
+            {"lunchroom.babyFoot","Vous êtes dans la cafétéria. L'appel du baby est trop fort pour résister, vous allez faire une partie..."},            {"examroom.cant", "Vous ne pouvez pas passer l'examen de POO dans ces conditions..."},
+            {"aliOffice.bordel", "C'est le bureau dAli. Wow! c'est le bordel ici ! Pour votre bien, partez !"},
+            {"foyer.lookTab", "Vous regardez sur le tableau."},
+            {"secretariat.aimable", "Vous êtes au secretariat. Les gens ici ne sont pas très aimable."},
+            
             {"tablet.lecture","Vous constatez que l'étudiant qui a laissé la tablette a enregistré un cours dessus. Pourquoi ne pas l'apprendre ?"},
             {"tablet.zuul","Oh oui! Vous avez vu le monde de Zuul sur la tablette. Vous lancez dans une partie."},
             {"tablet.appli","Oh non! Vous avez vu \"Candy Crush - Oubliez vos cours et jouez avec moi\" sur la tablette. Vous vous lancez dans une partie..."},
@@ -164,6 +173,8 @@ public class Zuul extends ListResourceBundle {
 			{"maraudeur.failpassword","Vous ne connaissez pas le mot de passe vous ne saurez jamais où sont les autres."},
 			
 			{"person.hello"," vous renvoie le bonjour !"},
+			{"person.notUnderstood", " ne comprend pas ce que vous dites et vous dévisage"},
+			
 			{"mysteriousperson.indice1"," vous apprend qu'il y a une salle secrete au nord du corridor 4"},
 			{"mysteriousperson.indice2"," vous apprend qu'il y a une salle secrete au sud de la lunchroom"},
 			{"mysteriousperson.indice3"," vous apprend qu'il y a une salle secrete a l'ouest du corridor 7"}

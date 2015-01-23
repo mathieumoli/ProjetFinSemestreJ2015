@@ -1,4 +1,4 @@
-package zuul.place;
+ package zuul.place;
 
 import zuul.Game;
 import zuul.commands.Command;
@@ -78,6 +78,7 @@ public abstract class Room {
 		this.description = description;
 		exits = new HashMap<String, Room>();
 		this.secret = secret;
+		this.objectInRoom = new ArrayList<ZuulObject>();
 	}
 
 	/**
@@ -144,8 +145,7 @@ public abstract class Room {
 	 *            The command to be processed.
 	 */
 	public void wantStart(Command command) {
-		// TODO internationalisation
-		System.out.println("You can't do this here !");
+		System.out.println("room.cantDoThis");
 	}
 
 	/**
@@ -157,8 +157,7 @@ public abstract class Room {
 	 *            the student who want to start something
 	 */
 	public void wantStart(Command command, Student gamer) {
-		// TODO internationalisation
-		System.out.println("You can't do this here");
+		System.out.println("room.cantDoThis");
 	}
 
 	/**
@@ -339,8 +338,7 @@ public abstract class Room {
 	 * Display the list of object which can be buy.
 	 */
 	public void diplayAvalaiblePayingObject(){
-		//TODO interna
-		System.out.println("Il n'y a pas de vendeur ici.");
+		System.out.println("room.noSeller");
 	}
 	
 	/**
@@ -350,8 +348,7 @@ public abstract class Room {
 	 * @param object - name of the object to buy
 	 */
 	public void buy(String object, Student s){
-		//TODO interna
-		System.out.println("Il n'y a pas de vendeur ici.");
+		System.out.println("room.noSeller");
 	}
 
 }
