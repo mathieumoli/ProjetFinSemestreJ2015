@@ -3,14 +3,8 @@ package zuul.place;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import zuul.object.Broom;
-import zuul.object.MaraudeurMap;
-import zuul.object.PayingObject;
-import zuul.object.Pc;
-import zuul.object.Wand;
-import zuul.person.Person;
-import zuul.person.Seller;
-import zuul.person.Student;
+import zuul.object.*;
+import zuul.person.*;
 
 public class School {
 
@@ -107,9 +101,15 @@ public class School {
 		c7.setExit("west", c13);
 
 		c13.addAnObjectInRoom(new MaraudeurMap(people, gamer));
+		
 		foyer.addAnObjectInRoom(new Wand());
 		foyer.addAnObjectInRoom(new Pc());
+		
 		c1.addAnObjectInRoom(new Broom());
+		
+		library.addAnObjectInRoom(new JavaBook());
+		
+		
 		hashmapRoom.put("ali", ali);
 		hashmapRoom.put("exam", exam);
 		hashmapRoom.put("foyer", foyer);
