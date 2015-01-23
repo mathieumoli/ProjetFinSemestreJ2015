@@ -315,11 +315,11 @@ public class Game {
 			}
 		}
 		if (peopleInRoom.size() == 0) {
-			Display.displayln("game.noonehere");
+			Display.displayError("game.noonehere");
 			return;
 		}
 		
-		Display.displayError("game.peopleHereAre");	
+		Display.display("game.peopleHereAre");	
 		for (Person person : peopleInRoom) {
 			Display.display(person.getName()+ "   ");			
 		}
