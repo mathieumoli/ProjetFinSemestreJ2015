@@ -1,7 +1,9 @@
 package zuul.place;
 
+import java.awt.DisplayMode;
 import java.util.Random;
 
+import zuul.Display;
 import zuul.person.Student;
 
 public class Secretariat extends Room {
@@ -16,7 +18,8 @@ public class Secretariat extends Room {
 
 	@Override
 	public boolean enter(Student student) {
-		System.out.println("secretariat.aimable");
+		Display.displayln("secretariat.aimable");
+		this.getExitString();
 		return true;
 	}
 
