@@ -115,6 +115,12 @@ public class Person {
 		}
 	}
 
+	/**
+	 * 
+	 * Method to display a answer to the hello of the user
+	 * @param command
+	 * 				the command writted by the user
+	 */
 	public void answerBack(Command command) {
 		if (command.getSecondWord() != null
 				&& command.getSecondWord().equals("hello")) {
