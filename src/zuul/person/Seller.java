@@ -32,9 +32,13 @@ public class Seller extends Person {
 	public void sell(String object, Student s){
 		//TODO 
 		if(this.stock.containsKey(object)){
-			s.addInBag(this.stock.get(object));
-			//TODO interna
-			System.out.println("Et voila un " + object + " pour toi, rienviens me voir quand tu veux !");
+			if(s.getWallet().decreaseMoney(this.stock.get(object).getPrice())){
+				s.addInBag(this.stock.get(object));
+				//TODO interna
+				System.out.println("Et voila un " + object + " pour toi, rienviens me voir quand tu veux !");
+			} else {
+				System.out.println("T'as cru que cétait gratuit !? T'as pas assez d'argent pour acheter ca !");
+			}
 		} else {
 			//TODO interna
 			System.out.println("Désolé je n'ai pas ca en stock ...");
