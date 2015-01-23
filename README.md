@@ -37,5 +37,7 @@ Projet de fin de semestre Janvier 2015
 		Implémentation de la recherche d'objet dans une salle
 	###4CL
 		Commande d'aide plus explicite 
+	###5CL
+		Ajout de la possibilité d'acheter des objets, quand une seller est dans une room
 		
     
