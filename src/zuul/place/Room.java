@@ -1,4 +1,4 @@
- package zuul.place;
+package zuul.place;
 
 import zuul.Game;
 import zuul.commands.Command;
@@ -145,7 +145,8 @@ public abstract class Room {
 	 *            The command to be processed.
 	 */
 	public void wantStart(Command command) {
-		System.out.println("room.cantDoThis");
+		// TODO internationalisation
+		System.out.println("You can't do this here !");
 	}
 
 	/**
@@ -157,7 +158,8 @@ public abstract class Room {
 	 *            the student who want to start something
 	 */
 	public void wantStart(Command command, Student gamer) {
-		System.out.println("room.cantDoThis");
+		// TODO internationalisation
+		System.out.println("You can't do this here");
 	}
 
 	/**
@@ -338,7 +340,8 @@ public abstract class Room {
 	 * Display the list of object which can be buy.
 	 */
 	public void diplayAvalaiblePayingObject(){
-		System.out.println("room.noSeller");
+		//TODO interna
+		System.out.println("Il n'y a pas de vendeur ici.");
 	}
 	
 	/**
@@ -348,7 +351,8 @@ public abstract class Room {
 	 * @param object - name of the object to buy
 	 */
 	public void buy(String object, Student s){
-		System.out.println("room.noSeller");
+		//TODO interna
+		System.out.println("Il n'y a pas de vendeur ici.");
 	}
 
 }

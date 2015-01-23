@@ -403,6 +403,7 @@ public class Student extends Person {
 				peopleInTheRoom.add(person);
 			}
 		}
+		
 		int nbOfPeople = peopleInTheRoom.size();
 		if (nbOfPeople == 0) {
 			Display.displayln("room.empty");
@@ -419,7 +420,7 @@ public class Student extends Person {
 			s.answerBack(command, this.getWallet(), labsSuivi);
 		} else {
 			int i;
-			for (i = 0; i < people.size(); i++) {
+			for (i = 0; i < peopleInTheRoom.size(); i++) {
 				peopleInTheRoom.get(i).answerBack(command);
 			}
 		}
@@ -472,7 +473,7 @@ public class Student extends Person {
 	public void seePlan(Command command) {
 		if (command.getSecondWord() != null
 		        && command.getSecondWord().toLowerCase().equals("plan")) {
-			if (bag.containsKey("marauderMap")) {
+			if (bag.containsKey("map")) {
 				new Plan("planAvecSallesSecretes");
 			} else {
 				new Plan("planSansSallesSecretes");

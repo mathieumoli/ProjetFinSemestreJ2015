@@ -48,6 +48,7 @@ public class Game {
 	private HashMap<String,Room> hashmapRoom = new HashMap<String,Room>();
 	Scanner scanner = new Scanner(System.in);
 	HashMap<String,PayingObject> listPayingObject;
+	private School school;
 	
 	/**
 	 * Create the game and initialize its internal map.
@@ -89,10 +90,11 @@ public class Game {
 	/**
 	 * Create all the rooms and link their exits together.
 	 */
-	private void createRooms() {
+	private void createSchool() {
+		school = new School(people,gamer,listPayingObject);
 		Room ali, exam, foyer, lab1, lab2, lab3, lecture1, lecture2, lecture3, lunchRoom, library, secretariat,c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13;
 		boolean secret = true; //use to set secrete room
-		initPayingObject();
+		
 		
 		ali = new AliOffice(res.getString("alioffice.description"));
 		exam = new ExamRoom(res.getString("examroom.description"));
@@ -209,7 +211,8 @@ public class Game {
 	public void play() {
 		printWelcome();
 		createCourses();
-		createRooms();
+		initPayingObject();
+		createSchool();
 		createPersons();
 		//MaraudeurMap c1= new MaraudeurMap(people,gamer);
 		//gamer.addInBag(c1);
