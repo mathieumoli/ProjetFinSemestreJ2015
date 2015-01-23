@@ -6,16 +6,31 @@ import java.util.Map.Entry;
 import zuul.Display;
 import zuul.Game;
 import zuul.object.PayingObject;
-
+/**
+ * 
+ * @author Cedric Lallemand
+ *
+ */
 public class Seller extends Person {
 
 	Map<String, PayingObject> stock;
 	
+	/**
+	 * 
+	 * Constructor to create a seller
+	 * @param name
+	 * 				the name of the seller
+	 * @param stock
+	 * 				the map which contains all paying objects 
+	 */
 	public Seller(String name, Map<String, PayingObject> stock) {
 		super(name);
 		this.stock = stock;
 	}
 	
+	/**
+	 * To show all paying objects which are contained by the seller
+	 */
 	public void  displayStock(){
 		if(stock.size() != 0){
 			Display.displayln("seller.seewhatisell");

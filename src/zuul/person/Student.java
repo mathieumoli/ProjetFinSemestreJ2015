@@ -160,8 +160,7 @@ public class Student extends Person {
 	public void readTakenBook() {
 		for (int i = 0; i < oopBook.size(); i++) {
 			this.addItem(oopBook.get(i));
-			Display.displayln(Game.res
-			        .getString(oopBook.get(i).getBundleKey()));
+			Display.displayln(Game.res.getString(oopBook.get(i).getBundleKey()));
 		}
 		this.decrementEnergy(35);
 	}
@@ -359,6 +358,10 @@ public class Student extends Person {
 		this.removeItem();
 	}
 
+	/**
+	 * to verify if the student can use a course or a lab
+	 * @param command the command types by the student
+	 */
 	public void wantUse(Command command) {
 		if (command.hasSecondWord()) {
 			String object = command.getSecondWord();
@@ -394,7 +397,8 @@ public class Student extends Person {
 			word2 = command.getSecondWord().toLowerCase();
 		}
 		// ici récupérer les personnes qui sont bien dans la currentRoom de this
-		ArrayList<Person> peopleInTheRoom = this.getCurrentRoom().peopleInRoom(people);
+		ArrayList<Person> peopleInTheRoom = this.getCurrentRoom().peopleInRoom(
+		        people);
 
 		int nbOfPeople = peopleInTheRoom.size();
 		if (nbOfPeople == 0) {
@@ -423,7 +427,8 @@ public class Student extends Person {
 	 * 
 	 * Call to know if a object can be add in bag
 	 * 
-	 * @param objectName - the name of the object to add in bag
+	 * @param objectName
+	 *            - the name of the object to add in bag
 	 * @return - true if we can add the object in the bag
 	 */
 	public boolean canAddInBag(String objectName) {
@@ -433,16 +438,16 @@ public class Student extends Person {
 	/**
 	 * Display the object in the bag
 	 */
-	public void displayObjectsInBag(){
-		if(!this.bag.isEmpty()){
-			for(Entry<String, ZuulObject> entry : this.bag.entrySet()){
+	public void displayObjectsInBag() {
+		if (!this.bag.isEmpty()) {
+			for (Entry<String, ZuulObject> entry : this.bag.entrySet()) {
 				Display.displayln("- " + entry.getValue().getName());
 			}
 		} else {
 			Display.displayln("student.emptybag");
 		}
 	}
-	
+
 	/**
 	 * Add a object in the bag
 	 * 
@@ -453,8 +458,7 @@ public class Student extends Person {
 		if (this.canAddInBag(obj.getName())) {
 			bag.put(obj.getName().toLowerCase(), obj);
 		} else {
-			System.out
-			        .println("student.canthavemoreobjects");
+			System.out.println("student.canthavemoreobjects");
 		}
 	}
 
@@ -468,7 +472,8 @@ public class Student extends Person {
 	public void searchInRoom() {
 		if (this.getCurrentRoom().objectInRoom()) {
 			ZuulObject objectFound = this.getCurrentRoom().search();
-			Display.displayln(Game.res.getString("student.iadd") + objectFound.getName()
+			Display.displayln(Game.res.getString("student.iadd")
+			        + objectFound.getName()
 			        + Game.res.getString("student.inmybag"));
 			this.addInBag(objectFound);
 		} else {
@@ -509,8 +514,7 @@ public class Student extends Person {
 				if (this.canAddInBag(objectName)) {
 					this.getCurrentRoom().buy(objectName, this);
 				} else {
-					System.out
-					        .println("student.cantbuythis");
+					System.out.println("student.cantbuythis");
 				}
 			}
 		} else {
@@ -589,6 +593,10 @@ public class Student extends Person {
 
 	}
 
+	/**
+	 * to verify if the student can attend a course or a lab
+	 * @param command the command types by the student
+	 */
 	public void wantAttend(Command command) {
 		if (!command.hasSecondWord()) {
 			// if there is no second word, we don't know where to go...
@@ -602,19 +610,20 @@ public class Student extends Person {
 		}
 
 	}
-	
 
 	/**
 	 * 
 	 * Call when the user want steal
 	 * 
-	 * @param command - the command of the user
+	 * @param command
+	 *            - the command of the user
 	 */
 	public void wantSteal(Command command, ArrayList<Person> allPeople) {
-		if(command.hasSecondWord()){
-			ArrayList<Person> peopleInRoom  = this.getCurrentRoom().peopleInRoom(allPeople);
-			for(Person p : peopleInRoom){
-				if(p.getName().equals(command.getSecondWord())){
+		if (command.hasSecondWord()) {
+			ArrayList<Person> peopleInRoom = this.getCurrentRoom()
+			        .peopleInRoom(allPeople);
+			for (Person p : peopleInRoom) {
+				if (p.getName().equals(command.getSecondWord())) {
 					this.StealsMoney(p);
 					return;
 				}

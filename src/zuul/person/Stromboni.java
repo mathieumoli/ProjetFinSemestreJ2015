@@ -48,15 +48,29 @@ public class Stromboni extends Person {
 		Display.displayln("stromboni.canNotAllow");
 	}
 
+	/**
+	 * to do move 
+	 */
 	@Override
 	public void randomMove() {
 
 	}
-
+	
+	/**
+	 * to get the name of Stromboni
+	 * @return the name of Stromboni
+	 */
 	public String getStromboniName() {
 		return nameStromboni;
 	}
 
+	/**
+	 * 
+	 * Method to display a answer to the hello of the user
+	 * 
+	 * @param command
+	 *            the command writted by the user
+	 */
 	public void answerBack(Command command, Wallet wallet,
 	        ArrayList<LabItem> labs) {
 		if (command.getSecondWord().equals("hello")) {
