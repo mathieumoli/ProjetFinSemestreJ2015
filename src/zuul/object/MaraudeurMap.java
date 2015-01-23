@@ -27,7 +27,7 @@ public class MaraudeurMap extends ZuulObject{
 	 * 
 	 */
 	public MaraudeurMap(Student player) {
-		super("Map");
+		super("map");
 		persons = new ArrayList<Person>();
 		
 		password = Game.res.getString("maraudeur.password");
