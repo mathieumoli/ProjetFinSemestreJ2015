@@ -25,6 +25,7 @@ public class School {
 
 	public void init(ArrayList<Person> people, Student gamer,
 	        HashMap<String, PayingObject> listPayingObject) {
+		
 		Room ali, exam, foyer, lab1, lab2, lab3, lecture1, lecture2, lecture3, lunchRoom, library, secretariat, c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13;
 		boolean secret = true; // use to set secrete room
 		hashmapRoom = new HashMap<String, Room>();
@@ -138,4 +139,12 @@ public class School {
 		currentRoom = foyer;
 	}
 
+	/**
+	 * A method returning all the rooms.
+	 * @return
+	 */
+	public HashMap<String,Room> getRooms() {
+		return hashmapRoom;
+	}
+	
 }
