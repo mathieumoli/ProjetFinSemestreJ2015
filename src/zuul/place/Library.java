@@ -28,10 +28,6 @@ public class Library extends Room {
 	 ***/
 	public Library(String description) {
 		super(description);
-		poo2Book = new ArrayList<LectureItem>();
-
-		createPOOBook();
-
 	}
 
 	/***
@@ -46,21 +42,6 @@ public class Library extends Room {
 	 ***/
 	public Library(String description, boolean secret) {
 		super(description, secret);
-		createPOOBook();
-	}
-
-	/**
-	 * To create the PooBook with lessons in
-	 */
-	public void createPOOBook() {
-		poo2Book = new ArrayList<LectureItem>();
-
-		LectureItem poo2BookPage1 = new LectureItem("OOP", 1, "oop.lecture1");
-		LectureItem poo2BookPage2 = new LectureItem("OOP", 2, "oop.lecture2");
-		LectureItem poo2BookPage3 = new LectureItem("OOP", 3, "oop.lecture3");
-		poo2Book.add(poo2BookPage1);
-		poo2Book.add(poo2BookPage2);
-		poo2Book.add(poo2BookPage3);
 	}
 
 	/***
@@ -106,45 +87,5 @@ public class Library extends Room {
 
 		isOpen = random > 7;
 		return isOpen;
-	}
-
-	/***
-	 * 
-	 * Method to set the poo2Book in the Student to can use it later
-	 * 
-	 * @param student
-	 *            the student who wants take the book
-	 */
-	public void takeBook(Student student) {
-		student.setOOPbook(poo2Book);
-		System.out.println(Game.res.getString("library.takebook") + "\n"
-		        + getExitString());
-	}
-
-	/***
-	 * 
-	 * Method to read the poo2Book without take it
-	 * 
-	 * @param goodStudent
-	 *            the Student who wants learn all the OOP lectures
-	 * 
-	 */
-	public void learnPOO(Student goodStudent) {
-		int sizeBook = poo2Book.size();
-		for (int i = 0; i < sizeBook; i++) {
-			if (!goodStudent.alreadyListenedLecture(poo2Book.get(i))) {
-				goodStudent.addItem(poo2Book.get(i));
-				System.out.println(Game.res.getString(poo2Book.get(i)
-				        .getBundleKey()) + "\n");
-				try {
-					Thread.sleep(3000);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-			}
-		}
-		goodStudent.decrementEnergy(35);
-		System.out.println(getExitString());
-
 	}
 }
