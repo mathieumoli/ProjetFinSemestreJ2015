@@ -2,6 +2,7 @@ package zuul.place;
 
 import java.util.ArrayList;
 
+import zuul.Display;
 import zuul.Game;
 import zuul.commands.Command;
 import zuul.course.LectureItem;
@@ -68,12 +69,12 @@ public class Library extends Room {
 	 ***/
 	public boolean enter(Student student) {
 		if (canEnter(student)) {
-			System.out.println(Game.res.getString("library.description") + "\n"
+			Display.displayln(Game.res.getString("library.description") + "\n"
 			        + getExitString());
 
 			return true;
 		}
-		System.out.println(Game.res.getString("library.closed"));
+		Display.displayln(Game.res.getString("library.closed"));
 		return false;
 	}
 

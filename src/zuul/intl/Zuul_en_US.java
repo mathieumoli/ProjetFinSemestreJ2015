@@ -272,8 +272,9 @@ public class Zuul_en_US extends ListResourceBundle {
 	    	{"advertisement.ad1","...blood collection next month..."},
 	    	{"advertisement.ad2","...The BU will exceptionnally be closed next Monday, Tuesday, Wednesday, Thursday and Friday..."},
 	    	{"advertisement.ad3","...this friday, party in Nice..."},
-	    	{"advertisement.ad4","...conference next week..."}
+	    	{"advertisement.ad4","...conference next week..."},
 	                
+	    	{"foyer.noannonce","There is no ads."}
 	    };
 	
 	

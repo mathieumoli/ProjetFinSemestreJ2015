@@ -2,6 +2,7 @@ package zuul.place;
 
 import java.util.Random;
 
+import zuul.Display;
 import zuul.person.Student;
 
 public class AliOffice extends Room {
@@ -16,7 +17,7 @@ public class AliOffice extends Room {
 
 	@Override
 	public boolean enter(Student student) {
-		System.out.println("aliOffice.bordel");
+		Display.displayln("aliOffice.bordel");
 		return true;
 	}
 

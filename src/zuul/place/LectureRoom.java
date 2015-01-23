@@ -1,5 +1,6 @@
 package zuul.place;
 
+import zuul.Display;
 import zuul.Game;
 import zuul.commands.Command;
 import zuul.course.LectureItem;
@@ -75,9 +76,9 @@ public class LectureRoom extends StudySpace {
 		isAttend = false;
 		if (mustEnter(student)) {
 			attendLecture(student);
-			System.out.println(getLongDescription());
+			Display.displayln(getLongDescription());
 		} else {
-			System.out.println(getLongDescription());
+			Display.displayln(getLongDescription());
 		}
 
 		return true;
@@ -116,32 +117,32 @@ public class LectureRoom extends StudySpace {
 	 */
 	public void attendLecture(Student goodStudent) {
 		if (coursInThisRoom.getNumber() != 0) {
-			System.out.println(Game.res
+			Display.displayln(Game.res
 			        .getString("lectureroom.attendlecture.part1")
 			        + coursInThisRoom.getModule()
 			        + Game.res.getString("room.attend.part2")
 			        + coursInThisRoom.getNumber()
 			        + Game.res.getString("room.attend.part3"));
 			try {
-				System.out.println(Game.res.getString("oop.lecture"));
+				Display.displayln(Game.res.getString("oop.lecture"));
 				Thread.sleep(3000);
-				System.out.println(Game.res.getString(coursInThisRoom
+				Display.displayln(Game.res.getString(coursInThisRoom
 				        .getBundleKey()));
 				Thread.sleep(3000);
-				System.out.println(Game.res.getString("oop.lectureend"));
+				Display.displayln(Game.res.getString("oop.lectureend"));
 
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
 			isAttend = true;
-			System.out.println(Game.res
+			Display.displayln(Game.res
 			        .getString("lectureroom.attendlecture.part4"));
 			goodStudent.learnItem(coursInThisRoom);
 		} else {
-			System.out.println(Game.res.getString(coursInThisRoom
+			Display.displayln(Game.res.getString(coursInThisRoom
 			        .getBundleKey()));
 		}
-		System.out.println(this.getLongDescription());
+		Display.displayln(this.getLongDescription());
 	}
 
 	/**

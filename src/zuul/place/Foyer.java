@@ -3,6 +3,7 @@ package zuul.place;
 import java.util.Random;
 
 import zuul.Advertisement;
+import zuul.Display;
 import zuul.person.Student;
 
 /**
@@ -43,7 +44,7 @@ public class Foyer extends Room {
 	    Random rnd = new Random();
 	    int intRandom = rnd.nextInt(10);
 	    if (intRandom > 4) {
-	    	System.out.println("Il n'y a pas d'annonce.");
+	    	Display.displayln("foyer.noannonce");
 	    } else {
 	    	advertisement.displayNewAd();
 	    }

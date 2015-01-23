@@ -67,7 +67,7 @@ public class LabRoom extends StudySpace {
 					+ coursInThisRoom.getModule()
 					+ Game.res.getString("labroom.noattend2")
 					+ coursInThisRoom.getNumberString());
-			System.out.println(string);
+			Display.displayln(string);
 			return false;
 		}
 		return true;
@@ -104,12 +104,12 @@ public class LabRoom extends StudySpace {
 
 		if (canEnter(student)) {
 			if (coursInThisRoom.getNumber() == 0) {
-				System.out.println(getLongDescription());
+				Display.displayln(getLongDescription());
 			} else if (mustEnter(student)) {
 				attendLab(student);
-				System.out.println(getLongDescription());
+				Display.displayln(getLongDescription());
 			} else {
-				System.out.println(getLongDescription());
+				Display.displayln(getLongDescription());
 			}
 
 			return true;
@@ -150,21 +150,21 @@ public class LabRoom extends StudySpace {
 	 */
 	public void attendLab(Student goodStudent) {
 		if (coursInThisRoom.getNumber() != 0) {
-			System.out.println(Game.res.getString("labroom.attendlab.part1")
+			Display.displayln(Game.res.getString("labroom.attendlab.part1")
 					+ coursInThisRoom.getModule()
 					+ Game.res.getString("room.attend.part2")
 					+ coursInThisRoom.getNumber()
 					+ Game.res.getString("room.attend.part3"));
 			try {
 				Thread.sleep(3000);
-				System.out.println("...");
+				Display.displayln("...");
 				Thread.sleep(3000);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
 
 			isAttend = true;
-			System.out.println(Game.res.getString("labroom.attendlab.part4"));
+			Display.displayln(Game.res.getString("labroom.attendlab.part4"));
 			goodStudent.decrementEnergy(10);
 			goodStudent.addItem(coursInThisRoom);
 		}

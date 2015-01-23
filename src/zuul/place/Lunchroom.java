@@ -1,5 +1,6 @@
 package zuul.place;
 
+import zuul.Display;
 import zuul.Game;
 import zuul.commands.Command;
 import zuul.person.Seller;
@@ -62,11 +63,11 @@ public class Lunchroom extends Room {
 		playBabyFoot = random > 7;
 		
 		if (playBabyFoot) {
-			System.out.println(Game.res.getString("lunchroom.babyFoot"));
+			Display.displayln(Game.res.getString("lunchroom.babyFoot"));
 			student.playBabyFoot();
-			System.out.println(getExitString());
+			Display.displayln(getExitString());
 		} else {
-			System.out.println(getLongDescription());
+			Display.displayln(getLongDescription());
 		}
 
 		return true;

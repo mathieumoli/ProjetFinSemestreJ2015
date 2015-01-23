@@ -377,7 +377,7 @@ public class Student extends Person {
 			}
 		} else {
 			// TODO interna
-			System.out.println("Utilisation : use + nom de l'objet. Les objets suivant sont dans votre sac :");
+			System.out.println("Utilisation : use + nom de l'objet.\nLes objets suivant sont dans votre sac :");
 			this.displayObjectsInBag();
 		}
 

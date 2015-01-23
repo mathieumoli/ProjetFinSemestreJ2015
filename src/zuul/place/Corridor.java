@@ -99,16 +99,16 @@ public class Corridor extends Room {
 			appearObject();
 			if (tablet) {
 				tabletInTheCorridor = new Tablet();
-				System.out.println(Game.res.getString("corridor.tablet"));
+				Display.displayln("corridor.tablet");
 			}
 			if (cheatsheet) {
 				cheatsheetInTheCorridor = new Cheatsheet();
-				System.out.println(Game.res.getString("corridor.cheatsheet"));
+				Display.displayln("corridor.cheatsheet");
 			}
-			System.out.println(getLongDescription());
+			Display.displayln(getLongDescription());
 		} else {
-			System.out.println(Game.res.getString("corridor.dark"));
-			System.out.println(getExitString());
+			Display.displayln("corridor.dark");
+			Display.displayln(getExitString());
 		}
 
 		return true;
@@ -128,9 +128,9 @@ public class Corridor extends Room {
 			tabletInTheCorridor.useObject(student);
 			tablet = false;
 		} else {
-			System.out.println(Game.res.getString("corridor.notablet"));
+			Display.displayln("corridor.notablet");
 		}
-		System.out.println(this.getLongDescription());
+		Display.displayln(this.getLongDescription());
 	}
 
 	/***
@@ -146,9 +146,9 @@ public class Corridor extends Room {
 			cheatsheetInTheCorridor.useObject(student);
 			cheatsheet = false;
 		} else {
-			System.out.println(Game.res.getString("corridor.nocheatsheet"));
+			Display.displayln("corridor.nocheatsheet");
 		}
-		System.out.println(this.getLongDescription());
+		Display.displayln(this.getLongDescription());
 	}
 
 	/***

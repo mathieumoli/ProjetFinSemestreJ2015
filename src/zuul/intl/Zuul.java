@@ -141,7 +141,7 @@ public class Zuul extends ListResourceBundle {
             {"labroom.noattend1","Le professeur ne veut pas de vous car vous n'avez pas assisté au cours concernant le module de "},
             {"labroom.noattend2"," numéro "},
             {"lunchroom.babyFoot","Vous êtes dans la cafétéria. L'appel du baby est trop fort pour résister, vous allez faire une partie..."},            {"examroom.cant", "Vous ne pouvez pas passer l'examen de POO dans ces conditions..."},
-            {"aliOffice.bordel", "C'est le bureau dAli. Wow! c'est le bordel ici ! Pour votre bien, partez !"},
+            {"aliOffice.bordel", "C'est le bureau d'Ali. Wow! c'est le bordel ici ! Pour votre bien, partez !"},
             {"foyer.lookTab", "Vous regardez sur le tableau."},
             {"secretariat.aimable", "Vous êtes au secretariat. Les gens ici ne sont pas très aimable."},
             
@@ -187,7 +187,9 @@ public class Zuul extends ListResourceBundle {
 			{"advertisement.ad1","...don du sang le mois prochain ..."},
 			{"advertisement.ad2","...la BU sera exceptionellement fermée lundi, mardi, mercredi, jeudi et vendredi prochains..."},
 			{"advertisement.ad3","...vendredi soir, soirée BDE à Nice..."},
-			{"advertisement.ad4","...forum des métiers la semaine prochaine..."}
+			{"advertisement.ad4","...forum des métiers la semaine prochaine..."},
+			
+			{"foyer.noannonce","Il n'y a pas d'annonce."}
     };
 
     /***

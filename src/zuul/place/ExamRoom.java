@@ -152,7 +152,7 @@ public class ExamRoom extends Room {
 			        + questionsRight + "/" + NB_QUESTIONS
 			        + Game.res.getString("student.answers"));
 			if (questionsRight > (NB_QUESTIONS / 2)) {
-				System.out.println(Game.res.getString("game.win") + exam + ".");
+				Display.displayln(Game.res.getString("game.win") + exam + ".");
 				student.decrementEnergy(40);
 				if (exam.equals("OOP")) {
 					Display.displayln("game.thankyou");
@@ -199,7 +199,7 @@ public class ExamRoom extends Room {
 	public void wantStart(Command command, Student gamer) {
 		if (!command.hasSecondWord()) {
 			// if there is no second word, we don't know where to go...
-			System.out.println(Game.res.getString("game.start"));
+			Display.displayln("game.start");
 		} else if (command.getSecondWord().equals("exam")) {
 			this.startExam(gamer);
 			if (this.getExam().equals("noexam")) {

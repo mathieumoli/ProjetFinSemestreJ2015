@@ -352,7 +352,7 @@ public abstract class Room {
 
 	/***
 	 * 
-	 * Method to attdent lab in a LabRoom
+	 * Method to attend lab in a LabRoom.
 	 * @param student the student who wants to use it
 	 * 
 	 ***/
@@ -361,8 +361,11 @@ public abstract class Room {
 	    
     }
 
+	/**
+	 * Method to attend a lecture in a LectureRoom.
+	 * @param student
+	 */
 	public void attendLecture(Student student) {
-	    // TODO Auto-generated method stub
-	    
+		Display.display("room.cantDoThis");
     }
 }
