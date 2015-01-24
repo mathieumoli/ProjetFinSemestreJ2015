@@ -312,7 +312,7 @@ public class Game {
 	private void printPeopleInRoom() {
 		ArrayList<Person> peopleInRoom = new ArrayList<Person>();
 		for (Person person : people) {
-			if (person.getCurrentRoom()==currentRoom) {
+			if (person.getCurrentRoom().getName().equals(gamer.getCurrentRoom().getName())) {
 				peopleInRoom.add(person);
 			}
 		}
@@ -321,7 +321,7 @@ public class Game {
 			return;
 		}
 		
-		Display.display("game.peopleHereAre");	
+		Display.display("game.peopleHereAre");
 		for (Person person : peopleInRoom) {
 			Display.display(person.getName()+ "   ");			
 		}

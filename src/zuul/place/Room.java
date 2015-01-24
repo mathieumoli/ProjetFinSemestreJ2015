@@ -240,7 +240,7 @@ public abstract class Room {
 	public ArrayList<Person> peopleInRoom(ArrayList<Person> allPeople){
 		ArrayList<Person> peopleInTheRoom = new ArrayList<Person>();
 		for (Person person : allPeople) {
-			if (person.getCurrentRoom() == this) {
+			if (person.getCurrentRoom().getName().equals(this.getName())) {
 				peopleInTheRoom.add(person);
 			}
 		}
