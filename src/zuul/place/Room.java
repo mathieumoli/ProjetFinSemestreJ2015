@@ -148,7 +148,7 @@ public abstract class Room {
 	 *            The command to be processed.
 	 */
 	public void wantStart(Command command) {
-		Display.display("room.cantDoThis");
+		Display.display("room.cantStart");
 	}
 
 	/**
@@ -160,7 +160,7 @@ public abstract class Room {
 	 *            the student who want to start something
 	 */
 	public void wantStart(Command command, Student gamer) {
-		Display.display("room.cantDoThis");
+		Display.display("room.cantStart");
 	}
 
 	/**
@@ -349,7 +349,7 @@ public abstract class Room {
 	 * 
 	 ***/
 	public void attendLab(Student student) {
-		Display.display("room.cantDoThis");
+		Display.display("room.noattend");
 	    
     }
 

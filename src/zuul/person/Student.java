@@ -555,7 +555,7 @@ public class Student extends Person {
 	public void wantStart(Command command) {
 		if (!command.hasSecondWord()) {
 			// if there is no second word, we don't know where to go...
-			Display.displayln(Game.res.getString("game.start"));
+			Display.displayError("game.start");
 		} else if (command.getSecondWord().equals("exam")) {
 			getCurrentRoom().startExam(this);
 		}

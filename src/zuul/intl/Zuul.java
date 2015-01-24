@@ -96,11 +96,12 @@ public class Zuul extends ListResourceBundle {
             {"exam.rightanswer", "La réponse est : "},
 
             {"game.welcome", "Bienvenue dans Le Monde de Zuul!"},
-            {"game.boring", "Le Monde de Zuul est un nouveau jeu d'aventure incroyablement (un peu moins) chiant."},
+            {"game.boring", "Le Monde de Zuul est un nouveau jeu d'aventure incroyablement (un peu moins) chiant.\n"
+            		+ "Les règles sont simples, passe ton exam pour terminer le jeu."},
             {"game.help", "Tapez 'help' si vous avez besoin d'aide."},
             {"game.idontknow", "Je ne comprends pas..."},
             {"game.turn","Utiliser quoi ? une tablette peut être ?"},
-            {"game.start", "Commencer quoi ?"},
+            {"game.start", "Utilisation : start + exam"},
             {"game.attend","Assister à quoi ? lab ? cours ?"},
             {"game.help2", "Vous êtes un étudiant et vous devez passer l'examen final de POO."},
             {"game.help3", "Pour cela, vous devez suivre des cours, des TP et réussir l'examen."},
@@ -158,8 +159,10 @@ public class Zuul extends ListResourceBundle {
             {"stromboni.canAllow", " vous autorise à passer l'examen mon enfant, allez en paix, et courage."},
             
             {"room.empty", "Il n'y a personne dans cette salle"},
-            {"room.cantDoThis", "Vous ne pouvez pas utiliser cette commande dans cette salle"},
+            {"room.cantStart", "Rendez vous en salle d'examen pour passer l'examen"},
             {"room.noSeller", "Il n'y à pas de vendeur ici. Essayer de vous rendre à la cafétéria, Oussama est toujours la si vous avez besoin de quelque chose."},
+            {"room.noattend", "Rendez-vous dans une salle de cours pour suivre un cours."},
+            
             
             {"lectureroom.attendlecture.part1","le cours de "},
             {"lectureroom.attendlecture.part4","Merci d'avoir écouté ce cours vous pouvez donc assister au lab !"},
