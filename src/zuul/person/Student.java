@@ -388,8 +388,7 @@ public class Student extends Person {
 	 * @param command
 	 * @param people
 	 */
-	public void wantSayHello(Command command, ArrayList<Person> people,
-	        Room currentRoom) {
+	public void wantSayHello(Command command, ArrayList<Person> people) {
 		String word2 = "";
 		Stromboni s = null;
 		boolean stromboniIsHere = false;

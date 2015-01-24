@@ -32,7 +32,6 @@ import java.util.*;
 
 public class Game {
 	private Parser parser;
-	private Room currentRoom;
 	public static ResourceBundle res;
 	private Locale locale;
 	private Student gamer;
@@ -92,7 +91,6 @@ public class Game {
 	private void createSchool() {
 		school = new School(people,gamer,listPayingObject);
 		hashmapRoom = school.getRooms();
-		currentRoom = hashmapRoom.get("foyer");
 	}
 
 	/**
@@ -116,7 +114,6 @@ public class Game {
 			while (!finished) {
 				Command command = parser.getCommand();
 				finished = processCommand(command);
-				gamer.setCurrentRoom(currentRoom);
 			}
 			Display.displayln(res.getString("game.thankyou"));
 		} else {
@@ -151,7 +148,8 @@ public class Game {
 		Display.displayln(res.getString("game.askname"));
 		String name = scanner.nextLine();
 		gamer = new Student(name);
-		
+		gamer.setCurrentRoom(hashmapRoom.get("foyer"));
+
 		// creates other players
 		Stromboni stromboni;
 		Person person1,person2,person3, person4, person5, person6, person7, person8, person9;
@@ -221,7 +219,7 @@ public class Game {
 		        + gamer.getName() + res.getString("game.welcomename3"));
 		Display.displayln(string);
 		Display.displayln("");
-		Display.displayln(currentRoom.getLongDescription());
+		Display.displayln(gamer.getCurrentRoom().getLongDescription());
 	}
 
 	/**
@@ -260,7 +258,7 @@ public class Game {
 			goRoom(command);
 			break;
 		case "help":
-			currentRoom.printHelp(parser);
+			gamer.getCurrentRoom().printHelp(parser);
 			break;
 		case "quit":
 			wantToQuit = quit(command);
@@ -293,7 +291,7 @@ public class Game {
 			gamer.checkPrinter(command);
 			break;
 		case "say":
-		    gamer.wantSayHello(command, people, currentRoom);
+		    gamer.wantSayHello(command, people);
 		    break;
 		case "see":
 			gamer.seePlan(command);
@@ -310,22 +308,18 @@ public class Game {
 	 * a method printing every people in the room.
 	 */
 	private void printPeopleInRoom() {
-		ArrayList<Person> peopleInRoom = new ArrayList<Person>();
-		for (Person person : people) {
-			if (person.getCurrentRoom().getName().equals(gamer.getCurrentRoom().getName())) {
-				peopleInRoom.add(person);
-			}
-		}
+
+		ArrayList<Person> peopleInRoom = gamer.getCurrentRoom().peopleInRoom(people);
+		
 		if (peopleInRoom.size() == 0) {
 			Display.displayln("game.noonehere");
-			return;
+		} else {
+			Display.display("game.peopleHereAre");
+			for (Person person : peopleInRoom) {
+				Display.display(person.getName()+ "   ");			
+			}
+			Display.displayln("");
 		}
-		
-		Display.display("game.peopleHereAre");
-		for (Person person : peopleInRoom) {
-			Display.display(person.getName()+ "   ");			
-		}
-		Display.displayln("");
 	}
 	
 	
@@ -344,18 +338,18 @@ public class Game {
 		}
 		String direction = command.getSecondWord();
 		// Try to leave current room.
-		Room nextRoom = currentRoom.getExit(direction);
+		Room nextRoom = gamer.getCurrentRoom().getExit(direction);
 		if (nextRoom == null) {
 			Display.displayError(res.getString("game.nodoor"));
 		} else if (nextRoom.enter(gamer)) {
-			currentRoom = nextRoom;
-			printPeopleInRoom();
+			gamer.setCurrentRoom(nextRoom);
 			int i;
 			for(i=0;i<people.size();i++){
 			    people.get(i).randomMove();
 			}
+			printPeopleInRoom();
 		} else {
-			Display.displayln(currentRoom.getLongDescription());
+			Display.displayln(gamer.getCurrentRoom().getLongDescription());
 		}
 	}
 
