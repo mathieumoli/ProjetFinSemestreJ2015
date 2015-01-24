@@ -27,7 +27,7 @@ public class Zuul_en_US extends ListResourceBundle {
 	        { "labroom.description2", "Type \"attend lab\" if you want \n" },
 	        { "labroom.shortdescription", "You are in the computing lab.\n" },
 	        { "alioffice.description", "the Ali's office\n" },
-	        { "club.description", "youth club\n" },
+	        { "club.description", "You are in the foyer" },
 	        { "secretarialDepartment.description",
 	                "the secretarial department\n" },
 
@@ -163,10 +163,11 @@ public class Zuul_en_US extends ListResourceBundle {
 	        {
 	                "game.win",
 	                "Congratulations ! You passed the final OOP exam and therefore you finished the game." },
-	        { "game.lose", "Sorry, you didn't pass the final exam of " },
-	        { "game.lose2", " and you need to pass it again..." },
-            { "game.noonehere","There is no one in this room."},
-            { "game.peopleHereAre","People present in this room are : "},
+	        {"game.lose", "Sorry, you didn't pass the final exam of " },
+	        {"game.lose2", " and you need to pass it again..." },
+            {"game.noonehere","There is no one in this room."},
+            {"game.peopleHereAre","People present in this room are : "},
+            {"game.wrongDirection", "This direction doesn't exist."},
             
 	        { "student.youhave", "You have " },
 	        { "student.answers", " right answers." },
@@ -196,6 +197,10 @@ public class Zuul_en_US extends ListResourceBundle {
             {"student.cantbuythis","You can't buy this because you already have one in your bag."},
             {"student.personnothere","This person isn't in the room."},  
             {"student.utilisationsteal","Utilisation : steal + name of someone in the room."},
+            {"student.spotted", "SPOTTED ! You made hit and lose energy !"},
+            {"student.stealSucces", "Steal succes !"},
+            {"wallet.contains", "Your wallet contains : "},
+            
             
 	        { "stromboni.canNotAllow",
 	                "I can not allow you to pass the exam, you must first validate all courses." },

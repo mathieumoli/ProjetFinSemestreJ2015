@@ -76,10 +76,8 @@ public class LectureRoom extends StudySpace {
 		isAttend = false;
 		if (mustEnter(student)) {
 			attendLecture(student);
-			Display.displayln(getLongDescription());
-		} else {
-			Display.displayln(getLongDescription());
 		}
+		Display.displayln(getLongDescription());
 
 		return true;
 	}

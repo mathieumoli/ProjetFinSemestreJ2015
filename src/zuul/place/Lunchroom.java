@@ -67,7 +67,7 @@ public class Lunchroom extends Room {
 			student.playBabyFoot();
 			Display.displayln(getExitString());
 		} else {
-			Display.display(getLongDescription());
+			Display.displayln(getLongDescription());
 		}
 
 		return true;

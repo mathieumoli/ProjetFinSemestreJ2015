@@ -1,5 +1,7 @@
 package zuul.person.object;
 
+import zuul.Display;
+
 /**
  * 
  * @author Oussama Hlal & Cédric Lallemand
@@ -137,6 +139,11 @@ public class Wallet{
 		}
 		
 		return transactionAccepted;
+	}
+	
+	public void displayMoney(){
+		Display.display("wallet.contains");
+		Display.displayln(this.money + " €");
 	}
 	
 	/**

@@ -103,18 +103,14 @@ public class LabRoom extends StudySpace {
 		isAttend = false;
 
 		if (canEnter(student)) {
-			if (coursInThisRoom.getNumber() == 0) {
-				Display.displayln(getLongDescription());
-			} else if (mustEnter(student)) {
+			if (mustEnter(student)) {
 				attendLab(student);
-				Display.displayln(getLongDescription());
-			} else {
-				Display.displayln(getLongDescription());
 			}
-
+			Display.displayln(getLongDescription());
 			return true;
-		} else
+		} else {
 			return false;
+		}
 	}
 
 	/***

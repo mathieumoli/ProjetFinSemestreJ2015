@@ -20,7 +20,6 @@ public class MysteriousPerson extends Person {
 	public MysteriousPerson(String name, Wallet wallet, String key) {
 		super(name, wallet);
 		bundleKey = key;
-
 	}
 
 	/**
@@ -35,7 +34,7 @@ public class MysteriousPerson extends Person {
 		if (command.getSecondWord() != null
 		        && command.getSecondWord().equals("hello")) {
 			Display.display(this.getName());
-			Display.displayln("bundleKey");
+			Display.displayln(bundleKey);
 		} else {
 			Display.display(this.getName());
 			Display.displayln("person.notUnderstood");

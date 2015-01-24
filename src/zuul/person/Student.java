@@ -316,7 +316,7 @@ public class Student extends Person {
 	 * @return true of the steal is successful
 	 */
 	public boolean successStealsMoney() {
-		double random = Math.random();
+		double random = Math.random()*100;
 		boolean success = false;
 		if (this.isInvisible()) {
 			if (random > 20) {
@@ -344,8 +344,11 @@ public class Student extends Person {
 		this.decrementEnergy(10);
 		if (successStealsMoney()) {
 			this.getWallet().raiseMoney(personStolen.getWallet().stolen());
+			Display.displayln("student.stealSucces");
+			this.getWallet().displayMoney();
 		} else {
 			Display.displayln("student.spotted");
+			this.decrementEnergy(20);
 		}
 	}
 
@@ -512,12 +515,13 @@ public class Student extends Person {
 				String objectName = command.getSecondWord().toLowerCase();
 				if (this.canAddInBag(objectName)) {
 					this.getCurrentRoom().buy(objectName, this);
+					this.getWallet().displayMoney();
 				} else {
-					System.out.println("student.cantbuythis");
+					Display.displayln("student.cantbuythis");
 				}
 			}
 		} else {
-			Display.displayln("room.cantBuy");
+			Display.displayln("room.noSeller");
 		}
 	}
 

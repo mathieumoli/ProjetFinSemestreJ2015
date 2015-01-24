@@ -4,11 +4,10 @@ import zuul.commands.*;
 import zuul.course.*;
 import zuul.object.*;
 import zuul.person.MysteriousPerson;
-import zuul.person.Person;
-import zuul.person.Stromboni;
-import zuul.person.Student;
+import zuul.person.*;
 import zuul.person.object.Wallet;
 import zuul.place.*;
+import zuul.commands.DirectionsWord;
 
 import java.util.*;
 
@@ -40,12 +39,15 @@ public class Game {
 	public static final String COURSESBUNDLEKEY[] = { "oop.lecture1",
 	        "oop.lecture2", "oop.lecture3", "c.lecture1", "c.lecture2",
 	        "c.lecture3", "algo.lecture1", "algo.lecture2", "algo.lecture3" };
+	
 	public static List<LabItem> labs = new ArrayList<LabItem>();
 	public static List<LectureItem> lectures = new ArrayList<LectureItem>();
-	public static ArrayList<Person> people = new ArrayList<Person>();
-	private HashMap<String,Room> hashmapRoom = new HashMap<String,Room>();
+	public static ArrayList<Person> allPersons = new ArrayList<Person>();
+	private Map<String,Room> rooms = new HashMap<String, Room>();
+	HashMap<String,PayingObject> listPayingObject = new HashMap<String, PayingObject>();
+	
 	Scanner scanner = new Scanner(System.in);
-	HashMap<String,PayingObject> listPayingObject;
+	private DirectionsWord directions = new DirectionsWord();
 	private School school;
 	
 	/**
@@ -58,7 +60,6 @@ public class Game {
 	}
 
 	private void initPayingObject(){
-		this.listPayingObject = new HashMap<String, PayingObject>();
 		this.listPayingObject.put("alcohol",new Alcohol());
 		this.listPayingObject.put("coffee",new Coffee());
 		this.listPayingObject.put("lunch",new Lunch());
@@ -68,12 +69,9 @@ public class Game {
 	 * Ask to the user his prefered language and set it
 	 */
 	private void getLanguage() {
-		System.out
-		        .println("Voulez-vous jouer en francais ? Si oui, appuyez sur 1.");
-		System.out
-		        .println("Or do you prefer playing in English ? If so, press 2.");
+		System.out.println("Voulez-vous jouer en francais ? Si oui, appuyez sur 1.");
+		System.out.println("Or do you prefer playing in English ? If so, press 2.");
 
-		
 		String choice = scanner.nextLine();
 
 		if (choice.equals("1")) {
@@ -89,8 +87,8 @@ public class Game {
 	 * Create all the rooms and link their exits together.
 	 */
 	private void createSchool() {
-		school = new School(people,gamer,listPayingObject);
-		hashmapRoom = school.getRooms();
+		school = new School(allPersons,gamer,listPayingObject);
+		rooms = school.getRooms();
 	}
 
 	/**
@@ -117,8 +115,7 @@ public class Game {
 			}
 			Display.displayln(res.getString("game.thankyou"));
 		} else {
-			System.out
-			        .println(res.getString("name.CN"));
+			Display.displayln(res.getString("name.CN"));
 			Display.displayln(res.getString("game.thankyou"));
 
 		}
@@ -148,65 +145,65 @@ public class Game {
 		Display.displayln(res.getString("game.askname"));
 		String name = scanner.nextLine();
 		gamer = new Student(name);
-		gamer.setCurrentRoom(hashmapRoom.get("foyer"));
+		gamer.setCurrentRoom(rooms.get("foyer"));
 
 		// creates other players
 		Stromboni stromboni;
 		Person person1,person2,person3, person4, person5, person6, person7, person8, person9;
 		MysteriousPerson  mp1,mp2,mp3;
 		stromboni = new Stromboni();
-		stromboni.setCurrentRoom(hashmapRoom.get("c5"));
-		people.add(stromboni);
+		stromboni.setCurrentRoom(rooms.get("c5"));
+		allPersons.add(stromboni);
 
 		person1 = new Person("Cédric", new Wallet(10));
-		person1.setCurrentRoom(hashmapRoom.get("foyer"));
-		people.add(person1);
+		person1.setCurrentRoom(rooms.get("foyer"));
+		allPersons.add(person1);
 
 		person2 = new Person("Mathieu", new Wallet(4));
-		person2.setCurrentRoom(hashmapRoom.get("foyer"));
-		people.add(person2);
+		person2.setCurrentRoom(rooms.get("foyer"));
+		allPersons.add(person2);
 
 		person3 = new Person("Lisa", new Wallet(5));
-		person3.setCurrentRoom(hashmapRoom.get("foyer"));
-		people.add(person3);
+		person3.setCurrentRoom(rooms.get("foyer"));
+		allPersons.add(person3);
 		
 		person4 = new Person("Tom", new Wallet(1));
-		person4.setCurrentRoom(hashmapRoom.get("c4"));
-		people.add(person4);
+		person4.setCurrentRoom(rooms.get("c4"));
+		allPersons.add(person4);
 		
 		person5 = new Person("Dorian", new Wallet(6));
-		person5.setCurrentRoom(hashmapRoom.get("c6"));
-		people.add(person5);
+		person5.setCurrentRoom(rooms.get("c6"));
+		allPersons.add(person5);
 		
 		person6 = new Person("Florent", new Wallet(12));
-		person6.setCurrentRoom(hashmapRoom.get("c11"));
-		people.add(person6);
+		person6.setCurrentRoom(rooms.get("c11"));
+		allPersons.add(person6);
 		
 		person7 = new Person("Nicolas", new Wallet(16));
-		person7.setCurrentRoom(hashmapRoom.get("library"));
-		people.add(person7);
+		person7.setCurrentRoom(rooms.get("library"));
+		allPersons.add(person7);
 		
 		person8 = new Person("Dominque", new Wallet(0));
-		person8.setCurrentRoom(hashmapRoom.get("library"));
-		people.add(person8);
+		person8.setCurrentRoom(rooms.get("library"));
+		allPersons.add(person8);
 		
 		person9 = new Person("Alison", new Wallet(2));
-		person9.setCurrentRoom(hashmapRoom.get("library"));
-		people.add(person9);
+		person9.setCurrentRoom(rooms.get("library"));
+		allPersons.add(person9);
 
 		mp1 = new MysteriousPerson("Litovsky", new Wallet(8),"mysteriousperson.indice1");
-		mp1.setCurrentRoom(hashmapRoom.get("library"));
-		people.add(mp1);
+		mp1.setCurrentRoom(rooms.get("library"));
+		allPersons.add(mp1);
 		
 		mp2 = new MysteriousPerson("Leroux", new Wallet(8),"mysteriousperson.indice2");
-		mp2.setCurrentRoom(hashmapRoom.get("lunchroom"));
-		people.add(mp2);
+		mp2.setCurrentRoom(rooms.get("lunchroom"));
+		allPersons.add(mp2);
 		
 		mp3 = new MysteriousPerson("Giuleri", new Wallet(8),"mysteriousperson.indice2");
-		mp3.setCurrentRoom(hashmapRoom.get("c11"));
-		people.add(mp3);
+		mp3.setCurrentRoom(rooms.get("c11"));
+		allPersons.add(mp3);
 		
-		gamer.setCurrentRoom(hashmapRoom.get("foyer"));
+		gamer.setCurrentRoom(rooms.get("foyer"));
 	}
 
 	/**
@@ -285,13 +282,13 @@ public class Game {
 			gamer.wantUse(command);
 			break;
 		case "steal":
-			gamer.wantSteal(command, people);
+			gamer.wantSteal(command, allPersons);
 			break;
 		case "check":
 			gamer.checkPrinter(command);
 			break;
 		case "say":
-		    gamer.wantSayHello(command, people);
+		    gamer.wantSayHello(command, allPersons);
 		    break;
 		case "see":
 			gamer.seePlan(command);
@@ -309,7 +306,7 @@ public class Game {
 	 */
 	private void printPeopleInRoom() {
 
-		ArrayList<Person> peopleInRoom = gamer.getCurrentRoom().peopleInRoom(people);
+		ArrayList<Person> peopleInRoom = gamer.getCurrentRoom().peopleInRoom(allPersons);
 		
 		if (peopleInRoom.size() == 0) {
 			Display.displayln("game.noonehere");
@@ -331,25 +328,26 @@ public class Game {
 	 *            The command to be processed.
 	 */
 	private void goRoom(Command command) {
-		if (!command.hasSecondWord()) {
-			// if there is no second word, we don't know where to go...
-			Display.displayError(res.getString("game.where"));
-			return;
-		}
+		if(command.hasSecondWord() && directions.isCommand(command.getSecondWord())){
 		String direction = command.getSecondWord();
-		// Try to leave current room.
-		Room nextRoom = gamer.getCurrentRoom().getExit(direction);
-		if (nextRoom == null) {
-			Display.displayError(res.getString("game.nodoor"));
-		} else if (nextRoom.enter(gamer)) {
-			gamer.setCurrentRoom(nextRoom);
-			int i;
-			for(i=0;i<people.size();i++){
-			    people.get(i).randomMove();
+			// Try to leave current room.
+			Room nextRoom = gamer.getCurrentRoom().getExit(direction);
+			if (nextRoom == null) {
+				Display.displayError(res.getString("game.nodoor"));
+				Display.displayln(gamer.getCurrentRoom().getExitString());
+			} else if (nextRoom.enter(gamer)) {
+				gamer.setCurrentRoom(nextRoom);
+				int i;
+				for(i=0;i<allPersons.size();i++){
+				    allPersons.get(i).randomMove();
+				}
+				printPeopleInRoom();
+			} else {
+				Display.displayln(gamer.getCurrentRoom().getLongDescription());
 			}
-			printPeopleInRoom();
 		} else {
-			Display.displayln(gamer.getCurrentRoom().getLongDescription());
+			Display.displayError("game.wrongDirection");
+			Display.displayln(gamer.getCurrentRoom().getExitString());
 		}
 	}
 

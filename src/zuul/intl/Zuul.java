@@ -14,7 +14,7 @@ import zuul.Display;
 public class Zuul extends ListResourceBundle {
     static final Object[][] contents = {    	
     	
-            {"lunchroom.description", "Vous êtes dans la cafétéria. Pourquoi ne pas vous prendre un café Mocoffee?\n Mocoffee est un excellent café du Nicaragua, sans édulcorant de synthèse.\n Cela vous donnera un peu d'energie.\n Tapez \"take coffee\" pour prendre un café"},
+            {"lunchroom.description", "Vous êtes dans la cafétéria."},
             {"lectureroom.description1", "Vous êtes dans une salle de classe.\nVous pouvez assister au cours de "},
             {"lectureroom.shortdescription", "Vous êtes dans une salle de classe.\n"},
             {"lectureroom.description2", "pour cela, tapez \"attend lecture\" \n" },
@@ -22,7 +22,7 @@ public class Zuul extends ListResourceBundle {
             {"labroom.description2", "pour cela, tapez \"attend lab\" \n" },
             {"labroom.shortdescription", "Vous êtes dans la salle de TP.\n"},
             {"alioffice.description","le bureau d'Ali Beikbaghban\n"},
-            {"club.description", "le foyer\n"},
+            {"club.description", "Vous êtes dans le foyer"},
             {"secretarialDepartment.description","le secretariat\n"},
             
             {"corridor1.description", "Vous êtes dans le premier couloir"},
@@ -121,6 +121,7 @@ public class Zuul extends ListResourceBundle {
             {"game.lose2", " et vous devez le repasser..."},
             {"game.noonehere","Il n'y a personne dans cette salle."},
             {"game.peopleHereAre","Les personnes présentes dans cette salle sont : "},
+            {"game.wrongDirection", "Cette direction n'existe pas."},
             
             {"student.youhave", "Vous avez "},
             {"student.answers", " réponses justes."},
@@ -148,6 +149,9 @@ public class Zuul extends ListResourceBundle {
             {"student.cantbuythis","Vous ne pouvez pas acheter cet object car  vous en avez déjà un dans votre sac."},
             {"student.personnothere","Cette personne n'est pas dans la salle."},         
             {"student.utilisationsteal","Utilisation : steal + nom d'une personne dans la salle."},
+            {"student.spotted", "Vous vous êtes fait repéré ! En conséquence vous vous faites frapper et perdez de l'énergie"},
+            {"student.stealSucces", "Vol réussit !"},
+            {"wallet.contains", "Votre porte monaie contient : "},
             
             
             {"stromboni.canNotAllow", " ne peux pas vous autoriser à passer les examen, vous devez d'abord valider tous les cours."},
