@@ -42,6 +42,10 @@ Projet de fin de semestre Janvier 2015
    
     ### 4LJ
        Remplacement de tous les System.out.print par Display, internationnalisation complète du code.
+       
+    ### 5LJ
+       Correction du nullpointerexception dans use map, marauderMap utilisable.
+       Correction de quelques problème de traductions et d'indications à l'utilisateur.   
     
 ## CL
 	### 1CL 

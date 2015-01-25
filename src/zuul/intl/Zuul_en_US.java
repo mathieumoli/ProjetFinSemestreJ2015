@@ -14,7 +14,7 @@ import zuul.Display;
 public class Zuul_en_US extends ListResourceBundle {
 	static final Object[][] contents = {
 
-	        {"lunchroom.description","You are in the lunchroom. Why don't you take some of this Mocoffee drink,\n all natural coffee beans from the upper slopes of Mount Nicaragua,\n no artificial sweeteners! It will give you a few energy points.\n Type \"take coffee\" to drink a coffee" },
+	        {"lunchroom.description","You are in the lunchroom. Why don't you take some of this Mocoffee drink,\nall natural coffee beans from the upper slopes of Mount Nicaragua,\nno artificial sweeteners! It will give you a few energy points.\nType \"buy\" to see what you can buy." },
 	        { "lectureroom.description1","You are in a classroom.\nYou can attend the lecture of " },
 	        { "lectureroom.description2","Type \"attend lecture\" if you want \n" },
 	        { "lectureroom.shortdescription", "You are in a classroom.\n" },
@@ -42,7 +42,7 @@ public class Zuul_en_US extends ListResourceBundle {
 
 	        { "corridor.tablet","You find a tablet in the corridor. To turn it on, type \"turn tablet\"" },
 	        { "corridor.notablet", "Which tablet?" },
-	        {"corridor.cheatsheet","A piece of paper exceeds behind the printer...To check it, type \"search printer \"" },
+	        {"corridor.cheatsheet","A piece of paper exceeds behind the printer...To check it, type \"check printer \"" },
 	        { "corridor.nocheatsheet", "Which printer ?" },
 	        {"library.description","You are in the library. It seems like you can find a OOP book here." },	       
 	        { "library.takebook", "You take the book and put it in your bag." },
@@ -149,7 +149,7 @@ public class Zuul_en_US extends ListResourceBundle {
             {"student.cantbuythis","You can't buy this because you already have one in your bag."},
             {"student.personnothere","This person isn't in the room."},  
             {"student.utilisationsteal","Utilisation : steal + name of someone in the room."},
-            {"student.spotted", "SPOTTED ! You made hit and lose energy !"},
+            {"student.spotted", "You were caught ! You were hit and lost some energy !"},
             {"student.stealSucces", "Steal succes !"},
             
             {"wallet.contains", "Your wallet contains : "},
@@ -171,7 +171,7 @@ public class Zuul_en_US extends ListResourceBundle {
 	        { "labroom.noattend2", " number " },
 	        {"lunchroom.babyFoot","You are in the cafeteria. The call of the baby is too strong to resist, you'll do a game ..." },
 	        { "aliOffice.bordel","This is Ali's office. Wow! it's a mess here! For your sake , go!" },
-	        { "foyer.lookTab", "You look on the table" },
+	        { "foyer.lookTab", "You look on the table." },
 	        { "secretariat.aimable","You are at the secretariat. The people here are very kind." },
 
 	        { "examroom.cant","You can't pass the final exam of OOP in these conditions..." },
@@ -187,7 +187,7 @@ public class Zuul_en_US extends ListResourceBundle {
 	        {"cheatsheet.description1","You just found a paper, and there is something written on it..." },
 	        {"cheatsheet.description2", "Answers to the OOP exam : " },
 	        {"name.CN","You are Chuck Norris, you never lose so congratulation you win !!!" },
-	        {"alcohol.action", "Wow, I have drunk to much alcohol !" },
+	        {"alcohol.action", "Wow, I have drunk too much alcohol !" },
 	        {"broom.action","I believe I can fly \n"
 	                        + "I believe I can touch the sky \n"
 	                        + "I think about it every night and day \n"
@@ -209,14 +209,14 @@ public class Zuul_en_US extends ListResourceBundle {
 	        { "maraudeur.you", "You are in" },
 	        { "maraudeur.passwordAnnonce", "Give my the password stupid human" },
 	        { "maraudeur.alterpassword", "i am dark vador" },
-	        { "maraudeur.failpassword","You don't know the password, you'll never know where are the others" },
+	        { "maraudeur.failpassword","You don't know the password, you'll never know where are the others !" },
 
 	        { "person.hello", " says hello back  !" },
-	        { "person.notUnderstood", " does not understand what you are saying and you stare" },
+	        { "person.notUnderstood", " does not understand what you are saying and stares at you." },
 
-	        { "mysteriousperson.indice1"," says that there is a secret room to the north of the corridor 4" },
-	        { "mysteriousperson.indice2", " says that there is a secret room to the south of the lunchroom" },
-	        { "mysteriousperson.indice3"," says that there is a secret room to the west of the corridor 7" },
+	        { "mysteriousperson.indice1"," tells you that there is a secret room to the north of the corridor 4..." },
+	        { "mysteriousperson.indice2", " tells you that there is a secret room to the south of the lunchroom..." },
+	        { "mysteriousperson.indice3"," tells you that there is a secret room to the west of the corridor 7..." },
 	         
 
 	    	{"advertisement.ad1","...blood collection next month..."},

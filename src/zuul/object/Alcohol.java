@@ -26,7 +26,7 @@ public class Alcohol extends PayingObject {
 	@Override
 	public void useObject(Student student) {
 		student.decrementEnergy(40);
-		Display.display(Game.res.getString("alcohol.action"));
+		Display.displayln(Game.res.getString("alcohol.action"));
 	}
 	
 }

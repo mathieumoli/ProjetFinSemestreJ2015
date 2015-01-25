@@ -103,8 +103,8 @@ public class Game {
 		initPayingObject();
 		createSchool();
 		createPersons();
-		//MaraudeurMap c1= new MaraudeurMap(people,gamer);
-		//gamer.addInBag(c1);
+		
+		
 		if (!(gamer.getName().equals("Chuck Norris"))) {
 			printGamer();
 			printPeopleInRoom();

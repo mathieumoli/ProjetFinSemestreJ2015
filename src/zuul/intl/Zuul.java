@@ -14,7 +14,7 @@ import zuul.Display;
 public class Zuul extends ListResourceBundle {
     static final Object[][] contents = {    	
     	
-            {"lunchroom.description", "Vous êtes dans la cafétéria."},
+            {"lunchroom.description", "Vous êtes dans la cafétéria. Ici, vous pouvez acheter un peu de tout, du café, du Redbull ? Utilisez \"buy\" pour voir ce que vous pouvez acheter."},
             {"lectureroom.description1", "Vous êtes dans une salle de classe.\nVous pouvez assister au cours de "},
             {"lectureroom.shortdescription", "Vous êtes dans une salle de classe.\n"},
             {"lectureroom.description2", "pour cela, tapez \"attend lecture\" \n" },
@@ -41,7 +41,7 @@ public class Zuul extends ListResourceBundle {
 
             {"corridor.tablet", "Vous trouvez une tablette dans le couloir. Pour l'allumer, tapez \"turn tablet\""},
             {"corridor.notablet", "Quelle tablette ?"},
-            {"corridor.cheatsheet", "Un bout de papier dépasse de l'imprimante...Pour aller voir, tapez \"search printer\""},
+            {"corridor.cheatsheet", "Un bout de papier dépasse de l'imprimante...Pour aller voir, tapez \"check printer\""},
             {"corridor.nocheatsheet", "Quelle imprimante ?"},
             {"library.takebook","Vous prenez le livre avec vous !"},
             {"library.description", "Vous êtes dans la bibliothèque. Il semblerait que vous puissiez trouver ici un livre de POO."},
@@ -150,7 +150,7 @@ public class Zuul extends ListResourceBundle {
             {"student.cantbuythis","Vous ne pouvez pas acheter cet object car  vous en avez déjà un dans votre sac."},
             {"student.personnothere","Cette personne n'est pas dans la salle."},         
             {"student.utilisationsteal","Utilisation : steal + nom d'une personne dans la salle."},
-            {"student.spotted", "Vous vous êtes fait repéré ! En conséquence vous vous faites frapper et perdez de l'énergie"},
+            {"student.spotted", "Vous vous êtes fait repéré ! En conséquence vous vous faites frapper et perdez de l'énergie."},
             {"student.stealSucces", "Vol réussit !"},
             
             {"wallet.contains", "Votre porte monaie contient : "},

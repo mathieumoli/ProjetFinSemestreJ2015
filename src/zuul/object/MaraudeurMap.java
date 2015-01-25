@@ -43,9 +43,9 @@ public class MaraudeurMap extends ZuulObject{
 	public MaraudeurMap(ArrayList<Person> baladeurs,Student player) {
 		super("Map");
 		persons = baladeurs;
-		password = "je jure solennellement que mes intentions sont mauvaises";
-		locked = true;
-		owner=player;
+		password = Game.res.getString("maraudeur.password");
+		this.locked = true;
+		this.owner = player;
 	}
 
 	/**
@@ -90,9 +90,6 @@ public class MaraudeurMap extends ZuulObject{
 				Display.display("maraudeur.see");
 				Display.displayln(persons.get(i).getCurrentRoom().getName());
 			}
-			
-			Display.display("maraudeur.you");
-			Display.displayln(owner.getCurrentRoom().getName());
 		}
 		else
 		{
@@ -123,7 +120,7 @@ public class MaraudeurMap extends ZuulObject{
 	@Override
     public void useObject(Student student) {
 	    seePeople();
-	    Plan g=new Plan("maraudeurmap.jpg");
+	    Plan g=new Plan("planAvecSallesSecretes.jpg");
 	    Display.displayln(student.getCurrentRoom().getExitString());
 	    
     }

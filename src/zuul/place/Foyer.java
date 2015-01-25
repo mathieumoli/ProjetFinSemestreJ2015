@@ -59,7 +59,7 @@ public class Foyer extends Room {
 	 * board, by typing "check board".
 	 */
 	private void annonce() {
-		Display.display("foyer.lookTab");
+		Display.displayln("foyer.lookTab");
 		// une chance sur 2 qu'il y ait une annonce
 		Random rnd = new Random();
 		int intRandom = rnd.nextInt(10);
