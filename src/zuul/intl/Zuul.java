@@ -152,10 +152,12 @@ public class Zuul extends ListResourceBundle {
             {"student.utilisationsteal","Utilisation : steal + nom d'une personne dans la salle."},
             {"student.spotted", "Vous vous êtes fait repéré ! En conséquence vous vous faites frapper et perdez de l'énergie"},
             {"student.stealSucces", "Vol réussit !"},
+            
             {"wallet.contains", "Votre porte monaie contient : "},
+            {"wallet.levelmaxreached","Niveau max atteint !"},
+            {"wallet.notenoughmoney","Fond insuffisant !"},
             
-            
-            {"stromboni.canNotAllow", " ne peux pas vous autoriser à passer les examen, vous devez d'abord valider tous les cours."},
+            {"stromboni.canNotAllow", " ne peut pas vous autoriser à passer les examen, vous devez d'abord valider tous les cours."},
             {"stromboni.canAllow", " vous autorise à passer l'examen mon enfant, allez en paix, et courage."},
             
             {"room.empty", "Il n'y a personne dans cette salle"},
@@ -175,7 +177,7 @@ public class Zuul extends ListResourceBundle {
             {"lunchroom.babyFoot","Vous êtes dans la cafétéria. L'appel du baby est trop fort pour résister, vous allez faire une partie..."},            {"examroom.cant", "Vous ne pouvez pas passer l'examen de POO dans ces conditions..."},
             {"aliOffice.bordel", "C'est le bureau d'Ali. Wow! c'est le bordel ici ! Pour votre bien, partez !"},
             {"foyer.lookTab", "Vous regardez sur le tableau."},
-            {"secretariat.aimable", "Vous êtes au secretariat. Les gens ici ne sont pas très aimable."},
+            {"secretariat.aimable", "Vous êtes au secretariat. Les gens ici ne sont pas très aimables."},
             
             {"tablet.lecture","Vous constatez que l'étudiant qui a laissé la tablette a enregistré un cours dessus. Pourquoi ne pas l'apprendre ?"},
             {"tablet.zuul","Oh oui! Vous avez vu le monde de Zuul sur la tablette. Vous lancez dans une partie."},

@@ -5,7 +5,8 @@ package zuul;
  * A class used to interact with the player.
  * 
  * Replaces all "System.out.println".
- * @author user
+ * 
+ * @author Lisa Joanno
  *
  */
 public class Display {

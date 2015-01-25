@@ -14,7 +14,7 @@ public class Advertisement {
     private String ad3 = "advertisement.ad3";
     private String ad4 = "advertisement.ad4";
     private String [] allAds = {ad1, ad2, ad3, ad4};
-    // useful to know what ad was already printed
+    // used to know what ad was already printed
     private int numeroAnnonce;
     
     public Advertisement() {

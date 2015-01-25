@@ -25,10 +25,7 @@ public class Lunch extends PayingObject {
 	 ***/
 	@Override
 	public void useObject(Student student) {
-		Display.display("energy.part1");
-		Display.display(student.getName());
 		student.incrementEnergy(70);
-		Display.display("energy.part2");
 		Display.displayln(Integer.toString((student.getEnergy())));
 		
 	}	

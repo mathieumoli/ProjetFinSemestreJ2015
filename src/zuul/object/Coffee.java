@@ -25,12 +25,7 @@ public class Coffee extends PayingObject {
 	 ***/
 	@Override
 	public void useObject(Student student) {
-		//TODO  supprimer la phrase déja implémenter de le implément/décrémente
-		Display.display("student.energy.part1");
-		Display.display(student.getName());
 		student.incrementEnergy(30);
-		Display.display("student.energy.part2");
-		Display.displayln(Integer.toString((student.getEnergy())));
 		Display.displayln("lunchroom.coffee2");
 	}
 	

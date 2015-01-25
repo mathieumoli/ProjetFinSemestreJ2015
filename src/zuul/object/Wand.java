@@ -16,18 +16,18 @@ public class Wand extends ZuulObject {
 		super("wand");
 		
 	}
+	
 	/***
 	 * 
 	 * Method to use the object
 	 * 
 	 * @param student
-	 *            the student who use the wand
+	 *            the student who uses the wand
 	 * 
 	 ***/
 	@Override
 	public void useObject(Student student) {
-		Display.displayln("Wingardium Leviosa \n...\nPourquoi il se passe rien... \ntant pis, j ai un exam à réussir ") ;
-		
+		Display.displayln("wand.action") ;
 	}
 
 }

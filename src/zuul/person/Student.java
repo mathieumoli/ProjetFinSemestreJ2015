@@ -460,7 +460,7 @@ public class Student extends Person {
 		if (this.canAddInBag(obj.getName())) {
 			bag.put(obj.getName().toLowerCase(), obj);
 		} else {
-			System.out.println("student.canthavemoreobjects");
+			Display.displayln("student.canthavemoreobjects");
 		}
 	}
 

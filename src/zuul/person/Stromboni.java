@@ -73,7 +73,7 @@ public class Stromboni extends Person {
 	 */
 	public void answerBack(Command command, Wallet wallet,
 	        ArrayList<LabItem> labs) {
-		if (command.getSecondWord().equals("hello")) {
+		if (command.getSecondWord() != null && command.getSecondWord().equals("hello")) {
 			Display.display(this.getName());
 			Display.displayln("person.hello");
 			this.allowStudentToPassExam(wallet, labs);

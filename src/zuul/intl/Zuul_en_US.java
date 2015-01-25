@@ -151,8 +151,10 @@ public class Zuul_en_US extends ListResourceBundle {
             {"student.utilisationsteal","Utilisation : steal + name of someone in the room."},
             {"student.spotted", "SPOTTED ! You made hit and lose energy !"},
             {"student.stealSucces", "Steal succes !"},
-            {"wallet.contains", "Your wallet contains : "},
             
+            {"wallet.contains", "Your wallet contains : "},
+            {"wallet.levelmaxreached","Max level reached !"},
+            {"wallet.notenoughmoney","You don't have enough money to do that !"},
             
 	        { "stromboni.canNotAllow", "I can not allow you to pass the exam, you must first validate all courses." },
 	        { "stromboni.canAllow","I authorize you to take the exam , my child, go in peace , and courage." },
@@ -199,7 +201,7 @@ public class Zuul_en_US extends ListResourceBundle {
 	        {"redbull.action", "Redbull is so good !" },
 	        {"tobacco.action", "Let's smoke a cigaret (it's bad for health you know it no ?)" },
 	        {"twix.action", "TWIX I love it" },
-	        {"wand.action","Wingardium Leviosa \n...\n Why does nothing not change ?... \nIt's doesn't matter I must pass my exam" },
+	        {"wand.action","Wingardium Leviosa \n...\nWell, looks like nothing is happening... \nIt doesn't matter I have an exam to pass !" },
 
 	        { "maraudeur.password", "I solemnly swear that I am up to no good" },
 	        { "maraudeur.show", "--- Marauder Map ---" },

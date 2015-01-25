@@ -95,8 +95,7 @@ public class Wallet{
 		if (getLevel() < 3) {
 			this.level = getLevel() + 1;
 		} else {
-			// TODO internationalisation
-			System.out.println("Niveau max atteint ! ");
+			Display.displayln("wallet.levelmaxreached");
 		}
 	}
 
@@ -132,10 +131,9 @@ public class Wallet{
 		if (this.getMoney() >= x) {
 			this.money = getMoney() - x;
 		}
-		// TODO internationalisation
 		else {
 			transactionAccepted = false;
-			System.out.println("Fond insuffisant !");
+			Display.displayln("wallet.notenoughmoney");
 		}
 		
 		return transactionAccepted;
