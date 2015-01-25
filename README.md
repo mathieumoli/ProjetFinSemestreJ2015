@@ -29,21 +29,19 @@ Projet de fin de semestre Janvier 2015
     ###10MM Creation School
     
 ## LJ
-   ### 1LJ
+    ### 1LJ
        Création de la map entière dans Game. Ajout de foyer, secretariat, bureau d'ali.
       
-   ### 2LJ
+    ### 2LJ
        Création de Display et des 3 méthodes.
    
-   ### 3LJ
+    ### 3LJ
        Système d'annonces créé dans Foyer, affichage des personnes présentes dans les salles.
        planAvecSallesSecretes.jpg et planSansSallesSecretes.jpg créées et ajoutées au jeu.
        Méthode sayHello opérationnelle.
    
-   ### 4LJ
+    ### 4LJ
        Remplacement de tous les System.out.print par Display, internationnalisation complète du code.
-       
-       
     
 ## CL
 	### 1CL 
