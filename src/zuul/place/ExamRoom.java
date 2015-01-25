@@ -108,8 +108,8 @@ public class ExamRoom extends Room {
 	 * 
 	 ***/
 	private void randomizeExams() {
-		int rand = (int) (Math.random() * Game.NB_COURSES);
-		exam = Game.COURSES[rand];
+		int rand = (int) (Math.random() * Game.getNbCourses());
+		exam = Game.getCourses()[rand];
 
 		int noExam = (int) (Math.random() * 9);
 		if (noExam > 3) {

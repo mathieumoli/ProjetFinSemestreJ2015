@@ -31,9 +31,9 @@ public class Tablet extends ZuulObject {
 	 * 
 	 ***/
 	public void addStuff() {
-		int nbCours = Game.lectures.size() - 1;
+		int nbCours = Game.getLectures().size() - 1;
 		int alea = (int) (Math.random() * nbCours);
-		coursInThisTablet = Game.lectures.get(alea);
+		coursInThisTablet = Game.getLectures().get(alea);
 	}
 
 	/***
@@ -44,6 +44,7 @@ public class Tablet extends ZuulObject {
 	 *            the student who use the tablet
 	 * 
 	 ***/
+	@Override
 	public void useObject(Student student){
 		Display.displayln(Game.res.getString("tablet.on"));
 		int chance = (int) (Math.random() * 10);

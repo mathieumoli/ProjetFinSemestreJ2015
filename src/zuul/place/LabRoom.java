@@ -120,17 +120,14 @@ public class LabRoom extends StudySpace {
 	 ***/
 	@Override
 	public void randomizeCourses() {
-		if (nbRoom == 1)
-			coursInThisRoom = Game.labs
-					.get((int) (Math.random() * (3 - 0) + 0));
-		else if (nbRoom == 2)
-			coursInThisRoom = Game.labs
-					.get((int) (Math.random() * (6 - 3) + 3));
-
-		else
-			coursInThisRoom = Game.labs
-					.get((int) (Math.random() * (9 - 6) + 6));
-
+		if (nbRoom == 1){
+			coursInThisRoom = Game.getLabs().get((int) (Math.random() * (3 - 0) + 0));
+		}else if (nbRoom == 2){
+			coursInThisRoom = Game.getLabs().get((int) (Math.random() * (6 - 3) + 3));
+		} else {
+			coursInThisRoom = Game.getLabs().get((int) (Math.random() * (9 - 6) + 6));
+		}
+		
 		int noCours = (int) (Math.random() * 9);
 		if (noCours > 6) {
 			coursInThisRoom = new LectureItem();

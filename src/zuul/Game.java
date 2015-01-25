@@ -34,15 +34,16 @@ public class Game {
 	public static ResourceBundle res;
 	private Locale locale;
 	private Student gamer;
-	public static final int NB_COURSES = 3;
-	public static final String COURSES[] = { "OOP", "C", "ALGO" };
-	public static final String COURSESBUNDLEKEY[] = { "oop.lecture1",
+	private static final int NB_COURSES = 3;
+	private static final String COURSES[] = { "OOP", "C", "ALGO" };
+	private static final String COURSESBUNDLEKEY[] = { "oop.lecture1",
 	        "oop.lecture2", "oop.lecture3", "c.lecture1", "c.lecture2",
 	        "c.lecture3", "algo.lecture1", "algo.lecture2", "algo.lecture3" };
 	
-	public static List<LabItem> labs = new ArrayList<LabItem>();
-	public static List<LectureItem> lectures = new ArrayList<LectureItem>();
-	public static ArrayList<Person> allPersons = new ArrayList<Person>();
+	private static List<LabItem> labs = new ArrayList<LabItem>();
+	private static List<LectureItem> lectures = new ArrayList<LectureItem>();
+	private static ArrayList<Person> allPersons = new ArrayList<Person>();
+
 	private Map<String,Room> rooms = new HashMap<String, Room>();
 	HashMap<String,PayingObject> listPayingObject = new HashMap<String, PayingObject>();
 	
@@ -50,6 +51,8 @@ public class Game {
 	private DirectionsWord directions = new DirectionsWord();
 	private School school;
 	
+	
+
 	/**
 	 * Create the game and initialize its internal map.
 	 */
@@ -367,6 +370,20 @@ public class Game {
 	}
 
 	/**
+	 * @return the lectures
+	 */
+	public static List<LectureItem> getLectures() {
+		return lectures;
+	}
+
+	/**
+	 * @return the nbCourses
+	 */
+	public static int getNbCourses() {
+		return NB_COURSES;
+	}
+	
+	/**
 	 * @return the parser
 	 */
 	public Parser getParser() {
@@ -379,5 +396,26 @@ public class Game {
 	 */
 	public void setParser(Parser parser) {
 		this.parser = parser;
+	}
+
+	/**
+	 * @return the courses
+	 */
+	public static String[] getCourses() {
+		return COURSES;
+	}
+
+	/**
+	 * @return the coursesbundlekey
+	 */
+	public static String[] getCoursesbundlekey() {
+		return COURSESBUNDLEKEY;
+	}
+	
+	/**
+	 * @return the labs
+	 */
+	public static List<LabItem> getLabs() {
+		return labs;
 	}
 }

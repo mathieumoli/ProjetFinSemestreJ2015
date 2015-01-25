@@ -89,16 +89,14 @@ public class LectureRoom extends StudySpace {
 	 ***/
 	@Override
 	public void randomizeCourses() {
-		if (nbRoom == 1)
-			coursInThisRoom = Game.lectures.get((int) (Math.random() * 2));
-		else if (nbRoom == 2)
-			coursInThisRoom = Game.lectures
-			        .get((int) (Math.random() * (5 - 3) + 3));
-
-		else
-			coursInThisRoom = Game.lectures
-			        .get((int) (Math.random() * (8 - 6) + 6));
-
+		if (nbRoom == 1){
+			coursInThisRoom = Game.getLectures().get((int) (Math.random() * 2));
+		} else if (nbRoom == 2){
+			coursInThisRoom = Game.getLectures().get((int) (Math.random() * (5 - 3) + 3));
+		} else {
+			coursInThisRoom = Game.getLectures().get((int) (Math.random() * (8 - 6) + 6));
+		}
+		
 		int noCours = (int) (Math.random() * 9);
 		if (noCours > 6) {
 			coursInThisRoom = new LectureItem();
@@ -108,7 +106,7 @@ public class LectureRoom extends StudySpace {
 
 	/***
 	 * 
-	 * Method to add the ecture of this lecture in the coursSuivi of the student
+	 * Method to add the lecture of this lecture in the coursSuivi of the student
 	 * 
 	 * @param goodStudent
 	 *            the student who attends the lecture
