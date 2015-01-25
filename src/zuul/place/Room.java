@@ -333,17 +333,6 @@ public abstract class Room {
 
 	/***
 	 * 
-	 * Method to use tablet in this corridor
-	 * @param student the student who wants to use it
-	 * 
-	 ***/
-	public void useTablet(Student gamer) {
-		Display.display("room.cantDoThis");
-	    
-    }
-
-	/***
-	 * 
 	 * Method to attend lab in a LabRoom.
 	 * @param student the student who wants to use it
 	 * 

@@ -17,7 +17,6 @@ import java.util.Random;
  */
 public class Corridor extends Room {
 	private boolean lights, tablet, cheatsheet;
-	private Tablet tabletInTheCorridor;
 	private Cheatsheet cheatsheetInTheCorridor;
 	private int nbRoom;
 
@@ -97,10 +96,7 @@ public class Corridor extends Room {
 	public boolean enter(Student student) {
 		if (isLights()) {
 			appearObject();
-			if (tablet) {
-				tabletInTheCorridor = new Tablet();
-				Display.displayln("corridor.tablet");
-			}
+			
 			if (cheatsheet) {
 				cheatsheetInTheCorridor = new Cheatsheet();
 				Display.displayln("corridor.cheatsheet");
@@ -112,25 +108,6 @@ public class Corridor extends Room {
 		}
 
 		return true;
-	}
-
-	/***
-	 * 
-	 * Method to use tablet in this corridor
-	 * 
-	 * @param student
-	 *            the student who wants to use it
-	 * 
-	 ***/
-	@Override
-	public void useTablet(Student student) {
-		if (tablet) {
-			tabletInTheCorridor.useObject(student);
-			tablet = false;
-		} else {
-			Display.displayln("corridor.notablet");
-		}
-		Display.displayln(this.getLongDescription());
 	}
 
 	/***
@@ -192,7 +169,6 @@ public class Corridor extends Room {
 	@Override
 	public void switchLightsOff() {
 		this.setLights(false);
-		Display.displayln("corridor.dark");
 	}
 
 	/**

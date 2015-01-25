@@ -129,13 +129,14 @@ public class School {
 		c13.setExit("east", c7);
 		c7.setExit("west", c13);
 
-		c13.addAnObjectInRoom(new MaraudeurMap(people, gamer));
-		ali.addAnObjectInRoom(new InvisibilityCloak());
+		
 		foyer.addAnObjectInRoom(new Wand());
 		foyer.addAnObjectInRoom(new Pc());
-
 		c1.addAnObjectInRoom(new Broom());
-
+		c3.addAnObjectInRoom(new Tablet());
+		c13.addAnObjectInRoom(new MaraudeurMap(people, gamer));
+		lecture1.addAnObjectInRoom(new Phone());
+		ali.addAnObjectInRoom(new InvisibilityCloak());
 		library.addAnObjectInRoom(new JavaBook());
 
 		hashmapRoom.put("ali", ali);

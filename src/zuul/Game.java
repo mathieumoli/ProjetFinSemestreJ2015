@@ -269,9 +269,6 @@ public class Game {
 		case "attend":
 			gamer.wantAttend(command);
 			break;
-		case "turn":
-			gamer.wantTurn(command);
-			break;
 		case "search":
 			gamer.searchInRoom();
 			break;

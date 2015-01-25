@@ -563,22 +563,6 @@ public class Student extends Person {
 	}
 
 	/**
-	 * Try to use the tablet, if it's incomplete display an error message
-	 * 
-	 * @param command
-	 *            The command to be processed.
-	 */
-	public void wantTurn(Command command) {
-		if (!command.hasSecondWord()) {
-			// if there is no second word, we don't know where to go...
-			Display.displayln(Game.res.getString("game.turn"));
-		} else if (command.getSecondWord().equals("tablet")) {
-			getCurrentRoom().useTablet(this);
-		}
-
-	}
-
-	/**
 	 * To verify the command and launch the fonction in the room to check the
 	 * pointer
 	 * 
